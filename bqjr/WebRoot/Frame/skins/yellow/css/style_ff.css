@@ -1,0 +1,11 @@
+.dw_title{
+	background: url(../images/tit-bg.png) #fff5d8 repeat-x center top;
+	color: #606060;
+	border-color: #e3d19f;
+}
+.info_tr_bg{
+	background-color:#fff5d8;
+}
+.dw_conacte, .fftdhead, .FFContentTD {
+	border-color: #e3d4ac;
+}

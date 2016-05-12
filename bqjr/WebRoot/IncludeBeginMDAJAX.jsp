@@ -1,0 +1,1 @@
+<%@ include file="/Resources/Include/IncludeBeginMDAJAX.jspf"%>

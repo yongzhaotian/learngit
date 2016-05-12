@@ -1,0 +1,60 @@
+.tabs_content{
+	border-color: #e3d19f;
+	}
+.tabs ul li span.tab_inactive_left{
+	border-color: #e3d19f;
+}
+.tabs ul li span.tab_inactive_center{
+	border-color: #e3d19f;
+}
+.tabs ul li span.tab_inactive_control{
+	border-color: #e3d19f;
+}
+.tabs ul li span.tab_inactive_right{
+	border-color: #e3d19f;
+}
+.tabs ul li span a {
+	color: #333;
+}
+/********* 婵�椿 ********/
+.tabs ul li span.tab_active_left{
+	border-color: #e3d19f;
+	background-image: url(../images/tabs_active.png);
+	background-color: #eee5ff;
+}
+.tabs ul li span.tab_active_center{
+	border-color: #e3d19f;
+	background-image: url(../images/tabs_active.png);
+	background-color: #eee5ff;
+}
+.tabs ul li span.tab_active_control{
+	border-color: #e3d19f;
+	background-image: url(../images/tabs_active.png);
+	background-color: #eee5ff;
+}
+.tabs ul li span.tab_active_right{
+	border-color: #e3d19f;
+	background-image: url(../images/tabs_active.png);
+	background-color: #eee5ff;
+}
+/********* 榧犳爣绉诲叆 ********/
+.tabs ul li span.tab_over_left{
+	border-color: #e3d19f;
+	background-image: url(../images/tabs_hover.png);
+	background-color: #eee5ff;
+}
+.tabs ul li span.tab_over_center{
+	border-color: #e3d19f;
+	background-image: url(../images/tabs_hover.png);
+	background-color: #eee5ff;
+}
+.tabs ul li span.tab_over_control{
+	border-color: #e3d19f;
+	background-image: url(../images/tabs_hover.png);
+	background-color: #eee5ff;
+}
+.tabs ul li span.tab_over_right{
+	border-color: #8b6cbe;
+	background-image: url(../images/tabs_hover.png);
+	background-color: #eee5ff;
+}

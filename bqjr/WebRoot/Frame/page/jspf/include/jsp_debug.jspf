@@ -1,0 +1,37 @@
+<%
+if(sCurRunMode!=null && sCurRunMode.equals("Development")){
+%>
+<link rel="stylesheet" href="<%=sWebRootPath%>/Frame/page/jspf/include/css/debug.css">
+<div class="debug_overdiv_top" id="debugTool">
+<iframe  style="position:absolute;z-index:-1;width:100%;height:100%;top:0;left:0" frameborder="0" src="about:blank" mce_src="about:blank"></iframe>
+</div>
+<div class="debug_overdiv_subdiv" id="debugTool_subdiv" style="overflow:visible">
+   	<div class="debug_overdiv_title">调试工具栏&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="sp_debug_overdiv_top" style="cursor:pointer;" title="关闭" onclick="AsDebug.hideWindow()">&nbsp;[关闭]&nbsp;</span></div>
+       <div class="debug_overdiv_info">
+		<table>
+		    <tr> 
+		        <td>
+		        <span class="pageversion" ondblclick='javascript:AsDebug.displayPageName();'><%=request.getRequestURL().substring(request.getRequestURL().lastIndexOf("/")+1)%></span>
+		        </td>
+		    </tr>
+		    <tr> 
+		        <td>
+		        <span class="pageversion" ondblclick='javascript:AsDebug.displayURL();'>URL【<%=request.getRequestURL()%>】</span>
+		        </td>
+		    </tr>
+		    <tr> 
+		        <td>
+		        <span class="pageversion" ondblclick='javascript:AsDebug.reloadCacheAll();'>ReloadCacheAll</span>
+		        <span class="pageversion" ondblclick='javascript:AsDebug.openControlCenter();'>CTRLCT</span>
+		        <span class="pageversion" ondblclick='javascript:AsDebug.displayBodyHTML();'>PGSRC</span>
+		        <span class="pageversion" ondblclick='javascript:AsDebug.displayDwInfo();'>DWINFO</span>
+		        <span class="pageversion" ondblclick='javascript:AsDebug.viewCompDetail();'>COMP</span>
+		        <span class="pageversion" ondblclick='javascript:AsDebug.displayURLnPara();'>REQ</span>
+		        </td>
+		    </tr>
+		</table>  
+	</div>
+</div>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/page/js/as_debug.js"></script>
+<script type="text/javascript">AsDebug.URL="<%=request.getRequestURL()%>";</script>
+<%}%>

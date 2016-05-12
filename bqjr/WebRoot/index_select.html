@@ -1,0 +1,253 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>ALS 6 </title>
+<style type="text/css">
+<!--
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+.f9pt {
+    FONT-SIZE: 9pt;
+    LINE-HEIGHT: 14pt;
+    color:#FFFFFF;
+    filter: Glow(Color=#000000, Strength=1);
+}
+.loginInput {
+    BORDER-BOTTOM: 1px solid black;
+    BORDER-LEFT: 1px solid #000000;
+    BORDER-RIGHT: 1px solid black;
+    BORDER-TOP: 1px solid black;
+    width: 120px;
+    HEIGHT: 20px
+}
+A:hover {
+    COLOR: #000000; FONT-SIZE: 9pt; TEXT-DECORATION: underline
+}
+A:link {
+    COLOR: #FFFFFF; FONT-SIZE: 9pt; TEXT-DECORATION: none
+}
+A:visited {
+    COLOR: #999999; FONT-SIZE: 9pt; TEXT-DECORATION: none
+}
+.formbutton {
+    FONT-SIZE: 9pt;
+    BORDER-BOTTOM: 1px solid #FFFFFF;
+    BORDER-LEFT: 1px solid #FFFFFF;
+    BORDER-RIGHT: 1px solid #FFFFFF;
+    BORDER-TOP: 1px solid #FFFFFF;
+    height: 15px;
+}
+-->
+</STYLE>
+<script type="text/javascript">
+<!--
+
+function over_change(index,src,clrOver){
+        if (!src.contains(event.fromElement)) 
+            { 
+            src.style.cursor = 'pointer';
+            src.background = clrOver;
+            }
+}
+
+function out_change(index,src,clrIn){
+        if (!src.contains(event.toElement))
+            {
+            src.style.cursor = 'default';
+            src.background = clrIn;
+            }
+}
+
+function chkForm(theForm){
+
+    /*
+    if(theForm.UserID.value.length<1){
+        alert("请输入用户名！");
+        theForm.UserID.focus();
+        return false;
+    }
+    */
+    if(theForm.Password.value.length<1){
+        alert("请输入密码！");
+        theForm.Password.focus();
+        return false;
+    }
+    writeCookie("UserID",theForm.UserID.value, 240);
+    writeCookie("UserIDSelected",theForm.UserIDSelected.value, 240);
+    return true;
+}
+
+function doSubmit(){
+	var form = document.forms["LogonForm"];
+	if(chkForm(form)){
+		form.submit();
+    }
+}
+
+function doReset(){
+    document.forms["LogonForm"].UserID.value="";
+    document.forms["LogonForm"].Password.value="";
+}
+
+function pressEnter(arg, e){
+	var e = e || window.event;
+	if(e.keyCode==13){
+        if(arg==2){
+            doSubmit();
+            return false;
+        }
+        else if(arg==1){
+        	document.getElementById("LogonForm").Password.focus();
+        }
+    }
+    else{
+        return true;
+    }
+}
+function writeCookie(name, value, hours)
+{
+  var expire = "";
+  if(hours != null)
+  {
+    expire = new Date((new Date()).getTime() + hours * 3600000);
+    expire = "; expires=" + expire.toGMTString();
+  }
+  document.cookie = name + "=" + escape(value) + expire;
+}
+function readCookie(name)
+{
+  var cookieValue = "";
+  var search = name + "=";
+  if(document.cookie.length > 0)
+  { 
+    offset = document.cookie.indexOf(search);
+    if (offset != -1)
+    { 
+      offset += search.length;
+      end = document.cookie.indexOf(";", offset);
+      if (end == -1) end = document.cookie.length;
+      cookieValue = unescape(document.cookie.substring(offset, end))
+    }
+  }
+  return cookieValue;
+}
+
+-->
+</script>
+
+</head>
+
+<body>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>&nbsp;</td>
+    <td width="1" align="right">&nbsp;</td>
+    <td width="1">&nbsp;</td>
+    <td width="1">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td background="Resources/Public/1.0.gif">&nbsp;</td>
+    <td width="1" align="right" background="Resources/Public/1.0.gif"><img src="Resources/Public/1.1.gif" width="169" height="121"></td>
+    <td width="1"><img src="Resources/Public/1.2.gif" width="218" height="121"></td>
+    <td width="1"><img src="Resources/Public/1.3.gif" width="413" height="121"></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td background="Resources/Public/2.0.gif">&nbsp;</td>
+    <td width="1" align="right" background="Resources/Public/2.0.gif">&nbsp;</td>
+    <td width="1"><img src="Resources/Public/2.2.gif" width="218" height="28"></td>
+    <td width="1" background="Resources/Public/2.0.gif"><img src="Resources/Public/2.3.gif" width="413" height="28"></td>
+    <td background="Resources/Public/2.0.gif">&nbsp;</td>
+  </tr>
+  <tr>
+    <td background="Resources/Public/3.1.gif">&nbsp;</td>
+    <td width="1" background="Resources/Public/3.1.gif">&nbsp;</td>
+    <td width="1"><img src="Resources/Public/3.2.gif" width="218" height="247"></td>
+    <td width="1" background="Resources/Public/3.3.gif">
+    
+     <form name="LogonForm" method="post" action="Logon.jsp" onSubmit="return chkForm(this);">
+     <input type=hidden name="ScreenWidth">
+         <input type="hidden" value="1" name="StyleModel">
+              <br>
+              <table width="66%" border="0" cellspacing="0" cellpadding="3">
+                <tr> 
+                  <td width="19%" align="right" class="f9pt" nowrap >用户ID：</td>
+                  <td width="81%" nowrap>   
+            <input type="text" name="UserID" size="20"  onFocus="this.style.backgroundColor='#EEEEEE'" onBlur="this.style.backgroundColor='#FFFFFF'" class="loginInput" onKeyPress="javascript:pressEnter(1, event);" value="system"> 
+                </tr>
+                 
+                 <TR>
+                  <TD align=right class=f9pt noWrap width="31%">&nbsp;&nbsp;&nbsp;</TD>
+                  <TD width="65%">
+                    <SELECT id="UserIDSelected" name="UserIDSelected" style="WIDTH: 300px" class=loginInput>
+                        <OPTION value="test11">test11  客户经理&nbsp;</OPTION>
+                        <OPTION value="test25">test25  支行审查员&nbsp;</OPTION>
+                        <OPTION value="test44">test44  支行分管行长&nbsp;</OPTION>
+                        <OPTION value="test25">test25  出账初审人&nbsp;</OPTION>
+                        <OPTION value="test37">test37  出账审核人&nbsp;</OPTION>
+                        <OPTION value="test44">test44  支行分管行长&nbsp;</OPTION>
+                        <OPTION value="test32">test32  终审复核人&nbsp;</OPTION>
+                        <OPTION value="test41">test41  出账审核人&nbsp;</OPTION>
+                        <OPTION value="test21">test21  分行审查员&nbsp;</OPTION>
+                        <OPTION value="test41">test46  分行放贷审查岗&nbsp;</OPTION>
+                        <OPTION value="test52">test52  分行信贷审批官&nbsp;</OPTION>
+                        <OPTION value="sme52">sme52  中小企业金融服务中心审查员&nbsp;</OPTION>
+                        <OPTION value="sme53">sme53  中小企业金融服务中心审批岗&nbsp;</OPTION>
+                        <OPTION value="test72">test72  总行贷后检查组&nbsp;</OPTION>
+                        <OPTION value="test74">test74  分行人员注册岗&nbsp;</OPTION>
+                        <OPTION value="test83">test83  风险预警登记员&nbsp;</OPTION>
+                        <OPTION value="test85">test85  风险预警分析员&nbsp;</OPTION>
+                        <OPTION value="test91">test91  支行数据登记员&nbsp;</OPTION>
+                        <OPTION value="test92">test92  分行数据登记员&nbsp;</OPTION>
+                        <OPTION value="test99">test99  总行风险政策管理员&nbsp;</OPTION>
+                        <OPTION value="system">sysconfig配置员&nbsp;</OPTION>
+                    </SELECT>
+                  </TD>
+                </TR>
+                
+                <tr> 
+                  <td align="right" class="f9pt">密码：</td>
+                  <td colspan="1">
+                    <input type="password" name="Password" size="20" value= "000000als6" onFocus="this.style.backgroundColor='#EEEEEE'" onBlur="this.style.backgroundColor='#FFFFFF'" class="loginInput" onKeyPress="javascript:pressEnter(2, event);" > 
+                  </td>
+                </tr>
+                <tr> 
+                  <td height="51"></td>
+                  <td colspan="3" height="51">
+                  <table border="0" cellspacing="0" cellpadding="3" width=100%>
+                      <tr> 
+                        <td class="f9pt"><input name="" type="button" class="formbutton" onClick="doSubmit();" value="登录">&nbsp;&nbsp;<input name="" type="button" class="formbutton" onClick="doReset();" value="取消"></td>
+              </tr>
+              <tr>
+                        <td class="f9pt"> <a href="Frame/DownPrg/amar_obj_y.exe">下载控件</a></td>
+                      </tr>
+                   </table>
+                   </td>
+                </tr>
+              </table>
+    </form> </td>
+    <td background="Resources/Public/3.4.gif">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td width="1">&nbsp;</td>
+    <td width="1">&nbsp;</td>
+    <td width="1">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>
+<script type="text/javascript">
+LogonForm.UserID.value=readCookie("UserID");
+LogonForm.UserIDSelected.value=readCookie("UserIDSelected");
+LogonForm.UserID.focus();
+LogonForm.ScreenWidth.value=screen.availWidth;
+</script>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="GB2312"?>
+<otiConfig>
+	<!-- 本文件定义AmarOTI实时交易接口资源,包括交易连接列表定义和交易对象定义-->
+	<!-- 连接定义 -->
+	<connections>
+		<connection name="CoreBankingClient"
+			className="com.amarsoft.oti.connection.SocketByteStreamConnection">
+			<extendProperties>
+				<!-- Properties of GenericConnection -->
+				<property name="describe" value="AmarOTI与ALS集成-典型交易测试连接" />
+				<!-- Properties of SocketByteStreamConnection-->
+				<property name="host" value="127.0.0.1" />
+				<property name="port" value="6600" />
+				<property name="lengthLeading" value="true" />
+				<!-- 设置反馈报文的交易状态码 -->
+				<property name="successfulStatus" value="0000" />
+				<property name="statusField" value="header.RspCode" />
+				<property name="errorCodeField" value="header.RspCode" />
+				<property name="errorMessageField" value="header.RspMsg" />
+				<!-- 初置打包器 -->
+				<property name="packer" value="com.amarsoft.oti.packer.ByteArrayPacker" />
+				<!-- 定长报文 -->
+				<property name="packer.fixLength" value="true" />
+				<property name="packer.sendEncoding" value="GB18030" />
+				<property name="packer.returnEncoding" value="GB18030" />
+				<property name="packer.dateFormat" value="yyyyMMdd"/>
+				<property name="packer.doubleFormat" value="#0.00"/>
+				<property name="packer.intFormat" value="0"/>
+			</extendProperties>
+		</connection>
+	</connections>
+
+	<!-- 交易定义 -->
+	<transactions>
+		<!-- AmarOTI与ALS集成-典型交易列表-->
+
+		<!-- 操作类交易-->
+		<transaction code="P001" name="DM贷款发放信息"
+			requestHeaderObject="DMRequestHeader" requestBodyObject="DKBody"	requestTailObject="" requestMaxSize="1"
+			responseHeaderObject="DMResponseHeader" responseBodyObject="" responseTailObject="" responseMaxSize="1" />
+
+		<transaction code="P003" name="DM贷款展期信息"
+			requestHeaderObject="DMRequestHeader" requestBodyObject="ZQBody" requestTailObject="" requestMaxSize="1"
+			responseHeaderObject="DMResponseHeader" responseBodyObject="" responseTailObject="" responseMaxSize="1" />
+
+		<transaction code="P005" name="DM承兑汇票出账信息"
+			requestHeaderObject="DMRequestHeader" requestBodyObject="CDBody" requestTailObject="" requestMaxSize="1"
+			responseHeaderObject="DMResponseHeader" responseBodyObject="" responseTailObject="" responseMaxSize="1" />
+
+		<transaction code="P007" name="DM保函出账信息"
+			requestHeaderObject="DMRequestHeader" requestBodyObject="BHBody" requestTailObject="" requestMaxSize="1"
+			responseHeaderObject="DMResponseHeader" responseBodyObject="" responseTailObject="" responseMaxSize="1" />
+
+		<transaction code="P009" name="DM贴现出账信息"
+			requestHeaderObject="DMRequestHeader" requestBodyObject="TXBody" requestTailObject="" requestMaxSize="1"
+			responseHeaderObject="DMResponseHeader" responseBodyObject="" responseTailObject="" responseMaxSize="1" />
+		
+		<!-- add by qfang 2011-6-22 -->
+		<!--requestMaxSize="0"表示支持一次发送多条信息  -->
+		<transaction code="P011" name="DM支付信息"
+			requestHeaderObject="DMRequestHeader" requestBodyObject="PaymentBody"	requestTailObject="" requestMaxSize="0"
+			responseHeaderObject="DMResponseHeader" responseBodyObject="" responseTailObject="" responseMaxSize="1" />
+			
+		<transaction code="P002" name="DM贷款发放冲销信息"
+			requestHeaderObject="DMRequestHeader" requestBodyObject="CXBody" requestTailObject="" requestMaxSize="1"
+			responseHeaderObject="DMResponseHeader" responseBodyObject="" responseTailObject="" responseMaxSize="1" />
+
+		<transaction code="P004" name="DM贷款展期冲销信息"
+			requestHeaderObject="DMRequestHeader" requestBodyObject="CXBody" requestTailObject="" requestMaxSize="1"
+			responseHeaderObject="DMResponseHeader" responseBodyObject="" responseTailObject="" responseMaxSize="1" />
+
+		<transaction code="P006" name="DM承兑汇票出账冲销信息"
+			requestHeaderObject="DMRequestHeader" requestBodyObject="CXBody" requestTailObject="" requestMaxSize="1"
+			responseHeaderObject="DMResponseHeader" responseBodyObject="" responseTailObject="" responseMaxSize="1" />
+
+		<transaction code="P008" name="DM保函出账冲销信息"
+			requestHeaderObject="DMRequestHeader" requestBodyObject="CXBody"
+			requestTailObject="" requestMaxSize="1" responseHeaderObject="DMResponseHeader"
+			responseBodyObject="" responseTailObject="" responseMaxSize="1" />
+
+		<transaction code="P010" name="DM贴现出账冲销信息"
+			requestHeaderObject="DMRequestHeader" requestBodyObject="CXBody" requestTailObject="" requestMaxSize="1"
+			responseHeaderObject="DMResponseHeader" responseBodyObject="" responseTailObject="" responseMaxSize="1" />
+
+		<transaction code="P012" name="DM贷款支付信息"
+			requestHeaderObject="DMRequestHeader" requestBodyObject="ZFBody" requestTailObject="" requestMaxSize="1"
+			responseHeaderObject="DMResponseHeader" responseBodyObject="" responseTailObject="" responseMaxSize="1" />
+		
+		<!-- 查询类交易-->
+		<transaction code="Q001" name="DM查询客户开户信息"
+			requestHeaderObject="DMRequestHeader" requestBodyObject="KHBody" requestTailObject="" requestMaxSize="1"
+			responseHeaderObject="DMResponseHeader" responseBodyObject="KHFKBody" responseTailObject="" responseMaxSize="1" />
+
+		<transaction code="Q002" name="DM查询借据余额信息"
+			requestHeaderObject="DMRequestHeader" requestBodyObject="JYBody" requestTailObject="" requestMaxSize="1"
+			responseHeaderObject="DMResponseHeader" responseBodyObject="JYFKBody" responseTailObject="" responseMaxSize="1" />
+	</transactions>
+
+</otiConfig>

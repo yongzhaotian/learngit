@@ -1,0 +1,37 @@
+<%@include file="/Frame/page/jspf/include/jsp_runtime_context.jspf"
+%><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<%@include file="/Frame/page/jspf/include/jsp_head_res_dw.jspf"%>
+</head>
+<%@include file="/Frame/page/jspf/include/jsp_sqlca_head.jspf"%><%@
+page import="com.amarsoft.awe.dw.*"%>
+<script>var G_FromFormatDoc = false;var G_SearchArea_Selection="";var sButtonPosition="north";</script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/page/resources/css/dw/color.js"></script>
+<script type="text/javascript" src="<%=sSkinPath%>/css/ow/color.js"></script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/resources/js/jquery/plugins/jquery.validate.min-1.8.1.js"></script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/resources/js/jquery/plugins/jquery.validate.extend.js"></script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/page/js/as_contextmenu.js"></script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/page/js/dw/as_dw_common.js"></script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/page/js/dw/as_dw_list_simpletable.js"></script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/page/js/dw/as_dw_list_drag.js"></script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/page/js/dw/as_dw_list_page.js"></script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/page/js/dw/as_dw_list.js"></script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/resources/js/as_stringbuffer.js"></script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/page/js/as_webcalendar.js"></script>
+<link rel="stylesheet" type="text/css" href="<%=sWebRootPath%>/Frame/page/resources/css/date.css">
+<link rel="stylesheet" type="text/css" href="<%=sWebRootPath%>/Frame/page/resources/css/dw/list.css">
+<link rel="stylesheet" type="text/css" href="<%=sSkinPath%>/css/dw/autocomplete.css">
+<link rel="stylesheet" type="text/css" href="<%=sSkinPath%>/css/ow/list.css">
+<%
+	boolean isShowFilter = true;
+	boolean isShowButton = true;
+	String sBrowserTitle = "";
+	String sButtonPosition = "north";
+	String sASNavigatorHtml ="";
+	String sASWizardHtml = "";
+	if(CurConfig.getConfigure("ListQuerySelection")!=null){
+%>
+	<script>G_SearchArea_Selection="<%=CurConfig.getConfigure("ListQuerySelection").toString()%>";</script>
+<%}%>

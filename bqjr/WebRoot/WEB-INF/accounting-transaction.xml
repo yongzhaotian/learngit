@@ -1,0 +1,1411 @@
+<Accounting-Transaction-Config>
+	<Accounting-Transaction TransactionCode="0020"
+		TransactionName="一般贷款发放" ReverseTransactionCode="4015"
+		DocumentType="jbo.app.BUSINESS_CONTRACT">
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.drawdown.DrawdownLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.drawdown.DrawdownScript_createloan" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.CreateFeeTransactionListExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript5
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateLoanExecutor" />
+		<ExecuteScript6
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor" />
+		<ExecuteScript7
+			class="com.amarsoft.app.accounting.rpt.fee.TransactionFeePSExcute" />
+		 <ExecuteScript8
+		 	class="com.amarsoft.app.accounting.hhcf.DrawdownScript_updateloan_hhcf" /> 
+			<!-- class="com.amarsoft.app.accounting.trans.script.loan.drawdown.DrawdownScript_updateloan" />  -->
+		<ExecuteScript9
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.CreateBDExecutor" />
+		<!-- <OnlineInterfaceScript1
+			class="com.amarsoft.app.project.tsyh.accounts.GeneralAccount" /> -->
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="0021"
+		TransactionName="贴现放款" ReverseTransactionCode="4015"
+		DocumentType="jbo.app.BUSINESS_PUTOUT">
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.drawdown.DrawdownLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.drawdown.DrawdownScript_createloan" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateLoanExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.drawdown.DrawdownScript_updateloan" />
+		<ExecuteScript5
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.CreateBDExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="0040"
+		TransactionName="一般还款" ReverseTransactionCode="4030"
+		DocumentType="jbo.app.ACCT_TRANS_PAYMENT">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeCreator" />
+		<InitScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PaymentBillCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.ActivePaymentScheduleLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayExecutor_splitPayAmt" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor" />
+		<ExecuteScript5
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateLoanExecutor" />
+		<ExecuteScript6
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayExecutor_updateloan" />
+		<OnlineInterfaceScript1
+			class="com.amarsoft.app.project.tsyh.accounts.GeneralAccount" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="0041"
+		TransactionName="客户账暂存余额还款" ReverseTransactionCode="4030"
+		DocumentType="jbo.app.ACCT_TRANS_PAYMENT">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeCreator" />
+		<InitScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PaymentBillCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.PaymentScheduleLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<LoadScript6
+			class="com.amarsoft.app.accounting.hhcf.PaymentScheduleLoaderAdd" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayExecutor_splitPayAmt" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor" />			
+		<ExecuteScript5
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayExecutor_updateinterestlog" />
+		<ExecuteScript6
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayExecutor_settleinterest" />		
+		<ExecuteScript7
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateLoanExecutor" />
+		<!-- <OnlineInterfaceScript1
+			class="com.amarsoft.app.project.tsyh.accounts.GeneralAccount" /> -->
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="0050"
+		TransactionName="特殊还款" ReverseTransactionCode="4040"
+		DocumentType="jbo.app.ACCT_TRANS_PAYMENT">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeCreator" />
+		<InitScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PaymentBillCreator" />
+		<!-- <InitScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayTransactionCreator" /> -->
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.PaymentScheduleLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<LoadScript6
+			class="com.amarsoft.app.accounting.hhcf.PaymentScheduleLoaderAdd" />
+		<!-- <LoadScript6
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PaymentLoader" /> -->
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.hhcf.PSPayExecutor_splitPayAmt" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor" />
+		<ExecuteScript5
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateLoanExecutor" />
+		<ExecuteScript6
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayExecutor_updateloan" />
+		<!-- <OnlineInterfaceScript1
+			class="com.amarsoft.app.project.tsyh.accounts.GeneralAccount" /> -->
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="0052"
+		TransactionName="退货" ReverseTransactionCode="4020"
+		DocumentType="jbo.app.ACCT_TRANS_PAYMENT">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeCreator" />
+		<InitScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PaymentBillCreator" />
+		<!-- <InitScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayTransactionCreator" /> -->
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.PaymentScheduleLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<LoadScript6
+			class="com.amarsoft.app.accounting.hhcf.PaymentScheduleLoaderAdd" />
+		<!-- <LoadScript6
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PaymentLoader" /> -->
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayExecutor_splitPayAmt" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayExecutor_prepay" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript5
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor" />
+			
+		<ExecuteScript6
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayExecutor_updateinterestlog" />
+		<ExecuteScript7
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayExecutor_presettleinterest" />
+		<ExecuteScript8
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayExecutor_settleinterest" />
+		
+		<ExecuteScript9
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayExecutor_updateloan" />
+		<ExecuteScript10
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateLoanExecutor" />
+		<ExecuteScript10
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateLoanStatusExecutor" />
+		
+		<!-- <OnlineInterfaceScript1
+			class="com.amarsoft.app.project.tsyh.accounts.GeneralAccount" /> -->
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="0055"
+		TransactionName="提前还款" ReverseTransactionCode="4020"
+		DocumentType="jbo.app.ACCT_TRANS_PAYMENT">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeCreator" />
+		<InitScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PaymentBillCreator" />
+		<!-- <InitScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayTransactionCreator" /> -->
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.PaymentScheduleLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<LoadScript6
+			class="com.amarsoft.app.accounting.hhcf.PaymentScheduleLoaderAdd" />
+		<!-- <LoadScript6
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PaymentLoader" /> -->
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.hhcf.PSPayExecutor_splitPayAmt" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayExecutor_prepay" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript5
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor" />
+			
+		<ExecuteScript6
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayExecutor_updateinterestlog" />
+		<ExecuteScript7
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayExecutor_presettleinterest" />
+		<ExecuteScript8
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayExecutor_settleinterest" />
+		
+		<ExecuteScript9
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayExecutor_updateloan" />
+		<ExecuteScript10
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateLoanExecutor" />
+		
+		<!-- <OnlineInterfaceScript1
+			class="com.amarsoft.app.project.tsyh.accounts.GeneralAccount" /> -->
+	</Accounting-Transaction>
+	
+	<Accounting-Transaction TransactionCode="0056"
+		TransactionName="一般还款" ReverseTransactionCode="4030"
+		DocumentType="jbo.app.ACCT_TRANS_PAYMENT">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeCreator" />
+		<InitScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PaymentBillCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.ActivePaymentScheduleLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<LoadScript6
+			class="com.amarsoft.app.accounting.hhcf.PaymentScheduleLoaderAdd" />
+
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayExecutor_splitPayAmt" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor" />
+		<ExecuteScript5
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateLoanExecutor" />
+		<ExecuteScript6
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayExecutor_updateloan" />
+		<OnlineInterfaceScript1
+			class="com.amarsoft.app.project.tsyh.accounts.GeneralAccount" />
+	</Accounting-Transaction>
+	
+	<Accounting-Transaction TransactionCode="0060"
+		TransactionName="计提单项减值准备" ReverseTransactionCode="4010" DocumentType="LoanImpairment">
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="0070"
+		TransactionName="计提组合减值准备" ReverseTransactionCode="4010" DocumentType="LoanImpairment">
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="0080"
+		TransactionName="贷款核销" ReverseTransactionCode="4010"
+		DocumentType="jbo.app.ACCT_TRANS_WRITEOFF">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeCreator" />
+		<InitScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PaymentBillCreator" />
+		<InitScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.writeoff.WriteOffCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.PaymentScheduleLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<LoadScript6
+			class="com.amarsoft.app.accounting.hhcf.PaymentScheduleLoaderAdd" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.writeoff.WriteOffExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="0081"
+		TransactionName="贷款出售" ReverseTransactionCode="4010"
+		DocumentType="jbo.app.ACCT_TRANS_WRITEOFF">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeCreator" />
+		<InitScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PaymentBillCreator" />
+		<InitScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.writeoff.WriteOffCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.PaymentScheduleLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.writeoff.WriteOffExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="0090"
+		TransactionName="本息调整" ReverseTransactionCode="4050"
+		DocumentType="jbo.app.ACCT_PAYMENT_LOG">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeCreator" />
+		<InitScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PaymentBillCreator" />
+		<InitScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.waive.PSWaiveCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.PaymentScheduleLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<!-- <ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.waive.PSWaiveExecutor" /> -->
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.waive.PSIntWaiveExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor" />
+		<ExecuteScript5
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateLoanExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="0094"
+		TransactionName="贷款余额内转" ReverseTransactionCode="4060"
+		DocumentType="jbo.app.ACCT_LOAN_CHANGE">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeCreator" />
+		<InitScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PaymentBillCreator" />
+		<InitScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.balancemigrate.BalanceMigrateCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.PaymentScheduleLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.balancemigrate.BalanceMigrateExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor" />
+		<ExecuteScript5
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateLoanExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="0095"
+		TransactionName="科目调整" DocumentType="jbo.app.ACCT_LOAN_CHANGE">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeCreator" />
+		<InitScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PaymentBillCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.PaymentScheduleLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<LoadScript6
+			class="com.amarsoft.app.accounting.trans.script.loan.manualbook.AccountCodeChangeLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.manualbook.AccountCodeChangeExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor" />
+	</Accounting-Transaction>
+		<Accounting-Transaction TransactionCode="1010"
+		TransactionName="减值交易_正常转减值" ReverseTransactionCode="4010"
+		DocumentType="jbo.app.ACCT_LOAN_CHANGE">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeCreator" />
+		<InitScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.common.creator.LoanChangeCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.PaymentScheduleLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.impairechange.NormalToImpairment" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="1020"
+		TransactionName="减值交易_正常转减值" ReverseTransactionCode="4010"
+		DocumentType="jbo.app.ACCT_LOAN_CHANGE">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeCreator" />
+		<InitScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.common.creator.LoanChangeCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.PaymentScheduleLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.impairechange.ImpairmentToNormal" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="2010"
+		TransactionName="罚复息及扣款标识修改" ReverseTransactionCode="4010"
+		DocumentType="jbo.app.ACCT_LOAN_CHANGE">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.fineflagchange.FineFlagChangeCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.fineflagchange.FineFlagChangeExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="2011"
+		TransactionName="还款方式变更" ReverseTransactionCode="4010"
+		DocumentType="jbo.app.ACCT_LOAN_CHANGE">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeCreator" />
+		<InitScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.common.creator.LoanChangeCreator" />
+		<InitScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.rptchange.RPTChangeCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.PaymentScheduleLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<LoadScript6
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanChangeLoader" />
+		<LoadScript7
+			class="com.amarsoft.app.accounting.trans.script.loan.rptchange.RPTChangeLoader" />
+		<LoadScript8
+			class="com.amarsoft.app.accounting.hhcf.PaymentScheduleLoaderAdd" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.rptchange.RPTChangeExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor" />
+		<ExecuteScript5
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateLoanExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="2012"
+		TransactionName="还款日变更" ReverseTransactionCode="4010"
+		DocumentType="jbo.app.ACCT_LOAN_CHANGE">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeCreator" />
+		<InitScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.common.creator.LoanChangeCreator" />
+		<InitScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.duedatechange.DefaultDueDateChangeCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.PaymentScheduleLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<LoadScript6
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanChangeLoader" />
+		<LoadScript7
+			class="com.amarsoft.app.accounting.hhcf.PaymentScheduleLoaderAdd" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.duedatechange.DefaultDueDateChangeExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor" />
+		<ExecuteScript5
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateLoanExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="2013"
+		TransactionName="利率变更" DocumentType="jbo.app.ACCT_LOAN_CHANGE">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeCreator" />
+		<InitScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.common.creator.LoanChangeCreator" />
+		<InitScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.ratechange.RateChangeCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.PaymentScheduleLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<LoadScript6
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanChangeLoader" />
+		<LoadScript7
+			class="com.amarsoft.app.accounting.trans.script.loan.ratechange.RateChangeLoader" />
+		<LoadScript8
+			class="com.amarsoft.app.accounting.hhcf.PaymentScheduleLoaderAdd" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.ratechange.RateChangeExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor" />
+		<ExecuteScript5
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateLoanExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="2014"
+		TransactionName="还款账号变更" DocumentType="jbo.app.ACCT_LOAN_CHANGE">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeCreator" />
+		<InitScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.common.creator.LoanChangeCreator" />
+		<InitScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.payaccountchange.PayAccountChangeCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.PaymentScheduleLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<LoadScript6
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanChangeLoader" />
+		<LoadScript7
+			class="com.amarsoft.app.accounting.trans.script.loan.payaccountchange.PayAccountChangeLoader" />
+		<LoadScript8
+			class="com.amarsoft.app.accounting.hhcf.PaymentScheduleLoaderAdd" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.payaccountchange.PayAccountChangeExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="2015"
+		TransactionName="费用方案变更" DocumentType="jbo.app.ACCT_LOAN_CHANGE">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeCreator" />
+		<InitScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.common.creator.LoanChangeCreator" />
+		<InitScript3
+			class="com.amarsoft.app.accounting.trans.script.fee.change.FeeChangeCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.PaymentScheduleLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<LoadScript6
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanChangeLoader" />
+		<LoadScript7
+			class="com.amarsoft.app.accounting.trans.script.fee.change.FeeChangeLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.fee.change.FeeChangeExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="2016"
+		TransactionName="贴息方案变更" DocumentType="jbo.app.ACCT_LOAN_CHANGE">
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="2017"
+		TransactionName="贷款期限变更" ReverseTransactionCode="4010"
+		DocumentType="jbo.app.ACCT_LOAN_CHANGE">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeCreator" />
+		<InitScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.common.creator.LoanChangeCreator" />
+		<InitScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.LoanTermChange.LoanTermChangeCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.PaymentScheduleLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<LoadScript6
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanChangeLoader" />
+		<LoadScript7
+			class="com.amarsoft.app.accounting.hhcf.PaymentScheduleLoaderAdd" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.LoanTermChange.LoanTermChangeExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor" />
+		<ExecuteScript5
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateLoanExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="2018"
+		TransactionName="利率调整方式变更" DocumentType="jbo.app.ACCT_LOAN_CHANGE">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeCreator" />
+		<InitScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.common.creator.LoanChangeCreator" />
+		<InitScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.repricetypechange.RepriceTypeChangeCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.PaymentScheduleLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<LoadScript6
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanChangeLoader" />
+		<LoadScript7
+			class="com.amarsoft.app.accounting.hhcf.PaymentScheduleLoaderAdd" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.repricetypechange.RepriceTypeChangeExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor" />
+		<ExecuteScript5
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateLoanExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="2019"
+		TransactionName="机构调整" DocumentType="jbo.app.ACCT_LOAN_CHANGE">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeCreator" />
+		<InitScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.common.creator.LoanChangeCreator" />
+		<InitScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.accountorgchange.AccountOrgChangeCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.PaymentScheduleLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<LoadScript6
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanChangeLoader" />
+		<LoadScript7
+			class="com.amarsoft.app.accounting.trans.script.loan.accountorgchange.AccountOrgChangeLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.accountorgchange.AccountOrgChangeExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="2020"
+		TransactionName="罚息利率变更" DocumentType="jbo.app.ACCT_LOAN_CHANGE">
+		<InitScript1 
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeCreator"/>
+		<InitScript2 
+			class="com.amarsoft.app.accounting.trans.script.loan.common.creator.LoanChangeCreator"/>
+		<InitScript3 
+			class="com.amarsoft.app.accounting.trans.script.loan.finechange.FineChangeCreator"/>
+		<LoadScript1 
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader"/>
+		<LoadScript2 
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader"/>
+		<LoadScript3 
+			class="com.amarsoft.app.accounting.trans.script.loan.finechange.FineChangeLoader"/>
+		<ExecuteScript1 
+			class="com.amarsoft.app.accounting.trans.script.loan.finechange.FineChangeExecutor"/>
+		<ExecuteScript2 
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor"/>
+		<ExecuteScript3 
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor"/>
+		<ExecuteScript4 
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor"/>
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="2021"
+		TransactionName="贷款展期变更" DocumentType="jbo.app.ACCT_LOAN_CHANGE">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeCreator" />
+		<InitScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.common.creator.LoanChangeCreator" />
+		<InitScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.loanextendchange.LoanExtendChangeCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.PaymentScheduleLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<LoadScript6
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanChangeLoader" />
+		<LoadScript7
+			class="com.amarsoft.app.accounting.trans.script.loan.ratechange.RateChangeLoader" />
+		<LoadScript8
+			class="com.amarsoft.app.accounting.hhcf.PaymentScheduleLoaderAdd" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.loanextendchange.LoanExtendChangeExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor" />
+		<ExecuteScript5
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateLoanExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="3508"
+		TransactionName="费用收取" DocumentType="jbo.app.ACCT_FEE_LOG">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.common.CommonFeeLogCreator" />
+		<InitScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.recieve.FeeRecieveCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.common.CommonFeeLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.recieve.FeeRecieveExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<OnlineInterfaceScript1
+			class="com.amarsoft.app.project.tsyh.accounts.GeneralAccount" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="3520"
+		TransactionName="费用支付" DocumentType="jbo.app.ACCT_FEE_LOG">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.common.CommonFeeLogCreator" />
+		<InitScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.pay.FeePayCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.common.CommonFeeLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.pay.FeePayExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<OnlineInterfaceScript1
+			class="com.amarsoft.app.project.tsyh.accounts.GeneralAccount" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="3525"
+		TransactionName="费用摊销" DocumentType="jbo.app.ACCT_FEE_AMORTIZE_SCHD">
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.common.CommonFeeLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.amortize.FeeAmortizeExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="3530"
+		TransactionName="费用减免" DocumentType="jbo.app.ACCT_FEE_LOG">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.common.CommonFeeLogCreator" />
+		<InitScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.waive.FeeWaiveCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.PSPaymentScheduleLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.fee.common.CommonFeeLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.waive.FeeWaiveExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="3540"
+		TransactionName="费用退还" DocumentType="jbo.app.ACCT_FEE_LOG">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.common.CommonFeeLogCreator" />
+		<InitScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.refund.FeeRefundCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.common.CommonFeeLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.refund.FeeRefundExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="4015"
+		TransactionName="冲放款" ReverseTransactionCode="4010"
+		DocumentType="jbo.app.ACCT_TRANS_PAYMENT">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.common.creator.ReverseTransactionCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.PaymentScheduleLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.common.loader.ReverseTransactionLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.loan.drawdownreverse.DrawdownReverseLoader" />
+		<LoadScript6
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<LoadScript7
+			class="com.amarsoft.app.accounting.hhcf.PaymentScheduleLoaderAdd" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.drawdownreverse.DrawdownReverseExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.ReverseTransactionExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateLoanExecutor" />
+		<!-- <OnlineInterfaceScript1
+			class="com.amarsoft.app.project.tsyh.accounts.RecoilTrade" /> -->
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="4020"
+		TransactionName="冲提前还款" DocumentType="jbo.app.ACCT_TRANS_PAYMENT">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.common.creator.ReverseTransactionCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.common.loader.ReverseTransactionLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.PaymentScheduleLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<LoadScript6
+			class="com.amarsoft.app.accounting.trans.script.loan.repayreverse.PaymentReverseLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.repayreverse.PaymentReverseExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.ReverseTransactionExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateLoanExecutor" />
+		<OnlineInterfaceScript1
+			class="com.amarsoft.app.project.tsyh.accounts.RecoilTrade" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="4030"
+		TransactionName="冲一般还款" ReverseTransactionCode="4010"
+		DocumentType="jbo.app.ACCT_TRANS_PAYMENT">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.common.creator.ReverseTransactionCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.common.loader.ReverseTransactionLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.loan.repayreverse.PaymentReverseLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.repayreverse.PaymentReverseExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.ReverseTransactionExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateLoanExecutor" />
+		<OnlineInterfaceScript1
+			class="com.amarsoft.app.project.tsyh.accounts.RecoilTrade" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="4040"
+		TransactionName="冲特殊还款" ReverseTransactionCode="4010"
+		DocumentType="jbo.app.ACCT_TRANS_PAYMENT">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.common.creator.ReverseTransactionCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.common.loader.ReverseTransactionLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.loan.repayreverse.PaymentReverseLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.repayreverse.PaymentReverseExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.ReverseTransactionExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateLoanExecutor" />
+		<OnlineInterfaceScript1
+			class="com.amarsoft.app.project.tsyh.accounts.RecoilTrade" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="5010"
+		TransactionName="表外业务签发" DocumentType="jbo.app.BUSINESS_PUTOUT">
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.offbs.issue.OffBSIssuseLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.offbs.issue.OffBSIssuseExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.CreateFeeTransactionListExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript5
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="5020"
+		TransactionName="表外业务修改" DocumentType="jbo.app.ACCT_TRANS_OFFBS">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.offbs.common.OffBSTransactionCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.offbs.change.OffBSChangeExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="5030"
+		TransactionName="表外业务结清" DocumentType="jbo.app.ACCT_TRANS_OFFBS">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.offbs.common.OffBSTransactionCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.offbs.common.OffBSExecutor_updatebd" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="5031"
+		TransactionName="表外业务付(保函、信用证、票据)" DocumentType="jbo.app.ACCT_TRANS_OFFBS">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.offbs.common.OffBSTransactionCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.offbs.common.OffBSExecutor_updatebd" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="5040"
+		TransactionName="垫款-表外" DocumentType="jbo.app.BUSINESS_PUTOUT">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.offbs.advance.OffBSAdvanceCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.offbs.advance.OffBSAdvanceLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.offbs.advance.OffBSAdvanceExecutor_createloan" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.offbs.advance.OffBSAdvanceExecutor_updateloan" />
+		<ExecuteScript5
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.CreateBDExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="5050"
+		TransactionName="授信承诺入账" DocumentType="-">
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.offbs.accrueundrawcommitment.OffBSUnDrawCommitmentScript" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="6010"
+		TransactionName="委托贷款发放" ReverseTransactionCode="4015"
+		DocumentType="jbo.app.BUSINESS_PUTOUT">
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.drawdown.DrawdownLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.drawdown.DrawdownScript_createloan" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.CreateFeeTransactionListExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript5
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateLoanExecutor" />
+		<ExecuteScript6
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor" />
+		<ExecuteScript7
+			class="com.amarsoft.app.accounting.trans.script.loan.drawdown.DrawdownScript_updateloan" />
+		<ExecuteScript8
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.CreateBDExecutor" />
+		<OnlineInterfaceScript1
+			class="com.amarsoft.app.project.tsyh.accounts.GeneralAccount" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="6020"
+		TransactionName="委托贷款还款" ReverseTransactionCode="4030"
+		DocumentType="jbo.app.ACCT_TRANS_PAYMENT">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeCreator" />
+		<InitScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PaymentBillCreator" />
+		<InitScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayTransactionCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.PaymentScheduleLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<LoadScript6
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PaymentLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayExecutor_splitPayAmt" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor" />
+		<ExecuteScript5
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateLoanExecutor" />
+		<ExecuteScript6
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayExecutor_updateloan" />
+		<OnlineInterfaceScript1
+			class="com.amarsoft.app.project.tsyh.accounts.GeneralAccount" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="6040"
+		TransactionName="委托贷款提前还款" ReverseTransactionCode="4020"
+		DocumentType="jbo.app.ACCT_TRANS_PAYMENT">
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeCreator" />
+		<InitScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PaymentBillCreator" />
+		<InitScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayTransactionCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.PaymentScheduleLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<LoadScript6
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PaymentLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayExecutor_splitPayAmt" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor" />
+		<ExecuteScript5
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateLoanExecutor" />
+		<ExecuteScript6
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayExecutor_updateloan" />
+		<OnlineInterfaceScript1
+			class="com.amarsoft.app.project.tsyh.accounts.GeneralAccount" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="7010"
+		TransactionName="抵押物入库" DocumentType="jbo.app.GUARANTY_INFO">
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="7020"
+		TransactionName="抵押物出库" DocumentType="jbo.app.GUARANTY_INFO">
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="9090"
+		TransactionName="贷款换日处理" DocumentType="-" EODTransactionCode="9091" BODTransactionCode="9092">
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.ActivePaymentScheduleLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.hhcf.PaymentScheduleLoaderAdd" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.eod.LoanEOD_BOD" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="9091"
+		TransactionName="贷款日终处理" DocumentType="-">
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.ActivePaymentScheduleLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.hhcf.PaymentScheduleLoaderAdd" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.eod.LoanEODExecutor_start" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.eod.LoanEODExecutor_vars" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" GroupID="1"/>
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.eod.LoanEODExecutor_postpone" />
+		<ExecuteScript5
+			class="com.amarsoft.app.accounting.trans.script.loan.eod.LoanEODExecutor_accrueinterest" />
+		<ExecuteScript6
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateInterestObjectExecutor" />
+		<ExecuteScript7
+			class="com.amarsoft.app.accounting.trans.script.loan.eod.UpdateGraceInterestExecutor" />
+		<ExecuteScript8
+			class="com.amarsoft.app.accounting.trans.script.loan.eod.LoanEODExecutor_vars" />
+		<!-- <ExecuteScript9
+			class="com.amarsoft.app.accounting.trans.script.loan.eod.DelayFineExecutor" /> -->
+		<ExecuteScript9
+			class="com.amarsoft.app.accounting.trans.script.loan.eod.LoanEODExecutor_finish" />
+		<ExecuteScript10
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript11
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript12
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateLoanExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="9092"
+		TransactionName="贷款日初处理" DocumentType="-">
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.ActivePaymentScheduleLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.hhcf.PaymentScheduleLoaderAdd" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.eod.LoanBODExecutor_start" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.eod.LoanBODExecutor_settleinterest" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.eod.LoanBODExecutor_reprice" />
+		<ExecuteScript5
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript6
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript7
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateLoanExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="9095"
+		TransactionName="贷款日终处理" DocumentType="-">
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" />
+		<LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.ActivePaymentScheduleLoader" />
+		<LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.hhcf.PaymentScheduleLoaderAdd" />
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.eod.LoanEODExecutor_start" />
+		<ExecuteScript2
+			class="com.amarsoft.app.accounting.trans.script.loan.eod.LoanEODExecutor_postpone" />
+		<ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.eod.LoanEODExecutor_accrueinterest" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateInterestObjectExecutor" />
+		<ExecuteScript5
+			class="com.amarsoft.app.accounting.trans.script.loan.eod.LoanEODExecutor_vars" />
+		<ExecuteScript6
+			class="com.amarsoft.app.accounting.trans.script.loan.eod.LoanEODExecutor_finish" />
+		<ExecuteScript7
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<ExecuteScript8
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+	</Accounting-Transaction>
+	<Accounting-Transaction TransactionCode="0110"
+		TransactionName="暂收款退还" ReverseTransactionCode=""
+		DocumentType="jbo.app.ACCT_TRANS_PAYMENT">
+		<!-- <InitScript1
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeCreator" /> -->
+		<InitScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PaymentBillCreator" />
+		<LoadScript1
+			class="com.amarsoft.app.accounting.trans.script.common.loader.TransactionLoader" />
+		<!-- <LoadScript2
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeLoader" /> -->
+		<!-- <LoadScript3
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.LoanLoader" /> -->
+		<!-- <LoadScript4
+			class="com.amarsoft.app.accounting.trans.script.loan.common.loader.ActivePaymentScheduleLoader" />
+		<LoadScript5
+			class="com.amarsoft.app.accounting.trans.script.common.loader.RelativeObjectSubledgerLoader" /> -->
+
+		<!-- <ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayExecutor_splitPayAmt" /> -->
+		<ExecuteScript1
+			class="com.amarsoft.app.accounting.trans.script.common.executor.UpdateTransactionExecutor" />
+		<!-- <ExecuteScript3
+			class="com.amarsoft.app.accounting.trans.script.common.executor.BookKeepExecutor" />
+		<ExecuteScript4
+			class="com.amarsoft.app.accounting.trans.script.fee.transactionfee.TransactionFeeExecutor" />
+		<ExecuteScript5
+			class="com.amarsoft.app.accounting.trans.script.loan.common.executor.UpdateLoanExecutor" />
+		<ExecuteScript6
+			class="com.amarsoft.app.accounting.trans.script.loan.repay.PayExecutor_updateloan" /> -->
+		<OnlineInterfaceScript1
+			class="com.amarsoft.app.project.tsyh.accounts.GeneralAccount" />
+	</Accounting-Transaction>
+</Accounting-Transaction-Config>

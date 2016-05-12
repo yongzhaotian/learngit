@@ -1,0 +1,44 @@
+.appmenu {
+	background: url(../images/appmenu/bg.png) repeat-x;
+	position: relative;
+}
+.appmenu .logo {
+	position: absolute; bottom: 0px;
+	background: url(../images/appmenu/logo.png) no-repeat center;
+	width: 80px; height: 28px;
+}
+.appmenu .menu {
+	position: absolute; bottom: 0; left: 80px;
+}
+.appmenu .button {
+	position: absolute; bottom: 0; right: 0px;
+	height: 28px; line-height: 28px;
+	background: none;
+}
+.appmenu .button .left {
+	display: inline-block; height: 100%; width: 6px; float: left;
+	background: url("../images/appmenu/button_left.png") no-repeat;
+}
+.appmenu .button .center {
+	display: inline-block; height: 100%; float: left; white-space: nowrap;
+	background: url("../images/appmenu/button_center.png") repeat-x;
+}
+.appmenu .button .right {
+	display: inline-block; height: 100%; width: 6px; float: left;
+	background: url("../images/appmenu/button_right.png") no-repeat;
+}
+.appmenu .button .center a {
+	display: inline-block; height: 100%; white-space: nowrap;
+	margin-left: 5px; margin-right: 5px;
+	text-align: center; outline: none; text-decoration: none;
+}
+.appmenu .button .center a:hover {
+	color: #dc453d;
+}
+.appmenu .button .center a:active {
+	outline: none;
+}
+.appmenu .button .center a.home_a {
+	width: 80px; color: #fff; font-weight: bold;
+	background: url(../images/appmenu/button0.png) no-repeat center;
+}

@@ -1,0 +1,12 @@
+#NoticeDiv {
+	border-color: #ffffc9; /*ffe4ff*/
+}
+#NoticeDiv h1 {
+	background-color: #ffeab3;
+	border-color: #e3d19f;
+	color: #606060;
+}
+#NoticeDiv div {
+	background-color: #fff;
+	border-color: #e3d19f;
+}

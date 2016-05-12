@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='GB2312'?>
+
+<Domain type="Code">
+  <CodeItems>
+	<CodeItem name="代码取数"
+	 type="OccurType|CertType|Currency|EnterpriseBelong|OrgType|Scope|CustomerType|ClassifyResult|VouchClass|Sex|CountryCode|AreaCode|Marriage|TechPost|EducationExperience|YesNo|HaveNot|EducationDegree|FamilyStatus|Nationality|Occupation|HeadShip|TechPost|LawCaseType|LawsuitType|BookType|AgentType|RetrialType|RateFloatType|OccurDirection|TransactionFlag|ReclaimType"
+	 codeListScript="select ItemNo,ItemName from CODE_LIBRARY where CodeNo='%CodeItemName%' and IsInUse='1' order by SortNo"
+	 tagAfterCodeList=""
+	 codeListInitialCheckedItem=""
+	 displayNameScript="getItemName('%CodeItemName%',%ColumnName%)"
+ 	/>
+ 	
+ 	<CodeItem name="证件类型"
+	 type="CertType"
+	 codeListScript="select ItemNo,ItemName from CODE_LIBRARY where codeno='CertType' and (ItemNo like 'Ent%' and '%QueryType%'='EntCustomerQuery' or ItemNo like 'Ind%' and '%QueryType%'='IndCustomerQuery' or '%QueryType%'&lt;&gt; 'IndCustomerQuery' and '%QueryType%'&lt;&gt;'EntCustomerQuery') and IsInUse='1' order by SortNo"
+	 tagAfterCodeList="%LeftEmbrace%input type='checkbox' name='CI.CertType;String;Like'%RightEmbrace%含子类"
+	 codeListInitialCheckedItem=""
+	 displayNameScript="getItemName('%CodeItemName%',%ColumnName%)"
+ 	/>
+ 	 	
+	<CodeItem name="取业务品种"
+		type="BusinessType"
+		codeListScript="select TypeNo,TypeName from BUSINESS_TYPE where IsInUse='1'  order by SortNo "
+		tagAfterCodeList=""
+		codeListInitialCheckedItem=""
+		displayNameScript="getBusinessName(%ColumnName%)"
+	/>
+	<CodeItem name="取核心科目"
+		type="SubjectNo"
+		codeListScript="select SubjectNo,SubjectName from Subject_Info where Attribute3='1'  order by SubjectNo "
+		tagAfterCodeList=""
+		codeListInitialCheckedItem=""
+		displayNameScript="getSubjectName(%ColumnName%)"
+	/>
+ 	
+ 	<CodeItem name="取下属机构"
+ 	 type="OrgID"
+		codeListScript="select OrgID,OrgName from ORG_INFO where OrgID like '%EnvironmentOrgID%%' order by OrgID"
+		tagAfterCodeList=""
+		codeListInitialCheckedItem="%EnvironmentOrgID%"
+		displayNameScript="getOrgName(%ColumnName%)"
+ 	/>
+
+	<CodeItem name="取机构"
+ 	 type="OrgID"
+	 codeListScript="select OrgID,OrgName from ORG_INFO order by OrgID"
+	 tagAfterCodeList=""
+	 codeListInitialCheckedItem=""
+ 	 displayNameScript="getOrgName(%ColumnName%)"
+ 	/>
+ 	
+ 	
+
+	<CodeItem name="取行业类型最大项"
+	 type="IndustryType"
+	 codeListScript="select ItemNo,ItemName from CODE_LIBRARY where CodeNo='%CodeItemName%' and length(ItemNo)=1 order by ItemNo"
+	 tagAfterCodeList=""
+	 codeListInitialCheckedItem=""
+	 displayNameScript="getItemName('%CodeItemName%',%ColumnName%)"
+ 	/>
+
+	<CodeItem name="取担保方式"
+	 type="VouchType"
+		codeListScript="select ItemNo,ItemName from CODE_LIBRARY where CodeNo='%CodeItemName%' and IsInUse='1'and length(ItemNo)=3 order by ItemNo "
+		tagAfterCodeList=""
+		codeListInitialCheckedItem=""
+		displayNameScript="getItemName('%CodeItemName%',%ColumnName%)"
+ 	/>
+ 	
+ 	<CodeItem name="客户类型"
+	 type="CustomerType"
+		codeListScript="select ItemNo,ItemName from CODE_LIBRARY where CodeNo='CustomerType' 
+										and ItemNo like (
+								    CASE 
+								        WHEN '%QueryType%'= 'EntCustomerQuery' THEN '01%' 
+								        WHEN '%QueryType%'= 'IndCustomerQuery' THEN '03%' 
+								        ELSE '0%' 
+								    END  )
+								    and length(ItemNo) > 2
+								    "
+		tagAfterCodeList=""
+		codeListInitialCheckedItem=""
+		displayNameScript="getItemName('%CodeItemName%',%ColumnName%)"
+ 	/> 
+ 	
+ 	 	<CodeItem name="四级分类"
+	 type="BusinessStatus"
+	 codeListScript="select ItemNo,ItemName from CODE_LIBRARY where codeno='BusinessStatus' and  IsInUse='1' order by ItemNo"
+	 tagAfterCodeList=""
+	 codeListInitialCheckedItem=""
+	 displayNameScript="getItemName('%CodeItemName%',%ColumnName%)"
+ 	/>
+ 	
+ 	<CodeItem name="本行信用等级"
+	 type="CreditLevel"
+	 codeListScript="select ItemNo,ItemName from CODE_LIBRARY where codeno='CreditLevel' and  IsInUse='1' order by ItemNo"
+	 tagAfterCodeList=""
+	 codeListInitialCheckedItem=""
+	 displayNameScript="getItemName('%CodeItemName%',%ColumnName%)"
+ 	/>
+ 	
+ 	<CodeItem name="终结类型"
+	 type="FinishType"
+	 codeListScript="select ItemNo,ItemName from CODE_LIBRARY where codeno='FinishType' and  IsInUse='1' order by ItemNo"
+	 tagAfterCodeList=""
+	 codeListInitialCheckedItem=""
+	 displayNameScript="getItemName('%CodeItemName%',%ColumnName%)"
+ 	/>
+ 	
+ </CodeItems>
+  <Parameters>
+	<Parameter type="CodeItemName" value="" caption="" />
+	<Parameter type="ColumnName" value="" caption="" />
+	<Parameter type="ColumnNameWithoutID" value="" caption="" />
+	<Parameter type="RelatedDataObjectName" value="" caption="" />
+	<Parameter type="LeftEmbrace" value="" caption="" />
+	<Parameter type="RightEmbrace" value="" caption="" />
+	<Parameter type="EnvironmentOrgID" value="" caption="" />
+	<Parameter type="QueryType" value="" caption="" />
+  </Parameters>
+</Domain>

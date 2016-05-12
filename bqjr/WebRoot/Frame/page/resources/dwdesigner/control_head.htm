@@ -1,0 +1,355 @@
+<script>
+var sourceDiv = null;
+function SaveResultForEdit(editdivid,inputid){//editdivid对应的是层名，inputid对应text控件id
+	var value = document.getElementById(inputid).value
+	sourceDiv.innerHTML = value;
+	document.getElementById(editdivid).style.display = 'none';
+	if('LaEditGroup'==editdivid){//修改组
+		window.status = 'grouptitle:' + sourceDiv.id + "," + value;
+	}
+	else{
+		window.status = 'fieldtitle:' + sourceDiv.id + "," + value;
+	}
+	window.status = '';
+}
+function LayerMove(obj){
+    var me = this;
+    this.foo = (typeof obj=="string")?document.getElementById(obj):obj;
+	this.moveobj = document.getElementById(obj.substr(6));
+    this.foo.onmousedown = function(e){
+          var foo = me.moveobj;
+		  foo.style.zIndex = 90;
+          e = e||event;
+          if( e.layerX ){ foo.oOffset = {x:e.layerX,  y:e.layerY };    }
+          else          { foo.oOffset = {x:e.offsetX, y:e.offsetY };   }
+          document.onmousemove = me.drag;
+          document.onmouseup   = me.drop;
+          document.onselectstart = function(){ return false; };         
+    }
+    
+    this.drag = function(e){
+          var foo = me.moveobj;
+          e=e||event;
+          foo.style.top  = e.clientY - foo.oOffset.y + document.body.scrollTop + "px";
+          foo.style.left = e.clientX - foo.oOffset.x + document.body.scrollLeft + "px";
+    }
+    
+    this.drop = function(e){
+          e=e||event;
+          document.onmousemove = document.onmouseup = document.onselectstart = null;    
+    }    
+} 
+
+function ObjectDragDrop(obj,type){
+    var me = this;
+	  var layout = document.getElementById('Layer1');
+    //this.foo = (typeof obj=="string")?document.getElementById(obj):obj;
+    this.foo =document.getElementById(obj);
+    this.foo.onmousedown = function(e){
+     if(event.button!=1)return;
+		var foo = me.foo;
+		layout.style.display = 'block';
+    if(type=="sort")
+    		document.getElementById("A_" + obj).style.display = 'none';
+    else{
+        //document.getElementById("A_" + obj).style.filter = 'alpha(opacity=1)';
+    }
+		layout.innerHTML = document.getElementById("A_" + obj).innerHTML;
+		layout.style.top  = event.clientY - 11 + document.body.scrollTop + "px";
+		layout.style.left = event.clientX - 11 + document.body.scrollLeft + "px";
+		e = e||event;
+		if( e.layerX ){ layout.oOffset = {x:e.layerX,  y:e.layerY };    }
+		else          { layout.oOffset = {x:e.offsetX, y:e.offsetY };   }
+		document.onmousemove = me.drag;
+		document.onmouseup   = me.drop;
+		document.onselectstart = function(){ return false; };         
+    }
+    
+    this.drag = function(e){
+          var foo = me.foo;
+          e=e||event;
+          layout.style.top  = e.clientY - 11 + document.body.scrollTop + "px";
+          layout.style.left = e.clientX - 11 + document.body.scrollLeft + "px";
+    }
+    
+    this.drop = function(e){
+          e=e||event;
+          var mach;
+          if(type=="sort"){
+              mach = getBestMatchForSpan(layout,me.foo.id);
+		  }
+          else
+              mach = getBestMatchForTd(layout);
+		  if(mach!=null){
+             if(type=="sort")
+			          window.status = type + ":" + me.foo.id.substr(4) + "," + mach.id.substr(4);
+             else if(type="groupsort")
+                window.status = type + ":" + me.foo.id.substr(6) + "," + mach.id.substr(6);
+             	window.status = "";//这句话不能少，否则，重载页面的时候会记录原来的status,导致重复操作
+          }
+		  else if(type=="sort"){
+			  //元素拖拉到分组的时候
+			  mach = getBestMatchForTd(layout);
+			  if(mach!=null){
+				  window.status = "changeGroup:" + me.foo.id.substr(4) + "," + mach.id.substr(6);
+				  window.status = "";
+			  }
+		  }
+		  layout.style.display = 'none';
+          document.getElementById("A_" + obj).style.display = 'inline';
+          document.onmousemove = document.onmouseup = document.onselectstart = null;    
+    }    
+} 
+//右键菜单
+function csMenu(_object, _menu)
+{
+    this.IEventHander = null;
+    this.IFrameHander = null;
+    this.IContextMenuHander = null;
+
+    this.Show = function(_menu)
+    {
+        var e = window.event || event;
+        if (e.button == 2)
+        {
+			if(_menu.id == 'MenuForGroup')
+				sourceDiv = getBestMatchForTd(null);
+			else
+				sourceDiv = getBestMatchForSpan(null);
+			//alert(this.sourceid);
+            if (window.document.all)
+            {
+                this.IContextMenuHander = function(){return false;};
+                document.attachEvent("oncontextmenu", this.IContextMenuHander);
+            }
+            else
+            {
+                this.IContextMenuHander = document.oncontextmenu;
+                document.oncontextmenu = function(){return false;};
+            }
+
+            window.csMenu$Object = this;
+            this.IEventHander = function(){window.csMenu$Object.Hide(_menu);};
+
+            if (window.document.all)
+                document.attachEvent("onmousedown", this.IEventHander);
+            else
+                document.addEventListener("mousedown", this.IEventHander, false);
+
+            _menu.style.left = e.clientX + document.body.scrollLeft;
+            _menu.style.top = e.clientY + document.body.scrollTop;
+            _menu.style.display = "";
+            
+            if (this.IFrameHander)
+            {
+                var _iframe = document.getElementById(this.IFrameHander);
+                _iframe.style.left = e.clientX + document.body.scrollLeft;
+                _iframe.style.top = e.clientY + document.body.scrollTop;
+                _iframe.style.height = _menu.offsetHeight;
+                _iframe.style.width = _menu.offsetWidth;
+                _iframe.style.display = "";
+            }
+        }
+    };
+
+    this.Hide = function(_menu)
+    {
+        var e = window.event || event;
+        var _element = e.srcElement;
+        do
+        {
+            if (_element == _menu)
+            {
+                return false;
+            }
+        }
+        while ((_element = _element.offsetParent));
+        
+        if (window.document.all)
+    	    document.detachEvent("on"+e.type, this.IEventHander);
+        else
+    	    document.removeEventListener(e.type, this.IEventHander, false);
+        
+        if (this.IFrameHander)
+        {
+			//alert(this.IFrameHander);
+            var _iframe = document.getElementById(this.IFrameHander);
+            _iframe.style.display = "none";
+        }
+        
+        _menu.style.display = "none";
+        
+        if (window.document.all)
+    	    document.detachEvent("oncontextmenu", this.IContextMenuHander);
+        else
+    	    document.oncontextmenu = this.IContextMenuHander;
+    };
+
+    this.initialize = function(_object, _menu)
+    {  
+        window._csMenu$Object = this;
+        var _eventHander = function(){window._csMenu$Object.Show(_menu);};
+
+        _menu.style.position = "absolute";
+	    _menu.style.display = "none";
+	    _menu.style.zIndex = "1000000";
+	    
+        if (window.document.all)
+        {
+            var _iframe = document.createElement('iframe');
+	    document.body.insertBefore(_iframe, document.body.firstChild);
+            _iframe.id = _menu.id + "_iframe";
+            this.IFrameHander = _iframe.id;
+
+            _iframe.style.position = "absolute";
+            _iframe.style.display = "none";
+            _iframe.style.zIndex = "999999";
+            _iframe.style.border = "0px";
+            _iframe.style.height = "0px";
+            _iframe.style.width = "0px";
+            
+            _object.attachEvent("onmouseup", _eventHander);
+        }
+        else
+        {
+            _object.addEventListener("mouseup", _eventHander, false);
+        }
+    };
+
+    this.initialize(_object, _menu);
+}
+function SaveFieldId(obj){
+  if(obj.checked == true){
+     window.status = 'cacheadd:' + obj.value;
+  }
+  else{
+     window.status = 'cachedel:' + obj.value;
+  }
+  window.status = '';
+}
+//控制分组的展开与收缩效果
+function changeExpand(obj){
+  var dockid = obj.dockid;
+  if("NOGROUPSYS@"==dockid)dockid="@";
+  var tableobj = document.getElementById("@SysSub" + dockid);
+  if(obj.innerHTML =="＋"){
+     obj.innerHTML = "－";
+     tableobj.style.display = "inline";
+  }
+  else{
+      obj.innerHTML = "＋";
+     tableobj.style.display = "none";
+  }
+}
+function InsertElement(id){
+	document.getElementById('MenuForGroup').style.display = 'none';
+	document.getElementById('MenuForGroup_iframe').style.display = 'none';
+	document.getElementById('MenuForField').style.display = 'none';
+	document.getElementById('MenuForField_iframe').style.display = 'none';
+  window.status = 'insertElement:' + sourceDiv.id;
+  window.status = '';
+}
+function DeleteElement(id){
+	document.getElementById('MenuForGroup').style.display = 'none';
+	document.getElementById('MenuForGroup_iframe').style.display = 'none';
+	document.getElementById('MenuForField').style.display = 'none';
+	document.getElementById('MenuForField_iframe').style.display = 'none';
+  window.status = 'deleteElement:' + sourceDiv.id;
+  window.status = '';
+}
+function removeFromGroup(id){
+	document.getElementById('MenuForGroup').style.display = 'none';
+	document.getElementById('MenuForGroup_iframe').style.display = 'none';
+	document.getElementById('MenuForField').style.display = 'none';
+	document.getElementById('MenuForField_iframe').style.display = 'none';
+  window.status = 'removeFromGroup:' + sourceDiv.id;
+  window.status = '';
+}
+function ShowEditor(id,sourceid){
+  	var obj = document.getElementById(id);
+	document.getElementById('MenuForGroup').style.display = 'none';
+	document.getElementById('MenuForGroup_iframe').style.display = 'none';
+	document.getElementById('MenuForField').style.display = 'none';
+	document.getElementById('MenuForField_iframe').style.display = 'none';
+	if(id=='LaEditGroup'){
+		window.status = 'editGroup:' + sourceDiv.id;
+    window.status = '';
+	}
+	else{		
+    window.status = 'editElement:' + sourceDiv.id;
+    window.status = '';
+	}
+}
+//添加移除元素
+function addRemoveElement(id,sourceid){
+	var obj = document.getElementById(id);
+	document.getElementById('MenuForGroup').style.display = 'none';
+	document.getElementById('MenuForGroup_iframe').style.display = 'none';
+	document.getElementById('MenuForField').style.display = 'none';
+	document.getElementById('MenuForField_iframe').style.display = 'none';
+	if(id=='LaEditGroup'){
+		window.status = 'addRemoveElement:' + sourceDiv.id;
+    	window.status = '';
+	}
+	else{		
+    	window.status = 'addRemoveElement:' + sourceDiv.id;
+    	window.status = '';
+	}
+}
+function ValidateEditor(id){
+	  var obj = document.getElementById(id);
+		document.getElementById('MenuForGroup').style.display = 'none';
+		document.getElementById('MenuForGroup_iframe').style.display = 'none';
+		document.getElementById('MenuForField').style.display = 'none';
+		document.getElementById('MenuForField_iframe').style.display = 'none';
+	    window.status = 'validateEditor:' + sourceDiv.id;
+	    window.status = '';
+	}
+	function EventEditor(id){
+		  var obj = document.getElementById(id);
+			document.getElementById('MenuForGroup').style.display = 'none';
+			document.getElementById('MenuForGroup_iframe').style.display = 'none';
+			document.getElementById('MenuForField').style.display = 'none';
+			document.getElementById('MenuForField_iframe').style.display = 'none';
+		    window.status = 'eventEditor:' + sourceDiv.id;
+		    window.status = '';
+	}
+</script>
+
+<div id="Layer1"></div>
+<div id="LaEditGroup">
+<iframe frameborder="0" width="100%" style="height:41px; display:none"></iframe>
+	<div id="Title_LaEditGroup" align="center" style="height:22px; padding-top:4px; font-size:12px;"><strong>修改组名</strong></div>
+  	<div align="left" style="padding-left:5px; height:22px;">
+		<input type="text" id="GroupTitle" name="GroupTitle" style="width:250px;" onKeyPress="if(event.keyCode==13)SaveResultForEdit('LaEditGroup','GroupTitle');" />
+	</div>
+  	<div align="center" style="height:22px;">
+		<input type="button" name="GroupButton" value="确定" onClick="SaveResultForEdit('LaEditGroup','GroupTitle')"/>
+		<input type="button" name="GroupClose" onClick="document.getElementById('LaEditGroup').style.display='none'" value="关闭" />
+	</div>
+<iframe frameborder="0" width="100%" style="height:41px; display:none"></iframe>
+</div>
+<div id="LaEditField">
+<iframe frameborder="0" width="100%" style="height:41px; display:none"></iframe>
+	<div id="Title_LaEditField" align="center" style="height:22px; padding-top:4px; font-size:12px;"><strong>修改标题</strong></div>
+  	<div align="left" style="padding-left:5px; height:22px;">
+		<input type="text" id="FieldTitle" name="FieldTitle" style="width:250px;" onKeyPress="if(event.keyCode==13)SaveResultForEdit('LaEditField','FieldTitle');" />
+	</div>
+  	<div align="center" style="height:22px;">
+		<input type="button" name="GroupButton" value="确定" onClick="SaveResultForEdit('LaEditField','FieldTitle')"  />
+		<input type="button" name="GroupClose" onClick="document.getElementById('LaEditField').style.display='none'" value="关闭" />
+	</div>
+<iframe frameborder="0" width="100%" style="height:41px; display:none"></iframe>
+</div>
+<div id="MenuForGroup" style="background-color:White; border:1px solid #cccccc; padding:2px;">
+    <div class="menusubdiv" onClick="ShowEditor('LaEditGroup')" onMouseOver="this.style.backgroundColor='#0000FF';this.style.color='#FFFFFF';" onMouseOut="this.style.backgroundColor='#FFFFFF';this.style.color='#000000';">编辑</div>
+    <div class="menusubdiv" onClick="addRemoveElement('LaEditGroup')" onMouseOver="this.style.backgroundColor='#0000FF';this.style.color='#FFFFFF';" onMouseOut="this.style.backgroundColor='#FFFFFF';this.style.color='#000000';">添加移除元素</div>
+</div>
+<div id="MenuForField" style="background-color:White; border:1px solid #cccccc; padding:2px;">
+   <div class="menusubdiv" onClick="InsertElement('LaEditField')" onMouseOver="this.style.backgroundColor='#0000FF';this.style.color='#FFFFFF';" onMouseOut="this.style.backgroundColor='#FFFFFF';this.style.color='#000000';">插入</div>
+   <div class="menusubdiv" onClick="ShowEditor('LaEditField')" onMouseOver="this.style.backgroundColor='#0000FF';this.style.color='#FFFFFF';" onMouseOut="this.style.backgroundColor='#FFFFFF';this.style.color='#000000';">编辑</div>
+   <div class="menusubdiv" onClick="DeleteElement('LaEditField')" onMouseOver="this.style.backgroundColor='#0000FF';this.style.color='#FFFFFF';" onMouseOut="this.style.backgroundColor='#FFFFFF';this.style.color='#000000';">删除</div>
+   <div class="menusubdiv" onClick="removeFromGroup('LaEditField')" onMouseOver="this.style.backgroundColor='#0000FF';this.style.color='#FFFFFF';" onMouseOut="this.style.backgroundColor='#FFFFFF';this.style.color='#000000';">从分组中移除</div>
+   <div class="menusubdiv" onClick="ValidateEditor('LaEditField')" onMouseOver="this.style.backgroundColor='#0000FF';this.style.color='#FFFFFF';" onMouseOut="this.style.backgroundColor='#FFFFFF';this.style.color='#000000';">验证规则</div>
+   <div class="menusubdiv" onClick="EventEditor('LaEditField')" onMouseOver="this.style.backgroundColor='#0000FF';this.style.color='#FFFFFF';" onMouseOut="this.style.backgroundColor='#FFFFFF';this.style.color='#000000';">字段事件</div>
+</div>

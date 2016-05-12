@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="GB18030"?>
+<jbo>
+	<package name="jbo.awe">
+		<class name="AUDIT_INFO" label="审计信息表（new）" keyAttributes="SERIALNO">
+	      <attributes>
+	        <attribute name="SERIALNO" label="流水号" type="STRING" length="32" />
+	        <attribute name="OPERATOR" label="操作人" type="STRING" length="80" />
+	        <attribute name="SERVERADDRESS" label="服务器地址" type="STRING" length="80" />
+	        <attribute name="CLIENTADDRESS" label="客户端地址" type="STRING" length="80" />
+	        <attribute name="APPLICATION" label="应用" type="STRING" length="80" />
+	        <attribute name="ADDITIONALINFO" label="附加信息" type="STRING" length="200" />
+	        <attribute name="RECORDTYPE" label="记录类型" type="STRING" length="32" />
+	        <attribute name="RECORDACTION" label="记录动作" type="STRING" length="32" />
+	        <attribute name="RECORDTARGET" label="记录目标" type="STRING" length="32" />
+	        <attribute name="AUDITTIME" label="修改时间" type="STRING" length="40" />
+	        <attribute name="AUDITDATA" label="审计数据" type="STRING" length="4000" />
+	      </attributes>
+	      <manager>
+	        <managerProperties>
+	          <property name="createKey" value="true" />
+	          <property name="table" value="AUDIT_INFO" />
+			  <property name="audit" value="false" />	<!--默认该class不做审计-->
+	        </managerProperties>
+	      </manager>
+	    </class>
+		<class name="AWE_FUNCTION_INFO" label="功能点" keyAttributes="FUNCTIONID">
+			<attributes>
+				<attribute name="FUNCTIONID" label="功能点编号" type="STRING" length="32" />
+				<attribute name="FUNCTIONNAME" label="功能点名称" type="STRING" length="250" />
+				<attribute name="SORTNO" label="排序号" type="STRING" length="32" />
+				<attribute name="ISINUSE" label="是否使用" type="STRING" length="1" />
+				<attribute name="APPID" label="子系统编号" type="STRING" length="32" />
+				<attribute name="MODULEID" label="模块编号" type="STRING" length="32" />
+				<attribute name="MODULENAME" label="模块名称" type="STRING" length="80" />
+				<attribute name="ENTRYURL" label="入口URL" type="STRING" length="200" />
+				<attribute name="REMARK" label="备注" type="STRING" length="250" />
+				<attribute name="INPUTORGID" label="录入机构" type="STRING" length="32" />
+				<attribute name="INPUTUSERID" label="录入人" type="STRING" length="32" />
+				<attribute name="INPUTTIME" label="录入时间" type="STRING" length="20" />
+				<attribute name="UPDATEORGID" label="更新机构" type="STRING" length="32" />
+				<attribute name="UPDATEUSERID" label="更新人" type="STRING" length="32" />
+				<attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="table" value="AWE_FUNCTION_INFO" />
+					<property name="createKey" value="true" />
+					<property name="keyDatePrefix" value="'FI'yyyyMMdd"/>
+				</managerProperties>
+			</manager>
+		</class>
+		<class name="AWE_FUNCTION_URL" label="功能点URL" keyAttributes="SERIALNO">
+			<attributes>
+				<attribute name="SERIALNO" label="流水号" type="STRING" length="32" />
+				<attribute name="FUNCTIONID" label="功能点编号" type="STRING" length="32" />
+				<attribute name="RIGHTPOINTTYPE" label="权限点类型" type="STRING" length="20" />
+				<attribute name="RIGHTPOINTNAME" label="权限点名称" type="STRING" length="80" />
+				<attribute name="URL" label="URL路径" type="STRING" length="200" />
+				<attribute name="REMARK" label="备注" type="STRING" length="250" />
+				<attribute name="INPUTORGID" label="录入机构" type="STRING" length="32" />
+				<attribute name="INPUTUSERID" label="录入人" type="STRING" length="32" />
+				<attribute name="INPUTTIME" label="录入时间" type="STRING" length="20" />
+				<attribute name="UPDATEORGID" label="更新机构" type="STRING" length="32" />
+				<attribute name="UPDATEUSERID" label="更新人" type="STRING" length="32" />
+				<attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="table" value="AWE_FUNCTION_URL" />
+					<property name="createKey" value="true" />
+					<property name="keyDatePrefix" value="'FU'yyyyMMdd"/>
+				</managerProperties>
+			</manager>
+		</class>
+		<class name="AWE_MENU_INFO" label="系统菜单表" keyAttributes="MENUID">
+			<attributes>
+				<attribute name="MENUID" label="菜单编号" type="STRING" length="32" />
+				<attribute name="MENUNAME" label="菜单名称" type="STRING" length="250" />
+				<attribute name="DISPLAYNAME" label="展示名称" type="STRING" length="120" />
+				<attribute name="SORTNO" label="排序号" type="STRING" length="32" />
+				<attribute name="URL" label="URL路径" type="STRING" length="200" />
+				<attribute name="URLPARAM" label="参数" type="STRING" length="150" />
+				<attribute name="TARGET" label="目标窗口" type="STRING" length="20" />
+				<attribute name="STYLE" label="样式" type="STRING" length="20" />
+				<attribute name="ISINUSE" label="是否使用" type="STRING" length="1" />
+				<attribute name="REMARK" label="备注" type="STRING" length="250" />
+				<attribute name="INPUTORGID" label="录入机构" type="STRING" length="32" />
+				<attribute name="INPUTUSERID" label="录入人" type="STRING" length="32" />
+				<attribute name="INPUTTIME" label="录入时间" type="STRING" length="20" />
+				<attribute name="UPDATEORGID" label="更新机构" type="STRING" length="32" />
+				<attribute name="UPDATEUSERID" label="更新人" type="STRING" length="32" />
+				<attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+				<attribute name="ACCESSTYPE" label="打开方式" type="STRING" length="20" />
+				<attribute name="ICON" label="图标" type="STRING" length="80" />
+				<attribute name="APPICON" label="子系统图标" type="STRING" length="80" />
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="table" value="AWE_MENU_INFO" />
+				</managerProperties>
+			</manager>
+		</class>
+		<class name="AWE_ROLE_FUNCTION" label="角色、功能点关联表" keyAttributes="ROLEID,FUNCTIONID">
+			<attributes>
+				<attribute name="ROLEID" label="角色编号" type="STRING" length="32" />
+				<attribute name="FUNCTIONID" label="功能点编号" type="STRING" length="32" />
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="table" value="AWE_ROLE_FUNCTION" />
+				</managerProperties>
+			</manager>
+		</class>
+		<class name="AWE_ROLE_INFO" label="角色表" keyAttributes="ROLEID">
+			<attributes>
+				<attribute name="ROLEID" label="角色编号" type="STRING" length="32" />
+				<attribute name="SORTNO" label="排序号" type="STRING" length="32" />
+				<attribute name="ROLENAME" label="角色名称" type="STRING" length="80" />
+				<attribute name="ROLEATTRIBUTE" label="角色属性" type="STRING" length="80" />
+				<attribute name="ROLEDESCRIBE" label="角色描述" type="STRING" length="250" />
+				<attribute name="ROLESTATUS" label="角色状态" type="STRING" length="80" />
+				<attribute name="INPUTUSER" label="录入人" type="STRING" length="32" />
+				<attribute name="INPUTORG" label="录入机构" type="STRING" length="32" />
+				<attribute name="INPUTTIME" label="录入时间" type="STRING" length="20" />
+				<attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+				<attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+				<attribute name="REMARK" label="备注" type="STRING" length="250" />
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="table" value="AWE_ROLE_INFO" />
+				</managerProperties>
+			</manager>
+		</class>
+		<class name="AWE_ROLE_MENU" label="角色、菜单关联表" keyAttributes="ROLEID,MENUID">
+			<attributes>
+				<attribute name="ROLEID" label="角色编号" type="STRING" length="32" />
+				<attribute name="MENUID" label="菜单编号" type="STRING" length="32" />
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="table" value="AWE_ROLE_MENU" />
+				</managerProperties>
+			</manager>
+		</class>
+		<class name="AWE_ROLE_URL" label="角色权限URL" keyAttributes="ROLEID,URL">
+			<attributes>
+				<attribute name="ROLEID" label="角色编号" type="STRING" length="32" />
+				<attribute name="URL" label="URL路径" type="STRING" length="200" />
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="table" value="AWE_ROLE_URL" />
+				</managerProperties>
+			</manager>
+		</class>
+		<class name="AWE_HREF_INFO" label="全局URL信息" keyAttributes="SERIALNO">
+			<attributes>
+				<attribute name="SERIALNO" label="流水号" type="STRING" length="32" />
+				<attribute name="URL" label="URL路径" type="STRING" length="200" />
+				<attribute name="DESCRIBE" label="描述" type="STRING" length="250" />
+				<attribute name="INPUTORGID" label="录入机构" type="STRING" length="32" />
+				<attribute name="INPUTUSERID" label="录入人" type="STRING" length="32" />
+				<attribute name="INPUTTIME" label="录入时间" type="STRING" length="20" />
+				<attribute name="UPDATEORGID" label="更新机构" type="STRING" length="32" />
+				<attribute name="UPDATEUSERID" label="更新人" type="STRING" length="32" />
+				<attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="table" value="AWE_HREF_INFO" />
+				</managerProperties>
+			</manager>
+		</class>
+		<class name="ORG_INFO" label="机构信息" keyAttributes="ORGID">
+			<attributes>
+				<attribute name="ORGID" label="机构编号" type="STRING" length="32" />
+				<attribute name="SORTNO" label="排序号" type="STRING" length="32" />
+				<attribute name="ORGNAME" label="机构名称" type="STRING" length="80" />
+				<attribute name="ORGLEVEL" label="级别" type="STRING" length="32" />
+				<attribute name="ORGPROPERTY" label="属性集" type="STRING" length="250" />
+				<attribute name="RELATIVEORGID" label="相关机构代码" type="STRING" length="32" />
+				<attribute name="BANKID" label="人行金融机构代码" type="STRING" length="32" />
+				<attribute name="BANKLICENSE" label="金融机构许可证" type="STRING" length="32" />
+				<attribute name="BUSINESSLICENSE" label="营业执照" type="STRING" length="32" />
+				<attribute name="BELONGAREA" label="机构辖区" type="STRING" length="18" />
+				<attribute name="ORGCLASS" label="机构类别" type="STRING" length="18" />
+				<attribute name="ZIPCODE" label="邮政编码" type="STRING" length="18" />
+				<attribute name="MAINFRAMEORGID" label="网点号" type="STRING" length="32" />
+				<attribute name="MAINFRAMEEXGID" label="交换号" type="STRING" length="32" />
+				<attribute name="ORGCODE" label="机构编码" type="STRING" length="32" />
+				<attribute name="STATUS" label="状态" type="STRING" length="80" />
+				<attribute name="ORGOLDNAME" label="机构曾用名" type="STRING" length="80" />
+				<attribute name="SETUPDATE" label="成立时间" type="STRING" length="10" />
+				<attribute name="ORGADD" label="机构地址" type="STRING" length="80" />
+				<attribute name="PRINCIPAL" label="负责人" type="STRING" length="10" />
+				<attribute name="ORGTEL" label="联系电话" type="STRING" length="80" />
+				<attribute name="BRANCHNUM" label="管辖网点数" type="INT" length="20" />
+				<attribute name="CMNUM" label="客户经理数" type="INT" length="20" />
+				<attribute name="BUSINESSHOURS" label="营业时间" type="STRING" length="80" />
+				<attribute name="INPUTORG" label="登记单位" type="STRING" length="32" />
+				<attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+				<attribute name="INPUTDATE" label="登记日期" type="STRING" length="20" />
+				<attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+				<attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+				<attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+				<attribute name="UPDATEDATE" label="更新日期" type="STRING" length="20" />
+				<attribute name="REMARK" label="备注" type="STRING" length="250" />
+				<attribute name="BELONGORGID" label="权属机构" type="STRING" length="32" />
+				<attribute name="HOSTNO" label="HOSTNO" type="STRING" length="10" />
+				<attribute name="VITUALSERIALNO" label="VITUALSERIALNO" type="INT" length="20" />
+				<attribute name="VITUALID" label="VITUALID" type="STRING" length="32" />
+				<attribute name="CORPORGID" label="法人机构代码" type="STRING" length="32" />
+				<attribute name="ACCOUNTINGFLAG" label="该机构是否独立核算（Code:YesNo）" type="STRING" length="10 " />		
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="table" value="ORG_INFO" />
+				</managerProperties>
+			</manager>
+		</class>
+		<class name="USER_INFO" label="用户基本信息" keyAttributes="USERID">
+			<attributes>
+				<attribute name="USERID" label="用户编号" type="STRING" length="32" />
+				<attribute name="LOGINID" label="登录账号" type="STRING" length="32" />
+				<attribute name="USERNAME" label="用户姓名" type="STRING" length="32" />
+				<attribute name="PASSWORD" label="用户密码" type="STRING" length="32" />
+				<attribute name="BELONGORG" label="所属机构" type="STRING" length="32" />
+				<attribute name="ATTRIBUTE1" label="属性一" type="STRING" length="80" />
+				<attribute name="ATTRIBUTE2" label="属性二" type="STRING" length="80" />
+				<attribute name="ATTRIBUTE3" label="属性三" type="STRING" length="80" />
+				<attribute name="ATTRIBUTE4" label="属性四" type="STRING" length="80" />
+				<attribute name="ATTRIBUTE5" label="属性五" type="STRING" length="80" />
+				<attribute name="ATTRIBUTE6" label="属性六" type="STRING" length="80" />
+				<attribute name="ATTRIBUTE7" label="属性七" type="STRING" length="80" />
+				<attribute name="ATTRIBUTE8" label="属性八" type="STRING" length="80" />
+				<attribute name="ATTRIBUTE" label="属性集" type="STRING" length="80" />
+				<attribute name="DESCRIBE1" label="描述一" type="STRING" length="250" />
+				<attribute name="DESCRIBE2" label="描述二" type="STRING" length="250" />
+				<attribute name="DESCRIBE3" label="描述三" type="STRING" length="250" />
+				<attribute name="DESCRIBE4" label="描述四" type="STRING" length="250" />
+				<attribute name="STATUS" label="状态" type="STRING" length="80" />
+				<attribute name="CERTTYPE" label="证件类型" type="STRING" length="18" />
+				<attribute name="CERTID" label="用户身份证号" type="STRING" length="32" />
+				<attribute name="COMPANYTEL" label="单位电话" type="STRING" length="32" />
+				<attribute name="MOBILETEL" label="手机号码" type="STRING" length="32" />
+				<attribute name="EMAIL" label="电子邮件" type="STRING" length="80" />
+				<attribute name="ACCOUNTID" label="个贷系统编号" type="STRING" length="32" />
+				<attribute name="ID1" label="编号1" type="STRING" length="32" />
+				<attribute name="ID2" label="编号2" type="STRING" length="32" />
+				<attribute name="SUM1" label="相关金额1" type="DOUBLE" length="24" scale="6" />
+				<attribute name="SUM2" label="相关金额2" type="DOUBLE" length="24" scale="6" />
+				<attribute name="INPUTORG" label="登记单位" type="STRING" length="32" />
+				<attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+				<attribute name="INPUTDATE" label="登记日期" type="STRING" length="20" />
+				<attribute name="UPDATEDATE" label="更新日期" type="STRING" length="20" />
+				<attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+				<attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+				<attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+				<attribute name="REMARK" label="备注" type="STRING" length="250" />
+				<attribute name="BIRTHDAY" label="生日" type="STRING" length="10" />
+				<attribute name="GENDER" label="性别" type="STRING" length="18" />
+				<attribute name="FAMILYADD" label="家庭住址" type="STRING" length="250" />
+				<attribute name="EDUCATIONALBG" label="学历" type="STRING" length="18" />
+				<attribute name="AMLEVEL" label="客户经理级别" type="STRING" length="18" />
+				<attribute name="TITLE" label="行内职务" type="STRING" length="18" />
+				<attribute name="EDUCATIONEXP" label="教育经历" type="STRING" length="800" />
+				<attribute name="VOCATIONEXP" label="工作经历" type="STRING" length="800" />
+				<attribute name="POSITION" label="职称" type="STRING" length="250" />
+				<attribute name="QUALIFICATION" label="任职资格" type="STRING" length="250" />
+				<attribute name="NTID" label="NTID" type="STRING" length="32" />
+				<attribute name="BELONGTEAM" label="所属团队" type="STRING" length="32" />
+				<attribute name="LOB" label="[NEW] 业务条线" type="STRING" length="32" />
+				<attribute name="SKINPATH" label="UI皮肤路径" type="STRING" length="200" />
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="table" value="USER_INFO" />
+				</managerProperties>
+			</manager>
+		</class>
+		<class name="USER_ROLE" label="角色用户表" keyAttributes="USERID,ROLEID,GRANTOR,BEGINTIME">
+			<attributes>
+				<attribute name="USERID" label="用户编号" type="STRING" length="32" />
+				<attribute name="ROLEID" label="角色编号" type="STRING" length="32" />
+				<attribute name="GRANTOR" label="创建者" type="STRING" length="32" />
+				<attribute name="BEGINTIME" label="开始时间" type="STRING" length="20" />
+				<attribute name="ENDTIME" label="结束时间" type="STRING" length="20" />
+				<attribute name="STATUS" label="是否有效" type="STRING" length="80" />
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="table" value="USER_ROLE" />
+				</managerProperties>
+			</manager>
+		</class>
+		<class name="AWE_SHORTCUT" label="系统默认快捷菜单表" keyAttributes="SHORTCUTID">
+			<attributes>
+				<attribute name="SHORTCUTID" label="快捷编号" type="STRING" length="25" />
+				<attribute name="SHORTCUTNAME" label="快捷名称" type="STRING" length="80" />
+				<attribute name="SORTNO" label="排序号" type="STRING" length="25" />
+				<attribute name="ISINUSE" label="是否使用" type="STRING" length="1" />
+				<attribute name="ISSYSDEFAULT" label="是否系统默认" type="STRING" length="1" />
+				<attribute name="BELONGAPPID" label="所属子系统编号" type="STRING" length="80" />
+				<attribute name="BELONGROLEID" label="所属角色编号" type="STRING" length="80" />
+				<attribute name="DESCRIBE" label="描述" type="STRING" length="2000" />
+				<attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+				<attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+				<attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+				<attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+				<attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+				<attribute name="REMARK" label="备注" type="STRING" length="250" />
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="table" value="AWE_SHORTCUT" />
+				</managerProperties>
+			</manager>
+		</class>
+		<class name="AWE_SHORTCUTITEM" label="系统功能库" keyAttributes="ITEMNO">
+			<attributes>
+				<attribute name="ITEMNO" label="项目编号" type="STRING" length="25" />
+				<attribute name="ITEMNAME" label="项目名称" type="STRING" length="25" />
+				<attribute name="ITEMTIP" label="项目提示" type="STRING" length="25" />
+				<attribute name="JSACTION" label="脚本事件" type="STRING" length="250" />
+				<attribute name="ITEMSHORTCUTKEY" label="项目快捷键" type="STRING" length="80" />
+				<attribute name="CSS" label="项目样式" type="STRING" length="25" />
+				<attribute name="ISSYSDEFAULT" label="是否系统默认" type="STRING" length="1" />
+				<attribute name="ISINUSE" label="是否使用" type="STRING" length="1" />
+				<attribute name="BELONGSHORTCUTID" label="所属快捷编号" type="STRING" length="32" />
+				<attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+				<attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+				<attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+				<attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+				<attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+				<attribute name="REMARK" label="备注" type="STRING" length="250" />
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="table" value="AWE_SHORTCUTITEM" />
+				</managerProperties>
+			</manager>
+		</class>
+		<class name="USER_SHORTCUT" label="用户自定义快捷菜单区" keyAttributes="SERIALNO">
+			<attributes>
+				<attribute name="SERIALNO" label="快捷菜单流水号" type="STRING" length="25" />
+				<attribute name="SHORTCUTNAME" label="自定义名称" type="STRING" length="80" />
+				<attribute name="ISINUSE" label="是否使用" type="STRING" length="1" />
+				<attribute name="BELONGAPPID" label="所属子系统编号" type="STRING" length="80" />
+				<attribute name="BELONGUSERID" label="所属用户编号" type="STRING" length="80" />
+				<attribute name="BELONGROLEID" label="所属角色编号" type="STRING" length="80" />
+				<attribute name="DESCRIBE" label="描述" type="STRING" length="2000" />
+				<attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+				<attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+				<attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+				<attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+				<attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+				<attribute name="REMARK" label="备注" type="STRING" length="250" />
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="table" value="USER_SHORTCUT" />
+					<property name="createKey" value="true" />
+				</managerProperties>
+			</manager>
+		</class>
+		<class name="USER_SHORTCUTITEM" label="用户自定义快捷功能明细" keyAttributes="SERIALNO">
+			<attributes>
+				<attribute name="SERIALNO" label="快捷菜单明细流水号" type="STRING" length="25" />
+				<attribute name="BELONGSERIALNO" label="所属用户自定义快捷菜单流水号" type="STRING" length="25" />
+				<attribute name="BELONGITEMNO" label="所属菜单项编号" type="STRING" length="25" />
+				<attribute name="BELONGUSERID" label="所属用户编号" type="STRING" length="25" />
+				<attribute name="ISINUSE" label="是否使用" type="STRING" length="1" />
+				<attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+				<attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+				<attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+				<attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+				<attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+				<attribute name="REMARK" label="备注" type="STRING" length="250" />
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="table" value="USER_SHORTCUTITEM" />
+					<property name="createKey" value="true" />
+				</managerProperties>
+			</manager>
+		</class>
+		
+	    <class name="AWE_DICT_ERRMSG" label="系统错误报告" keyAttributes="MSGNO">
+			<attributes>
+				<attribute name="MSGNO" label="错误编号" type="STRING" length="8" />
+				<attribute name="MSGTYPE" label="错误主题" type="STRING" length="8" />
+				<attribute name="MSGTEXT" label="报告内容" type="STRING" length="200" />
+				<attribute name="ENTEXT" label="图片地址" type="STRING" length="200" />
+				<attribute name="INPUTUSER" label="录入人" type="STRING" length="32" />
+				<attribute name="INPUTORG" label="录入机构" type="STRING" length="32" />
+				<attribute name="INPUTTIME" label="录入时间" type="STRING" length="20" />
+				<attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+				<attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="table" value="AWE_DICT_ERRMSG" />
+				</managerProperties>
+			</manager>
+		</class>
+		<class name="AWE_QUERY_INFO" label="查询配置基本信息" keyAttributes="JBOQUERYNO">
+			<attributes>
+				<attribute name="JBOQUERYNO" label="查询编号" type="STRING" length="32" />
+				<attribute name="BIZOBJNAME" label="主对象名称" type="STRING" length="80" />
+				<attribute name="APPENDBIZOBJNAME1" label="附加对象1名称" type="STRING" length="80" />
+				<attribute name="APPENDBIZOBJALIAS1" label="附加对象1别名" type="STRING" length="80" />
+				<attribute name="APPENDBIZOBJNAME2" label="附加对象2名称" type="STRING" length="80" />
+				<attribute name="APPENDBIZOBJALIAS2" label="附加对象2别名" type="STRING" length="80" />
+				<attribute name="APPENDBIZOBJNAME3" label="附加对象3名称" type="STRING" length="80" />
+				<attribute name="APPENDBIZOBJALIAS3" label="附加对象3别名" type="STRING" length="80" />
+				<attribute name="APPENDBIZOBJNAME4" label="附加对象4名称" type="STRING" length="80" />
+				<attribute name="APPENDBIZOBJALIAS4" label="附加对象4别名" type="STRING" length="80" />
+				<attribute name="APPENDBIZOBJNAME5" label="附加对象5名称" type="STRING" length="80" />
+				<attribute name="APPENDBIZOBJALIAS5" label="附加对象5别名" type="STRING" length="80" />
+				<attribute name="RELATION" label="对象间关系" type="STRING" length="1000" />
+				<attribute name="QUERYCLAUSE" label="查询条件" type="STRING" length="1000" />
+				<attribute name="OUTPUTITEMS" label="输出信息项" type="STRING" length="1000" />
+				<attribute name="ORDERITEMS" label="排序信息项" type="STRING" length="400" />
+				<attribute name="GROUPITEMS" label="汇总信息项" type="STRING" length="400" />
+				<attribute name="TOTALITEMS" label="合计信息项" type="STRING" length="400" />
+				<attribute name="INPUTDATE" label="录入时间" type="STRING" length="20" />
+				<attribute name="INPUTUSER" label="录入人" type="STRING" length="32" />
+				<attribute name="INPUTORG" label="录入机构" type="STRING" length="32" />
+				<attribute name="UPDATEDATE" label="更新时间" type="STRING" length="20" />
+				<attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+				<attribute name="UPDATEORG" label="更新机构" type="STRING" length="32" />
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="table" value="AWE_QUERY_INFO" />
+					<property name="createKey" value="true" />
+				</managerProperties>
+			</manager>
+		</class>
+	</package>
+</jbo>
+

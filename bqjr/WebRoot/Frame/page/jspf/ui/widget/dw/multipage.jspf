@@ -1,0 +1,14 @@
+<%@ page contentType="text/html; charset=GBK"%>
+<body class="list_page">
+<table class="list_data_tablecommon" id="ListTable">
+<tr height=1 id="ButtonTR">
+	<td id="ListButtonArea" class="listdw_out_buttonarea" valign=top>		
+    </td>
+</tr>
+<tr id="DWTR">
+    <td class="listdw_out_data" id="DWTD">
+		<%@ include file="/Frame/page/jspf/ui/widget/dw/overdiv.jspf"%>
+	</td>
+</tr>
+</table>
+</body>

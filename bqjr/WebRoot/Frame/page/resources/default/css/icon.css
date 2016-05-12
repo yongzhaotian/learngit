@@ -1,0 +1,160 @@
+.noicon {
+	height: 100%;
+	width: 0px;
+	display: inline-block;
+}
+.icon {
+	height: 100%;
+	width: 16px;
+	display: inline-block;
+	margin-right: 2px;
+	outline: none;
+	text-decoration: none;
+}
+.icon_add {
+	background: url(../images/icons/add.png) no-repeat center;
+}
+.icon_min {
+	background: url(../images/icons/min.png) no-repeat center;
+}
+a:hover.icon_min {
+	background: url(../images/icons/minhover.png) no-repeat center;
+}
+.icon_max {
+	background: url(../images/icons/max.png) no-repeat center;
+}
+a:hover.icon_max {
+	background: url(../images/icons/maxhover.png) no-repeat center;
+}
+.icon_minrestore {
+	background: url(../images/icons/minrestore.png) no-repeat center;
+}
+a:hover.icon_minrestore {
+	background: url(../images/icons/minrestorehover.png) no-repeat center;
+}
+a:hover.icon_minrestore {
+	background: url(../images/icons/minrestorehover.png) no-repeat center;
+}
+.icon_maxrestore {
+	background: url(../images/icons/maxrestore.png) no-repeat center;
+}
+a:hover.icon_maxrestore {
+	background: url(../images/icons/maxrestorehover.png) no-repeat center;
+}
+.icon_arrow_down {
+	background: url(../images/icons/arrow_down.png) no-repeat center;
+}
+.icon_arrow_left {
+	background: url(../images/icons/arrow_left.png) no-repeat center;
+}
+.icon_arrow_right {
+	background: url(../images/icons/arrow_right.png) no-repeat center;
+}
+.icon_arrow_up {
+	background: url(../images/icons/arrow_up.png) no-repeat center;
+}
+.icon_break {
+	width: 20px;
+	background: url(../images/icons/break.gif) no-repeat center;
+}
+.icon_check {
+	background: url(../images/icons/check.png) no-repeat center;
+}
+.icon_close {
+	background: url(../images/icons/close.png) no-repeat center;
+}
+.icon_delete {
+	background: url(../images/icons/delete.png) no-repeat center;
+}
+.icon_detail {
+	background: url(../images/icons/detail.png) no-repeat center;
+}
+.icon_edit {
+	background: url(../images/icons/edit.png) no-repeat center;
+}
+.icon_exit {
+	background: url(../images/icons/exit.png) no-repeat center;
+}
+.icon_help {
+	background: url(../images/icons/help.png) no-repeat center;
+}
+.icon_home {
+	background: url(../images/icons/home.png) no-repeat center;
+}
+.icon_information {
+	background: url(../images/icons/information.png) no-repeat center;
+}
+.icon_light {
+	background: url(../images/icons/light.gif) no-repeat center;
+}
+.icon_search {
+	background: url(../images/icons/search.gif) no-repeat center;
+}
+a:hover.icon_search {
+	background: url(../images/icons/search.png) no-repeat center;
+}
+.icon_load {
+	width: 160px;
+	background: url(../images/icons/load.gif) no-repeat center;
+}
+.icon_modifypwd {
+	background: url(../images/icons/modifypwd.png) no-repeat center;
+}
+.icon_othersys {
+	background: url(../images/icons/othersys.png) no-repeat center;
+}
+.icon_refresh {
+	background: url(../images/icons/refresh.png) no-repeat center;
+}
+a:hover.icon_refresh {
+	background: url(../images/icons/refreshhover.png) no-repeat center;
+}
+.icon_workflow {
+	background: url(../images/icons/workflow.png) no-repeat center;
+}
+.icon_point {
+	background: url(../images/icons/point.gif) no-repeat center;
+}
+.icon_save {
+	background: url(../images/icons/save.png) no-repeat center;
+}
+.icon_submit {
+	background: url(../images/icons/submit.png) no-repeat center;
+}
+.icon_back {
+	background: url(../images/icons/back.png) no-repeat center;
+}
+.icon_forward {
+	background: url(../images/icons/forward.png) no-repeat center;
+}
+
+/* ÅäÌ×Í¼±ê */
+/* --open-close-folder------------ */
+.icon_folder {
+	background: url(../images/icons/folder.gif) no-repeat center;
+}
+.open .icon_folder {
+	background: url(../images/icons/folder_open.gif) no-repeat center;
+}
+.close .icon_folder {
+	background: url(../images/icons/folder.gif) no-repeat center;
+}
+/* --open-close-arrow------------ */
+.icon_arrow {
+	background: url(../images/icons/arrow_right.png) no-repeat center;
+}
+.open .icon_arrow {
+	background: url(../images/icons/arrow_down.png) no-repeat center;
+}
+.close .icon_arrow {
+	background: url(../images/icons/arrow_right.png) no-repeat center;
+}
+.check {
+	background: url(../images/icons/checkbox0.gif) no-repeat left; 
+}
+.check.checked {
+	background: url(../images/icons/checkbox1.gif) no-repeat left;
+}
+.check.halfchecked {
+	background: url(../images/icons/checkbox2.gif) no-repeat left;
+}

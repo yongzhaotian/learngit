@@ -1,0 +1,3 @@
+<Functions>
+<Function functionid="GetOrgAccount" class="com.amarsoft.app.accounting.config.loader.OrgConfig" method="getOrgAccount"/>
+</Functions>

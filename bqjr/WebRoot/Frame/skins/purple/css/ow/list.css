@@ -1,0 +1,25 @@
+.list_topdiv_header th {
+	background-image: url(../../images/ow/info_tit_bg.png);
+	border-color: #e9e;
+}
+.list_search_span {
+	background-image: url(../../images/ow/search.gif);
+}
+.list_left_border, div td.list_all_no, div td.list_checkbox_td, div td.list_all_td{
+  	border-color: #e9e;
+}
+.list_page_topdiv .list_page_current {
+	color: #949;
+	border-color: #a5a;
+	background: #f8b5f7;
+}
+.list_page_topdiv a:hover span {
+	background: #f8b5f7;
+}
+table.countwarning td{
+	color: #a5a;
+}
+.list_hr {
+	border-color: #dfcdfe;
+	background: #dfcdfe;
+}

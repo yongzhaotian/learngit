@@ -1,0 +1,6 @@
+/*验证出错提示样式*/
+label.error{
+	padding-left:15px;
+	background: url(../images/formatdoc/err.gif) no-repeat left top;
+	color:#ff0000;
+}

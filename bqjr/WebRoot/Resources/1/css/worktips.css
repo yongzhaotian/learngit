@@ -1,0 +1,85 @@
+@charset "gb2312";
+/******************************************
+*文件描述：工作台样式文件
+*创建日期：2009/12/10
+*作者：杨松(syang@amarsoft.com)
+******************************************/
+/*最外层工作台容器*/
+#WindowDiv *{
+	margin:0px;
+	padding:0px;
+}
+#WindowDiv{
+	width:100%;
+	height:100%;
+}
+/*日历容器*/
+#CalendarDiv{
+	position:absolute;
+	top:2%;
+	left:2%;
+	height:30%;
+	width:18%; 
+}
+/*工作台工作提示*/
+#WorkPlanDiv{
+	position:absolute;
+	top:2%;
+	left:23%;
+	width:50%; 
+	height:96%;
+	overflow:auto;
+}
+/*工作提示列表样式*/
+.DataList tr{
+	margin-top:5px;
+}
+/*工作提示列表样式*/
+#WorkPlanDiv ul li{
+	list-style:none;
+	margin-top:5px;
+}
+
+/*总行通知*/
+#NoticeDiv{
+	position:absolute;
+	top:2%;
+	left:80%;
+	width:18%;
+	height:85%;
+	border:1px solid #ccd9e3;
+	padding:2px;
+	font-size:14px;
+	/* color:#FFFFFF; */
+	background:#f5f5f5;
+	overflow: hidden;
+}
+/*总行通知-滚动区域*/
+#NoticeDiv div {
+	height: 100%; width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+#NoticeDiv div ul{
+	margin:0;
+	padding:0;
+	position: absolute;
+}
+/*总行通知-滚动区域-列表*/
+#NoticeDiv div ul li{
+	list-style:none;
+	padding:0;
+	margin:2%;
+}
+/*总行通知-标题区域*/
+#NoticeDiv h1{
+	font-size:10pt;
+	color:#fff;
+	color:#204179;
+	text-align:center;
+	margin:0px;
+	padding:5px;
+	display:block;
+	background:#9fbef4;
+	font-weight:bold;
+}

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="GB2312"?>
+<dataSource>
+	<name>sample_db</name>
+	<encoding>GBK</encoding>
+	<label>样例数据库定义</label>
+	<describe>样例数据库元数据定义</describe>
+	<product>
+		<name>XML Metadata</name>
+		<version>1.0</version>
+		<provider>Amarsoft</provider>
+	</product>
+	<extendProperties>
+		<property name="sample" value="sample" />
+	</extendProperties>
+	<tables>
+		<table name="Employee" label="员工信息" describe="员工信息表">
+			<extendProperties>
+				<property name="tableProperty" value="tableProperty{#注释}" />
+			</extendProperties>
+			<column index="1" name="EmployeeId" label="员工编号" type="CHAR" displaySize="20" precision="0" scale="0" format="" />
+			<column index="2" name="PID" label="身份证号码" type="CHAR" displaySize="20" precision="0" scale="0" format="" />
+			<column index="3" name="EmployeeName" label="姓名" type="CHAR" displaySize="20" precision="0" scale="0" format="" />
+			<column index="4" name="Sex" label="性别" type="CHAR" displaySize="20" precision="0" scale="0" format="" />
+			<column index="5" name="Birthday" label="生日" type="DATE" displaySize="20" precision="0" scale="0" format="yyyyMMdd" />			
+			<column index="6" name="Education" label="学历" type="CHAR" displaySize="20" precision="0" scale="0" format="" />						
+			<column index="7" name="WorkYear" label="工作年份" type="INT" displaySize="20" precision="0" scale="0" format="" />
+			<column index="8" name="Salary" label="工资收入" type="DOUBLE" displaySize="20" precision="0" scale="0" format="" />
+			<column index="9" name="Department" label="所属部门" type="CHAR" displaySize="20" precision="0" scale="0" format="" />
+			<column index="10" name="Email" label="邮件地址" type="CHAR" displaySize="20" precision="0" scale="0" format="" />
+		</table>
+		<table name="CODEMAP" >
+			<column index="1" name="Code1" label="原代码" type="CHAR" displaySize="20" precision="0" scale="0" format="" />
+			<column index="2" name="Code2" label="转换代码" type="CHAR" displaySize="20" precision="0" scale="0" format="" />
+			<column index="3" name="Note" label="代码含义" type="CHAR" displaySize="20" precision="0" scale="0" format="" />			
+		</table>
+	</tables>
+</dataSource>

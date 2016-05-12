@@ -1,0 +1,8 @@
+<%@include file="/Frame/page/jspf/include/jsp_runtime_context.jspf"
+%><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /><%@
+include file="/Frame/page/jspf/include/jsp_head_res.jspf"
+%>
+<head>

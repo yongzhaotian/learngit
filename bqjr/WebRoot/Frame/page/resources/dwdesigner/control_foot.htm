@@ -1,0 +1,96 @@
+<script>
+function SPLocation(obj){
+	//alert(obj);
+	var left = obj.offsetLeft;
+	var top = obj.offsetTop;
+	var parent;
+	parent = obj.offsetParent;
+	while(parent.tagName!="BODY"){
+		//alert(parent.tagName + "," + parent.id);
+		left += parent.offsetLeft;
+		top += parent.offsetTop;
+		parent = parent.offsetParent;
+	}
+	this.getLeft = left;
+	this.getTop = top;
+}
+
+function getBestMatchForSpan(obj,sourceid){
+
+	var e = document.getElementsByTagName("span");
+	for(var i=0;i<e.length;i++){
+		if(e[i].id.length>4 && e[i].id.substr(0,4)=="div_"){
+			//判断鼠标是否在该控件中
+			//alert(e[i].id);
+			try{
+				if(e[i].parentNode.id == 'Layer1')continue;
+			}
+			catch(ex){}
+			var l = new SPLocation(e[i]);
+			if(event.clientX + document.body.scrollLeft>=l.getLeft && event.clientX + document.body.scrollLeft<=l.getLeft+e[i].offsetWidth
+				&& event.clientY + document.body.scrollTop>=l.getTop && event.clientY + document.body.scrollTop<=l.getTop+e[i].offsetHeight
+        && sourceid !=e[i].id
+        ){
+				//alert(e[i].id)
+				return e[i];
+			}
+		}	
+	} 
+	
+	return null;
+}
+
+function getBestMatchForTd(obj){
+	var e = document.getElementsByTagName("span");
+	for(var i=0;i<e.length;i++){
+		if(e[i].id.length>6 && e[i].id.substr(0,6)=="Group_"){
+			//判断鼠标是否在该控件中
+			//alert(e[i].offsetParent.offsetParent.id);
+			try{
+				//if(e[i].id==obj.id)continue;
+				if(e[i].offsetParent.offsetParent.id == 'Layer1')continue;
+			}
+			catch(ex){}
+			var l = new SPLocation(e[i]);
+			if(event.clientX + document.body.scrollLeft>=l.getLeft && event.clientX + document.body.scrollLeft<=l.getLeft+e[i].offsetWidth
+				&& event.clientY + document.body.scrollTop>=l.getTop && event.clientY + document.body.scrollTop<=l.getTop+e[i].offsetHeight){
+				return e[i];
+			}
+		}	
+	} 
+	return null;
+}
+window.onload = function(){
+	var e = document.getElementsByTagName("span");
+  var eValidCount = 0;
+	for(var i=0;i<e.length;i++){
+		if(e[i].id!='undefined' && e[i].id.length>4 && e[i].id.substr(0,4)=="div_"){
+	  		new  ObjectDragDrop(e[i].id,"sort");
+     		new csMenu(e[i],document.getElementById('MenuForField'));
+        eValidCount++;
+    	}
+	}
+	var etd = document.getElementsByTagName("span");
+  var etdValidCount = 0;
+	for(var i=0;i<etd.length;i++){
+		if(e[i].id!='undefined' && etd[i].id.length>6 && etd[i].id.substr(0,6)=="Group_"){
+			new  ObjectDragDrop(etd[i].id,"groupsort");
+    		new csMenu(etd[i],document.getElementById('MenuForGroup'));
+        etdValidCount++;
+    	}
+	}
+  if(eValidCount==0 && etdValidCount ==0){
+    document.getElementById('MenuforGroup').style.display = 'none';
+    document.getElementById('MenuforField').style.display = 'none';
+  }
+ //控制默认的展开，收缩
+  var ex = document.getElementsByTagName("span");
+  for(var i=0;i<ex.length;i++){
+  	 if(ex[i].name=='@Expand')
+     	changeExpand(ex[i]);
+  }
+  new LayerMove("Title_LaEditGroup");
+ new LayerMove("Title_LaEditField");
+}
+</script>
+<div>拖拽时请对准标题操作</div>

@@ -1,0 +1,9 @@
+<%
+}
+catch(Exception e)
+{
+    e.printStackTrace();
+    ARE.getLog().error(e.getMessage(),e);
+    throw e;
+}
+%>

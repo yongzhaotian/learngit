@@ -1,0 +1,38 @@
+body{ background:#fff url(../images/bg.jpg) repeat-x; margin:0; padding:0}
+.lefttit{ width:363px; height:100px; background:url(../images/title.gif);margin-top:30px; margin-left:30px;}
+.lefttit span{ color:#fff; float:left; margin:12px auto auto 15px; font-size:12px;}
+
+.div_tbl{height:auto;  float:left;margin-top:10px; margin-left:30px;border: solid 1px #848484; display:inline}
+.tbl_nor{ border-collapse:collapse;border-spacing:0;}
+.tr_nor{height:36px; }
+.td_nor{width:207px; border:1px solid #bcbcbc; font-size:12px; color:#2b2b2b; text-align:center}
+.td_tit_bg{ background:url(../images/cell-tit.gif)}
+.tr_tit_bg{ background:url(../images/tbl-tit-bg.gif) repeat-x}
+.td_font_color{color:#fff; font-weight:bold}
+.tfc2{color:#4a8cf5;font-size:14px}
+.td_font_align{ text-align:center}
+.tr_bg{ background:#eaeaea;}
+.tr_bg2{ background:#f7f7f7}
+.td_nor label{ color:#4a8cf5; font-size:14px;  float:left}
+.lblright{ margin-left:130px}
+.lblleft{margin-left:10px}
+.btn_zone{width:1053px; height:40px;float:left; margin-left:30px; margin-top:30px; display:inline}
+.btn_zone a{ font-size:12px; color:#fff; text-align:center; text-decoration:none}
+a.linka { margin-left:380px; float:left; height:19px; width:102px; background:url(../images/btnimg.gif); padding-top:10px}
+a:hover.linka { float:left; height:19px; width:102px; background:url(../images/btnimg.gif) 0px -29px ; padding-top:10px}
+a:active.linka { float:left; height:19px; width:102px; background:url(../images/btnimg.gif) 0px -58px ; padding-top:10px}
+
+a.linkb {margin-left:25px; float:left; height:19px; width:70px; background:url(../images/btnimg2.gif); padding-top:10px}
+a:hover.linkb { float:left; height:19px; width:70px; background:url(../images/btnimg2.gif) 0px -29px ; padding-top:10px}
+a:active.linkb { float:left; height:19px; width:70px; background:url(../images/btnimg2.gif) 0px -58px ; padding-top:10px}
+
+a.linkc { margin-left:25px; float:left; height:19px; width:70px; background:url(../images/btnimg2.gif); padding-top:10px}
+a:hover.linkc { float:left; height:19px; width:70px; background:url(../images/btnimg2.gif) 0px -29px ; padding-top:10px}
+a:active.linkc { float:left; height:19px; width:70px; background:url(../images/btnimg2.gif) 0px -58px ; padding-top:10px}
+
+.edpen{width:27px; height:27px; background:url(../images/pen.gif); float:left; cursor:hand}
+.edpenX{width:27px; height:27px; background:url(../images/pen.gif) 0px -27px; float:left;}
+.txtpen{width:180px; height:15px;  float:left;margin-top:5px}
+.iptTxt {width:180px; float:left;margin-top:5px; display:none; text-align: center;}
+.tr_bg_color{background:#b4cbff}
+.tr_stripe_color{background:#f2f2f2}

@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="GB2312"?>
+<jbo>
+    <package name="jbo.als.business">
+		<class name="BUSINESS_APPLY" label="业务申请" keyAttributes="SerialNo" briefAttributes="SerialNo">
+		<!-- select SerialNo,CustomerID,ApplyType,OccurType,BusinessType,LowRisk,TermMonth,
+						VouchType,substr(VouchType,1,3) as VouchType3,
+						BusinessSum*GetErate(BusinessCurrency,'01','') as BusinessSum,RiskRate,BusinessCurrency,BillNum,TempSaveFlag,Direction,getItemName('Currency',BusinessCurrency) as CurrencyName,
+						getBusinessName(BusinessType) as BusinessTypeName 
+						from Business_Apply  只能使用自然查询 -->
+			<attributes>
+				<attribute name="SerialNo" label="申请编号" type="CHAR" length="20"/>
+				<attribute name="CustomerID" label="客户号" type="CHAR" length="20"/>
+				<attribute name="ApplyType" label="申请 类型" type="CHAR" length="20"/>
+				<attribute name="OccurType" label="业务发生 类型" type="CHAR" length="3"/>
+				<attribute name="BusinessType" label="业务品种" type="CHAR" length="18"/>
+				<attribute name="LowRisk" label="XXXX" type="CHAR" length="18"/>
+				<attribute name="TermMonth" label="贷款月数" type="INT" length="10"/>
+				<attribute name="VouchType" label="担保方式" type="CHAR" length="4"/>
+				<attribute name="VouchType3" label="担保方式3" type="CHAR" length="3"/>
+				<attribute name="BusinessSum" label="申请金额" type="DOUBLE" length="20"/>
+				<attribute name="RiskRate" label="浮动利率" type="DOUBLE" length="10"/>
+				<attribute name="BusinessCurrency" label="币种" type="CHAR" length="2"/>
+				<attribute name="BillNum" label="票据张数" type="INT" length="2"/>
+				<attribute name="EXPOSURESUM" label="敞口金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="CYCLEFLAG" label="额度是否循环" type="STRING" length="18" />
+				<attribute name="TempSaveFlag" label="暂存标志" type="CHAR" length="1"/>
+				<attribute name="Direction" label="行业投向" type="CHAR" length="18"/>
+				<attribute name="CurrencyName" label="币种名称" type="CHAR" length="18"/>
+				<attribute name="BusinessTypeName" label="业务品种名称" type="CHAR" length="18"/>
+			</attributes>
+			<manager id="jbo.als">
+				<managerProperties>
+					<property name="attributeMap" value="{VouchType3,[substr(VouchType,1,3)]}{BusinessSum,[BusinessSum*GetErate(BusinessCurrency,'01','')]}
+					{CurrencyName,[getItemName('Currency',BusinessCurrency)]}{BusinessTypeName,[getBusinessName(BusinessType)]}"/>
+				</managerProperties>				
+			</manager>
+		</class>
+		
+		<class name="APPLY_RELATIVE" label="申请阶段业务关联信息" keyAttributes="SerialNo" briefAttributes="SerialNo">
+			<attributes>
+				<attribute name="SerialNo" label="流水号" type="CHAR" length="20"/>
+				<attribute name="ObjectNo" label="业务对象号" type="CHAR" length="20"/>
+				<attribute name="ObjectType" label="业务对象类型" type="CHAR" length="20"/>
+			</attributes>
+			<manager id="jbo.als"/>
+		</class>
+		
+		<class name="APPROVE_RELATIVE" label="批复阶段业务关联信息" keyAttributes="SerialNo" briefAttributes="SerialNo">
+			<attributes>
+				<attribute name="SerialNo" label="流水号" type="CHAR" length="20"/>
+				<attribute name="ObjectNo" label="业务对象号" type="CHAR" length="20"/>
+				<attribute name="ObjectType" label="业务对象类型" type="CHAR" length="20"/>
+			</attributes>
+			<manager id="jbo.als"/>
+		</class>
+		
+		<class name="CONTRACT_RELATIVE" label="合同阶段业务关联信息" keyAttributes="SerialNo" briefAttributes="SerialNo">
+			<attributes>
+				<attribute name="SerialNo" label="流水号" type="CHAR" length="20"/>
+				<attribute name="ObjectNo" label="业务对象号" type="CHAR" length="20"/>
+				<attribute name="ObjectType" label="业务对象类型" type="CHAR" length="20"/>
+			</attributes>
+			<manager id="jbo.als"/>
+		</class>
+		
+		<class name="TRANSFORM_RELATIVE" label="担保合同关联信息" keyAttributes="SerialNo" briefAttributes="SerialNo">
+			<attributes>
+				<attribute name="SerialNo" label="流水号" type="CHAR" length="20"/>
+				<attribute name="ObjectNo" label="业务对象号" type="CHAR" length="20"/>
+				<attribute name="ObjectType" label="业务对象类型" type="CHAR" length="20"/>
+			</attributes>
+			<manager id="jbo.als"/>
+		</class>
+		
+		<class name="CUSTOMER_INFO" label="客户信息表" keyAttributes="CustomerID" briefAttributes="CustomerID,CustomerName">
+			<attributes>
+				<attribute name="CustomerID" label="客户编号" type="CHAR" length="32"/>
+				<attribute name="CustomerName" label="客户名" type="CHAR" length="20"/>
+				<attribute name="CustomerType" label="客户类型" type="CHAR" length="20"/>
+				<attribute name="CertType" label="证件类型" type="CHAR" length="20"/>
+				<attribute name="CertID" label="证件号" type="CHAR" length="32"/>			
+				<attribute name="MFCustomerID" label="核心客户号" type="CHAR" length="32"/>						
+				<attribute name="Channel" label="客户来源" type="CHAR" length="10"/>
+			</attributes>
+			<manager id="jbo.als"/>
+		</class>
+		
+		<class name="ENT_INFO" label="企业客户信息" keyAttributes="CustomerID" briefAttributes="CustomerID">
+			<attributes>
+				<attribute name="CustomerID" label="客户编号" type="CHAR" length="32"/>
+				<attribute name="TempSaveFlag" label="暂存标志" type="CHAR" length="32"/>
+			</attributes>
+			<manager id="jbo.als"/>
+		</class>
+		
+		<class name="IND_INFO" label="个人客户信息" keyAttributes="CustomerID" briefAttributes="CustomerID">
+			<attributes>
+				<attribute name="CustomerID" label="客户编号" type="CHAR" length="32"/>
+				<attribute name="TempSaveFlag" label="暂存标志" type="CHAR" length="32"/>
+			</attributes>
+			<manager id="jbo.als"/>
+		</class>
+		
+		<class name="BUSINESS_CONTRACT" label="贷款合同" keyAttributes="SerialNo" briefAttributes="CustomerID,SerialNo">
+			<attributes>
+				<attribute name="SerialNo" label="合同流水号" type="CHAR" length="32"/>
+				<attribute name="CustomerID" label="被担保客户号" type="CHAR" length="32"/>
+				<attribute name="TempSaveFlag" label="暂存标志" type="CHAR" length="32"/>
+				<attribute name="VouchType" label="担保类型" type="CHAR" length="80"/>
+				<attribute name="BusinessType" label="业务品种" type="CHAR" length="3"/>
+				<attribute name="OccurType" label="发生方式" type="CHAR" length="3"/>
+				<attribute name="BusinessSum" label="合同金额" type="CHAR" length="20"/>
+			</attributes>
+			<manager id="jbo.als"/>
+		</class>
+		
+		<class name="PAYMENT_INFO" label="支付信息" keyAttributes="SerialNo" briefAttributes="SerialNo">
+			<attributes>
+				<attribute name="SerialNo" label="支付流水号" type="CHAR" length="32"/>
+				<attribute name="PaymentMode" label="支付方式" type="CHAR" length="32"/>
+				<attribute name="PaymentSum" label="支付金额" type="DOUBLE" length="20"/>
+				<attribute name="PaymentStatus" label="支付状态" type="CHAR" length="32"/>
+				<attribute name="PayeeName" label="收款人名称" type="CHAR" length="32"/>
+			</attributes>
+			<manager id="jbo.als"/>
+		</class>
+		
+		
+		<class name="GUARANTY_CONTRACT" label="担保合同" keyAttributes="SerialNo" briefAttributes="CustomerID,GuarantorID">
+		<!-- select SerialNo,CustomerID,GuarantorID,GuarantorName,ContractType,ContractStatus,GuarantyType,
+						ContractNo,SignDate,BeginDate,EndDate,GuarantyCurrency,GuarantyValue*GetErate(GuarantyCurrency,'01','') as GuarantyValue,LoanCardNo 
+						from GUARANTY_CONTRACT 自然查询使用 -->
+			<attributes>
+				<attribute name="SerialNo" label="担保合同流水号" type="CHAR" length="32"/>
+				<attribute name="CustomerID" label="被担保客户号" type="CHAR" length="32"/>
+				<attribute name="GuarantorID" label="担保客户号" type="CHAR" length="32"/>
+				<attribute name="GuarantorName" label="担保客户名" type="CHAR" length="80"/>
+				<attribute name="ContractType" label="合同类型" type="CHAR" length="3"/>
+				<attribute name="ContractStatus" label="合同状态" type="CHAR" length="3"/>
+				<attribute name="GuarantyType" label="担保类型" type="CHAR" length="20"/>
+				<attribute name="ContractNo" label="合同号" type="CHAR" length="32"/>
+				<attribute name="SignDate" label="签订日期" type="DATE" length="10"/>
+				<attribute name="BeginDate" label="开始日期" type="DATE" length="10"/>
+				<attribute name="EndDate" label="结束日期" type="DATE" length="10"/>
+				<attribute name="GuarantyCurrency" label="币种" type="CHAR" length="2"/>
+				<attribute name="GuarantyValue" label="担保金额" type="DOUBLE" length="30"/>
+				<attribute name="LoanCardNo" label="贷款卡号" type="CHAR" length="32"/>
+			</attributes>
+			<manager id="jbo.als">
+				<managerProperties>
+					<property name="attributeMap" value="{GuarantyValue,[GuarantyValue*GetErate(GuarantyCurrency,'01','')]}"/>
+				</managerProperties>
+			</manager>
+		</class>
+		
+		<class name="BUSINESS_APPROVE" label="批复信息" keyAttributes="SerialNo" briefAttributes="SerialNo,RelativeSerialNo">
+		<!-- select 
+						SerialNo,RelativeSerialNo,OccurDate,CustomerID,CustomerName,BusinessType,BusinessSubType,OccurType,CurrenyList,CurrencyMode,BusinessTypeList,
+						CalculateMode,UseOrgList,FlowreduceFlag,ContractFlag,SubContractFlag,SelfUseFlag,CreditAggreement,RelativeAgreement,
+						LoanFlag,TotalSum,OurRole,ReversIbility,BillNum,HouseType,LctermType,RiskAttribute,SureType,SafeGuardType,CreditBusiness,
+						BusinessSum*GetErate(BusinessCurrency,'01','') as BusinessSum,BusinessCurrency,
+						BusinessProp,TermYear,TermMonth,TermDay,LgTerm,BaserateType,BaseRate,RateFloatType,RateFloat,
+						BusinessRate,IcType,IcCyc,PdgRatio,PdgSum,PdgPayMethod,PdgPayPeriod,PromisesFeeRatio,PromisesFeeSum,PromisesFeePeriod,
+						PromisesFeeBegin,MfeeRatio,MfeeSum,MfeePayMethod,AgentFee,DealFee,TotalCast,DiscountInterest,PurchaserInterest,
+						BargainorInterest,DiscountSum,BailRatio,BailCurrency,BailSum,BailAccount,FineRateType,FineRate,DrawingType,
+						FirstDrawingDate,DrawingPeriod,PayTimes,PayCyc,GracePeriod,OverdraftPeriod,OldLcno,OldLcTermType,OldLcCurrency
+						,OldLcSum,OldLcLoadingDate,OldLcValidDate,Direction,Purpose,PlanAllocation,ImmediacyPaySource,PaySource,
+						CorpusPayMethod,InterestPayMethod,ThirdParty1,ThirdPartyid1,ThirdParty2,ThirdPartyid2,ThirdParty3,
+						ThirdPartyID3,ThirdPartyRegion,ThirdPartyAccounts,CargoInfo,ProjectName,OperationInfo,ContextInfo,
+						SecuritiesType,SecuritiesRegion,ConstructionArea,UseArea,Flag1,Flag2,Flag3,TradecontractNo,InvoiceNo,
+						TradeCurrency,TradeSum,PaymentDate,OperationMode,VouchClass,VouchType,VouchType1,VouchType2,VouchFlag,
+						Warrantor,WarrantorID,OtherCondition,GuarantyValue,GuarantyRate,BaseevaluateResult,RiskRate,LowRisk,
+						OtherAreaLoan,LowRiskbailSum,OriginalPutoutDate,ExtendTimes,LngoTimes,GolnTimes,DrTimes,BaseclassifyResult,
+						ApplyType,BailRate,FinishOrg,Describe1,OperateOrgID,OperateUserID,OperateDate,InputOrgID,InputUserID,
+						InputDate,UpdateDate,PigeonholeDate,Remark,PayCurrency,PayDate,Flag4,FundSource,OperateType,ApproveType,
+						CycleFlag,ClassifyResult,ClassifyDate,ClassifyFrequency,VouchnewFlag,AdjustrateType,AdjustrateTerm,
+						RateadjustCyc,FzanBalance,AcceptIntType,Ratio,ThirdPartyAdd1,ThirdPartyZip1,ThirdPartyAdd2,ThirdPartyZip2,
+						ThirdPartyAdd3,ThirdPartyZip3,EffectArea,TermDate1,TermDate2,TermDate3,FixCyc,Describe2,ApproveOpinion,
+						TempSaveFlag,ApproveDate,Flag5,CreditCycle,GuarantyFlag,
+						getBusinessName(BusinessType) as BusinessTypeName,getItemName('Currency',BusinessCurrency) as CurrencyName
+						from BUSINESS_APPROVE 自然查询使用 -->
+			<attributes>
+				<attribute name="SerialNo" label="流水号" type="CHAR" length="32"/>
+				<attribute name="RelativeSerialNo" label="相关申请流水号" type="CHAR" length="32"/>
+				<attribute name="OccurDate" label="发生日期" type="CHAR" length="20"/>
+				<attribute name="CustomerID" label="客户编号" type="CHAR" length="32"/>
+				<attribute name="CustomerName" label="客户名称" type="CHAR" length="80"/>
+				<attribute name="BusinessType" label="业务品种" type="CHAR" length="20"/>
+				<attribute name="BusinessSubType" label="业务子类型" type="CHAR" length="20"/>
+				<attribute name="OccurType" label="发生类型" type="CHAR" length="20"/>
+				<attribute name="CurrenyList" label="可融通币种表" type="CHAR" length="20"/>
+				<attribute name="CurrencyMode" label="汇率计算模式" type="CHAR" length="20"/>
+				<attribute name="BusinessTypeList" label="可混用品种表" type="CHAR" length="20"/>
+				<attribute name="CalculateMode" label="额度金额占用计算模式" type="CHAR" length="20"/>
+				<attribute name="UseOrgList" label="额度可使用机构范围" type="CHAR" length="20"/>
+				<attribute name="FlowreduceFlag" label="额度是否简化审批流程" type="CHAR" length="20"/>
+				<attribute name="ContractFlag" label="额度是否需要签署协议" type="CHAR" length="20"/>
+				<attribute name="SubContractFlag" label="额度下业务是否需要签署合同" type="CHAR" length="20"/>
+				<attribute name="SelfUseFlag" label="额度自用或他用" type="CHAR" length="20"/>
+				<attribute name="CreditAggreement" label="使用授信协议号" type="CHAR" length="20"/>
+				<attribute name="RelativeAgreement" label="其他相关协议号" type="CHAR" length="20"/>
+				<attribute name="LoanFlag" label="(new)是否可以直接申请出帐" type="CHAR" length="20"/>
+				<attribute name="TotalSum" label="银行融资总额" type="DOUBLE" length="20"/>
+				<attribute name="OurRole" label="我行参与角色" type="CHAR" length="20"/>
+				<attribute name="ReversIbility" label="有无追索权" type="CHAR" length="20"/>
+				<attribute name="BillNum" label="票据数量（张）" type="INT" length="20"/>
+				<attribute name="HouseType" label="房产类型" type="CHAR" length="20"/>
+				<attribute name="LctermType" label="信用证期限类型" type="CHAR" length="20"/>
+				<attribute name="RiskAttribute" label="风险类型" type="CHAR" length="20"/>
+				<attribute name="SureType" label="对外担保类型" type="CHAR" length="20"/>
+				<attribute name="SafeGuardType" label="保函类型" type="CHAR" length="20"/>
+				<attribute name="CreditBusiness" label="单项额度指定品种" type="CHAR" length="20"/>
+				<attribute name="BusinessCurrency" label="币种" type="CHAR" length="20"/>
+				<attribute name="BusinessSum" label="置换总金额" type="DOUBLE" length="20"/>
+				<attribute name="BusinessProp" label="贷款成数" type="DOUBLE" length="20"/>
+				<attribute name="TermYear" label="期限年" type="INT" length="20"/>
+				<attribute name="TermMonth" label="期限月" type="INT" length="20"/>
+				<attribute name="TermDay" label="期限日" type="INT" length="20"/>
+				<attribute name="LgTerm" label="远期信用证付款期限" type="INT" length="20"/>
+				<attribute name="BaserateType" label="基准利率类型" type="CHAR" length="20"/>
+				<attribute name="BaseRate" label="基准利率" type="DOUBLE" length="20"/>
+				<attribute name="RateFloatType" label="浮动类型" type="CHAR" length="20"/>
+				<attribute name="RateFloat" label="利率浮动" type="DOUBLE" length="20"/>
+				<attribute name="BusinessRate" label="利率" type="DOUBLE" length="20"/>
+				<attribute name="IcType" label="计息方式" type="CHAR" length="20"/>
+				<attribute name="IcCyc" label="计息周期" type="CHAR" length="20"/>
+				<attribute name="PdgRatio" label="手续费比例" type="DOUBLE" length="20"/>
+				<attribute name="PdgSum" label="手续费金额" type="DOUBLE" length="20"/>
+				<attribute name="PdgPayMethod" label="手续费支付方式" type="CHAR" length="20"/>
+				<attribute name="PdgPayPeriod" label="(new)收费周期" type="CHAR" length="20"/>
+				<attribute name="PromisesFeeRatio" label="(new)承诺费率" type="DOUBLE" length="20"/>
+				<attribute name="PromisesFeeSum" label="(new)承诺费金额" type="DOUBLE" length="20"/>
+				<attribute name="PromisesFeePeriod" label="(new)承诺费计收期" type="INT" length="20"/>
+				<attribute name="PromisesFeeBegin" label="(new)承诺费计收起始日" type="CHAR" length="20"/>
+				<attribute name="MfeeRatio" label="管理费比例" type="DOUBLE" length="20"/>
+				<attribute name="MfeeSum" label="管理费金额" type="DOUBLE" length="20"/>
+				<attribute name="MfeePayMethod" label="管理费支付方式" type="CHAR" length="20"/>
+				<attribute name="AgentFee" label="(new)代理费" type="DOUBLE" length="20"/>
+				<attribute name="DealFee" label="(new)安排费" type="DOUBLE" length="20"/>
+				<attribute name="TotalCast" label="(new)总成本" type="DOUBLE" length="20"/>
+				<attribute name="DiscountInterest" label="(new)贴现利息" type="DOUBLE" length="20"/>
+				<attribute name="PurchaserInterest" label="(new)买方应付贴现利息" type="DOUBLE" length="20"/>
+				<attribute name="BargainorInterest" label="(new)卖方应付贴现利息" type="DOUBLE" length="20"/>
+				<attribute name="DiscountSum" label="(new)实付贴现金额" type="DOUBLE" length="20"/>
+				<attribute name="BailRatio" label="保证金比例" type="DOUBLE" length="20"/>
+				<attribute name="BailCurrency" label="(new)保证金币种" type="CHAR" length="20"/>
+				<attribute name="BailSum" label="保证金金额" type="DOUBLE" length="20"/>
+				<attribute name="BailAccount" label="保证金帐号" type="CHAR" length="20"/>
+				<attribute name="FineRateType" label="罚息利率类型" type="CHAR" length="20"/>
+				<attribute name="FineRate" label="罚息利率" type="DOUBLE" length="20"/>
+				<attribute name="DrawingType" label="(new)提款方式" type="CHAR" length="20"/>
+				<attribute name="FirstDrawingDate" label="(new)首次提款日期" type="CHAR" length="20"/>
+				<attribute name="DrawingPeriod" label="(new)提款期限" type="INT" length="20"/>
+				<attribute name="PayTimes" label="还款期次" type="INT" length="20"/>
+				<attribute name="PayCyc" label="(new)还款方式" type="CHAR" length="20"/>
+				<attribute name="GracePeriod" label="还款宽限期(月)" type="INT" length="20"/>
+				<attribute name="OverdraftPeriod" label="(new)连续透支期" type="INT" length="20"/>
+				<attribute name="OldLcno" label="(new)原信用证编号" type="CHAR" length="20"/>
+				<attribute name="OldLcTermType" label="(new)原信用证期限类型" type="CHAR" length="20"/>
+				<attribute name="REMITMODE" label="汇款方式" type="CHAR" length="20"/>
+				<attribute name="OldLcSum" label="(new)原信用证金额" type="DOUBLE" length="20"/>
+				<attribute name="OldLcLoadingDate" label="(new)原信用证装期" type="CHAR" length="20"/>
+				<attribute name="OldLcValidDate" label="(new)原信用证效期" type="CHAR" length="20"/>
+				<attribute name="Direction" label="投向" type="CHAR" length="20"/>
+				<attribute name="Purpose" label="用途" type="CHAR" length="20"/>
+				<attribute name="PlanAllocation" label="用款计划" type="CHAR" length="20"/>
+				<attribute name="ImmediacyPaySource" label="(new)直接还款来源" type="CHAR" length="20"/>
+				<attribute name="PaySource" label="还款来源" type="CHAR" length="20"/>
+				<attribute name="CorpusPayMethod" label="本金还款方式" type="CHAR" length="20"/>
+				<attribute name="InterestPayMethod" label="利息支付方式" type="CHAR" length="20"/>
+				<attribute name="ThirdParty1" label="(new)涉及第三方1" type="CHAR" length="20"/>
+				<attribute name="ThirdPartyid1" label="(new)第三方法人代码1" type="CHAR" length="20"/>
+				<attribute name="ThirdParty2" label="(new)涉及第三方2" type="CHAR" length="20"/>
+				<attribute name="ThirdPartyid2" label="(new)第三方法人代码2" type="CHAR" length="20"/>
+				<attribute name="ThirdParty3" label="(new)涉及第三方3" type="CHAR" length="20"/>
+				<attribute name="ThirdPartyID3" label="(new)第三方法人代码3" type="CHAR" length="20"/>
+				<attribute name="ThirdPartyRegion" label="涉及第三方所在地区和国家" type="CHAR" length="20"/>
+				<attribute name="ThirdPartyAccounts" label="(new)第三方帐号" type="CHAR" length="20"/>
+				<attribute name="CargoInfo" label="(new)货物名称" type="CHAR" length="20"/>
+				<attribute name="ProjectName" label="(new)贷款项目名称" type="CHAR" length="20"/>
+				<attribute name="OperationInfo" label="(new)业务信息" type="char" length="20"/>
+				<attribute name="ContextInfo" label="(new)背景信息" type="CHAR" length="20"/>
+				<attribute name="SecuritiesType" label="(new)有价证券类型" type="CHAR" length="20"/>
+				<attribute name="SecuritiesRegion" label="(new)有价证券发行地" type="CHAR" length="20"/>
+				<attribute name="ConstructionArea" label="(new)建筑面积" type="DOUBLE" length="20"/>
+				<attribute name="UseArea" label="(new)使用面积" type="DOUBLE" length="20"/>
+				<attribute name="Flag1" label="(new)是否1" type="CHAR" length="20"/>
+				<attribute name="Flag2" label="(new)是否2" type="CHAR" length="20"/>
+				<attribute name="Flag3" label="(new)是否3" type="CHAR" length="20"/>
+				<attribute name="TradecontractNo" label="(new)相关贸易合同号" type="CHAR" length="20"/>
+				<attribute name="InvoiceNo" label="(new)增值税发票" type="CHAR" length="20"/>
+				<attribute name="TradeCurrency" label="(new)贸易合同币种" type="CHAR" length="20"/>
+				<attribute name="TradeSum" label="(new)贸易合同金额" type="DOUBLE" length="20"/>
+				<attribute name="PaymentDate" label="(new)最迟对外付汇日期" type="CHAR" length="20"/>
+				<attribute name="OperationMode" label="(new)业务模式" type="CHAR" length="20"/>
+				<attribute name="VouchClass" label="担保形式" type="CHAR" length="20"/>
+				<attribute name="VouchType" label="主要担保方式" type="CHAR" length="20"/>
+				<attribute name="VouchType1" label="担保方式1" type="CHAR" length="20"/>
+				<attribute name="VouchType2" label="担保方式2" type="CHAR" length="20"/>
+				<attribute name="VouchFlag" label="(new)有无其他担保方式" type="CHAR" length="20"/>
+				<attribute name="Warrantor" label="主要担保人" type="CHAR" length="20"/>
+				<attribute name="WarrantorID" label="主要担保人代码" type="CHAR" length="20"/>
+				<attribute name="OtherCondition" label="(new)其他条件和要求" type="CHAR" length="20"/>
+				<attribute name="GuarantyValue" label="担保总价值" type="DOUBLE" length="20"/>
+				<attribute name="GuarantyRate" label="担保率" type="DOUBLE" length="20"/>
+				<attribute name="BaseevaluateResult" label="基期信用等级" type="CHAR" length="20"/>
+				<attribute name="RiskRate" label="综合风险度" type="DOUBLE" length="20"/>
+				<attribute name="LowRisk" label="是否低风险业务" type="CHAR" length="20"/>
+				<attribute name="OtherAreaLoan" label="(new)是否异地贷款" type="CHAR" length="20"/>
+				<attribute name="LowRiskbailSum" label="低风险担保金额" type="DOUBLE" length="20"/>
+				<attribute name="OriginalPutoutDate" label="首次发放日" type="CHAR" length="20"/>
+				<attribute name="ExtendTimes" label="展期次数" type="INT" length="20"/>
+				<attribute name="LngoTimes" label="借新还旧次数" type="INT" length="20"/>
+				<attribute name="GolnTimes" label="还旧借新次数" type="INT" length="20"/>
+				<attribute name="DrTimes" label="债务重组次数" type="INT" length="20"/>
+				<attribute name="BaseclassifyResult" label="基期风险分类结果" type="CHAR" length="20"/>
+				<attribute name="ApplyType" label="申请方式" type="CHAR" length="20"/>
+				<attribute name="BailRate" label="保证金比率" type="DOUBLE" length="20"/>
+				<attribute name="FinishOrg" label="终批机构级别" type="CHAR" length="20"/>
+				<attribute name="Describe1" label="描述1" type="CHAR" length="20"/>
+				<attribute name="OperateOrgID" label="经办机构" type="CHAR" length="20"/>
+				<attribute name="OperateUserID" label="经办人" type="CHAR" length="20"/>
+				<attribute name="OperateDate" label="经办日期" type="CHAR" length="20"/>
+				<attribute name="InputOrgID" label="登记机构" type="CHAR" length="20"/>
+				<attribute name="InputUserID" label="登记人" type="CHAR" length="20"/>
+				<attribute name="InputDate" label="登记日期" type="CHAR" length="20"/>
+				<attribute name="UpdateDate" label="更新日期" type="CHAR" length="20"/>
+				<attribute name="PigeonholeDate" label="归档日期" type="CHAR" length="20"/>
+				<attribute name="Remark" label="备注" type="CHAR" length="20"/>
+				<attribute name="PayCurrency" label="(new)付款币种" type="CHAR" length="20"/>
+				<attribute name="PayDate" label="(new)付款时间" type="CHAR" length="20"/>
+				<attribute name="Flag4" label="(new)是否4" type="CHAR" length="20"/>
+				<attribute name="FundSource" label="资金来源" type="CHAR" length="20"/>
+				<attribute name="OperateType" label="操作方式" type="CHAR" length="20"/>
+				<attribute name="ApproveType" label="APPROVETYPE" type="CHAR" length="20"/>
+				<attribute name="CycleFlag" label="CYCLEFLAG" type="CHAR" length="20"/>
+				<attribute name="ClassifyResult" label="五级分类结果" type="CHAR" length="20"/>
+				<attribute name="ClassifyDate" label="最新风险分类时间" type="CHAR" length="20"/>
+				<attribute name="ClassifyFrequency" label="分类频率" type="INT" length="20"/>
+				<attribute name="VouchnewFlag" label="VOUCHNEWFLAG" type="CHAR" length="20"/>
+				<attribute name="AdjustrateType" label="利率调整方式" type="CHAR" length="20"/>
+				<attribute name="AdjustrateTerm" label="利率调整月数" type="CHAR" length="20"/>
+				<attribute name="RateadjustCyc" label="利率调整周期" type="CHAR" length="20"/>
+				<attribute name="FzanBalance" label="发展商入帐净额" type="DOUBLE" length="20"/>
+				<attribute name="AcceptIntType" label="收息类型" type="CHAR" length="20"/>
+				<attribute name="Ratio" label="比例" type="DOUBLE" length="20"/>
+				<attribute name="ThirdPartyAdd1" label="(new)涉及第三方地址1" type="CHAR" length="20"/>
+				<attribute name="ThirdPartyZip1" label="(new)第三方法人邮编1" type="CHAR" length="20"/>
+				<attribute name="ThirdPartyAdd2" label="(new)涉及第三方地址2" type="CHAR" length="20"/>
+				<attribute name="ThirdPartyZip2" label="(new)第三方法人邮编2" type="CHAR" length="20"/>
+				<attribute name="ThirdPartyAdd3" label="(new)涉及第三方地址3" type="CHAR" length="20"/>
+				<attribute name="ThirdPartyZip3" label="(new)第三方法人邮编3" type="CHAR" length="20"/>
+				<attribute name="EffectArea" label="信用证有效地" type="CHAR" length="20"/>
+				<attribute name="TermDate1" label="最晚装运期" type="CHAR" length="20"/>
+				<attribute name="TermDate2" label="交单期" type="CHAR" length="20"/>
+				<attribute name="TermDate3" label="付款期限" type="CHAR" length="20"/>
+				<attribute name="FixCyc" label="固定周期" type="INT" length="20"/>
+				<attribute name="Describe2" label="描述2" type="CHAR" length="20"/>
+				<attribute name="ApproveOpinion" label="最终审批意见" type="CHAR" length="20"/>
+				<attribute name="TempSaveFlag" label="暂存标志" type="CHAR" length="20"/>
+				<attribute name="ApproveDate" label="审批通过日" type="CHAR" length="20"/>
+				<attribute name="Flag5" label="(new)是否已登记合同" type="CHAR" length="20"/>
+				<attribute name="CreditCycle" label="(new)额度是否循环" type="CHAR" length="20"/>
+				<attribute name="GuarantyFlag" label="征信担保标志" type="CHAR" length="20"/>
+				<attribute name="BusinessTypeName" label="业务品种名" type="CHAR" length="40"/>
+				<attribute name="CurrencyName" label="币种名" type="CHAR" length="40"/>
+			</attributes>
+			<manager id="jbo.als">
+				<managerProperties>
+					<property name="attributeMap" value="{BusinessSum,[BusinessSum*GetErate(BusinessCurrency,'01','')]}
+					{BusinessTypeName,[getBusinessName(BusinessType)]}
+					{CurrencyName,[getItemName('Currency',BusinessCurrency)]}"/>
+				</managerProperties>
+			</manager>
+		</class>
+	</package>
+</jbo>

@@ -1,0 +1,67 @@
+.app_welcom2 {
+	background-image: url(../images/app_welcom_bg.png);
+	border-color: #dac079;
+}
+.app_change a, .app_change a:link, .app_change a:visited {
+	color:#f27b0a;
+}
+.app_welcom_txt2, .app_welcom_note2 {
+	color: #666;
+}
+.app_block {
+	border-bottom-color: #dac079;
+}
+.app_block_on{
+	border-color: #dac079;
+}
+.app_tit a{
+	color: #333;
+}
+.app_txt {
+	color: #999;
+}
+.app_txt span {
+	color: #ff9804;
+}
+.sub_menu_bar li {
+	background: #fff5cd;
+	
+}
+.sub_menu_bar li a {
+	background: #ffcd81;
+	color:#000;
+}
+.sub_menu_bar li a:hover {
+	background: #ffe88b;
+}
+.s_content {
+	border-color: #dac079;
+}
+.s_tit {
+	border-color: #dac079;
+	background-image: url(../images/s_content_tit_bg.png);
+}
+.s_nvg {
+	background-image: url(../images/s_nvg_bg.png);
+	border-color: #dac079;
+}
+.snb_selected {
+	background-image: url(../images/s_selcet_bg.png);
+}
+.s_appimg_flow {
+	background-image: url(../images/s_appimg_flow.png);
+}
+.s_scoll{
+	background-image: url(../images/s_shadow.png);
+}
+.snb{
+	color:#000;
+}
+input.s_btn{
+	background-color: #ffffc5;
+	color: #eb6100;
+	border-color: #dac079;
+}
+.pwd_main {
+	background-image: url(../images/pwd_bg.png);
+}

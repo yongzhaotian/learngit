@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="GB2312"?>
+<dataSource>
+	<name>oti_objects</name>
+	<encoding>GBK</encoding>
+	<label>实时接口交易对象定义</label>
+	<describe>样例数据库元数据定义</describe>
+	<product>
+		<name>XML Metadata</name>
+		<version>1.0</version>
+		<provider>Amarsoft</provider>
+	</product>
+	<tables>
+		<!-- AmarOTI与ALS集成-典型交易对象 -->
+		
+		<table name="DMRequestHeader" label="报文头" describe="DM通用报文头">
+		    <column index="1" name="TradeNo"    label="交易代码" type="CHAR" displaySize="4" format="" />
+		    <column index="2" name="SendTime"   label="发送时间" type="DATE" displaySize="14" format="yyyyMMddHHmmss">
+		    	<extendProperties>
+					<property name="autoSetTimeStamp" value="true"/>
+				</extendProperties>
+		    </column>
+			<column index="3" name="SubSystem"  label="系统标识" type="CHAR" displaySize="2" format="" defaultValue="01"/>
+			<column index="4" name="RspCode"    label="错误代码" type="CHAR" displaySize="4" format="" defaultValue="0000"/>	
+			<column index="5" name="RspMsg"     label="错误信息" type="CHAR" displaySize="40" format="" />									
+		</table>
+		
+		<table name="DMResponseHeader" label="反馈报文头" describe="DM通用反馈报文头">
+		    <column index="1" name="TradeNo"           label="交易代码" type="CHAR" displaySize="4" format="" />
+		    <column index="2" name="SendTime"          label="发送时间" type="DATE" displaySize="14" format="yyyyMMddHHmmss" />
+			<column index="3" name="SubSystem"         label="系统标识" type="CHAR" displaySize="2" format="" />
+			<column index="4" name="RspCode"           label="错误代码" type="CHAR" displaySize="4" format="" />	
+			<column index="5" name="RspMsg"            label="错误信息" type="CHAR" displaySize="40" format="" />							
+		</table>
+		
+		<table name="DKBody" label="报文体" describe="贷款发放信息报文体">
+			<extendProperties>
+				<property name="jbo.query.dataSource" value="datasource:db:als:select bp.SerialNo as SerialNo,
+				bp.ContractSerialNo as ContractSerialNo,bp.ArtificialNo as ArtificialNo,bp.CustomerId as CustomerId,
+				bp.CustomerName as CustomerName,bp.BusinessType as BusinessType,bp.BusinessCurrency as BusinessCurrency,
+				bp.PutOutDate as PutOutDate,bp.Maturity as Maturity,bc.VouchType as VouchType,bp.CreditKind as CreditKind,
+				bp.IcType as IcType,bp.ContractSum as ContractSum,bp.BusinessSum as BusinessSum,bp.AccountNo as AccountNo,
+				bp.BusinessRate as BusinessRate,bp.BaseRate as BaseRate from BUSINESS_PUTOUT bp,BUSINESS_CONTRACT bc 
+				where bc.Serialno = bp.ContractSerialNo"/>
+			</extendProperties>
+			<column index="1"  name="SerialNo"          label="出账流水号"     type="CHAR" displaySize="20" format="" />           
+			<column index="2"  name="ContractSerialNo"  label="合同流水号"     type="CHAR" displaySize="20" format="" />           
+			<column index="3"  name="ArtificialNo"      label="合同号"         type="CHAR" displaySize="20" format="" />
+			<column index="4"  name="CustomerId"        label="客户号"         type="CHAR" displaySize="20" format="" />
+			<column index="5"  name="CustomerName"      label="客户名称"       type="CHAR" displaySize="40" format="" />
+			<column index="6"  name="BusinessType"      label="业务品种"       type="CHAR" displaySize="10" format="" />
+			<column index="7"  name="BusinessCurrency"  label="业务币种"       type="CHAR" displaySize="10" format="" />
+			<column index="8"  name="PutOutDate"        label="起贷日"	      type="DATE" displaySize="10" format="yyyyMMdd" />
+			<column index="9"  name="Maturity"          label="到期日"	      type="DATE" displaySize="10" format="yyyyMMdd" />
+			<column index="10" name="VouchType"         label="担保方式"       type="CHAR" displaySize="10" format="" />
+			<column index="11" name="CreditKind"        label="贷款形式"       type="CHAR" displaySize="3" format="" />
+			<column index="12" name="IcType"            label="计息方式"       type="CHAR" displaySize="3" format="" />
+			<column index="13" name="ContractSum"       label="合同金额"       type="DOUBLE" displaySize="16" format="##.00" />
+			<column index="14" name="BusinessSum"       label="借据金额"       type="DOUBLE" displaySize="16" format="##.00" />
+			<column index="15" name="AccountNo"         label="结算帐号"       type="CHAR" displaySize="32" format="" />
+			<column index="16" name="BusinessRate"      label="贷款利率"       type="DOUBLE" displaySize="10" format="##.000000" />
+			<column index="17" name="BaseRate"          label="基准利率"       type="DOUBLE" displaySize="10" format="##.000000" />					
+		</table>
+		
+		<table name="ZQBody" label="报文体" describe="贷款展期信息报文体">
+			<extendProperties>
+				<property name="jbo.query.dataSource" value="datasource:db:als:select bp.SerialNo as SerialNo,
+				cr.ObjectNo as DuebillSerialNo,bp.CustomerId as CustomerId,bp.ArtificialNo as ArtificialNo,
+				bp.Maturity as Maturity,bp.BusinessRate as BusinessRate,bp.RateFloatType as RateFloatType,
+				bp.RateFloat as RateFloat from BUSINESS_PUTOUT bp,CONTRACT_RELATIVE cr 
+				where bp.ContractSerialNo = cr.SerialNo"/>
+			</extendProperties>
+			<column index="1"  name="SerialNo"          label="出账流水号"     type="CHAR" displaySize="20" format="" />           
+			<column index="2"  name="DuebillSerialNo"   label="借据号"        type="CHAR" displaySize="20" format="" />           
+			<column index="3"  name="CustomerId"        label="客户号"        type="CHAR" displaySize="20" format="" />
+			<column index="4"  name="ArtificialNo"      label="合同号"        type="CHAR" displaySize="20" format="" />
+			<column index="5"  name="Maturity"          label="展期到期日"	 type="DATE" displaySize="10" format="yyyyMMdd" />
+			<column index="6"  name="BusinessRate"      label="展期年利率"     type="DOUBLE" displaySize="10" format="##.000000" defaultValue=""/>
+			<column index="7"  name="RateFloatType"     label="浮动方式"       type="CHAR" displaySize="3" format="" />
+			<column index="8"  name="RateFloat"         label="展期浮动比率/点" type="DOUBLE" displaySize="10" format="##.000000" />				
+		</table>
+		
+		<table name="CDBody" label="报文体" describe="承兑汇票出账信息报文体">
+			<extendProperties>
+				<property name="jbo.query.dataSource" value="datasource:db:als:select SerialNo,ContractSerialNo,
+				ArtificialNo,CustomerId,AccountNo,PutOutDate,Maturity,CorpusPayMethod,SecondPayAccount,
+				GatheringName,AboutBankName,BusinessSum,BailAccount from BUSINESS_PUTOUT"/>
+			</extendProperties>
+			<column index="1"  name="SerialNo"          label="出账流水号"     type="CHAR" displaySize="20" format="" />           
+			<column index="2"  name="ContractSerialNo"  label="承兑协议流水号"  type="CHAR" displaySize="20" format="" />           
+			<column index="3"  name="ArtificialNo"      label="合同号"         type="CHAR" displaySize="20" format="" />
+			<column index="4"  name="CustomerId"        label="客户号"         type="CHAR" displaySize="20" format="" />
+			<column index="5"  name="AccountNo"         label="结算帐号"       type="CHAR" displaySize="32" format="" defaultValue=""/>
+			<column index="6"  name="PutOutDate"        label="签发日"	      type="DATE" displaySize="10" format="yyyyMMdd" />
+			<column index="7"  name="Maturity"          label="到期日"	      type="DATE" displaySize="10" format="yyyyMMdd" />
+			<column index="8"  name="CorpusPayMethod"   label="保证金到期扣款顺序" type="CHAR" displaySize="3" format="" />
+			<column index="9"  name="SecondPayAccount"  label="出票人帐号"       type="CHAR" displaySize="32" format="" defaultValue=""/>
+			<column index="10" name="GatheringName"     label="收款人户名"       type="CHAR" displaySize="40" format="" />
+			<column index="11" name="AboutBankName"     label="收款行行名"       type="CHAR" displaySize="40" format="" />
+			<column index="12" name="BusinessSum"       label="汇票金额"       type="DOUBLE" displaySize="16" format="##.00" defaultValue=""/>
+			<column index="13" name="BailAccount"       label="保证金帐号"       type="CHAR" displaySize="32" format="" defaultValue=""/> 					
+		</table>
+		
+		<table name="BHBody" label="报文体" describe="保函出账信息报文体">
+			<extendProperties>
+				<property name="jbo.query.dataSource" value="datasource:db:als:select SerialNo,BillNo,
+				BusinessCurrency,BusinessSum,PutOutDate,Maturity,AboutBankName2 from BUSINESS_PUTOUT"/>
+			</extendProperties>
+			<column index="1"  name="SerialNo"          label="出账流水号"     type="CHAR" displaySize="20" format="" />           
+			<column index="2"  name="BillNo"            label="保函编号"       type="CHAR" displaySize="20" format="" />
+			<column index="3"  name="BusinessCurrency"  label="业务币种"       type="CHAR" displaySize="10" format="" />
+			<column index="4"  name="BusinessSum"       label="保函金额"       type="DOUBLE" displaySize="16" format="##.00" defaultValue=""/>
+			<column index="5"  name="PutOutDate"        label="生效日期"	      type="DATE" displaySize="10" format="yyyyMMdd" />
+			<column index="6"  name="Maturity"          label="失效日期"	      type="DATE" displaySize="10" format="yyyyMMdd" />
+			<column index="7"  name="AboutBankName2"    label="保函受益人"      type="CHAR" displaySize="20" format="" />				
+		</table>
+		
+		<table name="TXBody" label="报文体" describe="贴现出账信息报文体">
+			<extendProperties>
+				<property name="jbo.query.dataSource" value="datasource:db:als:select SerialNo,CustomerId,
+				CustomerName,BusinessCurrency,BusinessType,BillNo,BusinessSum,PutOutDate,Maturity,
+				AcceptIntType,BillRisk,BusinessRate,PdgAccountNo,AccountNo,PdgPayMethod,FixCyc from BUSINESS_PUTOUT"/>
+			</extendProperties>
+			<column index="1"  name="SerialNo"          label="出账流水号"     type="CHAR" displaySize="20" format="" />
+			<column index="2"  name="CustomerId"        label="客户号"        type="CHAR" displaySize="20" format="" />
+			<column index="3"  name="CustomerName"      label="客户名称"       type="CHAR" displaySize="40" format="" />
+			<column index="4"  name="BusinessCurrency"  label="业务币种"       type="CHAR" displaySize="10" format="" />
+			<column index="5"  name="BusinessType"      label="贴现业务种类"    type="CHAR" displaySize="10" format="" />
+			<column index="6"  name="BillNo"            label="票据号码"       type="CHAR" displaySize="32" format="" defaultValue=""/>
+			<column index="7"  name="BusinessSum"       label="票面金额"       type="DOUBLE" displaySize="16" format="##.00" defaultValue=""/>
+			<column index="8"  name="PutOutDate"        label="起息日"	      type="DATE" displaySize="10" format="yyyyMMdd" />
+			<column index="9"  name="Maturity"          label="到期日"	      type="DATE" displaySize="10" format="yyyyMMdd" />
+			<column index="10" name="AcceptIntType"     label="贴现付息方式"    type="CHAR" displaySize="3" format="" />
+			<column index="11" name="BillRisk"          label="买方付息比例"    type="INT" displaySize="10" format="" defaultValue=""/>
+			<column index="12" name="BusinessRate"      label="贴现月利率"      type="DOUBLE" displaySize="10" format="##.000000" defaultValue=""/>
+			<column index="13" name="PdgAccountNo"      label="买方付息帐号"    type="CHAR" displaySize="32" format="" defaultValue=""/>
+			<column index="14" name="AccountNo"         label="结算帐号"       type="CHAR" displaySize="32" format="" defaultValue=""/>
+			<column index="15" name="PdgPayMethod"      label="票据来源"       type="CHAR" displaySize="10" format="" />
+			<column index="16" name="FixCyc"            label="调整天数"	      type="INT"  displaySize="10" format="" />				
+		</table>
+		
+		<table name="CXBody" label="报文体" describe="冲销信息报文体">
+			<extendProperties>
+				<property name="jbo.query.dataSource" value="datasource:db:als:select serialno as SeriNo,
+				customerid as CustomId from business_putout "/>
+			</extendProperties>
+			<column index="1"  name="SeriNo"     label="出账流水号"      type="CHAR"  displaySize="20" format="" />
+			<column index="2"  name="CustomId"     label="客户号"       type="CHAR"  displaySize="21" format="" />					
+		</table>
+		
+		<table name="KHBody" label="报文体" describe="客户开户查询请求信息">
+			<extendProperties>
+				<property name="jbo.query.dataSource" value="datasource:db:als:select CertId, CertType from CUSTOMER_INFO"/>
+			</extendProperties>
+			<column index="1"  name="CertId"     label="证件号码"       type="CHAR"  displaySize="21" format="" />
+			<column index="2"  name="CertType"    label="证件类型"       type="CHAR" displaySize="20" format="" />           					
+		</table>
+		
+		<table name="JYBody" label="报文体" describe="借据余额查询请求信息">
+			<extendProperties>
+				<property name="jbo.query.dataSource" value="datasource:db:als:select SerialNo from business_duebill"/>
+			</extendProperties>
+			<column index="1"  name="SerialNo"    label="借据号"       type="CHAR"  displaySize="20" format="" />          					
+		</table>	
+			
+		<table name="KHFKBody" label="报文体" describe="客户开户信息查询反馈报文体">
+			<column index="1"  name="CustomId"    label="核心客户号"     type="CHAR" displaySize="30" format=""/>
+			<column index="2"  name="CustName"    label="核心客户名称"    type="CHAR" displaySize="40" format="" />
+			<column index="3"  name="Type"        label="核心客户类型"    type="CHAR" displaySize="1" format="" />    							
+		</table>
+		
+		<table name="JYFKBody" label="报文体" describe="借据余额信息查询反馈报文体">
+			<column index="1"  name="Balance"    label="借据余额"     type="DOUBLE" displaySize="15" format=""/>    							
+		</table>
+				
+		<table name="BusinessType" label="业务类型" describe="业务类型定义">
+			<extendProperties>
+				<property name="jbo.query.dataSource" value="datasource:db:als:select TypeNo,
+				Attribute13 as PutoutTXCode,Attribute14 as CancelTXCode from BUSINESS_TYPE"/>
+			</extendProperties>
+			<column index="1" name="TypeNo"       label="业务类型" type="CHAR" primaryKey="true" displaySize="20" format="" />
+			<column index="2" name="PutoutTXCode" label="出账交易类型" type="CHAR"  displaySize="20" format="" />
+			<column index="3" name="CancelTXCode" label="冲销交易类型" type="CHAR"  displaySize="20" format="" />						
+		</table>
+		
+		<table name="ContractSerialNo" label="合同号" describe="合同号定义">
+			<extendProperties>
+				<property name="jbo.query.dataSource" value="datasource:db:als:select SerialNo,
+				ContractSerialNo from BUSINESS_PUTOUT"/>
+			</extendProperties>
+			<column index="1" name="SerialNo"         label="出账流水号" type="CHAR" primaryKey="true" displaySize="20" format="" />
+			<column index="2" name="ContractSerialNo" label="合同号"    type="CHAR"  displaySize="20" format="" />						
+		</table>
+		
+		<table name="OccurType" label="发生方式" describe="发生方式定义">
+			<extendProperties>
+				<property name="jbo.query.dataSource" 
+				value="datasource:db:als:select SerialNo,OccurType from BUSINESS_CONTRACT"/>
+			</extendProperties>
+			<column index="1" name="SerialNo"  label="流水号"   type="CHAR" primaryKey="true" displaySize="20" format="" />
+			<column index="2" name="OccurType" label="发生方式"  type="CHAR"  displaySize="20" format="" />					
+		</table>
+			
+	</tables>
+</dataSource>

@@ -1,0 +1,9 @@
+a.button_a {
+	border-color: #e0bee0;
+}
+a.button_a:hover {
+	border-color: #c163c0;
+}
+.button_a_light{
+	border-color: #c163c0;
+}

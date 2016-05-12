@@ -1,0 +1,53 @@
+    .r_main{ width:830px; position:absolute; left:50%; margin-left:-415px}
+    .r_head{ width:829px; height:15px; background:url(./images/r_head.png) no-repeat bottom; float:left; padding:0px; margin:0px;}
+    .r_x{width:799px;*+width:829px ;height:auto; background:url(./images/r_x.png) repeat-y; padding-left:15px; padding-right:15px; float:left;}
+    .r_footer{width:829px; height:21px; background:url(./images/r_footer.png) repeat-y; float:left}
+    table.r_tb{border:0;margin:0;border-collapse:collapse; width:100%; font-size:12px; color:#333} 
+    table td{line-height:21px; min-height:16px}
+    .r_8{width:12%;}
+    .r_35{width:21%;}
+    .r_9{width:9%;}
+    .r_55{width:50%;}
+    .r_6{width:8%;}
+	
+	.viewer{ }
+	.viewer span{display:none;}
+	.viewer span.label a{color:#0024FF;}
+    .r_tb_tit{ color:#0024ff; font-size:14px; font-weight:bold; border-bottom:1px solid #ebebeb}
+
+    .r_holdon{}
+    .r_error{background:url(./images/r_error.png); height:16px; width:16px}
+    .r_pass{background:url(./images/r_pass.png); height:16px; width:16px}
+    .r_lightning{background:url(./images/r_lightning.png); height:16px; width:16px}
+
+	.default .message{}
+	.pass .message{color:#008000;}
+	.nopass_forbid .message{color:#F00;}
+	.nopass_prompt .message{color:#006392;}
+	
+	.default .icon{background:url(./images/holdon.gif); height:16px; width:16px}
+	.pass .icon{background:url(./images/r_pass.png); height:16px; width:16px}
+	.nopass_forbid .icon{background:url(./images/r_error.png); height:16px; width:16px}
+	.nopass_prompt .icon{background:url(./images/r_lightning.png); height:16px; width:16px}
+
+    .r_tyellow{ color:#e1b400}
+    .r_tred{color:#F00}
+
+    .r_green,.r_red{height:20px; width:97px; float:left; margin-left:3px; margin-top:-2px; color:#FFF; padding-left:32px; padding-top:2px;font-weight: normal;}
+    .r_green{background:url(./images/r_green.png) no-repeat;}
+    .r_red{background:url(./images/r_red.png) no-repeat;}
+
+    .r_info{ float:left; margin-top:5px;height:23px;*+height:26px; padding-left:42px; font-size:14px; font-weight:bold; padding-top:5px; color:#333; background:url(./images/r_info.png) 10px no-repeat}
+    
+    td.scenario-message-nopass{border-top:1px solid #ffb2b2;background:#ffeded; color:red; font-size:14px; font-weight:bold; text-align: center}
+    td.scenario-message-pass{border-top:1px solid #86e7bc; background:#edfff7; color:green; font-size:14px; font-weight:bold; text-align: center;}
+    /*.r_ending{position:absolute; width:820px;left:50%; margin-left:-410px; margin-top:101%;*+margin-top:28px;}*/
+    .r_ending{width:820px; float:left}
+    #scenario-message a{text-decoration:underline;color:#333;}
+    #scenario-message a:hover{text-decoration:underline;color:blue;}
+    #scenario-message span{margin-right: 10px}
+	#scenario-message div{margin:5px;}
+	#scenario-message div.summary{color:blue;}
+	#scenario-message div.summary .pass{color:green;}
+	#scenario-message div.summary .alarm{color:#DAA520;}
+	#scenario-message div.summary .nopass{color:#F00;}    

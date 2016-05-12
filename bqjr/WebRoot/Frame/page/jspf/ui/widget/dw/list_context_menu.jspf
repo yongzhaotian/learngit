@@ -1,0 +1,37 @@
+<% 
+ButtonItem [] biButtonArray = ItemHelp.getButtonItemArray(CurUser,sButtons,CurComp.getAttribute("RightType",10));
+%>
+<div id="mm" class="menu" style="display:none;width:150px;">
+	<div onclick='javascript:window.location.reload();'>刷新</div>
+	<div id=div_select_all_sep_1 style="display:none" class="menu-sep"></div>
+	<div id=div_select_all_ok  style="display:none"  onclick='javascript:selectAllRows(0,true)'>全部选中</div>
+	<div id=div_select_cancel  style="display:none"  onclick='javascript:selectAllRows(0,false)'>全部取消</div>
+	
+	<%
+	if(biButtonArray!=null){
+		out.println("<div class=\"menu-sep\"></div>");
+		for(int i=0;i<biButtonArray.length;i++){
+			if(biButtonArray[i].isEnabled()){
+				String iconCls = biButtonArray[i].getIconCls();
+				if(iconCls!=null && iconCls.trim().length()>0)
+					iconCls = "iconCls=\""+ iconCls +"\"";
+				else{
+					if(biButtonArray[i].getText().equals("新增")){
+						iconCls = "btn_icon_add";
+						iconCls = "iconCls=\""+ iconCls +"\"";
+					}
+					else if(biButtonArray[i].getText().equals("保存")){
+						iconCls = "btn_icon_save";
+						iconCls = "iconCls=\""+ iconCls +"\"";
+					}
+					else if(biButtonArray[i].getText().equals("删除")){
+						iconCls = "btn_icon_delete";
+						iconCls = "iconCls=\""+ iconCls +"\"";
+					}
+				}
+				out.println("<div "+iconCls+" onclick=\""+ biButtonArray[i].getAction() +"\">"+biButtonArray[i].getText()+"</div>");
+				//System.out.println("<div "+iconCls+" onclick=\""+ biButtonArray[i].getAction() +"\">"+biButtonArray[i].getText()+"</div>");
+			}
+		}
+	}%>
+</div>

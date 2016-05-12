@@ -1,0 +1,35 @@
+/*设置提示连接的样式*/
+
+.suggest_link{
+	background-color:#FFFFFF;
+	padding: 2px 6px 2px 6px;
+	font-size:12px;
+}
+/*设置当鼠标移到到提示上的样式*/
+.suggest_link_over{
+	background-color:#0000FF;
+	color:#FFFFFF;
+	padding: 2px 6px 2px 6px;
+	font-size:12px;
+}
+/*设置显示搜索提示div的样式*/
+#search_suggest{
+	position:absolute;
+	background-color:#FFFFFF;
+	text-align:left;
+	border:1px solid #999999;
+	width:257px;
+	font-size:12px;
+}
+/*关闭按钮样式*/
+.suggest_close_href{
+	color:#0000FF;
+	padding-right:4px;
+	text-decoration:underline;
+	cursor:pointer;
+}
+/*关闭行样式*/
+.suggest_close_div{
+	text-align:right;
+	font-size:12px
+}

@@ -1,0 +1,60 @@
+.tabs_content{
+	border-color: #a5a;
+}
+.tabs ul li span.tab_inactive_left{
+	border-color: #a5a;
+}
+.tabs ul li span.tab_inactive_center{
+	border-color: #a5a;
+}
+.tabs ul li span.tab_inactive_control{
+	border-color: #a5a;
+}
+.tabs ul li span.tab_inactive_right{
+	border-color: #a5a;
+}
+.tabs ul li span a {
+	color: #aa0cf1;
+}
+/********* 激活 ********/
+.tabs ul li span.tab_active_left{
+	border-color: #a5a;
+	background-image: url(../images/tabs_active.png);
+	background-color: #eee5ff;
+}
+.tabs ul li span.tab_active_center{
+	border-color: #a5a;
+	background-image: url(../images/tabs_active.png);
+	background-color: #eee5ff;
+}
+.tabs ul li span.tab_active_control{
+	border-color: #a5a;
+	background-image: url(../images/tabs_active.png);
+	background-color: #eee5ff;
+}
+.tabs ul li span.tab_active_right{
+	border-color: #a5a;
+	background-image: url(../images/tabs_active.png);
+	background-color: #eee5ff;
+}
+/********* 鼠标移入 ********/
+.tabs ul li span.tab_over_left{
+	border-color: #a5a;
+	background-image: url(../images/tabs_hover.png);
+	background-color: #eee5ff;
+}
+.tabs ul li span.tab_over_center{
+	border-color: #a5a;
+	background-image: url(../images/tabs_hover.png);
+	background-color: #eee5ff;
+}
+.tabs ul li span.tab_over_control{
+	border-color: #a5a;
+	background-image: url(../images/tabs_hover.png);
+	background-color: #eee5ff;
+}
+.tabs ul li span.tab_over_right{
+	border-color: #a5a;
+	background-image: url(../images/tabs_hover.png);
+	background-color: #eee5ff;
+}

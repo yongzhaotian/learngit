@@ -1,0 +1,106 @@
+/*
+    Document   : groupcustomerfamily
+    Created on : 2010-9-17, 14:41:55
+    Author     : syang
+    Description:
+*/
+body {
+  background: #fff;
+  color: #000;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.5;
+  vertical-align: text-top;
+  text-align: left;
+}
+.main{
+  border-collapse: collapse;
+  border: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 2px;
+  margin-left: 5px;
+  width: 100%;
+  height: 99%;
+}
+.main td{
+    margin: 0;padding: 0;
+}
+.main-header{
+    background:url(../images/group_bg.gif) repeat-x left top;
+    height:28px;
+    color:#34698b;
+    font-weight:bold;
+}
+.main-header span{
+    background:url("../images/group_bg.gif") repeat-x scroll right top transparent;
+    display:block;
+    height:28px;
+    line-height:28px;
+    margin-left:5px;
+}
+.main-nav{
+    border: 1px solid #adbec7;
+    border-top: none;
+    border-bottom: 2px solid #adbec7;
+    vertical-align: middle;
+    text-align: left;
+    height: 80px;
+    background-color: #1A72B3;
+    background:url("../images/group_headerbg.gif") repeat-x left -31px;
+}
+.main-nav table{
+    margin-left: 1em;
+    border-collapse: collapse;
+}
+.main-nav table td{
+    padding: 0.5em;
+}
+.main-body{
+    border: 1px solid #adbec7;
+    border-top: none;
+    border-bottom: none;
+}
+.main-body .main-body-left{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 49.9%;
+    float: left;
+/*    border-right: 2px solid #adbec7;*/
+}
+.main-body .main-body-right{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 49.9%;
+    float: right;
+}
+.main-body .main-body-all{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width:100%;
+    height:100%;
+    display:none;
+}
+.main-body .main-body-left iframe,.main-body .main-body-right iframe,.main-body .main-body-all iframe{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+.main-footer{
+    background:url(../images/group_bg.gif) no-repeat left -58px;
+    display:block;
+    height:15px;
+    line-height:15px;
+    border: 1px solid #adbec7;
+    border-top: none;
+}
+.main-footer span{
+    background:url(../images/group_bg.gif) no-repeat right -58px;
+    display:block;
+    height:15px;
+    line-height:15px;
+    margin-left:5px;
+}

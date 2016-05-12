@@ -1,0 +1,5 @@
+<%@
+include file="/Frame/page/jspf/include/jsp_debug.jspf"%><%@
+include file="/Frame/page/jspf/include/jsp_sqlca_tail.jspf"%><%@
+include file="/AppMain/resources/include/app_tail.jspf"%>
+</html>

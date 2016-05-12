@@ -1,0 +1,48 @@
+@charset "gb2312";
+a.button_a {
+	line-height: 30px;
+	background-image: url(../images/loadingbg.jpg);
+	background-repeat: repeat-x;
+	background-position: left center;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: dashed;
+	border-right-style: dashed;
+	border-bottom-style: dashed;
+	border-left-style: dashed;
+	border-top-color: #afc4e6;
+	border-right-color: #afc4e6;
+	border-bottom-color: #afc4e6;
+	border-left-color: #afc4e6;
+	font-family: "ËÎÌו";
+	font-size: 12px;
+	color: #1C2D4F;
+	font-weight: normal;
+	padding: 4px;
+}
+a.button_a:hover {
+	line-height: 30px;
+	background-image: url(../images/loadingbg.jpg);
+	background-repeat: repeat-x;
+	background-position: left center;
+	font-family: "ËÎÌו";
+	font-size: 12px;
+	color: #1C2D4F;
+	font-weight: normal;
+	padding: 4px;
+	border: 1px dashed #ef972d;
+}
+.button_a_light {
+	line-height: 30px;
+	background-image: url(../../images/loadingbg.jpg);
+	background-repeat: repeat-x;
+	background-position: left center;
+	font-family: "ËÎÌו";
+	font-size: 12px;
+	color: #1C2D4F;
+	font-weight: normal;
+	padding: 4px;
+	border: 2px solid #ef972d;
+}

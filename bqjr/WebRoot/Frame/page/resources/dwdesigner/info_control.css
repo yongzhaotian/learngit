@@ -1,0 +1,44 @@
+body {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+td{font-size:12px;}
+#Layer1 {
+	position:absolute;
+	width:450px;
+	font-size:12px;
+	height:25px;
+  background-color:#ECE7E7;
+	z-index:99;
+	padding-left:5px;
+	left: 409px;
+	top: 280px;
+	display:none;
+}
+#LaEditGroup {
+	position:absolute;
+	border:1px solid #ACA899;
+	background-color:#FFFFFF;
+	display:none;
+	width:300px;
+	height:41px;
+	z-index:100;
+	left: 0px;
+	top: 0px;
+}
+#LaEditField {
+	position:absolute;
+	border:1px solid #ACA899;
+	background-color:#FFFFFF;
+	display:none;
+	width:300px;
+	height:41px;
+	z-index:100;
+	left: 0px;
+	top: 0px;
+}
+.menusubdiv{
+	font-size:12px;
+	line-height:20px;
+	width:80px;
+}

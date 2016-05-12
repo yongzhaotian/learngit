@@ -1,0 +1,71 @@
+<%@page buffer="64kb" errorPage="/Frame/page/control/ErrorPage.jsp"%><%@
+page import="java.io.*"%><%@
+page import="java.sql.*"%><%@
+page import="java.text.*"%><%@
+page import="java.util.*"%><%@
+page import="com.amarsoft.are.ARE"%><%@
+page import="com.amarsoft.are.lang.*"%><%@
+page import="com.amarsoft.are.security.*"%><%@
+page import="com.amarsoft.are.util.*"%><%@
+page import="com.amarsoft.context.*"%><%@
+page import="com.amarsoft.awe.Configure"%><%@
+page import="com.amarsoft.awe.RuntimeContext"%><%@
+page import="com.amarsoft.awe.control.model.*"%><%@
+page import="com.amarsoft.awe.util.*"%><%@
+page import="com.amarsoft.amarscript.*"%><%@
+page import="com.amarsoft.alert.*"%><%@
+page import="com.amarsoft.web.dw.*"%><%@
+page import="com.amarsoft.web.ui.*"%><%@
+page import="com.amarsoft.web.util.ArgTool"%><%@
+page import="org.apache.commons.lang.*"%><%@
+page import="com.amarsoft.app.accounting.config.*"%><%@
+page import="com.amarsoft.are.jbo.*"%><%@
+page import="com.amarsoft.app.accounting.web.*"%><%@
+page import="com.amarsoft.app.accounting.util.ACCOUNT_CONSTANTS"%><%@
+page import="com.amarsoft.app.accounting.businessobject.*,com.amarsoft.app.accounting.config.loader.ProductConfig"%><%
+    response.setHeader("Cache-Control","no-store");
+	response.setHeader("Pragma","no-cache");
+	response.setDateHeader("Expires",0);
+
+	RuntimeContext CurARC = (RuntimeContext)session.getAttribute("CurARC");
+	if(CurARC == null) throw new Exception("------Timeout------");
+
+	Configure CurConfig = Configure.getInstance(application);
+	if(CurConfig ==null) throw new Exception("读取配置文件错误！请检查配置文件");
+	
+	String sWebRootPath = request.getContextPath();
+    String sResourcesPath = (String)CurARC.getAttribute("ResourcesPath");
+    ASUser CurUser = CurARC.getUser();
+    ASOrg CurOrg = CurUser.getBelongOrg();
+
+    String sCompClientID="";
+   
+    Transaction SqlcaRepository = null;
+    Transaction Sqlca = null;
+    JBOTransaction tx = null;
+    try{
+        int iPostChange = 1;
+
+        sCompClientID = request.getParameter("CompClientID");
+        if(sCompClientID==null) sCompClientID="";
+        ComponentSession CurCompSession = CurARC.getCompSession();
+        Component CurComp = CurCompSession.lookUp(sCompClientID);
+        Page CurPage = new Page(CurComp);
+        CurPage.setRequestAttribute((HttpServletRequest)request);
+        
+        String sToDestroyPageClientID = null;
+
+   		String sDataSource = CurConfig.getConfigure("DataSource");
+       	try{
+       		SqlcaRepository = new Transaction(sDataSource);
+       		tx = JBOFactory.createJBOTransaction();
+       		tx.join(SqlcaRepository);
+       		SystemConfig.loadBusinessDate(tx.getConnection(SqlcaRepository));
+       	}catch(Exception ex) {
+       		ex.printStackTrace();
+       	    throw new Exception("连接数据库失败！连接参数：<br>DataSource:"+sDataSource);
+       	}
+		
+		SqlcaRepository.commit();
+		Sqlca = SqlcaRepository;
+%>

@@ -1,0 +1,61 @@
+<meta http-equiv="Content-Type" content="text/html; charset=GBK" />
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="fd_table">
+  <tr>
+    <td height="20">
+    <table><tr>
+	<td>
+	<strong>审批人员意见：</strong>
+	</td>
+	<td>
+	#{button}
+	</td>
+	</tr></table>
+	</td>
+  </tr>
+  <tr>
+    <td height="20">评价分数：<input name="score" id="score" type="text" onchange="bEditHtmlChange2 = false" value="#{score}" size="5" maxlength="5">分</td>
+  </tr>
+  <tr>
+    <td height="20">分数说明：</td>
+  </tr>
+  <tr>
+    <td height="20" style="padding-left:24px"><textarea name="desc" id="desc" cols="60" onchange="bEditHtmlChange2 = false" rows="8">#{desc}</textarea></td>
+  </tr>
+</table>
+<script>
+function saveScore(gonext){
+	var sScore = document.getElementById("score").value;
+	var sScoreDesc = document.getElementById("desc").value;
+	if(sScore==""){
+		alert('请输入分数');
+		document.getElementById("score").focus();
+		return;
+	}
+	if(isNaN(sScore)){
+		alert('请输入数字');
+		document.getElementById("score").focus();
+		return;
+	}
+	if(sScoreDesc==""){
+		alert('请输入分数说明');
+		document.getElementById("desc").focus();
+		return;
+	}
+	if(sScoreDesc.length>500){
+		alert('不能超过500个字符');
+		document.getElementById("desc").focus();
+		return;
+	}
+	var DataSerialNo = document.getElementsByName("DataSerialNo")[0];
+	document.getElementsByName("Method")[0].value = "9";
+	if(gonext){
+		var element = document.createElement("<input>");
+		element.setAttribute("type","hidden");
+		element.setAttribute("name","gonext");
+		element.setAttribute("value","1");
+		document.getElementById("frmFDDataContent").appendChild(element);
+	}
+	bEditHtmlChange2 = false;
+	document.getElementById("frmFDDataContent").submit();
+}
+</script>

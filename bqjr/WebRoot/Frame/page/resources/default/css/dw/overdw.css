@@ -1,0 +1,11 @@
+.overdiv_top_div{
+	width:400px;
+	height:100px;
+	padding:5px;
+	background: #fafafa;
+}
+.overdiv_body_div{
+	padding:10px;
+	background:#fff;
+	border:1px solid #ccc;
+}

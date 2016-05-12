@@ -1,0 +1,451 @@
+.pt9white {  font-family:宋体;font-size: 9pt; color: #FFFFFF; text-decoration: none}
+.allwhite {  font-family:宋体;font-size: 9pt; line-height: 10pt; text-decoration: none color: #FFFFFF;}
+a:link {  text-decoration: none; color: #CC3300}
+a:hover {  text-decoration: underline}
+.orange9pt {  font-family:宋体;font-size: 9pt; color: #FF6600}
+a:visited {  font-family:宋体;font-size: 9pt; color: #CC3300; text-decoration: none}
+.no_border {  border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px}
+.number {  text-align: right}
+.no_border_number {  text-align: right; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px}
+.pt11song {font-family:宋体;FONT-SIZE: 11pt}
+.pt16song {font-family:宋体;FONT-SIZE: 16pt}
+.pt16songud {FONT-WEIGHT: bold; FONT-SIZE: 16pt; FONT-FAMILY: '黑体','宋体'; TEXT-DECORATION: underline}
+.pt20song {font-family:宋体;FONT-SIZE: 20pt}
+.pt24song {font-family:宋体;FONT-SIZE: 24pt}
+.myunderline {TEXT-DECORATION: underline}
+.thisinput2 {border-style:none;border-width:thin;border-color:#e9e9e9}
+.thisinput {border-style:none;border-width:thin;}
+.myfont{font-family: '黑体','宋体';font-size: 10pt;font-weight:bold;text-decoration: none}
+table1 {  border: solid; border-width: 0px 0px 1px 1px; border-color: #000000 black #000000 #000000}
+td1 {  font-family:宋体;border-color: #000000; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 0px; border-left-width: 0px}
+input1 { font-family:宋体,arial,sans-serif; font-size:9pt; background-color: #FDFDF3; border-style:none;border-width:thin; }
+textarea1 { font-family:宋体,arial,sans-serif; font-size:9pt; background-color: #FDFDF3; border-style:none;border-width:thin;overflow-y:hidden }
+select1 { 
+font-family:宋体,arial,sans-serif; 
+font-size:9pt; 
+background-color: #FDFDF3; 
+border-style:none;
+border-width:thin; 
+}
+.inputDate { 
+	font-family:宋体;
+	background-image:url(functionbg.gif); 
+	border: #DCDCDC;  
+	border-style: outset; 
+	border-top-width: 1px; 
+	border-right-width: 1px;  
+	border-bottom-width: 1px; 
+	border-left-width: 1px;
+	height:18px
+}
+inputBrow { font-family:宋体;width:10pt; }
+.inputjump {font-family:宋体;FONT-SIZE: 9pt;border-style:groove;text-align:right}
+.inputTCDelete
+{
+	font-family:宋体;
+	font-size:9pt; 
+	background-color: #EEEEEE; 
+	border:0 solid white;
+	height: 20px;
+	color: #AAAAAA;
+}
+
+.inputTCUpdate
+{
+	font-family:宋体;
+	font-size:9pt; 
+	/*background-color: #FFF09E;*/ 
+	border:0 solid white;
+	height: 20px;
+	color: navy;
+}
+
+/* column title - selectable (3D) */
+td.ColumnTitle
+{
+font-family:宋体;
+font-size:9pt; 
+font-weight: normal; 
+padding-left: 2;
+/*padding-right: 5;*/
+color: #55554B;
+   background-color: #DEDEC8;
+   background-image:url(back.gif);
+cursor: pointer;
+}
+td.TCColumnTitleLT
+{
+font-family:宋体;
+font-size:9pt; 
+font-weight: normal; 
+padding-left:  2px;
+/*padding-right: 5px;*/
+color: #55554B;
+   background-color: #DEDEC8;
+}
+
+/* row selector image dimension */
+img.TCSelImageSelected
+{
+font-family:宋体;
+width:20px ;
+height:20px ;
+border: 0px;
+background-image: url( table/table_row_button_downstate.gif );
+}
+
+img.TCSelImageUnselected
+{
+font-family:宋体;
+/*width:20px ;
+height:20px ;*/
+border: 0px;
+background-image: url( table/table_row_button_upstate.gif );
+}
+
+
+/******** Table Control *********/
+
+/* background border color for table cells in table control */
+.TCView
+{ 
+font-family:宋体;
+font-size: 9pt; 
+background-color: #8D8D80; 
+}
+
+/* row attributes */
+tr.TCRow 
+{ 
+font-family:宋体;
+font-size: 9pt; 
+background-color: #EBEAD8; 
+border-color: #000000;
+border-style: solid;
+border-width: 1px;
+}
+
+/* unselected non-editable table cell */
+td.TCCellText
+{ 
+padding-left:  1px;
+padding-right: 1px;
+font-family:宋体;
+font-size: 9pt; 
+background-color: #EBEAD8;
+}
+
+/* selected non-editable table cell */
+td.TCCellTextSelected
+{ 
+padding-left:  1px;
+padding-right: 1px;
+font-family:宋体;
+font-size: 9pt; 
+background-color: #FFCC33;
+}
+
+/* row selector background color*/
+td.TCCellImage
+{ 
+padding: 0px;
+background-color: #EBEAD8;
+}
+
+/* row selector image dimension */
+img.TCSelImage
+{
+width:16px ;
+height:16px ;
+}
+
+/* unselected editable table cell */
+td.TCCellInput
+{ 
+/*padding-left:  5px;
+padding-right: 5px;*/
+padding-left:1px;
+padding-right:1px;
+font-family:宋体;
+font-size: 9pt; 
+background-color: #FDFDF3; 
+}
+
+/* selected editable table cell */
+td.TCCellInputSelected
+{ 
+/*padding-left:  5px;
+padding-right: 5px;*/
+padding-left:1px;
+padding-right:1px;
+font-family:宋体;
+font-size: 9pt; 
+background-color: #FFCC33; 
+}
+
+/* title */
+td.TCHeader 
+{
+font-family:宋体;
+font-size: 9pt; 
+font-weight: normal; 
+padding-left:  5px;
+padding-right: 5px;
+color: #55554B;
+   background-color: #CDCDBE;
+}
+
+/* footer */
+td.TCFooter 
+{
+font-family:宋体;
+font-size: 9pt; 
+font-weight: normal; 
+padding-left:  5px;
+padding-right: 5px;
+padding-top:  2px;
+padding-bottom:  2px;
+color: #55554B;
+   background-color: #CDCDBE;
+}
+
+/* column title - non selectable */
+/*
+td.TCColumnTitle
+{
+font-family:宋体;
+font-size: 9pt; 
+font-weight: normal; 
+padding-left:  1px;
+/*padding-right: 5px;*/
+color: #55554B;
+   background-color: #DEDEC8;
+}
+*/
+
+/* scrollup action buttons */
+td.TCLeft
+{
+font-family:宋体;
+font-size: 9pt; 
+padding-left:0px;
+}
+
+/* scrolldown action buttons */
+td.TCRight
+{
+font-family:宋体;
+font-size: 9pt; 
+padding-left:8px;
+}
+
+/* row selector image dimension */
+td.TCSelImageSelected
+{
+font-family:宋体;
+font-size: 9pt; 
+width:20px ;
+height:20px ;
+border: 0px;
+background-image: url( table/table_row_button_downstate.gif );
+cursor:pointer;
+}
+
+td.TCSelImageUnselected
+{
+/*
+width:20px ;
+height:20px ;
+border: 0px;
+*/
+background-image: url( table/table_row_button_upstate.gif );
+background-repeat: no-repeat; 
+background-position: top center;
+cursor:pointer;
+
+border-color: #000000; 
+border-style: solid; 
+border-top-width: 1px; 
+border-right-width: 1px; 
+border-bottom-width: 0px; 
+border-left-width: 0px
+
+font-family:宋体;
+font-size: 9pt; 
+font-weight: normal; 
+padding-left: 2;
+color: #55554B;
+   background-color: #DEDEC8;
+}
+
+/** Active TC Buttons **/
+/* Top Page Button */
+img.TCTopPageA
+{
+border:0px;
+height:15px;
+width:15px;
+background-image:url(table/top.gif);
+cursor:pointer;
+}
+
+/* Prev Page Button */
+img.TCPrevPageA
+{
+border:0px;
+height:15px;
+width:15px;
+background-image:url(table/pageup.gif);
+cursor:pointer;
+}
+
+/* Prev Row Button */
+img.TCPrevRowA
+{
+border:0px;
+height:15px;
+width:15px;
+background-image:url(table/scrollup.gif);
+cursor:pointer;
+}
+
+/* Bottom Page Button */
+img.TCLastPageA
+{
+border:0px;
+height:15px;
+width:15px;
+background-image:url(table/bottom.gif);
+cursor:pointer;
+}
+
+/* Next Page Button */
+img.TCNextPageA
+{
+border:0px;
+height:15px;
+width:15px;
+background-image:url(table/pagedown.gif);
+cursor:pointer;
+}
+
+/* Next Row Button */
+img.TCNextRowA
+{
+border:0px;
+height:15px;
+width:15px;
+background-image:url(table/scrolldown.gif);
+cursor:pointer;
+}
+
+/** Inactive TC Buttons **/
+/* Top Page Button */
+img.TCTopPageI
+{
+border:0px;
+height:15px;
+width:15px;
+background-image:url(table/dim_top.gif);
+}
+
+/* Prev Page Button */
+img.TCPrevPageI
+{
+border:0px;
+height:15px;
+width:15px;
+background-image:url(table/dim_pageup.gif);
+}
+
+/* Prev Row Button */
+img.TCPrevRowI
+{
+border:0px;
+height:15px;
+width:15px;
+background-image:url(table/dim_scrollup.gif);
+}
+
+/* Bottom Page Button */
+img.TCLastPageI
+{
+border:0px;
+height:15px;
+width:15px;
+background-image:url(table/dim_bottom.gif);
+}
+
+/* Next Page Button */
+img.TCNextPageI
+{
+border:0px;
+height:15px;
+width:15px;
+background-image:url(table/dim_pagedown.gif);
+}
+
+/* Next Row Button */
+img.TCNextRowI
+{
+border:0px;
+height:15px;
+width:15px;
+background-image:url(table/dim_scrolldown.gif);
+}
+
+/* Jump Row Button */
+img.TCJumpRow
+{
+border:0px;
+height:15px;
+width:15px;
+background-image:url(table/jumprow.gif);
+}
+
+/* Jump Row Total Label */
+td.TCJumpRowTotal
+{
+font-family:宋体;
+font-size: 9pt; 
+font-weight: normal; 
+color: #55554B;
+}
+
+
+
+
+
+
+
+
+body {
+margin-top : 6px;
+margin-left : 4px;
+}
+body2 {  background-color: #FF0000}
+
+
+.GdTrTitleSerial{
+width:15px;
+background-color: #999999;
+}
+
+.GdTrContentSerial{
+width:15px;
+background-color: #999999;
+cursor:pointer;
+}
+
+.GdTdInput{
+font-family:宋体,arial,sans-serif;
+font-size: 9pt;
+background-color: #FDFDF3; border-style:none;border-width:thin; 
+}
+
+.GdJumpInput {
+font-family:宋体,arial,sans-serif;FONT-SIZE: 9pt;border-style:groove;text-align:center;width:20pt;height:13pt
+
+}
+
+

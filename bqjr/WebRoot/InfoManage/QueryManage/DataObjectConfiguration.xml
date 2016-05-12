@@ -1,0 +1,453 @@
+<?xml version='1.0' encoding='GB2312'?>
+<!--客户信息查询-->
+<Domain name="DataObject">  
+   <DataObjects>
+
+		<DataObject name="CUSTOMER_INFO">
+			<Columns>
+				<Column name="CustomerID" alias="" header="客户编号" dataType="STRING" tag="" code="" />
+				<Column name="CustomerName" 				alias="" header="客户名称" 				dataType="STRING" tag="" code=""/>
+				<Column name="CertType" 					alias="" header="开户证件类型" 			dataType="STRING" tag="" code="证件类型|CertType"/>
+				<Column name="CertID" 						alias="" header="开户证件号码" 			dataType="STRING" tag="" code=""/>
+				<Column name="InputOrgID" 					alias="" header="登记机构" 				dataType="STRING" tag="" code="取机构|OrgID"/>
+				<Column name="CustomerType" 					alias="" header="客户类型" 			dataType="STRING" tag="" code="客户类型|CustomerType"/>
+			</Columns>
+		</DataObject>
+		
+		<DataObject name="ENT_INFO">
+			<Columns>
+				<Column name="CorpID" 	        			alias="" header="组织机构代码" 						dataType="STRING" tag="" code=""/>
+				<Column name="LoanCardNo" 					alias="" header="贷款卡号" 							dataType="STRING" tag="" code=""/>
+				
+				<Column name="LicenseNo" 					alias="" header="工商营业执照号码" 					dataType="STRING" tag="" code=""/>
+				<Column name="LicenseDate" 					alias="" header="营业执照登记日" 						dataType="DATETIME" tag="" code=""/>
+				<Column name="LicenseMaturity" 				alias="" header="营业执照到期日" 						dataType="DATETIME" tag="" code=""/>
+				<Column name="SetupDate" 					alias="" header="企业成立日期" 						dataType="DATETIME" tag="" code=""/>
+
+				<Column name="RegisterAdd" 					alias="" header="注册地址" 							dataType="STRING" tag="" code=""/>
+				<Column name="OfficeAdd" 					alias="" header="办公地址" 							dataType="STRING" tag="" code=""/>
+				<Column name="OfficeZip" 					alias="" header="邮政编码" 							dataType="STRING" tag="" code=""/>
+				<Column name="OfficeTel" 					alias="" header="联系电话" 							dataType="STRING" tag="" code=""/>
+				<Column name="OfficeFax" 					alias="" header="传真电话" 							dataType="STRING" tag="" code=""/>
+				<Column name="FinanceDeptTel" 				alias="" header="财务部联系电话" 						dataType="STRING" tag="" code=""/>
+				
+				<Column name="TaxNo" 	        			alias="" header="税务登记证号(国税)" 					dataType="STRING" tag="" code=""/>
+				<Column name="TaxNo1" 						alias="" header="税务登记证号(地税)" 					dataType="STRING" tag="" code=""/>
+				
+				<Column name="MostBusiness" 				alias="" header="经营范围" 							dataType="STRING" tag="" code=""/>
+				<Column name="EnterpriseBelong" 	 		alias="" header="企业隶属" 							dataType="STRING" tag="" code="代码取数|EnterpriseBelong"/>
+				<Column name="substr(EI.IndustryType,1,1)" 	alias="IndustryTypeLevel1" header="国标行业分类" 		dataType="STRING" tag="" code="取行业类型最大项|IndustryType"/>
+				<Column name="OrgType" 						alias="" header="企业类型" 							dataType="STRING" tag="" code="代码取数|OrgType"/>
+				<Column name="Scope" 						alias="" header="企业规模" 							dataType="STRING" tag="" code="代码取数|Scope"/>	
+				<Column name="RCCurrency" 					alias="" header="注册资本币种" 						dataType="STRING" tag="" code="代码取数|Currency"/>		
+				<Column name="RegisterCapital" 				alias="" header="注册资本" 						dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="PCCurrency" 					alias="" header="实收资本币种" 						dataType="STRING" tag="" code="代码取数|Currency"/>		
+				<Column name="PaiclUpCapital" 				alias="" header="实收资本" 						dataType="NUMBERSCOPE" tag="" code=""/>
+				
+				<Column name="ListingCorpOrNot" 			alias="" header="上市公司类型" 						dataType="STRING" tag="" code="代码取数|ListingCorpType"/>		
+				<Column name="HasIERight" 					alias="" header="有无进出口经营权" 					dataType="STRING" tag="" code="代码取数|HaveNot"/>		
+				<Column name="ECGroupFlag" 					alias="" header="是否集团客户" 						dataType="STRING" tag="" code="代码取数|YesNo"/>	
+				
+				<Column name="CountryCode" 					alias="" header="所在国家(地区)" 						dataType="STRING" tag="" code="代码取数|CountryCode"/>		
+				<Column name="RegionCode" 					alias="" header="省份、直辖市、自治区" 					dataType="STRING" tag="" code="代码取数|AreaCode"/>			
+				
+			</Columns>
+		</DataObject>
+		
+		<DataObject name="IND_INFO">
+			<Columns>
+				
+				<Column name="Country" 						alias="" header="国籍" 								dataType="STRING" tag="" code="代码取数|CountryCode"/>
+				<Column name="Sex"							alias="" header="性别" 								dataType="STRING" tag="" code="代码取数|Sex"/>
+				<Column name="BirthDay"						alias="" header="出生日期" 							dataType="DATETIME" tag="" code=""/>
+				<!--  <Column name="FamilyAdd"					alias="" header="家庭住址" 							dataType="STRING" tag="" code=""/>-->
+				<Column name="Marriage" 					alias="" header="婚姻状况" 							dataType="STRING" tag="" code="代码取数|Marriage"/>
+				<Column name="Position" 	        		alias="" header="职称" 								dataType="STRING" tag="" code="代码取数|TechPost"/>
+				<Column name="EduExperience" 				alias="" header="最高学历" 							dataType="STRING" tag="" code="代码取数|EducationExperience"/>
+				<Column name="EduDegree" 					alias="" header="最高学位" 							dataType="STRING" tag="" code="代码取数|EducationDegree"/>
+				<Column name="Staff" 						alias="" header="是否本行员工" 						dataType="STRING" tag="" code="代码取数|YesNo"/>
+				<Column name="Nationality" 					alias="" header="民族" 								dataType="STRING" tag="" code="代码取数|Nationality"/>
+				
+				<Column name="NativePlace" 					alias="" header="户籍地址" 							dataType="STRING" tag="" code=""/>
+				<Column name="FamilyAdd" 					alias="" header="居住地址" 							dataType="STRING" tag="" code=""/>
+				<Column name="FamilyZIP" 					alias="" header="居住地址邮编" 						dataType="STRING" tag="" code=""/>
+				<Column name="FamilyStatus" 				alias="" header="居住状况" 							dataType="STRING" tag="" code="代码取数|FamilyStatus"/>
+				
+				<Column name="CommAdd" 						alias="" header="通讯地址" 							dataType="STRING" tag="" code=""/>
+				<Column name="CommZip" 						alias="" header="通讯地址邮编" 						dataType="STRING" tag="" code=""/>
+				
+				<Column name="FamilyMonthIncome" 			alias="" header="家庭月收入(元)" 						dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="YearIncome" 					alias="" header="个人年收入(元)" 						dataType="NUMBERSCOPE" tag="" code=""/>
+				
+				<Column name="UnitKind" 					alias="" header="单位所属行业" 						dataType="STRING" tag="" code="取行业类型最大项|IndustryType"/>
+				<Column name="WorkCorp" 					alias="" header="单位名称" 							dataType="STRING" tag="" code=""/>
+				<Column name="WorkAdd" 						alias="" header="单位地址" 							dataType="STRING" tag="" code=""/>
+				<Column name="WorkZip" 						alias="" header="单位地址邮编" 						dataType="STRING" tag="" code=""/>
+				
+				<Column name="Occupation" 					alias="" header="职业" 								dataType="STRING" tag="" code="代码取数|Occupation"/>
+				<Column name="HeadShip" 					alias="" header="职务" 								dataType="STRING" tag="" code="代码取数|HeadShip"/>
+				
+				<Column name="PayAccount" 					alias="" header="工资帐号" 							dataType="STRING" tag="" code=""/>
+				<Column name="PayAccountBank" 				alias="" header="工资帐号开户银行" 					dataType="STRING" tag="" code=""/>
+			</Columns>
+		</DataObject>
+
+		<DataObject name="CUSTOMER_BELONG">
+			<Columns>
+			</Columns>
+		</DataObject>
+		
+		<!--报表中间表-->
+		<DataObject name="T_FACT_LOAN">
+			<Columns>
+			
+				<!--BUSINESS_CONTRACT-->
+				<Column name="OVERDUEDATE" alias="" header="逾期日期" dataType="DATETIME" tag="" code=""/>
+				
+				<!--BUSINESS_APPLY-->
+				<Column name="OPERATEUSERID" alias="" header="经办人" dataType="STRING" tag="" code=""/>
+				<Column name="BUSINESSPROP" alias="" header="贷款成数" dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="ThirdPartyZIP1" alias="" header="首付款比例" dataType="NUMBERSCOPE" tag="" code=""/>
+							
+				<!--PROJECT_INFO-->
+				<Column name="PROJECTNAME" alias="" header="项目名称" dataType="STRING" tag="" code=""/>
+				
+				<!--ENT_INFO-->
+				<Column name="EMPLOYEENUMBER" alias="" header="职工人数" dataType="NUMBERSCOPE" tag="" code=""/>	
+						
+				<!--T_FACT_LOAN-->
+				
+				<Column name="ContractNo" alias="" header="合同号" dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="BusinessStatus" alias="" header="四级分类" 		  dataType="STRING" tag="" code="四级分类|BusinessStatus"/>		
+				<Column name="CustomerID" 				alias="" header="客户编号" 						dataType="STRING" tag="" code=""/>
+				<Column name="CustomerName" 		    alias="" header="客户名称 " 				dataType="STRING" tag="" code=""/>
+				<Column name="CustomerType" 				alias="" header="客户类型" 					dataType="STRING" tag="" code="代码取数|CustomerType"/>
+				<Column name="Balance" 		        	alias="" header="当日余额" 					dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="ActualPutoutDate" 		alias="" header="发放日 " 					dataType="DATETIME" tag="" code=""/>
+				<Column name="ActualMaturity" 			alias="" header="到期日" 					  dataType="DATETIME" tag="" code=""/>
+				<Column name="SubjectNo" 			    	alias="" header="科目" 					dataType="STRING" tag="" code="取核心科目|SubjectNo"/>
+				<Column name="BusinessType" 		    alias="" header="业务品种" 					dataType="STRING" tag="" code="取业务品种|BusinessType"/>
+				<Column name="Flag" alias="" header="授信额度品种" dataType="STRING" tag="" code="取授信额度的业务品种|Flag"/>
+				<Column name="OrgID" 	            alias="" header="机构名称" 					dataType="STRING" tag="" code="取机构|OrgID"/>
+				<Column name="ActualBusinessRate" 	alias="" header="执行利率(%) " 		  	dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="BusinessSum" 				  alias="" header="出帐金额" 					dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="ClassifyResult" 			alias="" header="五级分类结果" 		  dataType="STRING" tag="" code="代码取数|ClassifyResult"/>
+				<Column name="substr(TL.direction,1,1)" 	alias="Direction1" header="贷款投向" 			dataType="STRING" tag="" code="取行业类型最大项|IndustryType"/>
+        		<Column name="BailRatio" 				alias="" header="最低保证金比例(%)" 						dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="Balance*ERate" 				  alias="" header="当日余额折本币" 					dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="RateFloat" 		        		alias="" header="浮动利率(%)" 					dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="RateFloatType" 				alias="" header="浮动类型" 					dataType="STRING" tag="" code="代码取数|RateFloatType"/>
+				<Column name="OccurType" 				alias="" header="发生类型" 									dataType="STRING" tag="" code="代码取数|OccurType"/>
+				<Column name="substr(TL.VouchType,1,3)" 				alias="TLVouchType" header="主要担保方式" 					dataType="STRING" tag="" code="取担保方式|VouchType"/>
+				<Column name="VouchClass" 		        		alias="" header="保证形式" 					dataType="STRING" tag="" code="代码取数|VouchClass"/>
+				<Column name="BusinessCurrency" 				alias="" header="币种" 					dataType="STRING" tag="" code="代码取数|Currency"/>
+				<Column name="TermDays" 		        		alias="" header="期限(天数)" 					dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="MaturityDays" 				alias="" header="到期天数" 				dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="CreditDate" 		    alias="" header="信用评级日期 " 			dataType="DATETIME" tag="" code=""/>
+				<Column name="CreditLevel" alias="" header="本行信用等级" 		  dataType="STRING" tag="" code="本行信用等级|CreditLevel"/>
+				<Column name="EnterpriseBelong" 	        alias="" header="企业隶属" 	dataType="STRING" tag="" code="代码取数|EnterpriseBelong"/>
+				<Column name="substr(TL.IndustryType,1,1)" 	alias="IndustryTypeLevel1" header="行业类型" 			dataType="STRING" tag="" code="取行业类型最大项|IndustryType"/>
+				<Column name="OrgType" 			alias="" header="企业类型" 				dataType="STRING" tag="" code="代码取数|OrgType"/>
+				<Column name="Scope" 			alias="" header="企业规模" 				dataType="STRING" tag="" code="代码取数|Scope"/>		
+				<Column name="OriginalPutOutDate" 				alias="" header="首次发放日" 						dataType="DATETIME" tag="" code=""/>
+				<Column name="OverdueDays" 		        		alias="" header="逾期天数 " 			dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="OweInterestDays" 		        		alias="" header="欠息天数 " 					dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="DullDate" 				alias="" header="转呆滞日期" 									dataType="DATETIME" tag="" code=""/>
+				<Column name="BadDate" 				alias="" header="转呆帐日期" 									dataType="DATETIME" tag="" code=""/>
+				<Column name="FinishDate" 		        	alias="" header="终结日期" 								dataType="DATETIME" tag="" code=""/>
+				<Column name="FinishType" 				alias="" header="终结类型" 								dataType="STRING" tag="" code="终结类型|FinishType"/>
+				<Column name="ERate" 		        		alias="" header="当日汇率" 			dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="ERateUSD" 				alias="" header="折美元汇率" 				dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="ExtendTimes" 	                alias="" header="展期次数" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<!--<Column name="ReNewTimes" 				alias="" header="借新还旧次数" 					dataType="NUMBERSCOPE" tag="" code=""/>-->
+				<!--<Column name="ReOrgTimes" 		        		alias="" header="债务重组次数 " 			dataType="NUMBERSCOPE" tag="" code=""/>-->
+				<!--<Column name="GOLNTimes" 				alias="" header="还旧借新次数" 									dataType="NUMBERSCOPE" tag="" code=""/>-->
+				<Column name="NormalBalance" 		        	alias="" header="当日正常余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="OverDueBalance" 		        	alias="" header="当日逾期余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="DullBalance" 		        	alias="" header="当日呆滞余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="BadBalance" 		        	alias="" header="当日呆帐余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InterestBalance1" 		        		alias="" header="表内欠息余额 " 					dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InterestBalance2" 		        		alias="" header="表外欠息余额 " 			dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InSum" 	                alias="" header="累计收回" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InSumH" 	                alias="" header="当半年累计收回" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InSumM" 				alias="" header="当月累计收回" 									dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InSumQ" 		        		alias="" header="当季累计收回 " 				dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InSumY" 				alias="" header="当年累积收回" 					dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="BalanceLM" 		        	alias="" header="上月余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="NormalBalanceLM" 		        	alias="" header="上月正常余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="OverDueBalanceLM" 		        	alias="" header="上月逾期余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="DullBalanceLM" 		        	alias="" header="上月呆滞余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="BadBalanceLM" 		        	alias="" header="上月呆帐余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InterestBalance1LM" 		        		alias="" header="上月表内欠息余额 " 					dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InterestBalance2LM" 		        		alias="" header="上月表外欠息余额 " 			dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="BalanceLQ" 		        	alias="" header="上季余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="NormalBalanceLQ" 		        	alias="" header="上季正常余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="OverDueBalanceLQ" 		        	alias="" header="上季逾期余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="DullBalanceLQ" 		        	alias="" header="上季呆滞余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="BadBalanceLQ" 		        	alias="" header="上季呆帐余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InterestBalance1LQ" 		        		alias="" header="上季表内欠息余额 " 					dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InterestBalance2LQ" 		        		alias="" header="上季表外欠息余额 " 			dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="BalanceLH" 		        	alias="" header="上半年余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="NormalBalanceLH" 		        	alias="" header="上半年正常余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="OverDueBalanceLH" 		        	alias="" header="上半年逾期余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="DullBalanceLH" 		        	alias="" header="上半年呆滞余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="BadBalanceLH" 		        	alias="" header="上半年呆帐余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InterestBalance1LH" 		        		alias="" header="上半年表内欠息余额 " 					dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InterestBalance2LH" 		        		alias="" header="上半年表外欠息余额 " 			dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="BalanceLY" 		        	alias="" header="上年余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="NormalBalanceLY" 		        	alias="" header="上年正常余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="OverDueBalanceLY" 		        	alias="" header="上年逾期余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="DullBalanceLY" 		        	alias="" header="上年呆滞余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="BadBalanceLY" 		        	alias="" header="上年呆帐余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InterestBalance1LY" 		        		alias="" header="上年表内欠息余额 " 					dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InterestBalance2LY" 		        		alias="" header="上年表外欠息余额 " 			dataType="NUMBERSCOPE" tag="" code=""/>
+        		<Column name="DuebillNo" 	 alias="" header="借据号" 								dataType="STRING" tag="" code=""/>
+        		<Column name="OverdueDate" alias="" header="逾期日期" dataType="DATETIME" tag="" code=""/>
+			</Columns>
+		</DataObject>
+		
+		
+		<DataObject name="T_FACT_LOAN_M">
+			<Columns>
+				<Column name="ContractNo" alias="" header="合同号" dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="BusinessStatus" alias="" header="四级分类" 		  dataType="STRING" tag="" code="四级分类|BusinessStatus"/>		
+				<Column name="InputDate" 					alias="" header="报表月份" 						dataType="MONTH" tag="" code=""/>
+				<Column name="CustomerID" 					alias="" header="客户编号" 						dataType="STRING" tag="" code=""/>
+				<Column name="CustomerName" 		    	alias="" header="客户名称 " 				dataType="STRING" tag="" code=""/>
+				<Column name="CustomerType" 				alias="" header="客户类型" 					dataType="STRING" tag="" code="代码取数|CustomerType"/>
+				<Column name="Balance" 		        		alias="" header="当日余额" 					dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="ActualPutoutDate" 			alias="" header="发放日 " 					dataType="DATETIME" tag="" code=""/>
+				<Column name="ActualMaturity" 				alias="" header="到期日" 					  dataType="DATETIME" tag="" code=""/>
+				<Column name="SubjectNo" 			    	alias="" header="科目" 					dataType="STRING" tag="" code="取核心科目|SubjectNo"/>
+				<Column name="BusinessType" 		    	alias="" header="业务品种" 					dataType="STRING" tag="" code="取业务品种|BusinessType"/>
+				<Column name="OrgID" 	            		alias="" header="机构名称" 					dataType="STRING" tag="" code="取机构|OrgID"/>
+				<Column name="ActualBusinessRate" 			alias="" header="执行利率(%) " 		  	dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="BusinessSum" 					alias="" header="出帐金额" 					dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="ClassifyResult" 				alias="" header="五级分类结果" 		  dataType="STRING" tag="" code="代码取数|ClassifyResult"/>
+				
+				<Column name="substr(TM.direction,1,1)" 	alias="Direction1" header="贷款投向" 			dataType="STRING" tag="" code="取行业类型最大项|IndustryType"/>
+        		<Column name="BailRatio" 					alias="" header="最低保证金比例" 						dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="Balance*ERate" 				alias="" header="当日余额折本币" 					dataType="NUMBERSCOPE" tag="" code=""/>
+				<!--<Column name="LCNo" 		        	alias="" header="信用证编号 " 							dataType="STRING" tag="" code=""/>-->
+
+				<Column name="RateFloat" 		        	alias="" header="浮动利率(%)" 					dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="RateFloatType" 				alias="" header="浮动类型" 					dataType="STRING" tag="" code="代码取数|RateFloatType"/>
+				<Column name="OccurType" 					alias="" header="发生类型" 									dataType="STRING" tag="" code="代码取数|OccurType"/>
+				
+				<Column name="substr(TM.VouchType,1,3)" 	alias="TMVouchType" header="主要担保方式" 					dataType="STRING" tag="" code="取担保方式|VouchType"/>
+				<Column name="VouchClass" 		        	alias="" header="保证形式" 					dataType="STRING" tag="" code="代码取数|VouchClass"/>
+				<Column name="BusinessCurrency" 			alias="" header="币种" 					dataType="STRING" tag="" code="代码取数|Currency"/>
+
+				<Column name="TermDays" 		        	alias="" header="期限(天数)" 					dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="MaturityDays" 				alias="" header="到期天数" 				dataType="NUMBERSCOPE" tag="" code=""/>
+				<!-- <Column name="getUserName(TM.UserID)" 		alias="UserName" header="管户人" 						dataType="STRING" tag="" code=""/> -->
+
+				<Column name="CreditDate" 		    		alias="" header="信用评级日期 " 			dataType="DATETIME" tag="" code=""/>
+
+				<Column name="CreditLevel" alias="" header="本行信用等级" 		  dataType="STRING" tag="" code="本行信用等级|CreditLevel"/>
+				<Column name="EnterpriseBelong" 	        alias="" header="企业隶属" 	dataType="STRING" tag="" code="代码取数|EnterpriseBelong"/>
+				<Column name="substr(TM.IndustryType,1,1)" 	alias="IndustryTypeLevel1" header="行业类型" 			dataType="STRING" tag="" code="取行业类型最大项|IndustryType"/>
+				<Column name="OrgType" 						alias="" header="企业类型" 				dataType="STRING" tag="" code="代码取数|OrgType"/>
+				<Column name="Scope" 						alias="" header="企业规模" 				dataType="STRING" tag="" code="代码取数|Scope"/>		
+
+				<Column name="OriginalPutOutDate" 			alias="" header="首次发放日" 						dataType="DATETIME" tag="" code=""/>
+				<Column name="OverdueDays" 		        	alias="" header="逾期天数 " 			dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="OweInterestDays" 		        alias="" header="欠息天数 " 					dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="DullDate" 					alias="" header="转呆滞日期" 									dataType="DATETIME" tag="" code=""/>
+				<Column name="BadDate" 						alias="" header="转呆帐日期" 									dataType="DATETIME" tag="" code=""/>
+				<Column name="FinishDate" 		        	alias="" header="终结日期" 								dataType="DATETIME" tag="" code=""/>
+				<Column name="FinishType" 					alias="" header="终结类型" 								dataType="STRING" tag="" code="终结类型|FinishType"/>
+				<Column name="OverdueDate" alias="" header="逾期日期" dataType="DATETIME" tag="" code=""/>
+				<Column name="ERate" 		        		alias="" header="当日汇率" 			dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="ERateUSD" 					alias="" header="折美元汇率" 				dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="ExtendTimes" 	                alias="" header="展期次数" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<!-- <Column name="ReNewTimes" 					alias="" header="借新还旧次数" 					dataType="NUMBERSCOPE" tag="" code=""/>-->
+				<!-- <Column name="ReOrgTimes" 		        	alias="" header="债务重组次数 " 			dataType="NUMBERSCOPE" tag="" code=""/>-->
+				<!--  <Column name="GOLNTimes" 					alias="" header="还旧借新次数" 									dataType="NUMBERSCOPE" tag="" code=""/>-->
+				
+				<Column name="NormalBalance" 		        alias="" header="当日正常余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="OverDueBalance" 		        alias="" header="当日逾期余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="DullBalance" 		        	alias="" header="当日呆滞余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="BadBalance" 		        	alias="" header="当日呆帐余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InterestBalance1" 		    alias="" header="表内欠息余额 " 					dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InterestBalance2" 		    alias="" header="表外欠息余额 " 			dataType="NUMBERSCOPE" tag="" code=""/>
+
+				<Column name="InSum" 	                	alias="" header="累计收回" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InSumH" 	                	alias="" header="当半年累计收回" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InSumM" 						alias="" header="当月累计收回" 									dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InSumQ" 		        		alias="" header="当季累计收回 " 				dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InSumY" 						alias="" header="当年累积收回" 					dataType="NUMBERSCOPE" tag="" code=""/>
+
+				
+				<Column name="BalanceLM" 		        	alias="" header="上月余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="NormalBalanceLM" 		        alias="" header="上月正常余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="OverDueBalanceLM" 		    alias="" header="上月逾期余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="DullBalanceLM" 		        alias="" header="上月呆滞余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="BadBalanceLM" 		        alias="" header="上月呆帐余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InterestBalance1LM" 		    alias="" header="上月表内欠息余额 " 					dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InterestBalance2LM" 		    alias="" header="上月表外欠息余额 " 			dataType="NUMBERSCOPE" tag="" code=""/>
+
+
+				<Column name="BalanceLQ" 		        	alias="" header="上季余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="NormalBalanceLQ" 		        alias="" header="上季正常余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="OverDueBalanceLQ" 		    alias="" header="上季逾期余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="DullBalanceLQ" 		        alias="" header="上季呆滞余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="BadBalanceLQ" 		        alias="" header="上季呆帐余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InterestBalance1LQ" 		    alias="" header="上季表内欠息余额 " 					dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InterestBalance2LQ" 		    alias="" header="上季表外欠息余额 " 			dataType="NUMBERSCOPE" tag="" code=""/>
+
+				<Column name="BalanceLH" 		        	alias="" header="上半年余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="NormalBalanceLH" 		        alias="" header="上半年正常余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="OverDueBalanceLH" 		    alias="" header="上半年逾期余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="DullBalanceLH" 		        alias="" header="上半年呆滞余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="BadBalanceLH" 		        alias="" header="上半年呆帐余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InterestBalance1LH" 		    alias="" header="上半年表内欠息余额 " 					dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InterestBalance2LH" 		    alias="" header="上半年表外欠息余额 " 			dataType="NUMBERSCOPE" tag="" code=""/>
+
+				
+				<Column name="BalanceLY" 		        	alias="" header="上年余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="NormalBalanceLY" 		        alias="" header="上年正常余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="OverDueBalanceLY" 		    alias="" header="上年逾期余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="DullBalanceLY" 		        alias="" header="上年呆滞余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="BadBalanceLY" 		        alias="" header="上年呆帐余额" 								dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InterestBalance1LY" 		    alias="" header="上年表内欠息余额 " 					dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InterestBalance2LY" 		    alias="" header="上年表外欠息余额 " 			dataType="NUMBERSCOPE" tag="" code=""/>
+        		<Column name="DuebillNo" 	 				alias="" header="借据号" 								dataType="STRING" tag="" code=""/>
+			</Columns>
+		</DataObject>
+
+			<!--流水信息表-->
+		<DataObject name="BUSINESS_WASTEBOOK">
+			<Columns>
+				<Column name="OccurDate" 		        	alias="" header="发生日期 " 			dataType="DATETIME" tag="" code=""/>
+				<Column name="OccurDirection" 		        alias="" header="发生方向" 				dataType="STRING" tag="" code="代码取数|OccurDirection"/>
+				<Column name="TransactionFlag" 		       	alias="" header="交易标志 " 			dataType="STRING" tag="" code="代码取数|TransactionFlag"/>
+				<Column name="SubjectNo" 		       		alias="" header="产品代码" 			dataType="STRING" tag="" code="取核心科目|SubjectNo"/>
+				<Column name="BackType" 		            alias="" header="回收方式 " 			dataType="STRING" tag="" code="代码取数|ReclaimType"/>
+				<Column name="OccurSubject" 		        alias="" header="发生摘要 " 			dataType="STRING" tag="" code=""/>
+				<Column name="BusinessDesc" 	       		alias="" header="交易描述" 				dataType="STRING" tag="" code=""/>
+
+				<Column name="ActualDebitSum" 		        alias="" header="实际借方发生额 " 		dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="ActualCreditSum" 		        alias="" header="实际贷方发生额 " 		dataType="NUMBERSCOPE" tag="" code=""/>
+			</Columns>
+		</DataObject>	
+		
+		<DataObject name="BUSINESS_CONTRACT">
+			<Columns>
+			</Columns>
+		</DataObject>
+
+<!--法律诉讼-->
+               <!--法律诉讼表-->
+		<DataObject name="LAWCASE_INFO">
+			<Columns>
+				<Column name="SerialNo" 		alias="" header="内部案号" 			dataType="STRING" tag="" code=""/>
+				<Column name="LawCaseType" 		alias="" header="案件类型" 			dataType="STRING" tag="" code="代码取数|LawCaseType"/>
+				<Column name="LawCaseName" 		alias="" header="案件名称" 			dataType="STRING" tag="" code=""/>
+				<Column name="LawsuitType" 		alias="" header="诉讼类型" 			dataType="STRING" tag="" code="代码取数|LawsuitType"/>
+				<Column name="CaseBrief"		alias="" header="案由" 				dataType="STRING" tag="" code="代码取数|CaseBrief"/>
+				<Column name="Currency" 			alias="" header="诉讼标的币种" 	dataType="STRING" tag="" code="代码取数|Currency"/>
+				<Column name="AimSum" 			alias="" header="诉讼总标的" 	dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="Principal" 		alias="" header="诉讼本金" 			dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="InDebtInterest" 	alias="" header="诉讼表内利息" 		dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="OutDebtInterest" 	alias="" header="诉讼表外利息" 		dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="OtherCost" 		alias="" header="诉讼其它" 			dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="AimMaterials" 	alias="" header="申请标的物" 		dataType="STRING" tag="" code=""/>
+				<Column name="ApplyDate" 		alias="" header="请示日期" 			dataType="DATETIME" tag="" code=""/>
+				<Column name="ApproveDate" 		alias="" header="审批批准日期" 		dataType="DATETIME" tag="" code=""/>
+				<Column name="PigeonholeDate" 	alias="" header="归档日期" 			dataType="DATETIME" tag="" code=""/>
+		 		<Column name="ManageOrgID" 		alias="" header="案件管理机构" 		dataType="STRING" tag="" code="取机构|OrgID"/>
+		 	</Columns>
+		</DataObject>
+		<!--案件相关人员表-->
+		<DataObject name="LAWCASE_PERSONS">
+			<Columns>
+				<Column name="PersonType" 		alias="" header="案件相关人员类别       " 			dataType="STRING" tag="" code="30|PersonType"/>
+				<Column name="PersonName" 		alias="" header="姓名      " 			dataType="STRING" tag="" code=""/>
+				<Column name="OrgNo" 			alias="" header="组织机构代码  " 			dataType="STRING" tag="" code=""/>
+				<Column name="OrgName" 			alias="" header="所属机构名称      " 			dataType="STRING" tag="" code=""/>
+				<Column name="TakePartPhase"	alias="" header="参与阶段          " 			dataType="STRING" tag="" code="30|TakePartPhase"/>
+				<Column name="TakePartRole"		alias="" header="参与角色          " 			dataType="STRING" tag="" code="30|TakePartRole"/>
+
+
+			</Columns>
+		</DataObject>
+		
+		<!--一般案件/应诉案件台帐-->
+		<DataObject name="LAWCASE_BOOK">
+			<Columns>
+				<Column name="BookType" 			alias="" header="台帐类型" 							dataType="STRING" tag="" code="代码取数|BookType"/>
+				<Column name="AppDate"   			alias="" header="申请日期" 							dataType="DATETIME" tag="" code=""/>
+				<Column name="Currency"				alias="" header="申请标的币种" 								dataType="STRING" tag="" code="代码取数|Currency"/>
+				<Column name="ApplySum" 			alias="" header="申请标的总额" 						dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="ApplyPrincipal" 		alias="" header="申请本金" 							dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="ApplyOtherSum" 		alias="" header="申请其它" 							dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="DemurralOrNot" 		alias="" header="被申请人是否提出异议" 				dataType="STRING" tag="" code="代码取数|YesNo"/>
+				<Column name="AcceptedDate"   		alias="" header="受理日期" 							dataType="DATETIME" tag="" code=""/>
+				<Column name="IntoEffectOrNot" 		alias="" header="支付令是否生效/判决书是否生效" 	dataType="STRING" tag="" code="代码取数|YesNo"/>
+				<Column name="JudgedDate"   		alias="" header="支付令裁定日期/判决日期" 			dataType="DATETIME" tag="" code=""/>
+				<Column name="ApplyDate"   			alias="" header="起诉日期 " 						dataType="DATETIME" tag="" code=""/>
+				<Column name="AcceptedNo" 			alias="" header="法院受理案号" 						dataType="STRING" tag="" code=""/>
+				<Column name="AgentType"			alias="" header="代理方式" 							dataType="STRING" tag="" code="代码取数|AgentType"/>
+				<Column name="WithdrawDate"   		alias="" header="撤诉日期" 							dataType="DATETIME" tag="" code=""/>
+				<Column name="ApplyRequest" 		alias="" header="上诉请求" 							dataType="STRING" tag="" code=""/>
+				<Column name="RetrialType"			alias="" header="再审提起方式" 						dataType="STRING" tag="" code="代码取数|RetrialType"/>
+				<Column name="IntoEffectDate"   	alias="" header="执行文书生效日期" 					dataType="DATETIME" tag="" code=""/>
+				<Column name="JudgementNo" 			alias="" header="生效的法律文书编号" 				dataType="STRING" tag="" code=""/>
+				<Column name="FirstRepayDate"   	alias="" header="受理执行回款时间" 					dataType="DATETIME" tag="" code=""/>
+				<Column name="CallbackSum" 			alias="" header="执行回收资产总额" 					dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="Practicality" 		alias="" header="执行回收实物价值" 					dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="ActualSum" 			alias="" header="执行回收现金金额" 					dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="MaterialsEvalValue" 	alias="" header="执行实物评估金额" 					dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="ApplyNo" 				alias="" header="请示文号" 							dataType="STRING" tag="" code=""/>
+				<Column name="ApproveNo" 			alias="" header="总行批复文号" 						dataType="STRING" tag="" code=""/>
+
+			</Columns>
+		</DataObject>
+		<!--法律费用台帐-->
+		<DataObject name="VIEW_COST_INFO">
+			<Columns>
+				<Column name="OccurDirection_VCI" 	alias="" header="费用发生方向      " 			dataType="STRING" tag="" code="30|OccurDirection"/>
+				<Column name="OccurPhase_VCI" 		alias="" header="费用发生阶段      " 			dataType="STRING" tag="" code="30|OccurPhase"/>
+				<Column name="CostType_VCI" 		alias="" header="费用种类      " 			dataType="STRING" tag="" code="30|CostType"/>
+				<Column name="CostSum_VCI" 			alias="" header="金额        " 			dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="RiskAgentSum_VCI" 	alias="" header="其中：固定费(只适于风险代理费)       " 			dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="RatioSum_VCI" 		alias="" header="按比例的费用 (只适于风险代理费)        " 			dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="OccurDate_VCI"   		alias="" header="发生日期 " 			dataType="DATETIME" tag="" code=""/>
+			</Columns>
+		</DataObject>
+		<!--法律查封资产台张-->
+		<DataObject name="VIEW_ASSET_INFO">
+			<Columns>
+				<Column name="AssetName_VAI" 		alias="" header="查封资产名称        " 			dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="PropertyOrg_VAI" 		alias="" header="查封资产所有权人名称        " 			dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="AssetAmount_VAI" 		alias="" header="查封资产数量 " 			dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="AssetSum_VAI" 		alias="" header="房产原值 " 			dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="AssetBalance_VAI" 	alias="" header="查封资产价值/查封帐户金额    " 			dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="AssetLocation_VAI" 	alias="" header="查封资产坐落地点        " 			dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="DetailedType_VAI" 	alias="" header="查封资产详细类别      " 			dataType="STRING" tag="" code="30|DetailedType1"/>
+				<Column name="GroundCharacter_VAI" 	alias="" header="查封资产取得方式      " 			dataType="STRING" tag="" code="30|GroundCharacter"/>
+				<Column name="PropertyNo_VAI" 		alias="" header="查、扣交通运输工具牌号        " 			dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="PershareValue_VAI" 	alias="" header="每股面值 " 			dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="NetValue_VAI" 		alias="" header="每股净资产 " 			dataType="NUMBERSCOPE" tag="" code=""/>
+				<Column name="MarketOrNot_VAI" 		alias="" header="是否是上市公司      " 			dataType="STRING" tag="" code="1|YesOrNo"/>
+				<Column name="ConstructingOrNot_VAI" 	alias="" header="是否有其他抵押人      " 			dataType="STRING" tag="" code="1|YesOrNo"/>
+				<Column name="ShutdownOrNot_VAI" 	alias="" header="是否有其他人保全该资产      " 			dataType="STRING" tag="" code="1|YesOrNo"/>
+
+			</Columns>
+		</DataObject>
+		<!--代理人员台帐-->
+		<DataObject name="AGENCY_AGENT">
+			<Columns>
+				<Column name="AgentName" 		alias="" header="代理人姓名       " 			dataType="STRING" tag="" code=""/>
+				<Column name="CompetenceNo" 	alias="" header="代理人资格证书编号" 			dataType="STRING" tag="" code=""/>
+				<Column name="AgencyName" 		alias="" header="代理机构名称  " 			dataType="STRING" tag="" code=""/>
+				<Column name="AgencyLicense" 	alias="" header="营业执照编号      " 			dataType="STRING" tag="" code=""/>
+				<Column name="BusinessBound"	alias="" header="营业范围          " 			dataType="STRING" tag="" code=""/>
+				<Column name="Kind"				alias="" header="性质          " 			dataType="STRING" tag="" code=""/>
+				<Column name="PrincipalName" 	alias="" header="代理机构负责人      " 			dataType="STRING" tag="" code=""/>
+			</Columns>
+		</DataObject>				
+   </DataObjects>
+</Domain>
+

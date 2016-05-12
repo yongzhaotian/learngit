@@ -1,0 +1,38 @@
+img.ServerFirstPage {
+	background-image:url(../images/server_first.gif);
+}
+img.ServerPrevPage {
+	background-image:url(../images/server_prev.gif);
+}
+img.ServerNextPage {
+	background-image:url(../images/server_next.gif);
+}
+img.ServerLastPage {
+	background-image:url(../images/server_last.gif);
+}
+.GDTdHeader {
+	border-color: #305894;
+}
+.GDTdHeader {
+	background-image: url(../images/tabe_title_bg.gif);
+	color:#fff;
+}
+
+.scrollContent td {
+	border-color: #305894;
+}
+.serial_td{
+	background-color: #f2f2f2;
+}
+.corss_walk2 {
+	background-color: #f2f2f2;
+}
+.high_light {
+	background-color: #b4cbff;
+}
+.sort_down {
+	background-image: url(../images/sort_down.gif);
+}
+.sort_up {
+	background-image: url(../images/sort_up.gif);
+}

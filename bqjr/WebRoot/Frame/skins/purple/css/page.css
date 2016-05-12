@@ -1,0 +1,61 @@
+.app_welcom2 {
+	background-image: url(../images/app_welcom_bg.png);
+	border-color: #dacbf4;
+}
+.app_change a, .app_change a:link, .app_change a:visited {
+	color:#f27b0a;
+}
+.app_welcom_txt2, .app_welcom_note2 {
+	color: #9654bb;
+}
+.app_block {
+	border-bottom-color: #8b6cbe;
+}
+.app_block_on{
+	border-color: #9654bb;
+}
+.app_tit a{
+	color: #333;
+}
+.app_txt {
+	color: #555;
+}
+.app_txt span {
+	color: #a575c0;
+}
+.sub_menu_bar li {
+	background: #ffe4ff;
+}
+.sub_menu_bar li a {
+	background: #a5a;
+}
+.sub_menu_bar li a:hover {
+	background: #ff57ff;
+}
+.s_content {
+	border-color: #8b6cbe;
+}
+.s_tit {
+	border-color: #8b6cbe;
+	background-image: url(../images/s_content_tit_bg.png);
+}
+.s_nvg {
+	background-image: url(../images/s_nvg_bg.png);
+	border-color: #8b6cbe;
+}
+.snb_selected {
+	background-image: url(../images/s_selcet_bg.png);
+}
+.s_appimg_flow {
+	background-image: url(../images/s_appimg_flow.png);
+}
+.s_scoll{
+	background-image: url(../images/s_shadow.png);
+}
+input.s_btn{
+	background-color: #e9e;
+	border-color: #8b6cbe;
+}
+.pwd_main {
+	background-image: url(../images/pwd_bg.png);
+}

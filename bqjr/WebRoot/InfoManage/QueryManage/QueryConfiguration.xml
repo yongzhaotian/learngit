@@ -1,0 +1,335 @@
+<?xml version='1.0' encoding='GB2312'?>
+<Domain name="Query">
+ <Querys>
+  <Query caption="企业信息查询" name="EntCustomerQuery">
+		<RelatedDataObjects>
+			<RelatedDataObject caption="客户基本信息" dataObjectName="CUSTOMER_INFO" joinType="" name="CI"></RelatedDataObject>
+ 			<RelatedDataObject caption="企业详细信息" dataObjectName="ENT_INFO" joinType="" name="EI"></RelatedDataObject>
+	 	</RelatedDataObjects>
+
+		<JoinClauses>
+			<JoinClause desColumnName="CustomerID" desRelatedDataObjectName="CI" operator="=" srcColumnName="CustomerID" srcRelatedDataObjectName="EI"></JoinClause>
+			<JoinClause  operator="exists(select CustomerID from Customer_Belong where CustomerID=CI.CustomerID and OrgID in #ManageOrgID) " srcColumnName="" srcRelatedDataObjectName=""></JoinClause>
+		</JoinClauses>
+
+		<ConditionMaps>
+			<ConditionMap caption="客户基本信息" defaultColspan="2" defaultColspanForLongType="4" defaultPosition="FREE" totalColumns="4">
+				<ConditionColumns>
+					<ConditionColumn colspan="" columnName="*" exceptcolumnName="" position="" relatedDataObject="CI"></ConditionColumn>
+				</ConditionColumns>
+			</ConditionMap>
+			
+			<ConditionMap caption="企业信息条件输入" defaultColspan="2" defaultColspanForLongType="4" defaultPosition="FREE" totalColumns="4">
+				<ConditionColumns>
+					<ConditionColumn colspan="" columnName="*" exceptcolumnName="" position="" relatedDataObject="EI"></ConditionColumn>
+				</ConditionColumns>
+			</ConditionMap>
+		</ConditionMaps>
+
+		<AvailableGroupColumns>*</AvailableGroupColumns>
+		<AvailableSummaryColumns>EI.RegisterCapital|CI.CustomerName|EI.PaiclUpCapital</AvailableSummaryColumns>
+		<AvailableDisplayColumns>*</AvailableDisplayColumns>
+		
+		<DisAvailableGroupColumns></DisAvailableGroupColumns>
+		<DisAvailableSummaryColumns></DisAvailableSummaryColumns>
+		<DisAvailableDisplayColumns></DisAvailableDisplayColumns>
+
+		<Schemes>
+			<Scheme caption="默认" name="default">
+  			<DisplayColumns></DisplayColumns>
+				<GroupColumns></GroupColumns>
+				<SummaryColumns></SummaryColumns>
+				<OrderColumns></OrderColumns>
+			</Scheme>
+		</Schemes>
+  </Query>
+  
+  <Query caption="个人客户查询" name="IndCustomerQuery">
+	 	<RelatedDataObjects>
+			<RelatedDataObject caption="客户基本信息" dataObjectName="CUSTOMER_INFO" joinType="" name="CI"></RelatedDataObject>
+	 		<RelatedDataObject caption="个人信息表" dataObjectName="IND_INFO" joinType="" name="II"></RelatedDataObject>
+	 	</RelatedDataObjects>
+
+		<JoinClauses>
+			<JoinClause desColumnName="CustomerID" desRelatedDataObjectName="CI" operator="=" srcColumnName="CustomerID" srcRelatedDataObjectName="II"></JoinClause>
+			<JoinClause  operator="exists(select CustomerID from Customer_Belong where CustomerID=CI.CustomerID and OrgID in #ManageOrgID) " srcColumnName="" srcRelatedDataObjectName=""></JoinClause>
+		</JoinClauses>
+
+		<ConditionMaps>
+			<ConditionMap caption="客户基本信息" defaultColspan="2" defaultColspanForLongType="4" defaultPosition="FREE" totalColumns="4">
+				<ConditionColumns>
+					<ConditionColumn colspan="" columnName="*" exceptcolumnName="" position="" relatedDataObject="CI"></ConditionColumn>
+				</ConditionColumns>
+			</ConditionMap>
+			<ConditionMap caption="个人信息条件输入" defaultColspan="2" defaultColspanForLongType="4" defaultPosition="FREE" totalColumns="4">
+				<ConditionColumns>
+					<ConditionColumn colspan="" columnName="*" exceptcolumnName="" position="" relatedDataObject="II"></ConditionColumn>
+				</ConditionColumns>
+			</ConditionMap>
+		</ConditionMaps>
+	
+		<AvailableGroupColumns>*</AvailableGroupColumns>
+		<AvailableSummaryColumns>II.YearIncome|II.FamilyMonthIncome</AvailableSummaryColumns>
+		<AvailableDisplayColumns>*</AvailableDisplayColumns>
+		
+		<DisAvailableGroupColumns></DisAvailableGroupColumns>
+		<DisAvailableSummaryColumns></DisAvailableSummaryColumns>
+		<DisAvailableDisplayColumns></DisAvailableDisplayColumns>
+
+		<Schemes>
+			<Scheme caption="默认" name="default">
+				<DisplayColumns></DisplayColumns>
+				<GroupColumns></GroupColumns>
+				<SummaryColumns></SummaryColumns>
+				<OrderColumns></OrderColumns>
+			</Scheme>
+		</Schemes>
+	</Query>
+
+	<Query caption="业务流水信息查询" name="WasteBookQuery">
+ 		<RelatedDataObjects>
+ 			<RelatedDataObject caption="借据信息表" dataObjectName="T_FACT_LOAN" joinType="" name="TL"></RelatedDataObject>
+ 			<RelatedDataObject caption="流水信息" dataObjectName="BUSINESS_WASTEBOOK" joinType="" name="BW"></RelatedDataObject>
+ 		</RelatedDataObjects>
+
+		<JoinClauses>
+			<JoinClause desColumnName="DueBillNo" desRelatedDataObjectName="TL" operator="=" srcColumnName="RelativeSerialNo" srcRelatedDataObjectName="BW"></JoinClause>
+			<JoinClause  operator="in #ManageOrgID" srcColumnName="OrgID" srcRelatedDataObjectName="TL"></JoinClause>	
+		</JoinClauses>
+	
+		<ConditionMaps>
+			<ConditionMap caption="账户信息条件输入" defaultColspan="2" defaultColspanForLongType="4" defaultPosition="FREE" totalColumns="4">
+					<ConditionColumns>
+						<ConditionColumn colspan="" columnName="*" exceptcolumnName="" position="" relatedDataObject="TL"></ConditionColumn>
+					</ConditionColumns>
+			</ConditionMap>
+			<ConditionMap caption="业务流水信息条件输入" defaultColspan="2" defaultColspanForLongType="4" defaultPosition="FREE" totalColumns="4">
+				<ConditionColumns>
+					<ConditionColumn colspan="" columnName="*" exceptcolumnName="" position="" relatedDataObject="BW"></ConditionColumn>
+				</ConditionColumns>
+			</ConditionMap>
+   	</ConditionMaps>
+		<AvailableGroupColumns>BW.OccurDate|BW.OccurDirection|BW.TransactionFlag|BW.SubjectNo|BW.BackType|BW.OccurSubject</AvailableGroupColumns>
+		<AvailableSummaryColumns>BW.ActualDebitSum|BW.ActualCreditSum</AvailableSummaryColumns>
+		<AvailableDisplayColumns>*</AvailableDisplayColumns>
+		
+		<DisAvailableGroupColumns></DisAvailableGroupColumns>
+		<DisAvailableSummaryColumns></DisAvailableSummaryColumns>
+		<DisAvailableDisplayColumns></DisAvailableDisplayColumns>
+
+		<Schemes>
+			<Scheme caption="默认" name="default">
+				<DisplayColumns></DisplayColumns>
+				<GroupColumns></GroupColumns>
+				<SummaryColumns></SummaryColumns>
+				<OrderColumns></OrderColumns>
+			</Scheme>
+		</Schemes>
+  </Query> 
+
+
+  <Query caption="报表月报信息查询" name="TFactLoanMQuery">
+ 	<RelatedDataObjects>
+ 		<RelatedDataObject caption="报表中间表" dataObjectName="T_FACT_LOAN_M" joinType="" name="TM"></RelatedDataObject>
+ 	</RelatedDataObjects>
+	<JoinClauses>
+		<JoinClause  operator=" OrgID in #ManageOrgID " srcColumnName="" srcRelatedDataObjectName=""></JoinClause>
+	</JoinClauses>
+	<ConditionMaps>
+		<ConditionMap caption="报表信息条件输入" defaultColspan="2" defaultColspanForLongType="4" defaultPosition="FREE" totalColumns="4">
+			<ConditionColumns>
+				<ConditionColumn colspan="" exceptcolumnName="" columnName="*" position="" relatedDataObject="TM"></ConditionColumn>
+			</ConditionColumns>
+		</ConditionMap>
+   	</ConditionMaps>
+	<AvailableGroupColumns>*</AvailableGroupColumns>
+	<AvailableSummaryColumns>TM.Balance|</AvailableSummaryColumns>
+	<AvailableDisplayColumns>*</AvailableDisplayColumns>
+	
+	<DisAvailableGroupColumns></DisAvailableGroupColumns>
+	<DisAvailableSummaryColumns></DisAvailableSummaryColumns>
+	<DisAvailableDisplayColumns></DisAvailableDisplayColumns>
+	
+	<Schemes>
+		<Scheme caption="默认" name="default">
+   		<DisplayColumns></DisplayColumns>
+       		<GroupColumns></GroupColumns>
+			<SummaryColumns></SummaryColumns>
+ 			<OrderColumns></OrderColumns>
+ 		</Scheme>
+ 	</Schemes>
+  </Query>
+  
+  <Query caption="报表当日信息查询" name="TFactLoanQuery">
+ 	<RelatedDataObjects>
+ 		<RelatedDataObject caption="报表中间表" dataObjectName="T_FACT_LOAN" joinType="" name="TL"></RelatedDataObject>
+ 	</RelatedDataObjects>
+	<JoinClauses>
+		<JoinClause  operator=" OrgID in #ManageOrgID " srcColumnName="" srcRelatedDataObjectName=""></JoinClause>
+	</JoinClauses>
+	<ConditionMaps>
+		<ConditionMap caption="报表信息条件输入" defaultColspan="2" defaultColspanForLongType="4" defaultPosition="FREE" totalColumns="4">
+			<ConditionColumns>
+				<ConditionColumn colspan="" exceptcolumnName="" columnName="*" position="" relatedDataObject="TL"></ConditionColumn>
+			</ConditionColumns>
+		</ConditionMap>
+   	</ConditionMaps>
+	<AvailableGroupColumns>*</AvailableGroupColumns>
+	<AvailableSummaryColumns>TL.Balance|TL.OverDueBalance|TL.DullBalance</AvailableSummaryColumns>
+	<AvailableDisplayColumns>*</AvailableDisplayColumns>
+	
+	<DisAvailableGroupColumns></DisAvailableGroupColumns>
+	<DisAvailableSummaryColumns></DisAvailableSummaryColumns>
+	<DisAvailableDisplayColumns></DisAvailableDisplayColumns>
+	
+	<Schemes>
+		<Scheme caption="默认" name="default">
+   		<DisplayColumns></DisplayColumns>
+       		<GroupColumns></GroupColumns>
+			<SummaryColumns></SummaryColumns>
+ 			<OrderColumns></OrderColumns>
+ 		</Scheme>
+ 	</Schemes>
+  </Query>
+  
+  <!--法律事务查询-->
+  <Query caption="法律事务查询" name="LawCaseQuery">
+ 	<RelatedDataObjects>
+ 		<RelatedDataObject caption="法律案件基本信息" dataObjectName="LAWCASE_INFO" joinType="" name="LI"></RelatedDataObject>
+ 	</RelatedDataObjects>
+	<JoinClauses>
+		<JoinClause  operator="in #ManageOrgID" srcColumnName="ManageOrgID" srcRelatedDataObjectName="LI"></JoinClause>
+	</JoinClauses>
+	<ConditionMaps>
+		<ConditionMap caption="法律案件信息条件输入" defaultColspan="2" defaultColspanForLongType="4" defaultPosition="FREE" totalColumns="4">
+			<ConditionColumns>
+				<ConditionColumn colspan="" columnName="*" exceptcolumnName="" position="" relatedDataObject="LI"></ConditionColumn>
+			</ConditionColumns>
+		</ConditionMap>
+   	</ConditionMaps>
+
+	<AvailableGroupColumns>LI.SerialNo|LI.LawCaseName</AvailableGroupColumns>
+	<AvailableSummaryColumns>LI.AimSum</AvailableSummaryColumns>
+	<AvailableDisplayColumns>*</AvailableDisplayColumns>
+	
+	<DisAvailableGroupColumns></DisAvailableGroupColumns>
+	<DisAvailableSummaryColumns></DisAvailableSummaryColumns>
+	<DisAvailableDisplayColumns></DisAvailableDisplayColumns>
+
+	<Schemes>
+		<Scheme caption="默认" name="default">
+			<DisplayColumns>LI.SerialNo|LI.LawCaseName|LI.AimSum</DisplayColumns>
+       		 <GroupColumns>LI.SerialNo</GroupColumns>
+			<SummaryColumns>LI.AimSum</SummaryColumns>
+ 			<OrderColumns></OrderColumns>
+ 		</Scheme>
+ 	</Schemes>
+  </Query>
+
+   <!--法律事务台帐信息查询-->
+  <Query caption="法律事务台帐查询" name="LawBookQuery">
+ 	<RelatedDataObjects>
+ 		<RelatedDataObject caption="法律案件台帐信息" dataObjectName="LAWCASE_BOOK" joinType="" name="LB"></RelatedDataObject>
+ 		<RelatedDataObject caption="法律案件基本信息" dataObjectName="LAWCASE_INFO" joinType="" name="LI"></RelatedDataObject>
+ 	</RelatedDataObjects>
+ 	
+	<JoinClauses>
+		<JoinClause desColumnName="ObjectType" desRelatedDataObjectName="LB" operator="'LawcaseInfo'=" ></JoinClause>
+		<JoinClause desColumnName="ObjectNo" desRelatedDataObjectName="LB" operator="=" srcColumnName="SerialNo" srcRelatedDataObjectName="LI"></JoinClause>
+		<JoinClause  operator="in #ManageOrgID" srcColumnName="ManageOrgID" srcRelatedDataObjectName="LI"></JoinClause>
+	</JoinClauses>
+	
+	<ConditionMaps>
+		<ConditionMap caption="法律案件信息条件输入" defaultColspan="2" defaultColspanForLongType="4" defaultPosition="FREE" totalColumns="4">
+			<ConditionColumns>
+				<ConditionColumn colspan="" columnName="*" exceptcolumnName="" position="" relatedDataObject="LI"></ConditionColumn>
+			</ConditionColumns>
+		</ConditionMap>
+		<ConditionMap caption="法律案件台帐信息条件输入" defaultColspan="2" defaultColspanForLongType="4" defaultPosition="FREE" totalColumns="4">
+			<ConditionColumns>
+				<ConditionColumn colspan="" columnName="*" exceptcolumnName="" position="" relatedDataObject="LB"></ConditionColumn>
+			</ConditionColumns>
+		</ConditionMap>
+   	</ConditionMaps>
+	<AvailableGroupColumns>LB.BookType|LB.AppDate</AvailableGroupColumns>
+	<AvailableSummaryColumns>LB.ApplySum</AvailableSummaryColumns>
+	<AvailableDisplayColumns>*</AvailableDisplayColumns>
+
+  <DisAvailableGroupColumns></DisAvailableGroupColumns>
+	<DisAvailableSummaryColumns></DisAvailableSummaryColumns>
+	<DisAvailableDisplayColumns></DisAvailableDisplayColumns>
+  
+	<Schemes>
+		<Scheme caption="默认" name="default">
+			<DisplayColumns>LB.BookType|LB.AppDate|LB.ApplySum</DisplayColumns>
+       		 <GroupColumns>LB.BookType</GroupColumns>
+			<SummaryColumns>LB.ApplySum</SummaryColumns>
+ 			<OrderColumns></OrderColumns>
+ 		</Scheme>
+ 	</Schemes>
+  </Query>
+
+	<!--抵债资产查询-->
+	<Query caption="抵债资产查询" name="PDAQuery">
+ 	<RelatedDataObjects>
+ 		<RelatedDataObject caption="抵债资产基本信息" dataObjectName="VIEW_ASSET_INFO1" joinType="" name="VAI1"></RelatedDataObject>
+		<RelatedDataObject caption="抵入合同信息" dataObjectName="VIEW_ASSET_CONTRACT" joinType="(+)" name="VAC"></RelatedDataObject>
+  		<RelatedDataObject caption="费用信息" dataObjectName="COST_INFO" joinType="(+)" name="CI"></RelatedDataObject>
+ 		<RelatedDataObject caption="评估信息" dataObjectName="EVALUATE_INFO" joinType="(+)" name="EI"></RelatedDataObject>
+
+
+ 	</RelatedDataObjects>
+
+	<JoinClauses>
+		<JoinClause srcColumnName="ContractSerialNo_AC" srcRelatedDataObjectName="VAC" operator="=" desColumnName="SerialNo_AI1" desRelatedDataObjectName="VAI1"></JoinClause>
+    		<JoinClause srcColumnName="ObjectNo" srcRelatedDataObjectName="CI" operator="=" desColumnName="SerialNo_AI1" desRelatedDataObjectName="VAI1"></JoinClause>
+   		<JoinClause srcColumnName="ObjectNo" srcRelatedDataObjectName="EI" operator="=" desColumnName="SerialNo_AI1" desRelatedDataObjectName="VAI1"></JoinClause>
+
+
+    </JoinClauses>
+
+	<ConditionMaps>
+		<ConditionMap caption="抵债资产基本信息" defaultColspan="2" defaultColspanForLongType="4" defaultPosition="FREE" totalColumns="4">
+			<ConditionColumns>
+				<ConditionColumn colspan="" columnName="*" exceptcolumnName="" position="" relatedDataObject="VAI1"></ConditionColumn>
+			</ConditionColumns>
+		</ConditionMap>
+		<ConditionMap caption="抵入合同信息条件输入" defaultColspan="2" defaultColspanForLongType="4" defaultPosition="FREE" totalColumns="4">
+			<ConditionColumns>
+				<ConditionColumn colspan="" columnName="*" exceptcolumnName="" position="" relatedDataObject="VAC"></ConditionColumn>
+			</ConditionColumns>
+		</ConditionMap>
+		<ConditionMap caption="费用信息条件输入" defaultColspan="2" defaultColspanForLongType="4" defaultPosition="FREE" totalColumns="4">
+			<ConditionColumns>
+				<ConditionColumn colspan="" columnName="*" exceptcolumnName="" position="" relatedDataObject="CI"></ConditionColumn>
+			</ConditionColumns>
+		</ConditionMap>
+		<ConditionMap caption="评估信息信息条件输入" defaultColspan="2" defaultColspanForLongType="4" defaultPosition="FREE" totalColumns="4">
+			<ConditionColumns>
+				<ConditionColumn colspan="" columnName="*" exceptcolumnName="" position="" relatedDataObject="EI"></ConditionColumn>
+			</ConditionColumns>
+		</ConditionMap>
+
+   	</ConditionMaps>
+
+	<AvailableGroupColumns>VAI1.SerialNo_AI1|VAI1.AssetName_AI1</AvailableGroupColumns>
+	<AvailableSummaryColumns>VAI1.AssetSum_AI1</AvailableSummaryColumns>
+	<AvailableDisplayColumns>*</AvailableDisplayColumns>
+
+    <DisAvailableGroupColumns></DisAvailableGroupColumns>
+		<DisAvailableSummaryColumns></DisAvailableSummaryColumns>
+		<DisAvailableDisplayColumns></DisAvailableDisplayColumns>
+
+	<Schemes>
+		<Scheme caption="默认" name="default">
+			<DisplayColumns>VAI1.SerialNo_AI1|VAI1.AssetName_AI1|VAI1.AssetSum_AI1</DisplayColumns>
+       		<GroupColumns>VAI1.SerialNo_AI1</GroupColumns>
+			<SummaryColumns>VAI1.AssetSum_AI1</SummaryColumns>
+ 			<OrderColumns></OrderColumns>
+ 		</Scheme>
+ 	</Schemes>
+	</Query>
+
+
+ </Querys>
+</Domain>

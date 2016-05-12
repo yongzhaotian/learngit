@@ -1,0 +1,167 @@
+@charset "gb2312";
+.pt9white {  font-family:宋体; font-size: 9pt; color: #FFFFFF; text-decoration: none}
+.ecrmpt9 {  font-size: 9pt; color: #8B8B83; text-decoration: none}
+.ecropt9 {  font-size: 9pt; color: #8B8B83; text-decoration: none}
+.ecrcpt9 {  font-size: 9pt; color: #8B8B83; text-decoration: none}
+.icrmpt9 {  font-size: 9pt; color: #8B8B83; text-decoration: none}
+.icropt9 {  font-size: 9pt; color: #8B8B83; text-decoration: none}
+.icrcpt9 {  font-size: 9pt; color: #8B8B83; text-decoration: none}
+td {  font-family:宋体; font-size: 9pt; text-decoration: none }
+.allwhite {  font-family:宋体; font-size: 9pt; line-height: 10pt; text-decoration: none; color: #FFFFFF;}
+
+a:link {  text-decoration: none; color: #0E629A}
+a:hover {  text-decoration: underline}
+.orange9pt {  font-family:宋体; font-size: 9pt; color: #0A4A72}
+a:visited {  font-family:宋体; font-size: 9pt; color: #1A72B3; text-decoration: none}
+.no_border {  border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px}
+.number {  text-align: right}
+.no_border_number {  text-align: right; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px}
+.inputjump {font-family:宋体; FONT-SIZE: 9pt; HEIGHT: 20px; TEXT-DECORATION: none}
+input1 { 
+	font-family:宋体,arial,sans-serif; 	
+	font-size:9pt; 
+	background-color: #FDFDF3; 
+	border-style:none;
+	border-width:thin; 
+}
+select1 { 
+	font-family:宋体,arial,sans-serif; 	
+	font-size:9pt; 
+	background-color: #FDFDF3; 
+	border-style:none;
+	border-width:thin; 
+}
+textarea1 { 
+	font-family:宋体,arial,sans-serif; 	
+	font-size:9pt; 
+	background-color: #FDFDF3; 
+	border-style:none;
+	border-width:thin;
+	overflow-y:hidden 
+}
+.inputDate { 
+	background-image:url(functionbg.gif); 
+	border: #DEDFCE;  
+	border-style: outset; 
+	border-top-width: 1px; 
+	border-right-width: 1px;  
+	border-bottom-width: 1px; 
+	border-left-width: 1px;
+	height:18px
+}
+.myInput{ font-family:宋体;cursor:pointer;background:#EEEEff;border-color:black;width:150px;border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px}
+
+
+
+body {
+	margin-top : 6px;
+	margin-left : 4px;
+	/*background-image : url(../GridBG_everbright.gif);*/
+  
+	
+}
+
+.jumptoinput{FONT-SIZE: 9pt;border-style:groove;text-align:center;width:30pt;height:13pt}
+.fftable{
+}
+
+.fftr1{
+		
+}
+.fftdhead{
+	font-family:宋体,arial,sans-serif;
+	font-size: 9pt;
+	padding-left: 5px;
+	/*vertical-align: text-top;*/
+	text-align : left;
+	border-bottom : 1px solid #e6edf5;
+}
+.fftdheadTextArea{
+	font-family:宋体,arial,sans-serif;
+	font-size: 9pt;
+	vertical-align: text-top;
+	text-align : left;
+	border-bottom : 1px solid #e6edf5;
+}
+
+
+.fftdinput{
+	font-family:宋体,arial,sans-serif; 	
+	font-size:9pt; 
+	background-color: white; 
+	/*border-style:groove;*/
+	border:1px solid #7f9db9;
+	
+}
+
+.fftdinput1 {border-style:none;}
+
+.fftdarea{
+	font-family:宋体,arial,sans-serif; 	
+	font-size:9pt; 
+	background-color: white; 
+	border:1px solid #7f9db9;
+	overflow-y:hidden ;
+}
+
+.fftdselect{
+	font-family:宋体,arial,sans-serif; 	
+	font-size:9pt; 
+	background-color: white; 
+	border:1px solid #7f9db9;
+}
+
+.ffform{
+
+}
+
+.ffjumptext{
+	font-size: 9pt;display:none;
+}
+.FFContentTD{
+	font-family:宋体,arial,sans-serif;
+	font-size: 9pt;
+	border-bottom : 1px solid #e6edf5;
+	height: 23px;
+}
+.info_tr_bg{
+	background-color:#f6fbfe;
+}
+/*.info_tr_bg td,.info_tr_bg2 td{padding-left:5px;}*/
+.info_tr_bg2{
+	background-color:white;
+}
+
+/**分组样式**/
+.dw_group_title{ 
+	background:url(tit-bg.png) #d0e9fd repeat-x 50% top;
+ 	height:24px;
+ 	font-weight:bold;
+ 	padding-left:5px;
+ 	color:#5d87b5;
+ 	border:1px solid #9fc0e3;
+ 	border-top:0px;
+}
+.dw_group_content{
+	border:1px solid #d0e9fd; 
+	padding-left:5px;
+}
+ .dw_title{ background:url(tit-bg.png) #d0e9fd repeat-x 50% top;
+ height:24px;
+ font-weight:bold;
+ padding-left:5px;
+ color:#5d87b5;
+ border:1px solid #9fc0e3;
+ border-top:0px;
+ cursor: pointer;
+ }
+ .dw_conacte{border:1px solid #d0e9fd;/* padding-left:5px;*/}
+fieldset {margin-bottom: 5px;}
+legend {font-size:9pt;cursor:pointer;color:blue;}
+
+/*验证出错提示样式*/
+label.error{
+	padding-left:15px;
+	background: url(err.gif) no-repeat left top;
+	color:#ff0000;
+}

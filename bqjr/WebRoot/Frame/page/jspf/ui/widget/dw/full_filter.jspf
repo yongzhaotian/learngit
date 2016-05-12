@@ -1,0 +1,46 @@
+<%
+ButtonItem btFIlter1 = new ButtonItem("确定","确定","if(tableSearchFromInput())document.getElementById('TableFilter').style.display='none';");
+ButtonItem btFIlter2 = new ButtonItem("高级","高级","openFullFilter(0,event)");
+ButtonItem btFIlter20 = new ButtonItem("还原","还原","TableFactory.clearFilter(0);if(tableSearchFromInput())document.getElementById('TableFilter').style.display='none';");
+ButtonItem btFIlter21 = new ButtonItem("关闭","关闭","document.getElementById('TableFilter').style.display='none';");
+%><div id="TableFilter" class="list_filter_div"><input type="text" name="Input_Filter" id="Input_Filter" value="" onkeypress="if(event.keyCode==13){filterValues[this.parentNode.getAttribute('tableId')][this.parentNode.colIndex]=this.value;tableSearchFromInput(document.getElementsByName('search')[0]);}" onChange="filterValues[this.parentNode.getAttribute('tableId')][this.parentNode.colIndex]=this.value"><div id="CheckBox_Filter"></div>
+	<table><tr>
+	<td>
+	<%=new Button(btFIlter1).getHtmlText()%>
+	</td>
+	<td>
+	<%=new Button(btFIlter2).getHtmlText()%>
+	</td>
+	<td>
+	<%=new Button(btFIlter20).getHtmlText()%>
+	</td>
+	<td>
+	<%=new Button(btFIlter21).getHtmlText()%>
+	</td>
+	</tr></table>
+</div>
+<div id="TableFullFilter_myiframe0" class="list_filter_div list_fulllfilter_div" style="display:none;overflow-x:hiden;overflow-y:auto;">
+	
+</div>
+<script><%
+ButtonItem btFIlter3 = new ButtonItem("确定","确定","if(tableSearchFromInput()){openFilterArea('TableFilter_AREA',0,event);closeFullFilter(0,event);}");
+ButtonItem btFIlter4 = new ButtonItem("清空","清空","TableFactory.clearFilter(0);openFullFilter(0,event);openFilterArea('TableFilter_AREA',0,event);tableSearchFromInput();");
+ButtonItem btFIlter5 = new ButtonItem("返回","返回","closeFullFilter(0,event,true)");
+ButtonItem btFIlter6 = new ButtonItem("关闭","关闭","closeFullFilter(0,event)");
+ButtonItem btFIlter31 = new ButtonItem("确定","确定","if(tableSearchFromInput(undefined,'fromarea',undefined,true)){openFilterArea('TableFilter_AREA',0,event);hideFilterArea(event);closeFullFilter(0,event);if(window.afterSubmitFilter)afterSubmitFilter();}","","","high2");
+ButtonItem btFIlter41 = new ButtonItem("清空","清空","TableFactory.clearFilter(0);openFilterArea('TableFilter_AREA',0,event);tableSearchFromInput();","","","high");
+%>var sbDWFullFiterButtons = new StringBuffer();
+sbDWFullFiterButtons.append('<table><tr>');
+sbDWFullFiterButtons.append('<td> <%=com.amarsoft.awe.dw.ui.util.WordConvertor.convertJava2Js(new Button(btFIlter3).getHtmlText())%></td>');
+sbDWFullFiterButtons.append('<td><%=com.amarsoft.awe.dw.ui.util.WordConvertor.convertJava2Js(new Button(btFIlter4).getHtmlText())%></td>');
+sbDWFullFiterButtons.append('<td><%=com.amarsoft.awe.dw.ui.util.WordConvertor.convertJava2Js(new Button(btFIlter5).getHtmlText())%></td>');
+sbDWFullFiterButtons.append('<td><%=com.amarsoft.awe.dw.ui.util.WordConvertor.convertJava2Js(new Button(btFIlter6).getHtmlText())%></td>');
+sbDWFullFiterButtons.append('</tr></table>');
+DWFullFiterButtons = sbDWFullFiterButtons.toString();
+sbDWFullFiterButtons = new StringBuffer();
+sbDWFullFiterButtons.append('<table style="margin-left:232px;"><tr>');
+sbDWFullFiterButtons.append('<td> <%=com.amarsoft.awe.dw.ui.util.WordConvertor.convertJava2Js(new Button(btFIlter31).getHtmlText())%></td>');
+sbDWFullFiterButtons.append('<td><%=com.amarsoft.awe.dw.ui.util.WordConvertor.convertJava2Js(new Button(btFIlter41).getHtmlText())%></td>');
+sbDWFullFiterButtons.append('</tr></table>');
+DWFullFiterButtons2 = sbDWFullFiterButtons.toString();
+</script>

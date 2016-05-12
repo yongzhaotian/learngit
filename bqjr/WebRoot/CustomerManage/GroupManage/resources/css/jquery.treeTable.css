@@ -1,0 +1,47 @@
+/**
+ *treetable样式文件
+ */
+    body{
+        background:url(../images/group_headerbg.gif) repeat-x left -31px;
+        padding: 0.5em;
+    }
+    .treetable {font-size:14px; border: 1px solid #369; border-collapse: collapse; line-height:1; width: 100%;}
+    
+    /* Header
+     * ------------------------------------------------------------------------- */
+    .treetable thead{font-size: .9em;}
+    .treetable thead tr th {border: 1px solid #369;font-weight: normal;padding: .3em 1.67em .1em 1.67em;text-align: left;}
+    
+    /* Body
+     * ------------------------------------------------------------------------- */
+    .treetable tbody tr td { height:20px; cursor: default; padding: 0em 1.5em; }
+    .treetable tbody tr td span { background-position: center left; background-repeat: no-repeat; padding: .2em 0 .2em 1.5em;}    
+    .treeTable tr td .expander {
+        width: 1px;
+        height: 18px;
+        display:inline-block;
+        vertical-align: middle; 
+        background-image: url(../images/tree_arrows.gif);
+        background-position:-70px -1px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        padding: 0;
+        zoom: 1; /* IE7 Hack */
+    }
+    /* collapsed&expander
+     * ------------------------------------------------------------------------- */ 
+    /*树图前面小箭头-收起*/
+    .treeTable tr.collapsed td .expander {background-position: 0px -4px;}
+    .treeTable tr.collapsed td .hover {background-position: -32px -4px;}
+    /*树图前面小箭头-展开*/
+    .treeTable tr.expanded td .expander {background-position: -16px -4px;}
+    .treeTable tr.expanded td .hover {background-position: -48px -4px;}
+    /*树图前方文件夹图标*/
+    .treeTable tr td .icon {
+        width: 1px;
+        height: 10px;
+        display:inline-block;
+        background-image: url(../images/tree_file_point.gif);
+    }
+    .treeTable tr.collapsed td .icon {background-image: url(../images/web_icon_010.gif) ;}
+    .treeTable tr.expanded td .icon { background-image: url(../images/web_icon_011.gif);}

@@ -1,0 +1,40 @@
+.mytop {
+	background: url(../images/main_menu_bg.png) #FFF repeat-x;
+	border-color: #09377b;
+}
+.menu_bar li a, .menu_bar li a:link {
+	color: #fffbf0;
+}
+.menu_bar li a:hover {
+	color: #000;
+}
+.menu_bar li li a, .menu_bar li li a:link {
+	color: #000;
+}
+.menu_sys {
+	background-image: url(../images/menu_nvgbg_left.gif);
+}
+.menu_sys table {
+	background-image: url(../images/menu_nvgbg.gif);
+}
+.sys_menu_href {
+	background-image: url(../images/menu_nvgbg_home.gif);
+}
+.skin_bar {
+	background-color: #e6f0fd; border-color: #8b47fc;
+}
+.menu_bar ul {
+	border-color: #92bdfc;
+}
+.menu_bar li li {
+	background: url(../images/menu.gif) repeat-y #e6f0fd;
+}
+.menu_bar li a:hover {
+	border-color: #92bdfc;
+	background: url(../images/menu_onebg.gif) repeat-x bottom;
+}
+.menu_bar li li a:hover {
+	border-color: #eee;
+	background: url(../images/menu_hover.gif) repeat-x center;
+	colorL:#fff;
+}

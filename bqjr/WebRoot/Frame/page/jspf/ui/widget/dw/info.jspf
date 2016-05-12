@@ -1,0 +1,68 @@
+<%@ page contentType="text/html; charset=GBK"%>
+<body class="info_page" onresize="javascript:change_height()" >
+<div id="messageBox" class="info_error_edoc" style="display:none;">
+    <div class="info_error_rt"></div>
+    <div class="info_error_eline"></div>
+    <div class="info_error_txt">
+       	<ul class="info_error_ulstyle" id="ul_error_0">
+		</ul>
+	</div>
+	<div class="info_error_txt" id="showpart">
+		<ul class="info_error_ulstyle" id="ul_error_1">
+		</ul>
+	</div>
+	<button class="info_error_mobtn" id="mobtn" name="btn">显示更多</button>
+    <button class="info_error_mobtn" id="hidbtn" name="btn">收起</button>
+</div>
+<table class="info_data_tablecommon" id="InfoTable">
+<tr height=1>
+	<td valign=top>
+		<%=sASNavigatorHtml%>
+    </td>
+</tr>
+<tr height=1>
+	<td valign=top>
+		<%=sASWizardHtml%>
+    </td>
+</tr>
+<%
+if(isShowButton && ("both".equalsIgnoreCase(sButtonPosition) || "north".equalsIgnoreCase(sButtonPosition)) ){%>
+	<tr height=1  id="ButtonTR">
+		<td valign=top id="InfoButtonArea" class="infodw_buttonarea_td" align="left" >
+			<%@ include file="/Frame/resources/include/ui/include_buttonset_dw.jspf"%>
+	    </td>
+	</tr>
+<%}%><tr id="DWTR"  >
+	    <td valign=top class="infodw_top_area" id="DWTD" >
+			 <div id="div_my0" style="overflow:auto;margin:0px;">
+			<form name="myiframe0" id="myiframe0" style="margin:0px;" method="post" action="<%=sWebRootPath%>/Frame/page/dw/InfoSave.jsp" target="WINDOW_SAVE_IFRAME_<%=CurPage.getClientID()%>">
+				<%out.print(CurPage.getObjectWindowOutput().get(0));%>
+			</form>
+			</div>
+				<%if(isShowButton && ("both".equalsIgnoreCase(sButtonPosition) || "south".equalsIgnoreCase(sButtonPosition)) ){%>
+					<div align="center" style="margin-top:-20px;">
+						 <br>
+						<%@ include file="/Frame/resources/include/ui/include_buttonset_dw.jspf"%> 
+					</div>
+				<%}%>
+			
+			
+			<%@ include file="/Frame/page/jspf/ui/widget/dw/info_context_menu.jspf"%>
+	    </td>
+	</tr>
+</table>
+</body>
+<script type="text/javascript">
+//保留原始值
+saveElementsValue(0,false);
+<%
+ASDataObject asoFRequest = (ASDataObject)request.getAttribute("ASDataObject");
+if(asoFRequest!=null){
+	out.println(asoFRequest.getScriptFunctions());
+	request.removeAttribute("ASDataObject");
+}
+%>
+change_height('<%=sButtonPosition%>',<%=doTemp.getColCount()%>);
+if(screen.availWidth<1025) bFreeFormMultiCol=false;
+</script>
+<%@ include file="/Frame/page/jspf/ui/widget/dw/overdiv.jspf"%>

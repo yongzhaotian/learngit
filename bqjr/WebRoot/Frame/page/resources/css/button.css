@@ -1,0 +1,342 @@
+/* 
+    Document   : buttonset.jspf
+    Created on : 2011-2-23, 21:41:00
+    Author     : whliu
+    Description: 按钮样式
+*/
+/*norm button configure BEGIN*/
+.btn_box ,.btn_box_sys,.btn_box_high,.btn_box_high2{
+	cursor:pointer;
+}
+span.btn_box table{
+	font-family:"宋体";
+	margin:0;
+	border:0;
+	border-collapse:collapse;
+	font-size:13px;
+}
+span.btn_box table td{
+	padding:0;
+	height:21px;
+}
+.btn_bg_left,
+.btn_bg_right,
+.btn_bg_left_over,
+.btn_bg_right_over,
+.btn_bg_left_down,
+.btn_bg_right_down{
+	width:7px;
+}
+/*默认字体颜色||鼠标悬浮颜色||鼠标点下颜色 待定*/
+.btn_bg_mid{
+	color:#6c3d3d
+}
+.btn_bg_mid_over{
+	padding-top:2px;
+	color:#000;
+}
+.btn_bg_mid_down{
+	color:#6c3d3d
+}
+.btn_bg_left{
+	background:url(../images/button/button_bg.png) no-repeat 0px 0px
+}
+.btn_bg_mid{
+	background:url(../images/button/button_bg.png) repeat-x -14px 0px
+}
+.btn_bg_right{
+	background:url(../images/button/button_bg.png) no-repeat -7px 0px
+}
+.btn_bg_left_over{
+	background:url(../images/button/button_bg.png) no-repeat 0px -21px
+}
+.btn_bg_mid_over{
+	background:url(../images/button/button_bg.png) repeat-x -14px -21px
+}
+.btn_bg_right_over{
+	background:url(../images/button/button_bg.png) no-repeat -7px -21px
+}
+.btn_bg_left_down{
+	background:url(../images/button/button_bg.png) no-repeat 0px -42px
+}
+.btn_bg_mid_down{
+	background:url(../images/button/button_bg.png) repeat-x -14px -42px
+}
+.btn_bg_right_down{
+	background:url(../images/button/button_bg.png) no-repeat -7px -42px
+}
+/*norm button configure END*/
+/*sys button configure BEGIN*/
+span.btn_box_sys table{
+	font-family:"宋体";
+	margin:0;
+	border:0;
+	border-collapse:collapse;
+	font-size:13px
+}
+span.btn_box_sys table td{
+	padding:0;
+	height: 22px
+}
+.btn_bg_left_sys,
+.btn_bg_right_sys,
+.btn_bg_left_over_sys,
+.btn_bg_right_over_sys,
+.btn_bg_left_down_sys,
+.btn_bg_right_down_sys{
+	width:7px;
+}
+/*默认字体颜色||鼠标悬浮颜色||鼠标点下颜色  待定*/
+.btn_bg_mid_sys{
+	color:#5A5A5A
+}
+.btn_bg_mid_over_sys{
+	color:#873B00
+}
+.btn_bg_mid_down_sys{
+	color:#444444
+}
+.btn_bg_left_sys{
+	background:url(../images/button/button_bg.png) no-repeat 0px -63px
+}
+.btn_bg_mid_sys{
+	background:url(../images/button/button_bg.png) repeat-x -14px  -63px
+}
+.btn_bg_right_sys{
+	background:url(../images/button/button_bg.png) no-repeat -7px  -63px
+}
+.btn_bg_left_over_sys{
+	background:url(../images/button/button_bg.png) no-repeat 0px -85px
+}
+.btn_bg_mid_over_sys{
+	background:url(../images/button/button_bg.png) repeat-x -14px -85px
+}
+.btn_bg_right_over_sys{
+	background:url(../images/button/button_bg.png) no-repeat -7px -85px
+}
+.btn_bg_left_down_sys{
+	background:url(../images/button/button_bg.png) no-repeat 0px -63px
+}
+.btn_bg_mid_down_sys{
+	background:url(../images/button/button_bg.png) repeat-x -14px  -63px
+}
+.btn_bg_right_down_sys{
+	background:url(../images/button/button_bg.png) no-repeat -7px  -63px
+}
+/*sys button configure END*/
+/*high button configure BEGIN*/
+span.btn_box_high table{
+	font-family:"宋体";
+	margin:0;
+	border:0;
+	border-collapse:collapse;
+	font-size:13px
+}
+span.btn_box_high table td{
+	padding:0;
+	height: 26px
+}
+.btn_bg_left_high,
+.btn_bg_right_high,
+.btn_bg_left_over_high,
+.btn_bg_right_over_high,
+.btn_bg_left_down_high,
+.btn_bg_right_down_high{
+	width:14px
+}
+/*默认字体颜色||鼠标悬浮颜色||鼠标点下颜色  待定*/
+.btn_bg_mid_high{
+	/*font-weight:bold;*/
+	color:#fff
+}
+.btn_bg_mid_over_high{
+	/*font-weight:bold;*/
+	color:#213c69
+}
+.btn_bg_mid_down_high{
+	/*font-weight:bold;*/
+	color:#444444
+}
+.btn_bg_left_high{
+	background:url(../images/button/button_bg.png) no-repeat 0px -108px
+	}
+.btn_bg_mid_high{
+	background:url(../images/button/button_bg.png) repeat-x -28px  -108px
+}
+.btn_bg_right_high{
+	background:url(../images/button/button_bg.png) no-repeat -14px  -108px
+}
+
+.btn_bg_left_over_high{
+	background:url(../images/button/button_bg.png) no-repeat 0px -134px
+}
+.btn_bg_mid_over_high{
+	background:url(../images/button/button_bg.png) repeat-x -28px -134px
+}
+.btn_bg_right_over_high{
+	background:url(../images/button/button_bg.png) no-repeat -14px -134px
+}
+
+.btn_bg_left_down_high{
+	background:url(../images/button/button_bg.png) no-repeat 0px -160px
+}
+.btn_bg_mid_down_high{
+	background:url(../images/button/button_bg.png) repeat-x -28px  -160px
+}
+.btn_bg_right_down_high{
+	background:url(../images/button/button_bg.png) no-repeat -14px  -160px
+}
+/*high button configure END*/
+/*high2 button configure BEGIN*/
+span.btn_box_high2 table{
+	font-family:"宋体";
+	margin:0;
+	border:0;
+	border-collapse:collapse;
+	font-size:13px
+}
+span.btn_box_high2 table td{
+	padding:0;
+	height: 26px
+}
+.btn_bg_left_high2,
+.btn_bg_right_high2,
+.btn_bg_left_over_high2,
+.btn_bg_right_over_high2,
+.btn_bg_left_down_high2,
+.btn_bg_right_down_high2{
+	width:14px
+}
+/*默认字体颜色||鼠标悬浮颜色||鼠标点下颜色  待定*/
+.btn_bg_mid_high2{
+	/*font-weight:bold;*/
+	color:#fff
+}
+.btn_bg_mid_over_high2{
+	/*font-weight:bold;*/
+	color:#21693e
+}
+.btn_bg_mid_down_high2{
+	/*font-weight:bold;*/
+	color:#444444
+}
+.btn_bg_left_high2{
+	background:url(../images/button/button_bg.png) no-repeat 0px -186px
+}
+.btn_bg_mid_high2{
+	background:url(../images/button/button_bg.png) repeat-x -28px  -186px
+}
+.btn_bg_right_high2{
+	background:url(../images/button/button_bg.png) no-repeat -14px  -186px
+}
+.btn_bg_left_over_high2{
+	background:url(../images/button/button_bg.png) no-repeat 0px -212px
+}
+.btn_bg_mid_over_high2{
+	background:url(../images/button/button_bg.png) repeat-x -28px -212px
+}
+.btn_bg_right_over_high2{
+	background:url(../images/button/button_bg.png) no-repeat -14px -212px
+}
+
+.btn_bg_left_down_high2{
+	background:url(../images/button/button_bg.png) no-repeat 0px -238px
+}
+.btn_bg_mid_down_high2{
+	background:url(../images/button/button_bg.png) repeat-x -28px  -238px
+}
+.btn_bg_right_down_high2{
+	background:url(../images/button/button_bg.png) no-repeat -14px  -238px
+}
+/*high2 button configure END*/
+.btn_text,.btn_text_sys,.btn_text_high,.btn_text_high2{
+	float:left;
+	padding-top:2px;
+}
+/*button icon BEGIN*/
+.btn_icon_help,
+.btn_icon_close,
+.btn_icon_refresh,
+.btn_icon_add,
+.btn_icon_delete,
+.btn_icon_save,
+.btn_icon_home,
+.btn_icon_workflow,
+.btn_icon_modifypwd,
+.btn_icon_othersys,
+.btn_icon_exit,
+.btn_icon_information,
+.btn_icon_detail,
+.btn_icon_submit,
+.btn_icon_up,
+.btn_icon_down,
+.btn_icon_left,
+.btn_icon_right,
+.btn_icon_edit,
+.btn_icon_check{
+	float:left;
+	margin-right:5px;
+	height:16px;
+	width:16px;
+}
+.btn_icon_help{
+	background:url('../images/main/icons/help.png') no-repeat
+}
+.btn_icon_close{
+	background:url('../images/main/icons/close.png') no-repeat
+}
+.btn_icon_refresh{
+	background:url('../images/main/icons/refresh.png') no-repeat
+}
+.btn_icon_add{
+	background:url('../images/main/icons/add.png') no-repeat
+}
+.btn_icon_delete{
+	background:url('../images/main/icons/delete.png') no-repeat
+}
+.btn_icon_save{
+	background:url('../images/main/icons/save.png') no-repeat
+}
+.btn_icon_home{
+	background:url('../images/main/icons/home.png') no-repeat
+}
+.btn_icon_workflow{
+	background:url('../images/main/icons/workflow.png') no-repeat
+}
+.btn_icon_modifypwd{
+	background:url('../images/main/icons/modifypwd.png') no-repeat
+}
+.btn_icon_othersys{
+	background:url('../images/main/icons/othersys.png') no-repeat
+}
+.btn_icon_exit{
+	background:url('../images/main/icons/exit.png') no-repeat
+}
+.btn_icon_information{
+	background:url('../images/main/icons/information.png') no-repeat
+}
+.btn_icon_detail{
+	background:url('../images/main/icons/detail.png') no-repeat
+}
+.btn_icon_submit{
+	background:url('../images/main/icons/submit.png') no-repeat
+}
+.btn_icon_up{
+	background:url('../images/main/icons/arrow_up.png') no-repeat
+	}
+.btn_icon_down{
+	background:url('../images/main/icons/arrow_down.png') no-repeat
+	}
+.btn_icon_left{
+	background:url('../images/main/icons/arrow_left.png') no-repeat
+	}
+.btn_icon_right{
+	background:url('../images/main/icons/arrow_right.png') no-repeat
+	}
+.btn_icon_edit{
+	background:url('../images/main/icons/edit.png') no-repeat
+}
+.btn_icon_check{
+	background:url('../images/main/icons/check.png') no-repeat
+}
+/*button icon END*/

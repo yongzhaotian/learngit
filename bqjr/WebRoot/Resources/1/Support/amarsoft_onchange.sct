@@ -1,0 +1,21 @@
+<SCRIPTLET ID="amarchange">
+
+<IMPLEMENTS ID="kuku2" TYPE="Behavior" DEFAULT>
+<EVENT NAME="onChange"/>
+</IMPLEMENTS>
+
+<IMPLEMENTS TYPE="Automation">
+<METHOD NAME="amar_onchange"/>
+</IMPLEMENTS>
+
+
+<script type="text/javascript">
+
+function amar_onchange() 
+{
+    fireEvent("onChange");
+} 
+
+</SCRIPT>
+</SCRIPTLET>
+¡¡¡¡ 

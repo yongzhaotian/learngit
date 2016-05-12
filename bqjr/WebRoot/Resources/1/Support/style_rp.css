@@ -1,0 +1,197 @@
+/** Active TC Buttons **/
+/* Top Page Button */
+img.TCTopPageA
+{
+	border:0px;
+	height:15px;
+	width:15px;
+	background-image:url(table/top.gif);
+	cursor:pointer;
+}
+
+/* Prev Page Button */
+img.TCPrevPageA
+{
+	border:0px;
+	height:15px;
+	width:15px;
+	background-image:url(table/pageup.gif);
+	cursor:pointer;
+}
+
+/* Prev Row Button */
+img.TCPrevRowA
+{
+	border:0px;
+	height:15px;
+	width:15px;
+	background-image:url(table/scrollup.gif);
+	cursor:pointer;
+}
+
+/* Bottom Page Button */
+img.TCLastPageA
+{
+	border:0px;
+	height:15px;
+	width:15px;
+	background-image:url(table/bottom.gif);
+	cursor:pointer;
+}
+
+/* Next Page Button */
+img.TCNextPageA
+{
+	border:0px;
+	height:15px;
+	width:15px;
+	background-image:url(table/pagedown.gif);
+	cursor:pointer;
+}
+
+/* Next Row Button */
+img.TCNextRowA
+{
+	border:0px;
+	height:15px;
+	width:15px;
+	background-image:url(table/scrolldown.gif);
+	cursor:pointer;
+}
+
+/** Inactive TC Buttons **/
+/* Top Page Button */
+img.TCTopPageI
+{
+	border:0px;
+	height:15px;
+	width:15px;
+	background-image:url(table/dim_top.gif);
+}
+
+/* Prev Page Button */
+img.TCPrevPageI
+{
+	border:0px;
+	height:15px;
+	width:15px;
+	background-image:url(table/dim_pageup.gif);
+}
+
+/* Prev Row Button */
+img.TCPrevRowI
+{
+	border:0px;
+	height:15px;
+	width:15px;
+	background-image:url(table/dim_scrollup.gif);
+}
+
+/* Bottom Page Button */
+img.TCLastPageI
+{
+	border:0px;
+	height:15px;
+	width:15px;
+	background-image:url(table/dim_bottom.gif);
+}
+
+/* Next Page Button */
+img.TCNextPageI
+{
+	border:0px;
+	height:15px;
+	width:15px;
+	background-image:url(table/dim_pagedown.gif);
+}
+
+/* Next Row Button */
+img.TCNextRowI
+{
+	border:0px;
+	height:15px;
+	width:15px;
+	background-image:url(table/dim_scrolldown.gif);
+}
+
+/* Jump Row Button */
+img.TCJumpRow
+{
+	border:0px;
+	height:15px;
+	width:15px;
+	background-image:url(table/jumprow.gif);
+}
+
+
+.inputstring {font-family: '宋体','黑体';border-style:none;border-width:thin;border-color:#e9e9e9}");
+.table1 {  font-family: '宋体','黑体';border: solid; border-width: 0px 0px 1px 1px; 
+		border-color: #000000 black #000000 #000000}");
+.td1 {  font-family: '宋体','黑体';font-size: 9pt;border-color: #000000; 
+		border-style: solid; border-top-width: 1px; border-right-width: 1px;
+		 border-bottom-width: 0px; border-left-width: 0px}");
+.inputnumber {font-family: '宋体','黑体';border-style:none;border-width:thin;
+		border-color:#e9e9e9;text-align:right;}");
+.pt16songud{font-family: '宋体','黑体';font-size: 16pt;font-weight:bold;text-decoration: none}");
+.myfont{font-family: '宋体','黑体';font-size: 9pt;font-weight:bold;text-decoration: none}");
+
+body 
+{
+ background-color:'#DEDFCE' ;
+}
+.GdTdPage{
+	font-family:宋体,arial,sans-serif;font-size:9pt;	font-weight: normal;color: #555555;
+	padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;
+	background-color: #fff;valign:top;
+}
+div.tableContainer {
+	clear: both;
+	height: 285px;
+	overflow: auto;
+	width: 100%;
+}
+.tableContainer table{
+	border:1px solid #bcbcbc;
+   color:#666;
+	
+}
+.tableContainer th{border:1px solid #bcbcbc;height:20px; color:#666;padding:0px 5px; line-height:19px;}
+ .tableContainer td{
+	border:1px solid #bcbcbc;
+	border-top:0px;
+	border-left:0px;
+	padding:1px 5px;
+	font-size:12px;
+		line-height:18px;
+	
+}
+img.ServerFirstPage
+{
+	border:0px;
+	height:15px;
+	width:15px;
+	background-image:url(table/server_first.gif);
+	cursor:pointer;
+}
+img.ServerPrevPage
+{
+	border:0px;
+	height:15px;
+	width:15px;
+	background-image:url(table/server_prev.gif);
+	cursor:pointer;
+}img.ServerNextPage
+{
+	border:0px;
+	height:15px;
+	width:15px;
+	background-image:url(table/server_next.gif);
+	cursor:pointer;
+}img.ServerLastPage
+{
+	border:0px;
+	height:15px;
+	width:15px;
+	background-image:url(table/server_last.gif);
+	cursor:pointer;
+}

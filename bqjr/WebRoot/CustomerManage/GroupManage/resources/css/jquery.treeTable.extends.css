@@ -1,0 +1,28 @@
+    /* selected
+     * ------------------------------------------------------------------------- */
+    .treeTable tr.selected{
+        background-color: #B0C4DE;
+    }
+    .treeTable tr.selected td{
+        color: #fff;
+    }
+    .treeTable tr.highlight{
+        background-color: #DCDCDC;
+    }
+    .treeTable tr.highlight td{
+    }
+    .treeTable tr.selected td .collapsed{
+        background-image: url(/AmarFaces/resources/images/group_toggle_light.png);
+    }
+    .treeTable tr.selected td .expanded{
+        background-image: url(/AmarFaces/resources/images/group_expand_light.png);
+    }
+    .treetable th.button-cell span,.treetable td.button-cell span{
+        margin: 0em 0.1em;
+        padding: 0;
+    }
+    .searchText {
+        background:yellow;
+        padding: 0px 5px;
+        filter: progid:DXImageTransform.Microsoft.Alpha(style=2,opacity=100,finishOpacity=30,startX=0,finishX=310,startY=0,finishY=50);
+    }    

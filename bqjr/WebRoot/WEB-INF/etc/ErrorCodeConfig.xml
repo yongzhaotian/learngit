@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="GBK"?>
+<!-- 提示类错误信息以1开头，如E10001；数据类错误信息以2开头，如E20001;其他类错误以3开头；JBO错误以4开头 -->
+<ErrorCodes>
+	<!-- 提示类错误信息 -->
+	<ErrorCode code="E10001" describe="新旧对象不能同时为空！" />
+	<ErrorCode code="E10002" describe="新旧对象的对象类型或编号不一致！" />
+	<ErrorCode code="E10003" describe="传入的对象类型或编号为空！" />
+	<ErrorCode code="E10004" describe="传入的操作标识不正确，此方法支撑传入delete或insert！" />
+	<ErrorCode code="E10005" describe="科目{@0@}未定义本币币种！" />
+	<ErrorCode code="E10006" describe="交易关联的业务对象｛@0@｝存在多个！" />
+	<ErrorCode code="E10007" describe="未找到交易关联的业务对象｛@0@｝" />
+	<ErrorCode code="E10008" describe="科目{@0@}定义的银行科目代码的映射关系不正确，无法找到对应的科目，可能需要配置新的银行科目，或者在账务方案信息未配置完整！" />
+	<ErrorCode code="E10009" describe="科目{@0@}定义的银行科目代码的映射关系不正确，无法找到对应的科目，可能需要配置新的银行科目，或者在LAS科目中修改映射关系{CODE_LIBRARY.Attribute7}！" />
+	<ErrorCode code="E10010" describe="未找到业务对象{@0@-@1@}！" />
+	<ErrorCode code="E10011" describe="找到业务对象{@0@-@1@}的多条账户信息，请确认纬度是否足够！" />
+	<ErrorCode code="E10012" describe="交易类型{@0@}对应的单据类型为空！如果此交易不需要单据，请将Code_Library的RelativeCode赋值'-'" />
+	<ErrorCode code="E10013" describe="传入的交易单据信息与交易定义的类型不一致！" />
+	<ErrorCode code="E10014" describe="该Sqlca未注册JBOTransaction对象，不能调用该方法" />
+	<ErrorCode code="E10015" describe="对象@0@的Key值未定义!" />
+	<ErrorCode code="E10016" describe="未传入变量【@0@】的值！" />
+	<ErrorCode code="E10017" describe="未定义该对象的主键，无法进行更新！" />
+	<ErrorCode code="E10018" describe="请用StateBizObject实例化对象！" />
+	<ErrorCode code="E10019" describe="对象【@0@】的对象编号为空！" />
+	<ErrorCode code="E10020" describe="不支持的数据类型【@0@】，请检查！" />
+	<ErrorCode code="E10021" describe="系统日期未定义，请联系系统管理员设置！" />
+	<ErrorCode code="E10022" describe="子账户中对应的业务代号为空！@0@" />
+	<ErrorCode code="E10023" describe="系统未初始化环境变量，请检查！" />
+	<ErrorCode code="E10024" describe="未传入期限单位不正确！" />
+	<ErrorCode code="E10025" describe="期限单位【@0@】无法解析！" />
+	<ErrorCode code="E10026" describe="期限周期不能小于零！" />
+	<ErrorCode code="E10027" describe="未传入期限单位不正确！" />
+	<ErrorCode code="E10028" describe="节假日标志 WorkFlag【@0@】定义错误！" />
+	<ErrorCode code="E10029" describe="无效的标识!" />
+	<ErrorCode code="E10030" describe="未找到机构号为【@0@】的机构信息！" />
+	<ErrorCode code="E10031" describe="未找到机构号：【@0@】账户类型：【@1@】币种：【@2@】的内部账户信息！" />
+	<ErrorCode code="E10032" describe="参数库中未找到参数{@0@}" />
+	<ErrorCode code="E10033" describe="业务组件库为空，请确认是否加载成功！" />
+	<ErrorCode code="E10034" describe="对象类型｛@0@｝的业务组件库为空！" />
+	<ErrorCode code="E10035" describe="对象｛@0@   @1@｝的业务组件库为空！" />
+	<ErrorCode code="E10036" describe="对象｛@0@   @1@｝的业务组件库中未找到组件ID为{@2@}的组件！" />
+	<ErrorCode code="E10037" describe="未找到组件{@0@}！" />
+	<ErrorCode code="E10038" describe="未加载系统变量【TermSet】，请检查启动！" />
+	<ErrorCode code="E10039" describe="未定义该基准利率类型【@0@】" />
+	<ErrorCode code="E10040" describe="获取的基准利率为零，请检查！" />
+	<ErrorCode code="E10041" describe="未维护【@0@】的汇率，请系统管理员检查！" />
+	<ErrorCode code="E10042" describe="未维护【@0@】的汇率是【@1@】，请系统管理员检查！" />
+	<ErrorCode code="E10043" describe="获取交易定义时出错，交易码@0@不存在！" />
+	<ErrorCode code="E10044" describe="未找到交易{@0@}" />
+	<ErrorCode code="E10045" describe="交易码@0@未定义执行脚本！" />
+	<ErrorCode code="E10046" describe="未找到组合组件{@0@}的子组件，请确认组件定义是否正确！" />
+	<ErrorCode code="E10047" describe="无效的组件类型，只有类型为BAS或SET或SEG的组件可被引入！" />
+	<ErrorCode code="E10048" describe="属性-@0@未定义数据类型！" />
+	<ErrorCode code="E10049" describe="还款方式@0@未定义执行脚本！" />
+	<ErrorCode code="E10050" describe="无效的贴息基础标示{@0@}" />
+	<ErrorCode code="E10051" describe="无效的贴息计算标示{@0@}" />
+	<ErrorCode code="E10052" describe="直接减免的贴息方式下，贴息金额不能超过期供利息！
+	说明：车贷贴息全部为固定利率，因此应该不会出现这种情况，也不会出现不足额的情况！" />
+	<ErrorCode code="E10053" describe="还款计划｛SerialNo=@0@｝的PayType为空！" />
+	<ErrorCode code="E10054" describe="未定义对象管理器BusinessObjectManager，请检查！" />
+	<ErrorCode code="E10055" describe="未找到贷款{@0@}有效的还款定义!" />
+	<ErrorCode code="E10056" describe="贷款{@0@}的还款属性SegTermFlag未定义！" />
+	<ErrorCode code="E10057" describe="贷款{@0@}的末期还款标识{FinalInstalmentFlag}未定义！" />
+	<ErrorCode code="E10058" describe="脚本错误:@0@" />
+	<ErrorCode code="E10059" describe="脚本-@0@参数未替换完整，请确认所需参数是否都已加载到对应对象" />
+	<ErrorCode code="E10060" describe="合同编号为空！" />
+	<ErrorCode code="E10061" describe="未找到费用记录{@0@}！" />
+	<ErrorCode code="E10062" describe="费用支出金额【@0@】超过费用应支出金额【@1@】" />
+	<ErrorCode code="E10063" describe="费用减免类型不正确请检查！" />
+	<ErrorCode code="E10064" describe="收取金额不能超过费用计划应收未收取金额！" />
+	<ErrorCode code="E10065" describe="未定义的摊销方式【@0@】，请检查！" />
+	<ErrorCode code="E10066" describe="费用已收取完毕，不能再发起收取交易！" />
+	<ErrorCode code="E10067" describe="费用收取金额【@0@】超过费用应收取金额【@1@】"	 />
+	<ErrorCode code="E10068" describe="未找到对应的费用还款计划！" />
+	<ErrorCode code="E10069" describe="退还金额不能超过费用计划已收取金额！"/>
+	<ErrorCode code="E10070" describe="减免金额不能超过费用计划应收未收取金额！" />
+	<ErrorCode code="E10071" describe="费用已收取完毕，不能再发起减免交易！" />
+	<ErrorCode code="E10072" describe="本金的调整类型为空！" />
+	<ErrorCode code="E10073" describe="本金的调整类型不正确！" />
+	<ErrorCode code="E10074" describe="正常本金：@0@  放款本金：@1@ 不等！" />
+	<ErrorCode code="E10075" describe="该贷款存在逾期不能进行冲账！" />
+	<ErrorCode code="E10076" describe="还款计划{@0@}存在无效的计息日志！BaseAmountFlag={@1@}" />
+	<ErrorCode code="E10077" describe="未找业务对象{@0@-@1@}到对应的还款计划！" />
+	<ErrorCode code="E10078" describe="提前还款已经过了一次结息周期,不允许冲销！" />
+	<ErrorCode code="E10079" describe="利率信息{@0@}的计息基础标示为空！" />
+	<ErrorCode code="E10080" describe="还款计划类型不正确!" />
+	<ErrorCode code="E10081" describe="贷款流水号{ @0@ }的提前还款属性{PrepayInterestDaysFlag}定义不正确！" />
+	<ErrorCode code="E10082" describe="{Loan-@0@}无效的提前还款金额类型{@1@}！" />
+	<ErrorCode code="E10083" describe="贷款流水号{@0@}的提前还款方式{PrepaymentType}不正确！" />
+	<ErrorCode code="E10084" describe="计算后的还款本金@0@超过贷款余额：@1@！" />
+	<ErrorCode code="E10085" describe="没有新的还款日，请检查!" />
+	<ErrorCode code="E10086" describe="交易日期不能大于变更后的下次还款日，请确认变更生效日期！" />
+	<ErrorCode code="E10087" describe="未取到对应罚息利率！" />
+	<ErrorCode code="E10088" describe="未找到表外业务对应的合同信息，创建垫款交易失败！" />
+	<ErrorCode code="E10089" describe="该业务无余额信息！无法修改" />
+	<ErrorCode code="E10090" describe="费用的计算方式为空，请检查!" />
+	<ErrorCode code="E10091" describe="费用计算方式{@0@}没有对应计算脚本，请检查!" />
+	<ErrorCode code="E10092" describe="创建费用失败，未找到费用组件定义！" />
+	<ErrorCode code="E10093" describe="产品中未配置【费用类型】！" />
+	<ErrorCode code="E10094" describe="费用【@0@】异常！费用收付频率为空！" />
+	<ErrorCode code="E10095" describe="未定义该费用的还款周期，请检查！" />
+	<ErrorCode code="E10096" describe="费用计算方式{@0@}计算脚本参数未替换完整{@1@}，请检查!" />
+	<ErrorCode code="E10097" describe="费用{@0@}的摊销截止日期为空！" />
+	<ErrorCode code="E10098" describe="费用的摊销方式【@0@】未在系统中定义！" />
+	<ErrorCode code="E10099" describe="计算利息起始日【@0@】大于到期日【@1@】，请检查数据！" />
+	<ErrorCode code="E10100" describe="找不到对应的零头天计息方式{@0@}！" />
+	<ErrorCode code="E10101" describe="找不到对应的计息方式{@0@}！" />
+	<ErrorCode code="E10102" describe="未找到还款周期{@0@}的定义！" />
+	<ErrorCode code="E10103" describe="还款周期{@0@}的期限单位{@1@}定义不正确！" />
+	<ErrorCode code="E10104" describe="币种为空，请查证" />
+	<ErrorCode code="E10105" describe="自定义调整周期的参数不全，请查证：首次重定价日期:@0@,重定价周期单位:@1@,重定价周期:@2@" />
+	<ErrorCode code="E10106" describe="利率计算所需参数[利率浮动类型]录入有误！" />
+	<ErrorCode code="E10107" describe="执行利率不能为负数{@0@}！" />
+	<ErrorCode code="E10108" describe="还款频率@0@定义的期限单位不正确！" />
+	<ErrorCode code="E10109" describe="参数传入格式错误！" />
+	<ErrorCode code="E10110" describe="未找到方法：@0@" />
+	<ErrorCode code="E10111" describe="找到多个业务对象{@0@}，此写法有问题！" />
+	<ErrorCode code="E10112" describe="未找到业务对象 " />
+	<ErrorCode code="E10113" describe="交易流水为空！" />
+	<ErrorCode code="E10114" describe="未传入对象类型和对象编号!" />
+	<ErrorCode code="E10115" describe="未找到对象{@0@-@1@}" />
+	<ErrorCode code="E10116" describe="费用编号和费用所属对象不能同时为空，请检查！" />
+	<ErrorCode code="E10117" describe="该产品｛@0@-@1@｝未配置交易组件｛@2@｝的参数｛TransactionCode｝的默认值！请确认该类业务是否可使用此功能！" />
+	
+
+
+	
+	<!-- 数据类错误信息 -->
+	<ErrorCode code="E20001" describe="交易{@0@}的分录配置未指定帐套" />
+	<ErrorCode code="E20002" describe="交易@0@分录模板中红蓝字定义错误！" />
+	<ErrorCode code="E20003" describe="交易@0@分录模板中未定义币种！" />
+	<ErrorCode code="E20004" describe="交易@0@分录模板中未定义机构！" />
+	<ErrorCode code="E20005" describe="交易@0@的第@1@条分录配置未找到科目号{AccountNoScript}！" />
+	<ErrorCode code="E20006" describe="科目{@0@}未定义本币币种！" />
+	<ErrorCode code="E20007" describe="未定义变量@0@值，请检查！" />
+	<ErrorCode code="E20008" describe="【@0@】未定义变量@1@值，请检查！" />
+	<ErrorCode code="E20009" describe="@0@未定义主键，请检查！" />
+	<ErrorCode code="E20010" describe="子账户中对应的业务代号未找到！@0@" />
+	<ErrorCode code="E20011" describe="余额方向为双向的子账户不允许使用此方法！" />
+	<ErrorCode code="E20012" describe="子账户的余额方向不正确！@0@" />
+	<ErrorCode code="E20013" describe="不正确的余额标志！@0@" />
+	<ErrorCode code="E20014" describe="未找到产品编号{@0@}的定义信息！" />
+	<ErrorCode code="E20015" describe="未找到产品编号{@0@}的最新版本信息！" />
+	<ErrorCode code="E20016" describe="未找到产品编号为{@0@}版本号为{@1@}的定义信息！" />
+
+
+	<!-- 其他类错误信息 -->
+	<ErrorCode code="E30001" describe="业务对象-@0@-@1@-下未找到子账户！" />
+	<ErrorCode code="E30002" describe="未找到@0@科目号：@1@的定义,错误的科目号，或者未初始化环境变量!" />
+	<ErrorCode code="E30003" describe="交易状态不是未记账，不能使用此账务功能！" />
+	<ErrorCode code="E30004" describe="未录入正确贷款期限，请检查！" />
+	<ErrorCode code="E30005" describe="该业务产品版本放款组件-贷款到期日确认方式未录入正确！" />
+	<ErrorCode code="E30006" describe="无效的还款顺序，请检查！" />
+	<ErrorCode code="E30007" describe="还款计划未找到，请检查！" />
+	<ErrorCode code="E30008" describe="减免期供本金金额不能超过未还本金金额，请检查！" />
+	<ErrorCode code="E30009" describe="增加本金金额不能超过剩余本金余额（不包含本期次）！" />
+	<ErrorCode code="E30010" describe="减免期供利息金额不能超过未还期供利息金额，请检查！" />
+	<ErrorCode code="E30011" describe="减免逾期复利金额不能超过未还逾期复利金额，请检查！" />
+	<ErrorCode code="E30012" describe="未传入正确的利率单位{RateUnit}!" />
+	<ErrorCode code="E30013" describe="未指定首期还款约定{FirstInstalmentFlag}！" />
+
+	<!-- JBO错误 -->
+	<ErrorCode code="E40001" describe="该对象【@0@】未定义主键，不能进行删除操作！" />
+	<ErrorCode code="E40002" describe="该对象类型【@0@】的主键和传入的对象编号【@1@】不匹配！" />
+	<ErrorCode code="E40003" describe="该对象【@0@】未定义主键！" />
+	
+
+	
+</ErrorCodes>

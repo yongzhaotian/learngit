@@ -1,0 +1,361 @@
+<%@page import="com.amarsoft.app.alarm.*"%>
+<%@page import="com.amarsoft.awe.util.ObjectConverts"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<link rel="stylesheet" type="text/css" href="<%=sWebRootPath%>/AppConfig/AutoRiskDetect/resources/scenario.css">
+<%
+	//获得组件参数	
+	String sScenarioNo = CurPage.getParameter("ScenarioNo");
+	String sBizArg = CurPage.getParameter("BizArg");
+	String sSubTypeNo = CurPage.getParameter("SubTypeNo");
+	
+	ARE.getLog().debug("传入业务参数:"+sBizArg);
+
+	//加载器
+	ScenarioContextLoader loader = new DefaultScenarioContextLoader();
+	((DefaultScenarioContextLoader)loader).init(Sqlca,sScenarioNo,sBizArg,sSubTypeNo);
+	
+	ScenarioContext context = loader.getContext();				//获取下文容器
+	context.setCheckItemRunner(new DefaultCheckItemRunner());	//模型运行器
+	
+	String scenarioSerializable = ObjectConverts.getString(context);	//序列化
+%>
+<body style="overflow:auto;overflow-x:hidden;">
+    <div class="r_main">
+    <%
+    	List<ItemGroup> gList0 = context.getScenario().getGroupList();
+    	List<ItemGroup> gList = new ArrayList<ItemGroup>();
+    
+    	//根据运行条件进行预处理,分组下检查项检查条件均没通过，则不显示该分组
+    	for(int i=0;i<gList0.size();i++){
+    		ItemGroup group = gList0.get(i);
+    		List<CheckItem> ckList0 = group.getCheckItemList();
+    		List<CheckItem> ckList1 = new ArrayList<CheckItem>();	//存放检查通过的
+    		for(int j=0;j<ckList0.size();j++){
+    			CheckItem ckItem = ckList0.get(j);
+	           	String sCondition = ckItem.getRunCondition();	//运行条件
+	           	if(sCondition!=null&&sCondition.length()>0){
+	               	boolean bCondition = StringTool.runAmarScript(Sqlca, sCondition, context.getParameter()).booleanValue();
+	               	if(!bCondition)continue;
+	               	else ckList1.add(ckItem);
+	           	}else{
+	               	ckList1.add(ckItem);
+	           	}
+    		}
+    		if(ckList1.size()>0){	//重组分组
+    			group.getCheckItemList().clear();
+    			group.getCheckItemList().addAll(ckList1);
+    			gList.add(group);
+    		}
+    	}
+    	//生成界面
+    	for(int i=0;i<gList.size();i++){
+    		ItemGroup group = gList.get(i);
+    		List<CheckItem> ckList = group.getCheckItemList();
+    %>
+        <div class="r_group" id="Group<%=group.getGroupID()%>" groupID="<%=group.getGroupID()%>" groupName="<%=group.getGroupName()%>">
+            <div class="r_info">
+                <div style="float:left;"><%=group.getGroupName()%></div>  
+                <div class="group_result"></div>
+            </div>
+            <div class="r_head"></div>
+            <div class="r_x">
+                <table class="r_tb">
+                    <thead>
+	                    <tr>
+	                        <td class="r_35 r_tb_tit">处理的任务</td>
+	                        <td class="r_9 r_tb_tit">处理结果</td>
+	                        <td class="r_55 r_tb_tit">提示信息</td>
+	                        <td class="r_6 r_tb_tit">操作</td>
+	                    </tr>
+                    </thead>
+                    <tbody>
+                    <%for(int j=0;j<ckList.size();j++){
+                    	CheckItem ckItem = ckList.get(j);
+                    	String viewerScript = ckItem.getBizViewer();
+                    	if(viewerScript==null)viewerScript="";
+                    	else viewerScript = StringTool.pretreat(context.getParameter(), viewerScript);
+                    	String viewNode = "&nbsp;";
+                    	if(viewerScript.length()>0){
+                    		viewNode = "<a href='javascript:void(0);'>修改</a>";
+                    	}
+                    %>
+                    <tr class="ck_item default" groupID="<%=group.getGroupID()%>" itemID="<%=ckItem.getItemID()%>" noPassDeal="<%=ckItem.getNoPassDeal()%>">
+                        <td class="r_35"><%=ckItem.getItemName()%></td>
+                        <td class="r_9"><div class="icon"></div></td>
+                        <td class="r_55 message">&nbsp;</td>
+                        <td class="r_6 viewer"><span class="label"><%=viewNode%></span><span class="script"><%=viewerScript%></span></td>
+                    </tr>
+ 					<%}%>
+                    </tbody>
+                </table>
+            </div>
+            <div class="r_footer"></div>
+        </div>
+        <%}%>
+        <div class="r_ending">
+	    	<table width="820px">
+				<tr>
+					<td colspan="3" id="scenario-message" height="50px" vAlign="middle">&nbsp;
+					</td>
+				</tr>
+				<tr id="scenario-button">
+				    <td align="center">
+					    <table>
+					        <tr>
+						       <td><%=HTMLControls.generateButton("重新检查","重新检查","reRun()",sResourcesPath)%></td>
+						       <td><%=HTMLControls.generateButton("确定","确定","alarm_ok()",sResourcesPath)%></td>
+						       <td><%=HTMLControls.generateButton("取消","取消","alarm_exit()",sResourcesPath)%></td>
+					        </tr>
+					    </table>
+				    </td>
+				</tr>
+			</table>
+		</div>
+    </div> 
+</body>
+<script type="text/javascript">
+
+function alarm_exit(){
+	top.close();
+}
+
+function alarm_ok(){
+	var ctx = $(".r_main");
+	var bComplete = ctx.isComplete();
+	if(bComplete){
+		top.returnValue = (bComplete&&ctx.isPass());
+		top.close();
+	}else{
+		alert("没有运行完毕");
+	}
+}
+
+$(document).ready(function(){
+	run();
+});
+function run(){
+	var url = "<%=sWebRootPath%>/AppConfig/AutoRiskDetect/AlarmModelInvoker.jsp?CompClientID=<%=sCompClientID%>&randp="+randomNumber();
+	var ser = "<%=scenarioSerializable%>";
+	$(".r_main").riskScan({
+		modelInvoker:url,
+		scenarioSerial:ser
+	});
+}
+function reRun(){
+	run();
+}
+
+/*========================================
+ *				自动风险探测插件	         *
+ =========================================*/
+(function($){
+    $.fn.riskScan = function(options) {
+        var defaults = {
+        		modelInvoker:"./AlarmModelInvoker.jsp",
+        		scenarioSerial:""
+        };
+        var options = $.extend(defaults, options);  //应用参数
+
+        return this.each(function() {
+        	//定义的功能函数
+	    	$.fn.isComplete = function(){
+        		for(var i=0;i<group.size();i++){
+        			var done = group.eq(i).attr("done");
+        			if(!done||done!="true")return false;
+        		}
+        		return true;
+	    	};
+        	$.fn.isPass = function(){
+        		for(var i=0;i<group.size();i++){
+        			var p = group.eq(i).attr("pass");
+        			if(!p||p!="true")return false;
+        		}
+        		return true;
+        	};
+        	//全局变量
+        	var context = $(this);
+        	var modelItems = $(".ck_item",context);
+        	var group = $(".r_group",context);
+        	//初始化操作
+        	context.data("complete","false");
+        	init(context);
+        	//生成执行函数队列
+        	var funArray = new Array();
+        	for(var i=0;i<modelItems.size();i++){
+        		var modelItem = modelItems.eq(i);
+        		funArray[i] = function(item){
+        			var mItem = item;
+        			return function(){
+        				runModelItem(options,mItem,function(){
+        					var scenarioMessage = $("#scenario-message");
+        					var bComplete = context.isComplete(),bPass = context.isPass();
+        					if(bComplete&&bPass){
+        						scenarioMessage.addClass("scenario-message-pass");
+        						scenarioMessage.html("最终结果：检查通过!");
+        					}else if(bComplete&&!bPass){
+        						scenarioMessage.addClass("scenario-message-nopass");
+        					}
+        					context.dequeue("scanAction");
+        				});
+        			};
+        		}(modelItem);
+        	}
+        	context.queue("scanAction",funArray);
+        	
+        	context.dequeue("scanAction");	//开始出队
+        });
+    };
+    function init(context){
+    	var context= null;
+    	var scenarioMessage = $("#scenario-message");
+    	scenarioMessage.html("");
+    	scenarioMessage.attr("idx",0);
+    	scenarioMessage[0].Spaned=undefined;
+    	$(".r_group",context).each(function(){
+    		$(this)[0]["done"]=undefined;
+    		$(this)[0]["pass"]=undefined;
+    		$(this).removeClass();
+    		$(this).addClass("r_group");
+    	});
+    	$(".ck_item",context).each(function(){
+    		$(this)[0]["done"]=undefined;
+    		$(this)[0]["pass"]=undefined;
+    		$(this).removeClass();
+    		$(this).addClass("ck_item default");
+    	});
+    }
+    function appendNoPassSummary(groupID,groupName){
+    	var scenarioMessage = $("#scenario-message");
+    	var bSpan = scenarioMessage.attr("Spaned");
+    	var idx = scenarioMessage.attr("idx");
+    	if(!idx)idx=0;
+    	idx = parseInt(idx);
+   		var anchor = $("<span><a href='#Group"+groupID+"'>"+(++idx)+"."+groupName+"</a></span>");
+    	if(!bSpan)scenarioMessage.append("<span>最终结果：未通过</span>");
+    	scenarioMessage.append(anchor);
+    	scenarioMessage.attr("idx",idx);
+    	scenarioMessage.attr("Spaned","true");
+    }
+    function groupCheck(item){
+    	var group = item.parents(".r_group");
+    	var modelItems = $(".ck_item",group);//检查分组的子项是否运行完成
+    	
+    	var bGroupDone = true;
+    	var bGroupPass = true;
+   		for(var i=0;i<modelItems.size();i++){	//检查明细项是否完成
+   			var done = modelItems.eq(i).attr("done");
+   			if(!done||done!="true"){bGroupDone = false;break;}
+   		}
+   		if(bGroupDone){							//检查明细项是否通过
+	   		for(var i=0;i<modelItems.size();i++){
+	   			var p = modelItems.eq(i).attr("pass");
+	   			if(!p||p!="true"){bGroupPass = false;break;}
+	   		}
+   		}
+   		//更新标志
+   		group.attr("done","false");
+   		if(bGroupDone){
+   			try{scrollTo(0,group.offset().top-200);}catch(e){};
+   			group.attr("done","true");
+   			var gResult = $(".group_result",group);
+   			gResult.hide();
+   			gResult.fadeIn(1000);
+   			if(bGroupPass){
+   				group.attr("pass","true");
+   				gResult.addClass("r_green").text("通过");
+   			}else{
+   				group.attr("pass","false");
+   				gResult.addClass("r_red").text("未通过");
+   				appendNoPassSummary(group.attr("groupID"),group.attr("groupName"));
+   			}
+   		}
+    }
+	function runModelItem(options,item,callback){
+		var context = item;
+		var groupID = context.attr("groupID");
+		var itemID = context.attr("itemID");
+		var noPassDeal = context.attr("noPassDeal");	//10 禁止办理,20 提示
+		$("td.message",context).html("运行中...");  
+		var postData = new Array("GroupID="+groupID
+				,"ItemID="+itemID
+				,"SerializableScenario="+options.scenarioSerial
+				);
+		var errMsg = "检查项[GroupID="+groupID+",ItemID="+itemID+"]运行出错，请联系系统管理员！"
+		$.ajax({
+		   type: "POST",
+		   cache: false,
+		   async: true,
+		   dataType:"json",
+		   url: options.modelInvoker,
+		   data: postData.join("&"),
+		   success: function(msg){
+				oReturn = msg;
+				if(msg&&oReturn){
+					var status = oReturn["status"];
+					var message = oReturn["message"];
+				   	//1.标识是否通过
+				   	context.removeClass("default");
+				   	if(status=="true"||status==true){
+				   		context.addClass("pass");
+				   		context.attr("pass","true");
+				   	}else{
+				   		if(noPassDeal=="20"){
+				   			context.addClass("nopass_prompt");
+				   			context.attr("pass","true");
+				   		}else{
+				   			context.addClass("nopass_forbid");
+				   			context.attr("pass","false");
+				   		}
+				   		$("td.viewer span.label",context).show();
+				   		$("td.viewer span.label a",context).unbind("click");
+				   		$("td.viewer span.label a",context).click(function(){
+				   			var tdContext = $(this).parents("td");
+				   			var scriptText = $("span.script",tdContext).text();
+				   			if(scriptText)eval(scriptText);
+				   		});
+				   	}
+				   	context.attr("done","true");
+				   	//2.输出消息
+				   	$("td.message",context).html(formatMessage(message));
+				   	//3.分组检查
+				   	groupCheck(item);
+				   	//4.调用回调方法
+				   	if(callback&&$.isFunction(callback))callback.call();
+				}else{
+					alert(errMsg);
+				}
+				context = gc(context);
+				options = gc(options);
+				callback = gc(callback);
+		   },
+		   error:function(){
+			 context = gc(context);
+			 options = gc(options);
+			 callback = gc(callback);
+		     alert(errMsg);
+		   }
+		});
+	};
+	function gc(x){
+		delete x;
+		x = null;
+		return x;
+	}
+	/**
+	 * 格式化服务器返回消息
+	 *@str 参数字符串，一般是用"[~`~]"为分割符的
+	 */
+	function formatMessage(str){
+		var msg = str.split(/\[\~\`\~\]/g);
+		var message = "";
+		for(var i=0;i<msg.length&&msg.length != 1;i++){
+			if(msg[i].length <= 0) continue;
+			message += ((i+1)+"."+msg[i]+"<br/>");
+		}
+		if(msg.length == 1)message = msg[0];
+		if(message.length == 0) message = "&nbsp;";
+		return message;
+	}
+})(jQuery);
+</script>

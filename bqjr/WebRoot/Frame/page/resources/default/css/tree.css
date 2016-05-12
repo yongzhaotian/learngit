@@ -1,0 +1,55 @@
+.tree * {
+	margin: 0;
+}
+ul.tree {
+	padding-left: 0px; width: 100%;
+	font-size: 9pt;
+}
+.tree li {
+	list-style: none;
+}
+.tree li a {
+	text-decoration: none; height: 16px; display: inline-block; outline: none; padding-bottom: 3px;
+	padding-top: 3px; width: 100%; border-bottom: 1px dashed #448aff; color: #416aa3; white-space: nowrap;
+}
+.tree li a:hover {
+	background-color: #ecf4ff; text-decoration: none;
+}
+.tree li a.tree_click {
+	background-color: #b4d3ff;
+}
+.tree li span.tree_text {
+	color: #416aa3; white-space: nowrap;
+}
+.tree li a span.tree_index {
+	width: 20px; height: 100%; display: inline-block;
+}
+.tree li a span.tree_index.tree_arrows {
+	width: 16px; margin-right: 2px;
+	background: url(../images/tree/arrows.gif) no-repeat 0px 0px;
+}
+.tree li.open a span.tree_index.tree_arrows {
+	background: url(../images/tree/arrows.gif) no-repeat -18px 0px;
+}
+.tree li.close a span.tree_index.tree_arrows {
+	background: url(../images/tree/arrows.gif) no-repeat 0px 0px;
+}
+.tree li a:hover span.tree_index.tree_arrows {
+	background: url(../images/tree/arrows.gif) no-repeat -32px 0px;
+}
+.tree li.open a:hover span.tree_index.tree_arrows {
+	background: url(../images/tree/arrows.gif) no-repeat -50px 0px;
+}
+.tree li.close a:hover span.tree_index.tree_arrows {
+	background: url(../images/tree/arrows.gif) no-repeat -32px 0px;
+}
+.tree li ul {
+	padding-left: 0px;
+	display: none;
+}
+.tree li.open ul {
+	display: inline;
+}
+.tree li.close ul {
+	display: none;
+}

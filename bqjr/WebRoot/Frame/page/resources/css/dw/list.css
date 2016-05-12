@@ -1,0 +1,361 @@
+@charset "gb2312";
+@import url("common.css");
+/*通用表格页面样式*/
+.list_page{
+	background-color: transparent;
+	margin-bottom : 0px;
+	margin-left : 0px;
+	margin-right : 0px;
+	margin-top : 0px;
+	width:100%;
+	height:100%;
+	overflow:hidden;
+}
+/*通用表格样式*/
+.list_data_tablecommon{
+	width:100%;
+	border:0px;
+	margin:0;
+}
+/*数据列增加100%，目的是为了让列事件充满整个列，否则会导致事件只针对文字生效*/
+.list_event_width{
+	width:100%;
+}
+/*序号列div的样式*/
+div.list_gridCell_narrow{
+	width:30px;
+	overflow:hidden;
+	line-height:150%;
+	white-space:nowrap;
+	nw:expression(this.noWrap=true);
+	cursor:default;
+}
+/*标准列div的样式*/
+div.list_gridCell_standard
+{
+	margin-left: 0px;
+	margin-right: 1px;
+	padding-left: 2px;
+	width:150px;
+	overflow:hidden;
+	white-space:nowrap;
+	nw:expression(this.noWrap=true);
+	cursor:default;
+}
+/*冻结列div的样式*/
+div.list_gridCell_lock
+{
+	margin-left: 0px;
+	margin-right: 1px;
+	padding-left: 2px;
+	width:150px;
+	overflow:hidden;
+	white-space:nowrap;
+	nw:expression(this.noWrap=true);
+	line-height:150%;
+	cursor:default;
+}
+/*页面小计样式*/
+div.list_div_pagecount{
+}
+/*总计样式*/
+div.list_div_totalcount{
+}
+/*定义表格标题样式*/
+.list_topdiv_header th 
+{
+	background:url(../../images/dw/info_tit_bg.png) repeat-x left -1px;
+	border-right:1px solid #BCBCBC;
+	background-color:#fff;
+	border-top:1px solid #BCBCBC;
+	border-bottom:1px solid #BCBCBC;
+	color:#606060;
+	font-size:12px;
+	height:34px;
+	*+height:21px;	
+	cursor:col-resize;
+}
+/*表格标题第一行第一列左边框样式，配合list_topdiv_header的	边框样式使用*/
+.list_left_border{
+	border-left:1px solid #BCBCBC
+}
+
+/*定义表格主体td样式*/
+div td.list_all_td{
+  	border-right: #BCBCBC 1px solid; 
+	border-bottom: #BCBCBC 1px solid;
+	font-size:12px;
+	height:21px;
+}
+/*定义表格序号列样式：必须冻结*/
+div td.list_checkbox_td{
+	border-bottom: #BCBCBC 1px solid;
+	border-left:#BCBCBC 1px solid;
+	text-align:center;
+	font-size:12px;
+}
+
+/*定义表格序号列样式：必须冻结*/
+div td.list_checkbox_td2{
+	border-bottom: #BCBCBC 1px solid;
+	border-left:#BCBCBC 1px solid;
+	border-right:#BCBCBC 1px solid;
+	background-color:#fff;
+	text-align:center;
+	font-size:12px;
+}
+/*定义表格序号列样式：必须冻结*/
+div td.list_all_no{
+	border-right: #BCBCBC 1px solid; 
+	border-bottom: #BCBCBC 1px solid;
+	border-left:#BCBCBC 1px solid;
+	background-color: #fff;
+	text-align:center;
+	font-size:12px;
+}
+div td.list_all_no2{
+	border-right: #BCBCBC 1px solid; 
+	border-bottom: #BCBCBC 1px solid;
+	background-color:#fff;
+	text-align:center;
+	font-size:12px;
+}
+div td.list_all_lastcolumn{
+	background-color:#fff;
+	text-align:center;
+	font-size:12px;
+}
+div td.list_all_no3{
+	border-left: #BCBCBC 1px solid;
+	border-right: #BCBCBC 1px solid;  
+	border-bottom: #BCBCBC 1px solid;
+	background-color:#fff;
+	text-align:left;
+	font-size:12px;
+}
+/*下拉框样式*/
+.list_all_input_select{
+	width:100%;
+	height:18px;
+	font-size: 80%;
+}
+/*可编辑模式输入框样式*/
+/*不带unit*/
+.list_all_input_1{
+	width:100%;
+	height:18px;
+	font-size:12px;
+}
+/*带unit*/
+.list_all_input_2{
+	width:80%;
+	height:18px;
+	font-size:12px;
+}
+/*左侧checkbox样式:已做过兼容*/
+.list_left_cbInput{
+	vertical-align:middle;
+	*+margin-top:-2px
+}
+/*排序小箭头样式*/
+.list_sort_span{
+	font-weight:normal;
+	cursor:pointer;
+}
+/*小计行样式*/
+.list_smallcount_color{
+	background-color:#e6f3fb;
+}
+/*总计行样式*/
+.list_totalcount_color{
+	background-color:#e6f3fb;
+}
+/*搜索区域标准样式*/
+legend.list_filterarea_title{
+	font-weight:bold;
+	cursor:pointer;
+	text-decoration:none;
+	color: #00f;
+}
+/*搜索区域点亮样式*/
+legend.list_filterarea_title{
+	font-weight:bold;
+	cursor:pointer;
+	text-decoration:none;
+}
+legend.list_filterarea_title_active{
+	font-weight:bold;
+	cursor:pointer;
+	text-decoration:underline;
+}
+/*小计总计左侧显示样式需要调整，不能有border-right*/
+div td.list_all_no_2{ 
+	border-bottom: 1px solid #BCBCBC;
+	border-left:1px solid #BCBCBC;
+	background-color:#fff;
+	text-align:center;
+	font-size:12px;
+}
+/*搜索对话框样式*/
+div.list_filter_div{
+	position:absolute;
+	display:none;
+	border:2px solid #83c2e7;
+	background-color:#FFF;
+	font-size:12px;
+	text-align:left;
+	padding:15px 15px 15px 10px;
+	line-height:30px;
+	width:220px;
+	height:65px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+/*全搜索对话框样式*/
+div.list_fulllfilter_div{
+	height:400px;
+	width:300px;
+}
+div.list_filter_div .input{
+	height:18px;
+	border:1px solid #83c2e7;
+	background-color:#FFF;
+	font-size:12px;
+	color:#386a87;
+}
+/*list表头搜索小按钮样式*/
+.list_search_span{
+	background:url(../../images/dw/search.gif) no-repeat left top;
+}
+/*tree_grid图片样式*/
+/*普通文件夹节点：展开*/
+.tree_grid_folder_expand{
+	padding-right:10px;
+	padding-bottom:10px;
+	background:url(../../images/dw/folder.gif) no-repeat left top;
+	cursor:pointer;
+}
+/*普通文件夹节点：收缩*/
+.tree_grid_folder_collapse{
+	padding-right:10px;
+	padding-bottom:10px;
+	background:url(../../images/dw/folder0.gif) no-repeat left top;
+	cursor:pointer;
+}
+/*叶子节点*/
+.list_treespan_leaf{
+	cursor:pointer;
+	padding-right:10px;
+	padding-bottom:10px;
+	background:url(../../images/dw/leaf.gif) no-repeat left top;
+}
+/*****分页********/
+/*分页顶层div*/
+.list_page_topdiv {
+	margin-top:8px;
+	position: relative;
+	height:18px;
+	font-size:12px;
+	line-height: 18px;
+	color:#666666;
+}
+.list_page_topdiv .list_page_subdiv {
+	padding-top:0px;
+	float:left;
+}
+.list_page_topdiv a , .list_page_topdiv a:visited {
+	position: relative;
+	float: left;
+	margin-right:3px;
+	color:#27275e;
+	height: 18px;
+	border: 1px solid #ccc;
+	text-decoration: none;
+	list-style: none;
+	cursor: pointer;
+}
+.list_page_topdiv a:hover {
+	text-decoration: none;
+	color: #fff;
+	background: #41a6e3;
+}
+.list_page_topdiv .list_page_nextpage{
+	margin-top:3px;
+	padding-top:0px;
+}
+.list_page_topdiv a:hover span {
+	color: #fff;
+	background: #41a6e3;
+	text-decoration: none;
+}
+.list_page_topdiv span {
+	float: left;
+	padding-right: 8px;
+	padding-left: 8px;
+	list-style: none;
+	height: auto;
+	cursor: pointer;
+}
+/*无需链接地址的页码样式*/
+.list_page_topdiv .list_page_nolink {
+	margin-right:3px;
+	color: #ccc;
+	cursor: default;
+	border: 1px solid #ccc;
+}
+/*分页信息样式*/
+.list_page_topdiv .list_page_pageinfo {
+	margin-top:-3px;
+	color:#666666;
+	float:left;
+}
+table.countwarning td{
+	color:#eb6100;
+}
+/*页码输入框样式*/
+.list_page_topdiv input {
+	border:1px solid #ccc;
+	background-color:#FFF;
+	width:30px;
+	height: 18px;
+}
+/*当前页码样式样式*/
+.list_page_topdiv .list_page_current {
+	color: #eb6100;
+	font-weight:bold;
+	border: 1px solid #f60;
+	margin-right:3px;
+	background:#ffe1c4;
+	cursor: default;
+}
+/*list上面 button区*/
+.listdw_out_buttonarea{
+	height:1px;
+}
+/*list&分页部分的外层*/
+.listdw_out_data{
+	padding-left:5px;
+	vertical-align:top;
+	height: 100%;
+	width:100%;
+}
+/*最外层*/
+#ListTable{
+	width:100%;
+	height:100%;
+}
+/*复合表格左侧*/
+.list_composetable_left0{
+	background:url(../../images/dw/info_collapse.png) no-repeat center top;
+	padding-left:12px;
+	cursor:pointer;
+}
+.list_composetable_left1{
+	background:url(../../images/dw/info_expand.png) no-repeat center top;
+	padding-left:12px;
+	cursor:pointer;
+}
+.list_hr {
+	border-color: #9cb5cf;
+	background: #9cb5cf;
+}

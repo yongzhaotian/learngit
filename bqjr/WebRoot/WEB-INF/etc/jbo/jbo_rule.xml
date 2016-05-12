@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="GB18030" ?>
+<jbo>
+    <package name="jbo.rule">
+        <class name="BUSINESS_TYPE" label="产品信息" keyAttributes="TypeNo">
+            <attributes>
+                <attribute name="TYPENO"                      labet="产品代码"                  type="CHAR"   length="32"/>
+				<attribute name="SORTNO"                      labet="排序号"                    type="CHAR"   length="32"/>
+				<attribute name="TYPENAME"                    labet="产品名称"                  type="CHAR"   length="80"/>
+				<attribute name="ATTRIBUTE2"                  labet="产品系列(消费贷)"          type="CHAR"   length="200"/>
+				<attribute name="INPUTORG"                    labet="登记机构"                  type="CHAR"   length="100"/>
+				<attribute name="OFFSHEETFLAG"                labet="表内外标志"                type="CHAR"   length="6 "/>
+				<attribute name="EFFECTIVESTARTDATE"          labet="生效起始日"                type="CHAR"   length="100"/>
+				<attribute name="EFFECTIVEENDDATE"            labet="生效到期日"                type="CHAR"   length="100"/>
+				<attribute name="LOWPROPORTION"               labet="最低首付比例"              type="NUMBER" length="28"/>
+				<attribute name="LOANPERIOD"                  labet="贷款期数"                  type="NUMBER" length="26"/>
+				<attribute name="PRODUCTCATEGORY"             labet="商品范畴"                  type="CHAR"   length="100"/>
+				<attribute name="SHOUFURATIOTYPE"             labet="首付比例类型"              type="CHAR"   length="100"/>
+				<attribute name="TERM"                        labet="期限"                      type="NUMBER" length="32"/>
+				<attribute name="BASERATE"                    labet="基本利率"                  type="NUMBER" length="30"/>
+				<attribute name="MONTHLYINTERESTRATE"         labet="产品月利率"                type="NUMBER" length="30"/>
+				<attribute name="RATEFORMULA"                 labet="利率计算方式"              type="CHAR"   length="100"/>
+				<attribute name="EFFECTIVEANNUALRATE"         labet="有效年利率EIR"             type="NUMBER" length="30"/>
+				<attribute name="MONTHLYPROPORTION"           labet="月供比例"                  type="NUMBER" length="30"/>
+				<attribute name="MANAGEMENTFEES"              labet="月账户管理费占比"          type="NUMBER" length="30"/>
+				<attribute name="MANAGEMENTFEESRATE"          labet="月账户管理费率"            type="NUMBER" length="30"/>
+				<attribute name="CUSTOMERSERVICERATES"        labet="月客户服务费率"            type="NUMBER" length="30"/>
+				<attribute name="LEVELLS"                     labet="佣金等级"                  type="CHAR"   length="32"/>
+				<attribute name="SALESCOMMISSION"             labet="销售单笔佣金"              type="NUMBER" length="30"/>
+				<attribute name="CUSTOMERLEVEL"               labet="适用客户等级"              type="CHAR"   length="32"/>
+				<attribute name="UPDATEORG"                   labet="更新机构"                  type="CHAR"   length="100"/>
+				<attribute name="PRODUCTTYPE"                 labet="产品类型"                  type="CHAR"   length="80"/>
+				<attribute name="MONTHLYPAYMENT"              labet="每月支付额"                type="CHAR"   length="80"/>
+				<attribute name="DOWNPAYMENT"                 labet="首付额"                    type="CHAR"   length="80"/>
+				<attribute name="PRODUCTSUM"                  labet="商品金额"                  type="NUMBER" length="30"/>
+				<attribute name="WHETHERPROMOTIONALPRODUCTS"  labet="是否促销产品"              type="CHAR"   length="80"/>
+				<attribute name="WHETHEREXTENSIONPRODUCTS"    labet="是否展期产品"              type="CHAR"   length="80"/>
+				<attribute name="MINTERM"                     labet="最低期限"                  type="NUMBER" length="26"/>
+				<attribute name="LONGTERM"                    labet="最长期限"                  type="NUMBER" length="26"/>
+				<attribute name="RATETYPE"                    labet="利率类型"                  type="CHAR"   length="80"/>
+				<attribute name="FLOATINGMANNER"              labet="浮动方式"                  type="CHAR"   length="80"/>
+				<attribute name="WHETHERDISCOUNT"             labet="是否贴息"                  type="CHAR"   length="80"/>
+				<attribute name="DISCOUNTTYPE"                labet="贴息类型"                  type="CHAR"   length="80"/>
+				<attribute name="DEALERDISCOUNT"              labet="经销商贴息比例"            type="CHAR"   length="80"/>
+				<attribute name="MANUFACTURERSRATE"           labet="厂商贴息比例"              type="CHAR"   length="80"/>
+				<attribute name="CALCULATIONTYPE"             labet="计算类型"                  type="CHAR"   length="80"/>
+				<attribute name="MONTHCALCULATIONMETHOD"      labet="月供计算方式"              type="CHAR"   length="80"/>
+				<attribute name="DEALERCALCULATIONMETHOD"     labet="经销商佣金计算方式"        type="CHAR"   length="80"/>
+				<attribute name="DEALERPAYMENTTIME"           labet="经销商佣金支付时间"        type="CHAR"   length="80"/>
+				<attribute name="SALESCALCULATIONMETHOD"      labet="销售佣金计算方式"          type="CHAR"   length="80"/>
+				<attribute name="PENALTYMODE"                 labet="提前还款罚金收取方式"      type="CHAR"   length="80"/>
+				<attribute name="PENALTYPROPORTION"           labet="提前还款罚金比例"          type="CHAR"   length="80"/>
+				<attribute name="PENALTYAMOUNT"               labet="提前还款罚金金额"          type="CHAR"   length="80"/>
+				<attribute name="PENALTYEXEMPTIONCONDITIONS"  labet="提前还款罚金免除条件"      type="CHAR"   length="80"/>
+				<attribute name="PRINCIPALPENALTYBASIS"       labet="本金罚息计息基础"          type="CHAR"   length="80"/>
+				<attribute name="PENALTYRATE"                 labet="罚息利率计算方式"          type="CHAR"   length="80"/>
+				<attribute name="STAMPMETHODS"                labet="印花税收取方式"            type="CHAR"   length="80"/>
+				<attribute name="STAMPTAX"                    labet="印花税"                    type="CHAR"   length="80"/>
+				<attribute name="MEPAYMENTCHARGEMODE"         labet="还款保险费收取方式"        type="CHAR"   length="80"/>
+				<attribute name="REPAYMENTINSURANCE"          labet="还款保险费"                type="CHAR"   length="80"/>
+				<attribute name="FLOATINGRATE"                labet="浮动比例/浮动点"           type="NUMBER" length="29"/>
+				<attribute name="CHARGETIME"                  labet="费用收取时间"              type="CHAR"   length="80"/>
+				<attribute name="SECURITYCHARGEMODE"          labet="担保服务费收取方式"        type="CHAR"   length="80"/>
+				<attribute name="SECURITYSERVICES"            labet="担保服务费"                type="NUMBER" length="29"/>
+				<attribute name="FEEWAY"                      labet="手续费收取方式"            type="CHAR"   length="80"/>
+				<attribute name="FEE"                         labet="手续费"                    type="CHAR"   length="80"/>
+				<attribute name="HIGHESTLOANSPROPORTION"      labet="最高贷款比例"              type="NUMBER" length="29"/>
+				<attribute name="CONTRACTCONDITIONS"          labet="合同特别条款"              type="CHAR"   length="80"/>
+				<attribute name="FINANCINGLEASE"              labet="融资租赁方式"              type="CHAR"   length="80"/>
+				<attribute name="RESIDUALCALCULATIONMETHOD"   labet="残值计算方式"              type="CHAR"   length="80"/>
+				<attribute name="RESIDUALAMOUNT"              labet="残值固定金额"              type="NUMBER" length="29"/>
+				<attribute name="OVERDUEINTEREST"             labet="逾期利息基础"              type="CHAR"   length="80"/>
+				<attribute name="SALVAGEADDEDMODE"            labet="残值附加税【VAT】收取方式" type="CHAR"   length="80"/>
+				<attribute name="SALVAGEADDED"                labet="残值附加税【VAT】"        type="CHAR"   length="80"/>
+				<attribute name="RESALEFEESWAY"               labet="转售手续费收取方式"        type="CHAR"   length="80"/>
+				<attribute name="RESALEFEES"                  labet="转售手续费"                type="CHAR"   length="80"/>
+				<attribute name="FLOATINGRANGE"               labet="利率浮动幅度"              type="NUMBER" length="32"/>
+				<attribute name="ADJUSTMENTMODE"              labet="利率调整方式"              type="NUMBER" length="32"/>
+				<attribute name="FIXEDINTERESTRATE"           labet="固定利率值"                type="NUMBER" length="32"/>
+				<attribute name="CREDITSUM"                   labet="贷款本金"                  type="NUMBER" length="30"/>
+				<attribute name="LOWPRINCIPAL"                labet="最低贷款额"                type="NUMBER" length="28"/>
+				<attribute name="TALLPRINCIPAL"               labet="最高贷款额"                type="NUMBER" length="28"/>
+				<attribute name="SHOUFURATIO"                 labet="首付比例"                  type="NUMBER" length="28"/>
+				<attribute name="DEALERLIXITIME"              labet="经销商利息差佣金时间"      type="CHAR"   length="80"/>
+				<attribute name="CREDITATTRIBUTE"             labet="类型"                      type="CHAR"   length="32"/>
+				<!-- ybpan  20150228 CCS-443  现金贷下的产品子类型 -->
+				<attribute name="SUBPRODUCTTYPE"             labet="产品子类型"                      type="CHAR"   length="80"/>
+            </attributes>
+            <manager>
+                <extendProperties>
+                    <property name="table" value="BUSINESS_TYPE" type="STRING"/>
+                </extendProperties>
+            </manager>
+        </class>
+        <class name="BUSINESS_CONTRACT" label="申请信息" keyAttributes="SerialNo">
+            <attributes>
+                <attribute name="SERIALNO"               labet="申请流水号"              type="CHAR"     length="40" />
+				<attribute name="ARTIFICIALNO"           labet="合同编号"                type="CHAR"     length="32" />
+				<attribute name="CUSTOMERID"             labet="客户编号"                type="CHAR"     length="32" />
+				<attribute name="CUSTOMERNAME"           labet="客户名称"                type="CHAR"     length="80" />
+				<attribute name="BUSINESSTYPE"           labet="产品代码"                type="CHAR"     length="18" />
+				<attribute name="CREDITCYCLE"            labet="是否投保"                type="CHAR"     length="18" />
+				<attribute name="TOTALSUM"               labet="自付金额"                type="NUMBER"   length="30" />
+				<attribute name="BUSINESSSUM"            labet="贷款本金"                type="NUMBER"   length="30" />
+				<attribute name="BAILSUM"                labet="保证金金额"              type="NUMBER"   length="30" />
+				<attribute name="TRADESUM"               labet="本金金额"                type="NUMBER"   length="30" />
+				<attribute name="BALANCE"                labet="本金余额"                type="NUMBER"   length="30" />
+				<attribute name="INPUTORGID"             labet="登记日期"                type="CHAR"     length="32" />
+				<attribute name="INPUTUSERID"            labet="登记人"                  type="CHAR"     length="32" />
+				<attribute name="INPUTDATE"              labet="登记日期"                type="CHAR"     length="10" />
+				<attribute name="UPDATEDATE"             labet="更新日期"                type="CHAR"     length="10" />
+				<attribute name="EXECUTEYEARRATE"        labet="执行年利率"              type="NUMBER"   length="30" />
+				<attribute name="REPRICETYPE"            labet="利率调整方式"            type="CHAR"     length="10" />
+				<attribute name="REPRICEFLAG"            labet="利率调整周期单位"        type="CHAR"     length="10" />
+				<attribute name="REPRICECYC"             labet="利率调整周期"            type="INTEGER"  length="20" />
+				<attribute name="REPRICEDATE"            labet="首次利率调整日期"        type="CHAR"     length="10" />
+				<attribute name="LOANRATETERMID"         labet="贷款利率功能组件编号"    type="CHAR"     length="20" />
+				<attribute name="RPTTERMID"              labet="主还款方式功能组件编号"  type="CHAR"     length="20" />
+				<attribute name="PRODUCTVERSION"         labet="产品版本号"              type="CHAR"     length="40" />
+				<attribute name="BUSINESSRANGE1"         labet="商品范畴1"               type="CHAR"     length="30" />
+				<attribute name="BUSINESSTYPE1"          labet="商品类型1"               type="CHAR"     length="18" />
+				<attribute name="BRANDTYPE1"             labet="品牌型号1"               type="CHAR"     length="18" />
+				<attribute name="MANUFACTURER1"          labet="制造商1"                 type="CHAR"     length="20" />
+				<attribute name="PRICE1"                 labet="价格1"                   type="NUMBER"   length="30" />
+				<attribute name="BUSINESSRANGE2"         labet="商品范畴2"               type="CHAR"     length="30" />
+				<attribute name="BUSINESSTYPE2"          labet="商品类型2"               type="CHAR"     length="18" />
+				<attribute name="BRANDTYPE2"             labet="品牌型号2"               type="CHAR"     length="18" />
+				<attribute name="MANUFACTURER2"          labet="制造商2"                 type="CHAR"     length="20" />
+				<attribute name="PRICE2"                 labet="价格2"                   type="NUMBER"   length="30" />
+				<attribute name="TOTALSUM2"              labet="自付金额2"               type="NUMBER"   length="30" />
+				<attribute name="BUSINESSSUM2"           labet="贷款本金2"               type="NUMBER"   length="30" />
+				<attribute name="TOTALSUM1"              labet="自付金额1"               type="NUMBER"   length="30" />
+				<attribute name="BUSINESSSUM1"           labet="贷款本金1"               type="NUMBER"   length="30" />
+				<attribute name="BUSINESSRANGE3"         labet="商品范畴3"               type="CHAR"     length="30" />
+				<attribute name="BUSINESSTYPE3"          labet="商品类型3"               type="CHAR"     length="18" />
+				<attribute name="BRANDTYPE3"             labet="品牌型号3"               type="CHAR"     length="18" />
+				<attribute name="MANUFACTURER3"          labet="制造商3"                 type="CHAR"     length="20" />
+				<attribute name="PRICE3"                 labet="价格3"                   type="NUMBER"   length="30" />
+				<attribute name="TOTALSUM3"              labet="自付金额3"               type="NUMBER"   length="30" />
+				<attribute name="BUSINESSSUM3"           labet="贷款本金3"               type="NUMBER"   length="30" />
+				<attribute name="TOTALPRICE"             labet="总价格"                  type="NUMBER"   length="30" />
+				<attribute name="PERIODS"                labet="分期期数"                type="NUMBER"   length="20" />
+				<attribute name="MONTHREPAYMENT"         labet="每月还款额"              type="NUMBER"   length="14" />
+				<attribute name="REPAYMENTWAY"           labet="还款方式"                type="CHAR"     length="18" />
+				<attribute name="REPLACEACCOUNT"         labet="代扣账号"                type="CHAR"     length="18" />
+				<attribute name="OPENBANK"               labet="代扣账户开户行"          type="CHAR"     length="20" />
+				<attribute name="REPLACENAME"            labet="代扣账号户名"            type="CHAR"     length="18" />
+				<attribute name="REPAYMENTNO"            labet="还款账号"                type="CHAR"     length="20" />
+				<attribute name="REPAYMENTBANK"          labet="还款账号开户行"          type="CHAR"     length="20" />
+				<attribute name="REPAYMENTNAME"          labet="还款账号户名"            type="CHAR"     length="20" />
+				<attribute name="STORES"                 labet="销售门店"                type="CHAR"     length="20" />
+				<attribute name="SALESEXECUTIVE"         labet="销售代表"                type="CHAR"     length="10" />
+				<attribute name="FALG6"                  labet="是否已取得客户授权"      type="NUMBER"   length="20" />
+				<attribute name="INTERIORCODE"           labet="内部代码"                type="CHAR"     length="20" />
+				<attribute name="ANNOTATION"             labet="SA注释"                  type="CHAR"     length="30" />
+				<attribute name="PROMOTERSNAME"          labet="零售商促销员名称"        type="CHAR"     length="20" />
+				<attribute name="PHONE"                  labet="联系电话"                type="NUMBER"   length="20" />
+				<attribute name="PRODUCTNAME"            labet="产品名称"                type="CHAR"     length="30" />
+				<attribute name="CARTYPE"                labet="车型"                    type="CHAR"     length="10" />
+				<attribute name="STARTDATE"              labet="审核开始时间"            type="CHAR"     length="20" />
+				<attribute name="AREA"                   labet="区域"                    type="CHAR"     length="20" />
+				<attribute name="DEALERNAME"             labet="经销商名称"              type="CHAR"     length="25" />
+				<attribute name="EXHIBITIONHALL"         labet="展厅"                    type="CHAR"     length="20" />
+				<attribute name="CREDITPERSON"           labet="贷款人"                  type="CHAR"     length="20" />
+				<attribute name="CREDITID"               labet="贷款人编号"              type="CHAR"     length="32" />
+				<attribute name="MANAGERNAME"            labet="金融经理姓名"            type="CHAR"     length="20" />
+				<attribute name="CARCODE"                labet="汽车型号代码"            type="CHAR"     length="10" />
+				<attribute name="CARSERIES"              labet="汽车系列"                type="CHAR"     length="20" />
+				<attribute name="CARPRICE"               labet="车辆出厂价"              type="NUMBER"   length="30" />
+				<attribute name="CARBODY"                labet="车身类型"                type="CHAR"     length="10" />
+				<attribute name="ENGINECAPACITY"         labet="发动机容量"              type="CHAR"     length="20" />
+				<attribute name="CARSTATUS"              labet="车况"                    type="CHAR"     length="10" />
+				<attribute name="CARFRAME"               labet="车架号"                  type="CHAR"     length="10" />
+				<attribute name="PAYMENTRATE"            labet="首付款比例"              type="NUMBER"   length="30" />
+				<attribute name="INSURANCESUM"           labet="保险金额"                type="NUMBER"   length="30" />
+				<attribute name="DEPOSIT"                labet="保证金比例"              type="NUMBER"   length="20" />
+				<attribute name="INTERESTRATE"           labet="利率类型"                type="CHAR"     length="10" />
+				<attribute name="CREDITRATE"             labet="贷款利率"                type="CHAR"     length="20" />
+				<attribute name="OPENBRANCH"             labet="代扣开户支行名称"        type="CHAR"     length="30" />
+				<attribute name="QUALITYGRADE"           labet="质量等级"                type="CHAR"     length="80" />
+				<attribute name="LANDMARKSTATUS"         labet="地标状态"                type="CHAR"     length="80" />
+				<attribute name="CONTRACTEFFECTIVEDATE"  labet="合同生效日"              type="CHAR"     length="80" />
+				<attribute name="OTHERCOST"              labet="其他费用"                type="NUMBER"   length="30" />
+				<attribute name="PRODUCTID"              labet="产品类型"                type="CHAR"     length="20" />
+				<attribute name="GREENDATE"              labet="绿本收到时间"            type="CHAR"     length="80" />
+				<attribute name="SCANBARCODE"            labet="扫描绿本条形码"          type="CHAR"     length="80" />
+				<attribute name="CARNUMBER"              labet="车牌号码"                type="CHAR"     length="80" />
+				<attribute name="BOXID"                  labet="归属箱子"                type="CHAR"     length="32" />
+				<attribute name="CITY"                   labet="市"                      type="CHAR"     length="50" />
+				<attribute name="QUOTAMONEY"             labet="额度金额"                type="NUMBER"   length="26" />
+				<attribute name="QUOTAID"                labet="额度协议编号"            type="CHAR"     length="80" />
+				<attribute name="QUOTASTARTDATE"         labet="额度生效日"              type="CHAR"     length="80" />
+				<attribute name="QUOTAENDDATE"           labet="额度到期日"              type="CHAR"     length="80" />
+				<attribute name="BONDMONEY"              labet="保证金金额"              type="NUMBER"   length="26" />
+				<attribute name="BONDTYPE"               labet="额度类型"                type="CHAR"     length="80" />
+				<attribute name="BONDSUM"                labet="启用总金额"              type="NUMBER"   length="26" />
+				<attribute name="WITHHOLDING"            labet="代扣指令"                type="CHAR"     length="80" />
+				<attribute name="WITHHOLDINGSTUAS"       labet="代扣状态"                type="CHAR"     length="80" />
+				<attribute name="LOADMONEY"              labet="借款金额"                type="NUMBER"   length="26" />
+				<attribute name="PAPERID"                labet="纸质协议编号"            type="CHAR"     length="80" />
+				<attribute name="THISENABLEDSUM"         labet="本次额度启用金额"        type="NUMBER"   length="26" />
+				<attribute name="ISSUEDATE"              labet="贷款发放日"              type="CHAR"     length="20" />
+				<attribute name="LASTPAYDATE"            labet="最后一期还款日"          type="CHAR"     length="20" />
+				<attribute name="RESIDUE"                labet="剩余期数"                type="NUMBER"   length="20" />
+				<attribute name="NEXTPAYDATE"            labet="下次还款日"              type="CHAR"     length="20" />
+				<attribute name="CUSTOMERTYPE"           labet="客户类型"                type="CHAR"     length="50" />
+				<attribute name="CREDITATTRIBUTE"        labet="合同类型"                type="CHAR"     length="10" />
+				<attribute name="QUOTASTATUS"            labet="额度状态/借款状态"       type="CHAR"     length="80" />
+				<attribute name="PRETRIALRESULT"         labet="整体预审结果"            type="CHAR"     length="20" />
+				<attribute name="CERTID"                 labet="身份证号码"              type="CHAR"     length="18" />
+				<attribute name="CERTTYPE"               labet="证件类型"                type="CHAR"     length="20" />
+				<attribute name="CUSTOMERROLE"           labet="申请角色"                type="CHAR"     length="20" />
+				<attribute name="UPDATEUSERID"           labet="更新人"                  type="CHAR"     length="80" />
+				<attribute name="UPDATEORGID"            labet="更新机构"                type="CHAR"     length="80" />
+				<attribute name="BIRTHDAY"               labet="出生日期"                type="CHAR"     length="20" />
+				<attribute name="IDCARD"                 labet="促销员身份证号"          type="CHAR"     length="18" />
+				<attribute name="ORGCODE"                labet="组织机构代码"            type="CHAR"     length="80" />
+				<attribute name="SERVICEPROVIDERSTYPE"   labet="经销商类型"              type="CHAR"     length="80" />
+				<attribute name="FLOATINGRANGE"          labet="浮动幅度"                type="CHAR"     length="80" />
+				<attribute name="FEE"                    labet="手续费"                  type="NUMBER"   length="26" />
+				<attribute name="FLOATINGMANNER"         labet="浮动方式"                type="CHAR"     length="80" />
+				<attribute name="BENCHMARKINTERESTRATES" labet="基准利率"                type="NUMBER"   length="26" />
+				<attribute name="REPAYMENTDATE"          labet="还息日"                  type="CHAR"     length="80" />
+				<attribute name="BORROWINGENDDATE"       labet="借款到期日"              type="CHAR"     length="80" />
+				<attribute name="TERM"                   labet="期限（月）"              type="NUMBER"   length="24" />
+				<attribute name="BORROWINGSTARTDATE"     labet="借款起息日"              type="CHAR"     length="80" />
+				<attribute name="SECURITYSERVICES"       labet="担保服务费"              type="NUMBER"   length="26" />
+				<attribute name="LOANBANKACCOUNT"        labet="放款开户帐号"            type="CHAR"     length="80" />
+				<attribute name="LOANBRANCHNAME"         labet="放款开户支行"            type="CHAR"     length="80" />
+				<attribute name="CONTRACTSTATUS"         labet="合同状态"                type="CHAR"     length="20" />
+				<attribute name="LOANBRANCH"             labet="放款开户行"              type="CHAR"     length="80" />
+				<!-- ybpan  20150228 CCS-443  现金贷下的产品子类型 -->
+				<attribute name="SUBPRODUCTTYPE"             labet="产品子类型"                      type="CHAR"   length="80"/>
+            </attributes>
+            <manager>
+                <extendProperties>
+                    <property name="table" value="BUSINESS_CONTRACT" type="STRING"/>
+                </extendProperties>
+            </manager>
+        </class>
+        <class name="IND_INFO" label="客户信息" keyAttributes="CustomerID">
+            <attributes>
+                <attribute name="CUSTOMERID"           labet="客户ID"                           type="CHAR"     length="40" />
+				<attribute name="SEX"                  labet="性别"                             type="CHAR"     length="18" />
+				<attribute name="BIRTHDAY"             labet="出生日期"                         type="CHAR"     length="10" />
+				<attribute name="CERTTYPE"             labet="证件类型"                         type="CHAR"     length="18" />
+				<attribute name="CERTID"               labet="证件号码"                         type="CHAR"     length="32" />
+				<attribute name="SINO"                 labet="社会保险号"                       type="CHAR"     length="32" />
+				<attribute name="COUNTRY"              labet="国籍"                             type="CHAR"     length="18" />
+				<attribute name="NATIONALITY"          labet="民族"                             type="CHAR"     length="18" />
+				<attribute name="NATIVEPLACE"          labet="户籍地址"                         type="CHAR"     length="200"/>
+				<attribute name="POLITICALFACE"        labet="政治面貌"                         type="CHAR"     length="18" />
+				<attribute name="MARRIAGE"             labet="婚姻状况"                         type="CHAR"     length="18" />
+				<attribute name="RELATIVETYPE"         labet="亲属关系"                         type="CHAR"     length="200"/>
+				<attribute name="FAMILYADD"            labet="居住地址"                         type="CHAR"     length="200"/>
+				<attribute name="FAMILYZIP"            labet="居住地址邮编"                     type="CHAR"     length="32" />
+				<attribute name="EMAILADD"             labet="电子邮箱"                         type="CHAR"     length="80" />
+				<attribute name="FAMILYTEL"            labet="住宅电话"                         type="CHAR"     length="32" />
+				<attribute name="MOBILETELEPHONE"      labet="手机号码"                         type="CHAR"     length="32" />
+				<attribute name="UNITKIND"             labet="单位所属行业（行业类别）"         type="CHAR"     length="18" />
+				<attribute name="WORKCORP"             labet="单位名称"                         type="CHAR"     length="80" />
+				<attribute name="WORKADD"              labet="单位地址"                         type="CHAR"     length="200"/>
+				<attribute name="WORKTEL"              labet="单位电话"                         type="CHAR"     length="32" />
+				<attribute name="OCCUPATION"           labet="职业"                             type="CHAR"     length="18" />
+				<attribute name="POSITION"             labet="职务"                             type="CHAR"     length="18" />
+				<attribute name="EMPLOYRECORD"         labet="任职部门"                         type="CHAR"     length="200"/>
+				<attribute name="EDURECORD"            labet="毕业学校"                         type="CHAR"     length="200"/>
+				<attribute name="EDUEXPERIENCE"        labet="教育程度(学历)"                   type="CHAR"     length="18" />
+				<attribute name="EDUDEGREE"            labet="最高学位"                         type="CHAR"     length="18" />
+				<attribute name="GRADUATEYEAR"         labet="毕业年份"                         type="CHAR"     length="10" />
+				<attribute name="FINANCEBELONG"        labet="财务报表类型"                     type="CHAR"     length="18" />
+				<attribute name="CREDITLEVEL"          labet="信用程度"                         type="CHAR"     length="18" />
+				<attribute name="EVALUATEDATE"         labet="评估时间"                         type="CHAR"     length="10" />
+				<attribute name="BALANCESHEET"         labet="现有银行贷款余额"                 type="CHAR"     length="200"/>
+				<attribute name="INTRO"                labet="介绍"                             type="CHAR"     length="200"/>
+				<attribute name="SELFMONTHINCOME"      labet="个人月收入"                       type="NUMBER"   length="30" />
+				<attribute name="FAMILYMONTHINCOME"    labet="家庭月收入"                       type="NUMBER"   length="30" />
+				<attribute name="INCOMESOURCE"         labet="收入来源"                         type="CHAR"     length="200"/>
+				<attribute name="POPULATION"           labet="人口"                             type="NUMBER"   length="22" />
+				<attribute name="STAFF"                labet="是否本行员工"                     type="CHAR"     length="18" />
+				<attribute name="CHARACTER"            labet="兴趣爱好"                         type="CHAR"     length="200"/>
+				<attribute name="INPUTORGID"           labet="登记单位"                         type="CHAR"     length="32" />
+				<attribute name="INPUTUSERID"          labet="登记人"                           type="CHAR"     length="32" />
+				<attribute name="INPUTDATE"            labet="登记日期"                         type="CHAR"     length="10" />
+				<attribute name="UPDATEDATE"           labet="更新日期"                         type="CHAR"     length="10" />
+				<attribute name="REMARK"               labet="备注"                             type="CHAR"     length="200"/>
+				<attribute name="UPDATEORGID"          labet="更新机构"                         type="CHAR"     length="32" />
+				<attribute name="UPDATEUSERID"         labet="更新用户"                         type="CHAR"     length="32" />
+				<attribute name="COMMADD"              labet="邮寄地址"                         type="CHAR"     length="200"/>
+				<attribute name="COMMZIP"              labet="邮寄地址邮编"                     type="CHAR"     length="10" />
+				<attribute name="NATIVEADD"            labet="国家地址"                         type="CHAR"     length="200"/>
+				<attribute name="WORKZIP"              labet="单位邮编"                         type="CHAR"     length="10" />
+				<attribute name="HEADSHIP"             labet="能力"                             type="CHAR"     length="18" />
+				<attribute name="WORKBEGINDATE"        labet="本单位工作起始日"                 type="CHAR"     length="10" />
+				<attribute name="YEARINCOME"           labet="个人年收入"                       type="NUMBER"   length="30" />
+				<attribute name="PAYACCOUNT"           labet="工资帐号"                         type="CHAR"     length="32" />
+				<attribute name="PAYACCOUNTBANK"       labet="工资帐号开户银行"                 type="CHAR"     length="200"/>
+				<attribute name="FAMILYSTATUS"         labet="家庭状况"                         type="CHAR"     length="18" />
+				<attribute name="TEMPSAVEFLAG"         labet="暂存标志"                         type="CHAR"     length="18" />
+				<attribute name="CUSTOMERNAME"         labet="客户姓名"                         type="CHAR"     length="80" />
+				<attribute name="ISSUEINSTITUTION"     labet="签发机关"                         type="CHAR"     length="30" />
+				<attribute name="MATURITYDATE"         labet="到期日"                           type="CHAR"     length="20" />
+				<attribute name="STREET"               labet="街道/村（户籍）"                  type="CHAR"     length="30" />
+				<attribute name="COMMUNITY"            labet="小区/楼盘（户籍）"                type="CHAR"     length="30" />
+				<attribute name="CELLNO"               labet=" 栋/单元/房间号（户籍）"          type="CHAR"     length="30" />
+				<attribute name="FLAG2"                labet="现居住地址是否同户籍地址"         type="NUMBER"   length="20" />
+				<attribute name="NEWADD"               labet="其他地址"                         type="CHAR"     length="200"/>
+				<attribute name="VILLAGETOWN"          labet="镇/乡（户籍）"                    type="CHAR"     length="30" />
+				<attribute name="COUNTRYSIDE"          labet="乡/镇(现居)"                      type="CHAR"     length="30" />
+				<attribute name="VILLAGECENTER"        labet="街道/村（现居）"                  type="CHAR"     length="30" />
+				<attribute name="PLOT"                 labet="小区/楼盘（现居）"                type="CHAR"     length="30" />
+				<attribute name="ROOM"                 labet="栋/单元/房间号（现居）"           type="CHAR"     length="30" />
+				<attribute name="CELLPROPERTY"         labet="单位性质"                         type="CHAR"     length="50" />
+				<attribute name="FLAG3"                labet="过去三年内换工作或开业的次数"     type="NUMBER"   length="20" />
+				<attribute name="UNITCOUNTRYSIDE"      labet="乡/镇(单位)"                      type="CHAR"     length="30" />
+				<attribute name="UNITSTREET"           labet="街道/村（单位）"                  type="CHAR"     length="30" />
+				<attribute name="UNITROOM"             labet="小区/楼盘（单位）"                type="CHAR"     length="30" />
+				<attribute name="UNITNO"               labet="栋/单元/房间号（单位）"           type="CHAR"     length="30" />
+				<attribute name="PHONEMAN"             labet="住宅电话登记人"                   type="CHAR"     length="20" />
+				<attribute name="CELLPHONEVERIFY"      labet="手机验证码"                       type="CHAR"     length="10" />
+				<attribute name="QQNO"                 labet="QQ号"                             type="CHAR"     length="15" />
+				<attribute name="WECHAT"               labet="微信号码"                         type="CHAR"     length="15" />
+				<attribute name="CHILDRENTOTAL"        labet="子女数目"                         type="NUMBER"   length="20" />
+				<attribute name="SPOUSENAME"           labet="配偶名称"                         type="CHAR"     length="20" />
+				<attribute name="SPOUSETEL"            labet="配偶电话号码"                     type="CHAR"     length="30" />
+				<attribute name="HOUSE"                labet="住房"                             type="CHAR"     length="20" />
+				<attribute name="HOUSERENT"            labet="每月租房/房贷费用"                type="NUMBER"   length="30" />
+				<attribute name="ALIMONY"              labet="每月生活费用总额"                 type="NUMBER"   length="30" />
+				<attribute name="KINSHIPNAME"          labet="亲属姓名"                         type="CHAR"     length="30" />
+				<attribute name="KINSHIPTEL"           labet="亲属联系电话"                     type="CHAR"     length="30" />
+				<attribute name="KINSHIPADD"           labet="亲属联系地址"                     type="CHAR"     length="200"/>
+				<attribute name="JOBTIME"              labet="现工作单位/在读/个体营业时间"     type="NUMBER"   length="20" />
+				<attribute name="JOBTOTAL"             labet="总工作经验/大学时间"              type="NUMBER"   length="20" />
+				<attribute name="OTHERREVENUE"         labet="其他月收入"                       type="NUMBER"   length="30" />
+				<attribute name="SEVERALTIMES"         labet="过去本公司申请过几次贷款"         type="NUMBER"   length="20" />
+				<attribute name="FALG4"                labet="在现单位是否购买了社保"           type="CHAR"     length="10" />
+				<attribute name="OTHERCONTACT"         labet="其他联系人姓名"                   type="CHAR"     length="30" />
+				<attribute name="CONTACTRELATION"      labet="联系人关系"                       type="CHAR"     length="30" />
+				<attribute name="CONTACTTEL"           labet="联系人电话"                       type="CHAR"     length="30" />
+				<attribute name="EMAILCOUNTRYSIDE"     labet="乡/镇(邮寄)"                      type="CHAR"     length="50" />
+				<attribute name="EMAILSTREET"          labet="街道/村（邮寄）"                  type="CHAR"     length="50" />
+				<attribute name="EMAILPLOT"            labet="小区/楼盘（邮寄）"                type="CHAR"     length="50" />
+				<attribute name="EMAILROOM"            labet="栋/单元/房间号（邮寄）"           type="CHAR"     length="50" />
+				<attribute name="ENGLISHNAME"          labet="英文名称"                         type="CHAR"     length="30" />
+				<attribute name="AWARDDATE"            labet="证件颁发日期"                     type="CHAR"     length="20" />
+				<attribute name="AGE"                  labet="年龄"                             type="NUMBER"   length="20" />
+				<attribute name="LIVEDATE"             labet="在中国开始居住时间"               type="CHAR"     length="20" />
+				<attribute name="APPLYTYPE"            labet="个人申请者类型"                   type="CHAR"     length="20" />
+				<attribute name="COMPANYNAME"          labet="公司名称"                         type="CHAR"     length="50" />
+				<attribute name="EMPLOYEETYPE"         labet="雇员类型"                         type="CHAR"     length="20" />
+				<attribute name="JOBBEGINDATE"         labet="工作始于何时"                     type="CHAR"     length="20" />
+				<attribute name="FAXNUMBER"            labet="传真号码"                         type="CHAR"     length="20" />
+				<attribute name="FLAG5"                labet="有无房产"                         type="NUMBER"   length="20" />
+				<attribute name="HOUSEDATE"            labet="购置第一套房产时间"               type="CHAR"     length="20" />
+				<attribute name="STARTROOMDATE"        labet="自何时开始居住"                   type="CHAR"     length="20" />
+				<attribute name="LIVEDURATION"         labet="居住时长"                         type="NUMBER"   length="20" />
+				<attribute name="LIVEROOM"             labet="住所所在地"                       type="CHAR"     length="50" />
+				<attribute name="LIVETYPE"             labet="居住类型"                         type="CHAR"     length="20" />
+				<attribute name="SPOUSEINCOME"         labet="配偶月收入"                       type="NUMBER"   length="20" />
+				<attribute name="AGEINCOME"            labet="年收入"                           type="NUMBER"   length="20" />
+				<attribute name="MONTHEXPEND"          labet="家庭月支出"                       type="NUMBER"   length="20" />
+				<attribute name="RENTEXPEND"           labet="月房租支出"                       type="NUMBER"   length="20" />
+				<attribute name="CREDITMONTH"          labet="贷款月供"                         type="NUMBER"   length="20" />
+				<attribute name="MONTHTOTAL"           labet="月总收入"                         type="NUMBER"   length="20" />
+				<attribute name="NETMARGIN"            labet="月净收入"                         type="NUMBER"   length="20" />
+				<attribute name="QUARTEREARNING"       labet="季度利息收入（自雇和个人）"       type="NUMBER"   length="20" />
+				<attribute name="FLAG6"                labet="通讯地址类型"                     type="NUMBER"   length="20" />
+				<attribute name="ONESELFINCOME"        labet="本人月收入"                       type="NUMBER"   length="20" />
+				<attribute name="LEGALPERSON"          labet="法人姓名"                         type="CHAR"     length="50" />
+				<attribute name="ORGANIZATIONCODE"     labet="组织机构代码"                     type="CHAR"     length="30" />
+				<attribute name="BUSINESSLICENSE"      labet="营业执照代码"                     type="CHAR"     length="30" />
+				<attribute name="CREDITCARD"           labet="贷款卡号码"                       type="CHAR"     length="50" />
+				<attribute name="CREDITPASSWORD"       labet="贷款卡密码"                       type="CHAR"     length="30" />
+				<attribute name="EMPLOYEENUMBER"       labet="员工人数"                         type="CHAR"     length="20" />
+				<attribute name="REGISTEREDASSETS"     labet="注册资本"                         type="NUMBER"   length="30" />
+				<attribute name="SHARERATIO"           labet="股份比例"                         type="NUMBER"   length="20" />
+				<attribute name="LASTYEARINCOME"       labet="年收入(去年)"                     type="NUMBER"   length="30" />
+				<attribute name="LASTCOST"             labet="费用(去年)"                       type="NUMBER"   length="30" />
+				<attribute name="LASTPROFIT"           labet="净利润(去年)"                     type="NUMBER"   length="30" />
+				<attribute name="TOTALASSETS"          labet="净资产总额(本年)"                 type="NUMBER"   length="30" />
+				<attribute name="LASTTOTALASSETS"      labet="净资产总额(去年)"                 type="NUMBER"   length="30" />
+				<attribute name="COMPANYENGLISHNAME"   labet="公司英文名称"                     type="CHAR"     length="50" />
+				<attribute name="LICENSEDATE"          labet="营业执照到期日"                   type="CHAR"     length="20" />
+				<attribute name="ORGANIZATIONNATURE"   labet="机构性质"                         type="CHAR"     length="50" />
+				<attribute name="REGISTERTYPE"         labet="注册类型"                         type="CHAR"     length="30" />
+				<attribute name="REGISTERADD"          labet="公司注册地址"                     type="CHAR"     length="50" />
+				<attribute name="NATIONALTAXNO"        labet="国税登记证号码"                   type="CHAR"     length="50" />
+				<attribute name="LANDTAXNO"            labet="地税登记证号码"                   type="CHAR"     length="50" />
+				<attribute name="SETUPDATE"            labet="公司成立日期"                     type="CHAR"     length="20" />
+				<attribute name="CONTINUEMONTH"        labet="经营持续月份"                     type="NUMBER"   length="20" />
+				<attribute name="FLAG7"                labet="公司地址是否在当前城市"           type="NUMBER"   length="20" />
+				<attribute name="DEGRESSION"           labet="成本(本年)"                       type="NUMBER"   length="30" />
+				<attribute name="PROFIT"               labet="净利润(本年)"                     type="NUMBER"   length="30" />
+				<attribute name="LASTDEGRESSION"       labet="成本(去年)"                       type="NUMBER"   length="30" />
+				<attribute name="OWNEREQUITY"          labet="所有者权益(本年)"                 type="NUMBER"   length="30" />
+				<attribute name="LASTOWNEREQUITY"      labet="所有者权益(去年)"                 type="NUMBER"   length="30" />
+				<attribute name="FLAG8"                labet="邮寄地址是否同户籍地址"           type="NUMBER"   length="20" />
+				<attribute name="RELEVANCEID"          labet="共同借款人/保证人关联ID"          type="CHAR"     length="50" />
+				<attribute name="CUSTOMERTYPE"         labet="客户类型"                         type="CHAR"     length="10" />
+            </attributes>
+            <manager>
+                <extendProperties>
+                    <property name="table" value="IND_INFO" type="STRING"/>
+                </extendProperties>
+            </manager>
+        </class>
+    </package>
+</jbo>

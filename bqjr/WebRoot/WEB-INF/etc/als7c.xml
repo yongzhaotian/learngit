@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="GB2312"?>
+<Domain ConfigurationVersion="1.0.0.0" Name="am@rBank">
+	<ResourcesPath>/Resources</ResourcesPath>
+
+	<DataSource>als</DataSource>
+	<DataSource_Report>report</DataSource_Report>
+	
+	<TranDebugMode>1</TranDebugMode>
+	<!--TranDebugMode Remark 0:不输出Sql运行信息,1:输出Sql运行信息 -->
+	<StatementMode>1</StatementMode>
+	<!--StatementMode Remark 查询SQL游标模式 0:Statement,1: prepareStatement -->
+	<DBChange>2</DBChange>
+	<!--DBChange Remark 1:GBK->ISO8859_1,2:NoChange,3:ISO8859_1->GBK -->
+
+	<AmarDWChange>1</AmarDWChange>
+	<AmarDWMaxRows>1000000</AmarDWMaxRows>
+	<AmarDWTransMode>1</AmarDWTransMode>
+	<AmarDWDebugMode>1</AmarDWDebugMode>
+	<!--AmarDWDebugMode Remark 0:不输出DataWindow保存信息,1:输出DataWindow保存信息 -->
+
+	<RunMode>Development</RunMode>
+	<!--Development Remark Development：开发模式；Production：产品模式;Demonstration:演示模式 -->
+	<FileSaveMode>Disk</FileSaveMode>
+	<!--FileSaveMode Remark Table：存放在数据库；Disk：存放在文件服务器 -->
+	<!--为满足程序和文档分开的需要，下面指定的文档保存、下载路径一般都为绝对路径-->
+	<FileSavePath>/home/weblogic/bqjrfile/als/Upload</FileSavePath>
+	<!--FileSavePath Remark 文件保存路径 在FileSaveMode为Disk指定，如果指定目录不存在则保存在WEB-INF的Upload下 -->
+	<WorkDocSavePath>/home/weblogic/bqjrfile/als/WorkDoc</WorkDocSavePath>
+	<!--WorkDocSavePath Remark 格式化文档保存路径，如果指定目录不存在则保存在WEB-INF的WorkDoc下 -->
+	<WorkDocOfflineSavePath>/home/weblogic/bqjrfile/als/offlineworkdoc</WorkDocOfflineSavePath>
+	<!--WorkDocOfflineSavePath Remark 离线格式化报告存储位置 -->
+	<DWDownloadFilePath>/home/weblogic/bqjrfile/DownLoad</DWDownloadFilePath>
+	<!--DWDownloadFilePath 表示DataWindow下载的文件存放的服务器位置，必须以/表示目录分割符 -->
+	<DWTmpPath>/home/weblogic/bqjrfile/DW</DWTmpPath>
+	<!--DWTmpPath 表示DataWindow临时的文件存放的服务器位置，必须以/表示目录分割符 -->
+	<FileNameType>SRC</FileNameType>
+	<!--FileNameType Remark SRC:上传原始名称 MD5:生成MD5加密文件名 -->
+
+	<ProductID>ALS</ProductID>
+	<ProductName>佰仟金融业务管理系统</ProductName>
+	<ProductVersion>7</ProductVersion>
+	<ImplementationID>ALS</ImplementationID>
+	<ImplementationName>佰仟金融业务管理系统</ImplementationName>
+	<ImplementationVersion>7.4</ImplementationVersion>
+	<BankName>佰仟金融业务管理系统</BankName>
+	
+	<!-- =========================================业务配置 - begin======================================= -->
+	<ApproveNeed>true</ApproveNeed>
+	<!--根据ApporveNeed的配置判断是否登记最终审批意见：true-登记最终审批意见，false-不登记最终审批 意见 -->
+	
+	<ClassifyObjectType>BusinessDueBill</ClassifyObjectType>
+	<!--ClassifyObjectType Remark BusinessDueBill:五级分类按借据,BusinessContract:五级分类按合同 -->
+	<!-- =========================================业务配置 - end ========================================= -->
+	
+		<!--============== 内容管理配置  begin=====================-->
+	<!-- 是否使用内容管理: true-使用, false-不使用 -->
+	<IsUseContentManager>true</IsUseContentManager>
+	<!-- 内容管理实现类: 
+		默认实现类com.amarsoft.app.contentmanage.DefaultContentManagerImpl用于把影像数据保存到磁盘；
+		FileNet实现类为com.amarsoft.app.contentmanage.FileNetContentManagerImpl;
+		其他内容管理平台需要设置自行实现 -->
+	<ContentManagerClass>com.amarsoft.app.contentmanage.DefaultContentManagerImpl</ContentManagerClass>
+	<!-- 如果使用的是DefaultContentManager,则将影像信息保存至此文件夹中 -->
+	<ImageFolder>/home/weblogic/bqjrfile/als/Image</ImageFolder>
+	<!-- 按日期添加xml CCS-757 -->
+	<XmlFolder>/home/weblogic/bqjrfile/als/ID5File</XmlFolder>
+	
+	<!-- 我的提成/我的工资URL链接地址 -->
+	<MyCSURL>/home/weblogic/bqjrfile/als/balance/</MyCSURL>
+	<!--============== end ================--> 
+	<!-- 调用同盾反欺诈接口  传入：合同编号，身份证 add by lgq20151102  begin-->
+	
+	<scoretask_url>http://10.29.1.50:7008/ShieldPlatform/service/IScoreTask?wsdl</scoretask_url>
+	<scoretask_partner_code>bqjr</scoretask_partner_code>
+	<scoretask_partner_key>3014AACFE8053CE17A1206955F97762F</scoretask_partner_key>
+
+	<!-- 调用代扣平台银行卡信息验证 参数配置  add by zty 20151123 begin-->
+	<id_check_user_pwd>1F143C6A1F69B68F</id_check_user_pwd>
+	<id_check_user_name>p2p</id_check_user_name>
+	<id_check_url>http://10.29.1.50:7002/bqdk/service/ValidateAccount?wsdl</id_check_url>  <!--UAT-->
+	<!--<id_check_url>http://10.25.1.21:8003/bqdk/service/ValidateAccount?wsdl</id_check_url>--><!--PRD-->
+	<!-- 调用代扣平台银行卡信息验证 参数配置  add by zty 20151123 end-->
+	
+
+	
+</Domain>

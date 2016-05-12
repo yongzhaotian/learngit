@@ -1,0 +1,17 @@
+<link rel="shortcut icon" href="<%=sWebRootPath%>/favicon.ico">
+<link rel="stylesheet" type="text/css" href="<%=sWebRootPath%>/Frame/page/resources/css/widget.css">
+<link rel="stylesheet" type="text/css" href="<%=sSkinPath%>/css/widget.css">
+<link rel="stylesheet" type="text/css" href="<%=sWebRootPath%>/Frame/page/resources/css/button.css">
+<link rel="stylesheet" type="text/css" href="<%=sSkinPath%>/css/button.css">
+<%@
+include file="/AppMain/resources/include/app_head.jspf"
+%>
+<script type="text/javascript">var sCompClientID="<%=sCompClientID%>";var sWebRootPath="<%=sWebRootPath%>";var sSkinPath="<%=sSkinPath%>";</script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/resources/js/jquery/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/resources/js/jquery/jquery.easyui-1.2.4.custom.min.js"></script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/page/jspf/js_var_global.jspf"></script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/page/js/as_common.js"></script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/page/js/as_control.js"></script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/page/js/as_widget.js"></script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/resources/js/as_validity_sys.js"></script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/resources/js/as_validity_app.js"></script>

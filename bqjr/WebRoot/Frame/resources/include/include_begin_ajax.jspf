@@ -1,0 +1,5 @@
+<%@
+include file="/Frame/page/jspf/include/jsp_runtime_context.jspf"
+%><%@
+include file="/Frame/page/jspf/include/jsp_sqlca_head.jspf"
+%>

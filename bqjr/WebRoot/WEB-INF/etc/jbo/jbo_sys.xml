@@ -1,0 +1,3300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jbo>
+  <package name="jbo.sys">
+    <class name="AA_AUTHPOINT" label="审批授权定义" keyAttributes="AUTHID,POLICYID">
+      <attributes>
+        <attribute name="AUTHID" label="授权点" type="STRING" length="32" />
+        <attribute name="POLICYID" label="方案ID" type="STRING" length="32" />
+        <attribute name="SORTNO" label="排序号" type="STRING" length="32" />
+        <attribute name="FLOWNO" label="流程号" type="STRING" length="32" />
+        <attribute name="PHASENO" label="阶段号" type="STRING" length="32" />
+        <attribute name="ORGLEVEL" label="机构层级" type="STRING" length="18" />
+        <attribute name="ORGID" label="机构号" type="STRING" length="32" />
+        <attribute name="PRODUCTSETID" label="产品组ID" type="STRING" length="32" />
+        <attribute name="PRODUCTID" label="产品ID" type="STRING" length="32" />
+        <attribute name="GUARANTYCATEGORY" label="担保方式大类" type="STRING" length="18" />
+        <attribute name="GUARANTYTYPE" label="担保方式" type="STRING" length="18" />
+        <attribute name="EFFDATE" label="启用日期" type="DATE" length="10" />
+        <attribute name="EFFSTATUS" label="生效状态" type="STRING" length="1" />
+        <attribute name="ATTRIBUTE1" label="属性1" type="STRING" length="80" />
+        <attribute name="ATTRIBUTE2" label="属性2" type="STRING" length="80" />
+        <attribute name="ATTRIBUTE3" label="属性3" type="STRING" length="80" />
+        <attribute name="ATTRIBUTE4" label="属性4" type="STRING" length="80" />
+        <attribute name="BIZBALANCECEILING" label="终批单笔金额上限" type="DOUBLE" length="24" scale="6" />
+        <attribute name="BIZEXPOSURECEILING" label="终批单笔敞口授权上限" type="DOUBLE" length="24" scale="6" />
+        <attribute name="CUSTBALANCECEILING" label="终批单户金额授权上限" type="DOUBLE" length="24" scale="6" />
+        <attribute name="CUSTEXPOSURECEILIN" label="终批单户敞口授权上限" type="DOUBLE" length="24" scale="6" />
+        <attribute name="INTERESTRATEFLOOR" label="终批利率下限" type="DOUBLE" length="10" scale="6" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="AA_AUTHPOINT" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="AA_EXCEPTION" label="例外条件" keyAttributes="AUTHID,EXCEPTIONID">
+      <attributes>
+        <attribute name="AUTHID" label="授权点" type="STRING" length="32" />
+        <attribute name="EXCEPTIONID" label="例外点流水号" type="STRING" length="32" />
+        <attribute name="TYPEID" label="例外类型ID" type="STRING" length="32" />
+        <attribute name="SORTNO" label="排序号" type="STRING" length="32" />
+        <attribute name="VARIABLEA" label="变量A" type="STRING" length="250" />
+        <attribute name="VARIABLEB" label="变量B" type="STRING" length="250" />
+        <attribute name="BIZBALANCECEILING" label="终批单笔金额上限" type="DOUBLE" length="24" scale="6" />
+        <attribute name="BIZEXPOSURECEILING" label="终批单笔敞口授权上限" type="DOUBLE" length="24" scale="6" />
+        <attribute name="CUSTBALANCECEILING" label="终批单户金额授权上限" type="DOUBLE" length="24" scale="6" />
+        <attribute name="CUSTEXPOSURECEILIN" label="终批单户敞口授权上限" type="DOUBLE" length="24" scale="6" />
+        <attribute name="INTERESTRATEFLOOR" label="终批利率下限" type="DOUBLE" length="10" scale="6" />
+        <attribute name="ISINUSE" label="是否可用" type="STRING" length="1" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="AA_EXCEPTION" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="AA_EXCEPTIONTYPE" label="例外类型定义" keyAttributes="TYPEID">
+      <attributes>
+        <attribute name="TYPEID" label="例外类型ID" type="STRING" length="32" />
+        <attribute name="TYPENAME" label="例外类型说明" type="STRING" length="250" />
+        <attribute name="EXCEPTIONEXPR" label="表达式" type="STRING" length="1600" />
+        <attribute name="ISINUSE" label="是否可用" type="STRING" length="1" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="AA_EXCEPTIONTYPE" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="AA_POLICY" label="授权方案" keyAttributes="POLICYID">
+      <attributes>
+        <attribute name="POLICYID" label="方案ID" type="STRING" length="32" />
+        <attribute name="FORMERPOLICYID" label="前身方案ID" type="STRING" length="32" />
+        <attribute name="POLICYNAME" label="方案名称" type="STRING" length="80" />
+        <attribute name="EFFDATE" label="启用日期" type="DATE" length="10" />
+        <attribute name="EFFSTATUS" label="生效状态" type="STRING" length="1" />
+        <attribute name="POLICYDESCRIBE" label="方案说明" type="STRING" length="800" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="AA_POLICY" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="ABLOB_TRIGGERS" label="ablob_triggers" keyAttributes="TRIGGER_NAME,TRIGGER_GROUP">
+      <attributes>
+        <attribute name="TRIGGER_NAME" label="TRIGGER_NAME" type="STRING" length="80" />
+        <attribute name="TRIGGER_GROUP" label="TRIGGER_GROUP" type="STRING" length="80" />
+        <attribute name="BLOB_DATA" label="BLOB_DATA" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="ABLOB_TRIGGERS" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="ACALENDARS" label="acalendars" keyAttributes="CALENDAR_NAME">
+      <attributes>
+        <attribute name="CALENDAR_NAME" label="CALENDAR_NAME" type="STRING" length="80" />
+        <attribute name="CALENDAR" label="CALENDAR" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="ACALENDARS" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="ACRON_TRIGGERS" label="acron_triggers" keyAttributes="TRIGGER_NAME,TRIGGER_GROUP">
+      <attributes>
+        <attribute name="TRIGGER_NAME" label="TRIGGER_NAME" type="STRING" length="80" />
+        <attribute name="TRIGGER_GROUP" label="TRIGGER_GROUP" type="STRING" length="80" />
+        <attribute name="CRON_EXPRESSION" label="CRON_EXPRESSION" type="STRING" length="80" />
+        <attribute name="TIME_ZONE_ID" label="TIME_ZONE_ID" type="STRING" length="80" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="ACRON_TRIGGERS" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="AFIRED_TRIGGERS" label="afired_triggers" keyAttributes="ENTRY_ID">
+      <attributes>
+        <attribute name="ENTRY_ID" label="ENTRY_ID" type="STRING" length="32" />
+        <attribute name="TRIGGER_NAME" label="TRIGGER_NAME" type="STRING" length="80" />
+        <attribute name="TRIGGER_GROUP" label="TRIGGER_GROUP" type="STRING" length="80" />
+        <attribute name="IS_VOLATILE" label="IS_VOLATILE" type="STRING" length="1" />
+        <attribute name="INSTANCE_NAME" label="INSTANCE_NAME" type="STRING" length="80" />
+        <attribute name="FIRED_TIME" label="FIRED_TIME" type="INT" length="20" />
+        <attribute name="STATE" label="STATE" type="STRING" length="18" />
+        <attribute name="JOB_NAME" label="JOB_NAME" type="STRING" length="80" />
+        <attribute name="JOB_GROUP" label="JOB_GROUP" type="STRING" length="80" />
+        <attribute name="IS_STATEFUL" label="IS_STATEFUL" type="STRING" length="1" />
+        <attribute name="REQUESTS_RECOVERY" label="REQUESTS_RECOVERY" type="STRING" length="1" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="AFIRED_TRIGGERS" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="AJOB_DETAILS" label="ajob_details" keyAttributes="JOB_NAME,JOB_GROUP">
+      <attributes>
+        <attribute name="JOB_NAME" label="JOB_NAME" type="STRING" length="80" />
+        <attribute name="JOB_GROUP" label="JOB_GROUP" type="STRING" length="80" />
+        <attribute name="DESCRIPTION" label="DESCRIPTION" type="STRING" length="200" />
+        <attribute name="JOB_CLASS_NAME" label="JOB_CLASS_NAME" type="STRING" length="200" />
+        <attribute name="IS_DURABLE" label="IS_DURABLE" type="STRING" length="1" />
+        <attribute name="IS_VOLATILE" label="IS_VOLATILE" type="STRING" length="1" />
+        <attribute name="IS_STATEFUL" label="IS_STATEFUL" type="STRING" length="1" />
+        <attribute name="REQUESTS_RECOVERY" label="REQUESTS_RECOVERY" type="STRING" length="1" />
+        <attribute name="JOB_DATA" label="JOB_DATA" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="AJOB_DETAILS" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="AJOB_LISTENERS" label="ajob_listeners" keyAttributes="JOB_NAME,JOB_GROUP,JOB_LISTENER">
+      <attributes>
+        <attribute name="JOB_NAME" label="JOB_NAME" type="STRING" length="80" />
+        <attribute name="JOB_GROUP" label="JOB_GROUP" type="STRING" length="80" />
+        <attribute name="JOB_LISTENER" label="JOB_LISTENER" type="STRING" length="80" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="AJOB_LISTENERS" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="ALERT_ARGS" label="警示模型参数" keyAttributes="ALERTNO,ARGNO">
+      <attributes>
+        <attribute name="ALERTNO" label="警示编号" type="STRING" length="32" />
+        <attribute name="ARGNO" label="参数编号" type="STRING" length="32" />
+        <attribute name="ARGNAME" label="参数名称" type="STRING" length="80" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="ALERT_ARGS" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="ALERT_HANDLE" label="警示流水" keyAttributes="SERIALNO,HANDLENO">
+      <attributes>
+        <attribute name="SERIALNO" label="流水号" type="STRING" length="32" />
+        <attribute name="HANDLENO" label="处理号" type="STRING" length="32" />
+        <attribute name="USERID" label="处理人" type="STRING" length="32" />
+        <attribute name="ORGID" label="处理机构" type="STRING" length="32" />
+        <attribute name="OCCURREASON" label="原因分析" type="STRING" length="250" />
+        <attribute name="REQUIREMENT" label="处理措施要求" type="STRING" length="250" />
+        <attribute name="TREATMENT" label="处理措施" type="STRING" length="250" />
+        <attribute name="BEGINTIME" label="接收时间" type="STRING" length="20" />
+        <attribute name="ENDTIME" label="处理结束时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="ALERT_HANDLE" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="ALERT_LOG" label="警示日志" keyAttributes="SERIALNO">
+      <attributes>
+        <attribute name="SERIALNO" label="流水号" type="STRING" length="32" />
+        <attribute name="OBJECTTYPE" label="相关对象类型" type="STRING" length="18" />
+        <attribute name="OBJECTNO" label="相关对象编号" type="STRING" length="32" />
+        <attribute name="ALERTTYPE" label="警示类型" type="STRING" length="18" />
+        <attribute name="ALERTTIP" label="提示信息" type="STRING" length="250" />
+        <attribute name="ALERTDESCRIBE" label="警示描述" type="STRING" length="250" />
+        <attribute name="OCCURDATE" label="发生日期" type="DATE" length="10" />
+        <attribute name="OCCURTIME" label="发生时间" type="STRING" length="20" />
+        <attribute name="USERID" label="处理人" type="STRING" length="32" />
+        <attribute name="ORGID" label="处理机构" type="STRING" length="32" />
+        <attribute name="OCCURREASON" label="原因分析" type="STRING" length="250" />
+        <attribute name="TREATMENT" label="处理措施" type="STRING" length="250" />
+        <attribute name="ENDTIME" label="处理结束时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="ALERT_LOG" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="ALERT_MODEL" label="警示模型库" keyAttributes="ALERTNO">
+      <attributes>
+        <attribute name="ALERTNO" label="警示编号" type="STRING" length="32" />
+        <attribute name="ALERTTYPE" label="警示类型" type="STRING" length="18" />
+        <attribute name="ALERTNAME" label="警示名称" type="STRING" length="80" />
+        <attribute name="ALERTDESCRIBE" label="警示描述" type="STRING" length="250" />
+        <attribute name="ALERTSCRIPT" label="警示SCRIPT" type="STRING" length="1600" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="ALERT_MODEL" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="ALOCKS" label="alocks" keyAttributes="LOCK_NAME">
+      <attributes>
+        <attribute name="LOCK_NAME" label="LOCK_NAME" type="STRING" length="80" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="ALOCKS" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="APAUSED_TRIGGER_GR" label="apaused_trigger_gr" keyAttributes="TRIGGER_GROUP">
+      <attributes>
+        <attribute name="TRIGGER_GROUP" label="TRIGGER_GROUP" type="STRING" length="80" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="APAUSED_TRIGGER_GR" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="ASCHEDULER_STATE" label="ascheduler_state" keyAttributes="INSTANCE_NAME">
+      <attributes>
+        <attribute name="INSTANCE_NAME" label="INSTANCE_NAME" type="STRING" length="80" />
+        <attribute name="LAST_CHECKIN_TIME" label="LAST_CHECKIN_TIME" type="INT" length="20" />
+        <attribute name="CHECKIN_INTERVAL" label="CHECKIN_INTERVAL" type="INT" length="20" />
+        <attribute name="RECOVERER" label="RECOVERER" type="STRING" length="80" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="ASCHEDULER_STATE" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="ASIMPLE_TRIGGERS" label="asimple_triggers" keyAttributes="TRIGGER_NAME,TRIGGER_GROUP">
+      <attributes>
+        <attribute name="TRIGGER_NAME" label="TRIGGER_NAME" type="STRING" length="80" />
+        <attribute name="TRIGGER_GROUP" label="TRIGGER_GROUP" type="STRING" length="80" />
+        <attribute name="REPEAT_COUNT" label="REPEAT_COUNT" type="INT" length="20" />
+        <attribute name="REPEAT_INTERVAL" label="REPEAT_INTERVAL" type="INT" length="20" />
+        <attribute name="TIMES_TRIGGERED" label="TIMES_TRIGGERED" type="INT" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="ASIMPLE_TRIGGERS" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="ATRIGGERS" label="atriggers" keyAttributes="TRIGGER_NAME,TRIGGER_GROUP">
+      <attributes>
+        <attribute name="TRIGGER_NAME" label="TRIGGER_NAME" type="STRING" length="80" />
+        <attribute name="TRIGGER_GROUP" label="TRIGGER_GROUP" type="STRING" length="80" />
+        <attribute name="JOB_NAME" label="JOB_NAME" type="STRING" length="80" />
+        <attribute name="JOB_GROUP" label="JOB_GROUP" type="STRING" length="80" />
+        <attribute name="IS_VOLATILE" label="IS_VOLATILE" type="STRING" length="1" />
+        <attribute name="DESCRIPTION" label="DESCRIPTION" type="STRING" length="200" />
+        <attribute name="NEXT_FIRE_TIME" label="NEXT_FIRE_TIME" type="INT" length="20" />
+        <attribute name="PREV_FIRE_TIME" label="PREV_FIRE_TIME" type="INT" length="20" />
+        <attribute name="TRIGGER_STATE" label="TRIGGER_STATE" type="STRING" length="18" />
+        <attribute name="TRIGGER_TYPE" label="TRIGGER_TYPE" type="STRING" length="18" />
+        <attribute name="START_TIME" label="START_TIME" type="INT" length="20" />
+        <attribute name="END_TIME" label="END_TIME" type="INT" length="20" />
+        <attribute name="CALENDAR_NAME" label="CALENDAR_NAME" type="STRING" length="80" />
+        <attribute name="MISFIRE_INSTR" label="MISFIRE_INSTR" type="INT" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="ATRIGGERS" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="ATRIGGER_LISTENERS" label="atrigger_listeners" keyAttributes="TRIGGER_NAME,TRIGGER_GROUP,TRIGGER_LISTENER">
+      <attributes>
+        <attribute name="TRIGGER_NAME" label="TRIGGER_NAME" type="STRING" length="80" />
+        <attribute name="TRIGGER_GROUP" label="TRIGGER_GROUP" type="STRING" length="80" />
+        <attribute name="TRIGGER_LISTENER" label="TRIGGER_LISTENER" type="STRING" length="80" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="ATRIGGER_LISTENERS" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="AUTH_CATALOG" label="授权模板目录" keyAttributes="TEMPLETNO">
+      <attributes>
+        <attribute name="TEMPLETNO" label="模板编号" type="STRING" length="32" />
+        <attribute name="TEMPLETNAME" label="模板名称" type="STRING" length="80" />
+        <attribute name="TEMPLETATTRIBUTE" label="模板属性" type="STRING" length="80" />
+        <attribute name="BEGINDATE" label="开始日期" type="DATE" length="10" />
+        <attribute name="ENDDATE" label="结束日期" type="DATE" length="10" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="AUTH_CATALOG" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="AUTH_TEMPLET" label="授权模板" keyAttributes="TEMPLETNO,ITEMNO">
+      <attributes>
+        <attribute name="TEMPLETNO" label="模板编号" type="STRING" length="32" />
+        <attribute name="ITEMNO" label="项目编号" type="STRING" length="32" />
+        <attribute name="ITEMNAME" label="项目名称" type="STRING" length="80" />
+        <attribute name="ITEMSCRIPT" label="项目表达式" type="STRING" length="1600" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="AUTH_TEMPLET" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="BOARD_LIST" label="通告栏" keyAttributes="BOARDNO">
+      <attributes>
+        <attribute name="BOARDNO" label="公告编号" type="STRING" length="32" />
+        <attribute name="BOARDNAME" label="公告名称" type="STRING" length="100" />
+        <attribute name="BOARDTITLE" label="公告标题" type="STRING" length="100" />
+        <attribute name="BOARDDESC" label="公告描述" type="STRING" length="200" />
+        <attribute name="ISPUBLISH" label="是否发布" type="STRING" length="18" />
+        <attribute name="ISNEW" label="是否新" type="STRING" length="18" />
+        <attribute name="ISEJECT" label="是否弹出" type="STRING" length="18" />
+        <attribute name="FILENAME" label="公告文件名" type="STRING" length="100" />
+        <attribute name="CONTENTTYPE" label="内容类型" type="STRING" length="50" />
+        <attribute name="CONTENTLENGTH" label="内容长度" type="STRING" length="32" />
+        <attribute name="UPLOADTIME" label="上传时间" type="STRING" length="20" />
+        <attribute name="DOCCONTENT" label="文档内容" type="STRING" length="20" />
+        <attribute name="SHOWTOROLES" label="可查看角色列表" type="STRING" length="80" />
+        <attribute name="SHOWTOORG" label="可查看机构(含下属)" type="STRING" length="32" />
+        <attribute name="SHOWTOORGS" label="可查看机构清单(不含下属)" type="STRING" length="32" />
+        <attribute name="FILEPATH" label="FILEPATH" type="STRING" length="120" />
+        <attribute name="FULLPATH" label="FULLPATH" type="STRING" length="200" />
+        <attribute name="FILESAVEMODE" label="FILESAVEMODE" type="STRING" length="18" />
+        <attribute name="ENDTIME" label="ENDTIME" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="BOARD_LIST" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="BUG_REPORT" label="测试报告" keyAttributes="BUGID">
+      <attributes>
+        <attribute name="BUGID" label="序列号" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="发现时间" type="STRING" length="20" />
+        <attribute name="RELATIVESYS" label="相关模块" type="STRING" length="80" />
+        <attribute name="BUGDESCRIBE" label="问题描述" type="STRING" length="400" />
+        <attribute name="USERNAME" label="登记人姓名" type="STRING" length="80" />
+        <attribute name="USERID" label="登记人" type="STRING" length="32" />
+        <attribute name="ORGID" label="登记机构" type="STRING" length="32" />
+        <attribute name="HANDLER" label="处理人" type="STRING" length="10" />
+        <attribute name="BUGTYPE" label="问题分类" type="STRING" length="18" />
+        <attribute name="RELATIVEPRG" label="相关页面或数据结构" type="STRING" length="250" />
+        <attribute name="SOLVERESULT" label="处理结果" type="STRING" length="250" />
+        <attribute name="SOLVETIME" label="完成时间" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="BUG_REPORT" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="BUSINESS_SORT" label="产品分类表" keyAttributes="TYPENO">
+      <attributes>
+        <attribute name="TYPENO" label="产品编号" type="STRING" length="32" />
+        <attribute name="ISLIQUIDITY" label="流动资金贷款标志位" type="STRING" length="4" />
+        <attribute name="ISFIXED" label="固定资产贷款标志位" type="STRING" length="4" />
+        <attribute name="ISPROJECT" label="项目融资标志位" type="STRING" length="4" />
+        <attribute name="INPUTUSERID" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORGID" label="登记机构" type="STRING" length="32" />
+        <attribute name="INPUTDATE" label="登记日期" type="DATE" length="10" />
+        <attribute name="UPDATEUSERID" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATEDATE" label="更新日期" type="DATE" length="10" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="BUSINESS_SORT" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="CASHFLOW_DATA" label="CASHFLOW_DATA" keyAttributes="CUSTOMERID,BASEYEAR,REPORTSCOPE,FCN,ITEMNO">
+      <attributes>
+        <attribute name="CUSTOMERID" label="CUSTOMERID" type="STRING" length="32" />
+        <attribute name="BASEYEAR" label="BASEYEAR" type="DOUBLE" length="24" scale="6" />
+        <attribute name="REPORTSCOPE" label="REPORTSCOPE" type="STRING" length="18" />
+        <attribute name="FCN" label="FCN" type="DOUBLE" length="24" scale="6" />
+        <attribute name="ITEMNO" label="ITEMNO" type="DOUBLE" length="24" scale="6" />
+        <attribute name="ITEMNAME" label="ITEMNAME" type="STRING" length="80" />
+        <attribute name="ITEMVALUE" label="ITEMVALUE" type="DOUBLE" length="24" scale="6" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="CASHFLOW_DATA" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="CASHFLOW_PARAMETER" label="CASHFLOW_PARAMETER" keyAttributes="CUSTOMERID,BASEYEAR,REPORTSCOPE,PARAMETERNO">
+      <attributes>
+        <attribute name="CUSTOMERID" label="CUSTOMERID" type="STRING" length="32" />
+        <attribute name="BASEYEAR" label="BASEYEAR" type="DOUBLE" length="24" scale="6" />
+        <attribute name="REPORTSCOPE" label="REPORTSCOPE" type="STRING" length="18" />
+        <attribute name="PARAMETERNO" label="PARAMETERNO" type="DOUBLE" length="24" scale="6" />
+        <attribute name="PARAMETERCODE" label="PARAMETERCODE" type="STRING" length="32" />
+        <attribute name="PARAMETERNAME" label="PARAMETERNAME" type="STRING" length="80" />
+        <attribute name="VALUE1" label="VALUE1" type="DOUBLE" length="24" scale="6" />
+        <attribute name="VALUE2" label="VALUE2" type="DOUBLE" length="24" scale="6" />
+        <attribute name="VALUE3" label="VALUE3" type="DOUBLE" length="24" scale="6" />
+        <attribute name="VALUE4" label="VALUE4" type="DOUBLE" length="24" scale="6" />
+        <attribute name="VALUE5" label="VALUE5" type="DOUBLE" length="24" scale="6" />
+        <attribute name="VALUEA" label="VALUEA" type="DOUBLE" length="24" scale="6" />
+        <attribute name="VALUE0" label="VALUE0" type="DOUBLE" length="24" scale="6" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="CASHFLOW_PARAMETER" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="CASHFLOW_RECORD" label="CASHFLOW_RECORD" keyAttributes="CUSTOMERID,BASEYEAR,REPORTSCOPE,FCN">
+      <attributes>
+        <attribute name="CUSTOMERID" label="CUSTOMERID" type="STRING" length="32" />
+        <attribute name="BASEYEAR" label="BASEYEAR" type="DOUBLE" length="24" scale="6" />
+        <attribute name="REPORTSCOPE" label="REPORTSCOPE" type="STRING" length="18" />
+        <attribute name="FCN" label="FCN" type="DOUBLE" length="24" scale="6" />
+        <attribute name="KN" label="KN" type="DOUBLE" length="24" scale="6" />
+        <attribute name="RECORDDATE" label="RECORDDATE" type="DATE" length="10" />
+        <attribute name="ORGID" label="ORGID" type="STRING" length="32" />
+        <attribute name="USERID" label="USERID" type="STRING" length="32" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="CASHFLOW_RECORD" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="CLASSIFY_CATALOG" label="分类模板目录" keyAttributes="MODELNO">
+      <attributes>
+        <attribute name="MODELNO" label="模板编号" type="STRING" length="32" />
+        <attribute name="MODELNAME" label="模板名称" type="STRING" length="80" />
+        <attribute name="MODELDESCRIBE" label="模板描述" type="STRING" length="80" />
+        <attribute name="MODELATTRIBUTE" label="模板属性" type="STRING" length="32" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="CLASSIFY_CATALOG" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="CLASSIFY_MODEL" label="分类模型" keyAttributes="MODELNO,GROUPNO,CONDITIONNO,STATUS">
+      <attributes>
+        <attribute name="MODELNO" label="模板编号" type="STRING" length="32" />
+        <attribute name="GROUPNO" label="组编号" type="STRING" length="32" />
+        <attribute name="CONDITIONNO" label="条件编号" type="STRING" length="32" />
+        <attribute name="STATUS" label="状态" type="STRING" length="80" />
+        <attribute name="NEXTSTATUS" label="后续状态" type="STRING" length="80" />
+        <attribute name="NEXTACTION" label="后续动作" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="CLASSIFY_MODEL" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="CLASS_ATTRIBUTE" label="属性库" keyAttributes="CLASSNAME,ATTRIBUTENAME">
+      <attributes>
+        <attribute name="CLASSNAME" label="类名称" type="STRING" length="80" />
+        <attribute name="ATTRIBUTENAME" label="ATTRIBUTENAME" type="STRING" length="80" />
+        <attribute name="ATTRIBUTETYPE" label="属性类型" type="STRING" length="18" />
+        <attribute name="ATTRIBUTEDESCRIBE" label="ATTRIBUTEDESCRIBE" type="STRING" length="80" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="CLASS_ATTRIBUTE" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="CLASS_CATALOG" label="方法库目录" keyAttributes="CLASSNAME">
+      <attributes>
+        <attribute name="CLASSNAME" label="类名称" type="STRING" length="80" />
+        <attribute name="CLASSTYPE" label="类分类" type="STRING" length="18" />
+        <attribute name="CLASSDESCRIBE" label="类描述" type="STRING" length="250" />
+        <attribute name="PARENTCLASS" label="父类名称" type="STRING" length="80" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="CLASS_CATALOG" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="CLASS_METHOD" label="方法库明细" keyAttributes="CLASSNAME,METHODNAME">
+      <attributes>
+        <attribute name="CLASSNAME" label="类名称" type="STRING" length="80" />
+        <attribute name="METHODNAME" label="方法名称" type="STRING" length="80" />
+        <attribute name="METHODTYPE" label="方法类型" type="STRING" length="18" />
+        <attribute name="METHODDESCRIBE" label="方法描述" type="STRING" length="250" />
+        <attribute name="RETURNTYPE" label="返回值类型" type="STRING" length="18" />
+        <attribute name="METHODARGS" label="方法参数" type="STRING" length="250" />
+        <attribute name="METHODCODE" label="方法实现代码" type="STRING" length="1600" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="CLASS_METHOD" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="CODE_CATALOG" label="代码类别表" keyAttributes="CODENO">
+      <attributes>
+        <attribute name="CODENO" label="代码编号" type="STRING" length="32" />
+        <attribute name="SORTNO" label="排序号" type="STRING" length="32" />
+        <attribute name="CODETYPEONE" label="代码大类" type="STRING" length="80" />
+        <attribute name="CODETYPETWO" label="代码小类" type="STRING" length="80" />
+        <attribute name="CODENAME" label="代码名称" type="STRING" length="80" />
+        <attribute name="CODEDESCRIBE" label="代码描述" type="STRING" length="250" />
+        <attribute name="CODEATTRIBUTE" label="代码属性" type="STRING" length="250" />
+        <attribute name="INPUTUSER" label="录入人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="录入机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="录入时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="CODE_CATALOG" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="CODE_HIERARCHY" label="代码层级" keyAttributes="CODENO,LEVELID">
+      <attributes>
+        <attribute name="CODENO" label="代码编号" type="STRING" length="32" />
+        <attribute name="LEVELID" label="LEVELID" type="STRING" length="32" />
+        <attribute name="LEVELNAME" label="LEVELNAME" type="STRING" length="80" />
+        <attribute name="CODELENGTH" label="CODELENGTH" type="INT" length="20" />
+        <attribute name="DESCRIBE" label="DESCRIBE" type="STRING" length="250" />
+        <attribute name="INPUTUSER" label="录入人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="录入机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="录入时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="CODE_HIERARCHY" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="CODE_LIBRARY" label="代码库" keyAttributes="CODENO,ITEMNO">
+      <attributes>
+        <attribute name="CODENO" label="代码编号" type="STRING" length="32" />
+        <attribute name="ITEMNO" label="代码项编号" type="STRING" length="32" />
+        <attribute name="ITEMNAME" label="代码项名称" type="STRING" length="250" />
+        <attribute name="BANKNO" label="征信代码" type="STRING" length="32" />
+        <attribute name="SORTNO" label="排序号" type="STRING" length="32" />
+        <attribute name="ISINUSE" label="是否使用" type="STRING" length="18" />
+        <attribute name="ITEMDESCRIBE" label="代码项描述" type="STRING" length="800" />
+        <attribute name="ITEMATTRIBUTE" label="代码项属性" type="STRING" length="800" />
+        <attribute name="RELATIVECODE" label="相关代码" type="STRING" length="1600" />
+        <attribute name="ATTRIBUTE1" label="属性一" type="STRING" length="800" />
+        <attribute name="ATTRIBUTE2" label="属性二" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE3" label="属性三" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE4" label="属性四" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE5" label="属性五" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE6" label="属性六" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE7" label="属性七" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE8" label="属性八" type="STRING" length="250" />
+        <attribute name="INPUTUSER" label="录入人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="录入机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="录入时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+        <attribute name="HELPTEXT" label="HELPTEXT" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="CODE_LIBRARY" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="COSTCENTER_INFO" label="成本中心机构信息" keyAttributes="COSTCENTERID">
+      <attributes>
+        <attribute name="COSTCENTERID" label="成本中心机构号" type="STRING" length="32" />
+        <attribute name="PROFITCENTERID" label="对应核心机构号" type="STRING" length="32" />
+        <attribute name="COSTCENTERNAME" label="成本中心机构名称" type="STRING" length="80" />
+        <attribute name="STATUS" label="状态" type="STRING" length="18" />
+        <attribute name="ADDRESS" label="地址" type="STRING" length="250" />
+        <attribute name="TELEPHONE" label="电话" type="STRING" length="32" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="COSTCENTER_INFO" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="DATAOBJECT_CATALOG" label="数据对象" keyAttributes="DONO">
+      <attributes>
+        <attribute name="DONO" label="DO编号" type="STRING" length="32" />
+        <attribute name="DONAME" label="DO名称" type="STRING" length="80" />
+        <attribute name="DODESCRIBE" label="DO描述" type="STRING" length="250" />
+        <attribute name="DOTYPE" label="DO用途" type="STRING" length="18" />
+        <attribute name="DOARGUMENTS" label="DO参数" type="STRING" length="250" />
+        <attribute name="DOATTRIBUTE" label="DO属性" type="STRING" length="80" />
+        <attribute name="DOUPDATETABLE" label="更新目标表" type="STRING" length="80" />
+        <attribute name="DOUPDATEWHERE" label="更新方式" type="STRING" length="18" />
+        <attribute name="DOFROMCLAUSE" label="DOFROM子句" type="STRING" length="800" />
+        <attribute name="DOWHERECLAUSE" label="DOWHERE子句" type="STRING" length="800" />
+        <attribute name="DOGROUPCLAUSE" label="DOGROUP子句" type="STRING" length="800" />
+        <attribute name="DOORDERCLAUSE" label="DOORDER子句" type="STRING" length="800" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+        <attribute name="DOCLASS" label="DO类型" type="STRING" length="18" />
+        <attribute name="MODIFYAUDITTABLE" label="修改审计表" type="STRING" length="32" />
+        <attribute name="MODIFYMODECRITERIA" label="修改审计模式条件" type="STRING" length="800" />
+        <attribute name="DELETEAUDITTABLE" label="删除审计表" type="STRING" length="32" />
+        <attribute name="DELETEMODECRITERIA" label="删除审计模式条件" type="STRING" length="800" />
+        <attribute name="ISINUSE" label="失效标志" type="STRING" length="18" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="DATAOBJECT_CATALOG" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="DATAOBJECT_FILTER" label="数据对象过滤器" keyAttributes="DONO">
+      <attributes>
+        <attribute name="DONO" label="DO编号" type="STRING" length="32" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="DATAOBJECT_FILTER" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="DATAOBJECT_LIBRARY" label="数据对象属性" keyAttributes="DONO,COLINDEX">
+      <attributes>
+        <attribute name="DONO" label="DO编号" type="STRING" length="32" />
+        <attribute name="COLINDEX" label="显示序号" type="STRING" length="32" />
+        <attribute name="COLATTRIBUTE" label="属性" type="STRING" length="80" />
+        <attribute name="COLTABLENAME" label="数据表名" type="STRING" length="80" />
+        <attribute name="COLACTUALNAME" label="数据库源名" type="STRING" length="80" />
+        <attribute name="COLNAME" label="使用名称" type="STRING" length="80" />
+        <attribute name="COLTYPE" label="值类型" type="STRING" length="18" />
+        <attribute name="COLDEFAULTVALUE" label="缺省值" type="STRING" length="80" />
+        <attribute name="COLHEADER" label="中文名称" type="STRING" length="80" />
+        <attribute name="COLUNIT" label="显示后缀" type="STRING" length="250" />
+        <attribute name="COLCOLUMNTYPE" label="字段类型" type="STRING" length="18" />
+        <attribute name="COLCHECKFORMAT" label="检查格式" type="STRING" length="18" />
+        <attribute name="COLALIGN" label="对齐方式" type="STRING" length="18" />
+        <attribute name="COLEDITSTYLE" label="编辑形式" type="STRING" length="18" />
+        <attribute name="COLEDITSOURCETYPE" label="显示来源类型" type="STRING" length="18" />
+        <attribute name="COLEDITSOURCE" label="显示来源" type="STRING" length="250" />
+        <attribute name="COLHTMLSTYLE" label="HTML显示格式" type="STRING" length="250" />
+        <attribute name="COLLIMIT" label="长度限制" type="STRING" length="18" />
+        <attribute name="COLKEY" label="是否关键字" type="STRING" length="18" />
+        <attribute name="COLUPDATEABLE" label="是否可更新" type="STRING" length="18" />
+        <attribute name="COLVISIBLE" label="是否可见" type="STRING" length="18" />
+        <attribute name="COLREADONLY" label="是否只读" type="STRING" length="18" />
+        <attribute name="COLREQUIRED" label="是否必须" type="STRING" length="18" />
+        <attribute name="COLSORTABLE" label="是否需要排序" type="STRING" length="18" />
+        <attribute name="COLCHECKITEM" label="是否进行完备性检查" type="STRING" length="18" />
+        <attribute name="COLTRANSFERBACK" label="是否回传值" type="STRING" length="18" />
+        <attribute name="DATAITEMID" label="数据项ID" type="STRING" length="32" />
+        <attribute name="ISFOREIGNKEY" label="是否外键" type="STRING" length="18" />
+        <attribute name="SORTNO" label="排序号" type="STRING" length="18" />
+        <attribute name="ISINUSE" label="有效标志" type="STRING" length="18" />
+        <attribute name="DATAPRECISION" label="有效位数" type="DOUBLE" length="24" scale="6" />
+        <attribute name="DATASCALE" label="小数点后位数" type="DOUBLE" length="24" scale="6" />
+        <attribute name="ATTRIBUTE1" label="属性1" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE2" label="属性2" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE3" label="属性3" type="STRING" length="250" />
+        <attribute name="ISFILTER" label="是否需要查询" type="STRING" length="18" />
+        <attribute name="FILTEROPTIONS" label="FILTEROPTIONS" type="STRING" length="1600" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="DOCKID" label="泊位编号" type="STRING" length="32" />
+        <attribute name="COLSPAN" label="列跨度" type="INT" length="20" />
+        <attribute name="POSITIONTYPE" label="位置类型" type="STRING" length="32" />
+        <attribute name="BLANKCOLSAHEAD" label="列前空格" type="INT" length="20" />
+        <attribute name="BLANKCOLSAFTER" label="列后空格" type="INT" length="20" />
+        <attribute name="AUDITCOLUMN" label="审计列" type="STRING" length="80" />
+        <attribute name="AUDITTABLE" label="审计表" type="STRING" length="80" />
+        <attribute name="AUDITABLE" label="是否审计" type="STRING" length="80" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="DATAOBJECT_LIBRARY" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="DATAOBJECT_LOG" label="datawindow日志">
+      <attributes>
+        <attribute name="OPTIME" label="操作时间" type="STRING" length="25" />
+        <attribute name="OPTABLE" label="数据表" type="STRING" length="80" />
+        <attribute name="OPKEYS" label="主键" type="STRING" length="80" />
+        <attribute name="OPVALUES" label="主键值" type="STRING" length="250" />
+        <attribute name="OPACTIONS" label="操作动作" type="STRING" length="80" />
+        <attribute name="OPDESC" label="操作描述" type="STRING" length="2000" />
+        <attribute name="ORGID" label="机构编号" type="STRING" length="32" />
+        <attribute name="ORGNAME" label="机构名称" type="STRING" length="80" />
+        <attribute name="USERID" label="用户编号" type="STRING" length="32" />
+        <attribute name="USERNAME" label="用户名称" type="STRING" length="32" />
+        <attribute name="COMPID" label="组件ID" type="STRING" length="80" />
+        <attribute name="COMPNAME" label="组件名称" type="STRING" length="80" />
+        <attribute name="PAGEURL" label="页面URL" type="STRING" length="250" />
+        <attribute name="PAGENAME" label="页面名称" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE1" label="属性1" type="STRING" length="80" />
+        <attribute name="ATTRIBUTE2" label="属性2" type="STRING" length="80" />
+        <attribute name="ATTRIBUTE3" label="属性3" type="STRING" length="80" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="DATAOBJECT_LOG" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="DB_SQL_LOG" label="DB_SQL_LOG">
+      <attributes>
+        <attribute name="COMPID" label="组件编号" type="STRING" length="80" />
+        <attribute name="COMPNAME" label="组件名称" type="STRING" length="80" />
+        <attribute name="EXECUTETIME" label="执行时间" type="STRING" length="20" />
+        <attribute name="USERID" label="用户编号" type="STRING" length="32" />
+        <attribute name="LOGTYPE" label="日志类型" type="STRING" length="18" />
+        <attribute name="SQLSTATEMENT" label="SQL语句" type="STRING" length="2000" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="DB_SQL_LOG" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="DOC_ATTACHMENT" label="文档附件库" keyAttributes="DOCNO,ATTACHMENTNO">
+      <attributes>
+        <attribute name="DOCNO" label="文档编号" type="STRING" length="32" />
+        <attribute name="ATTACHMENTNO" label="附件编号" type="STRING" length="32" />
+        <attribute name="FILEPATH" label="文档路径" type="STRING" length="120" />
+        <attribute name="FULLPATH" label="文档全路径" type="STRING" length="200" />
+        <attribute name="FILESAVEMODE" label="文档保存模式" type="STRING" length="18" />
+        <attribute name="FILENAME" label="文档全路径文件名" type="STRING" length="250" />
+        <attribute name="CONTENTTYPE" label="内容类型" type="STRING" length="32" />
+        <attribute name="CONTENTLENGTH" label="内容长度" type="STRING" length="32" />
+        <attribute name="CONTENTSTATUS" label="内容状态" type="STRING" length="18" />
+        <attribute name="BEGINTIME" label="发送开始时间" type="STRING" length="20" />
+        <attribute name="ENDTIME" label="发送完成时间" type="STRING" length="20" />
+        <attribute name="DOCCONTENT" label="文档内容" type="STRING" length="20" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记单位" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="INPUTTIME" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="UPDATEUSER" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="UPDATETIME" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="DOC_ATTACHMENT" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="DOC_LIBRARY" label="文档资料库" keyAttributes="DOCNO">
+      <attributes>
+        <attribute name="DOCNO" label="文档编号" type="STRING" length="32" />
+        <attribute name="DOCTYPE" label="文档类型" type="STRING" length="18" />
+        <attribute name="DOCTITLE" label="文档名称" type="STRING" length="80" />
+        <attribute name="DOCLENGTH" label="文档长度" type="STRING" length="32" />
+        <attribute name="DOCIMPORTANCE" label="文档重要性" type="STRING" length="18" />
+        <attribute name="DOCSECRET" label="文档密级" type="STRING" length="18" />
+        <attribute name="DOCSTAGE" label="所属阶段" type="STRING" length="18" />
+        <attribute name="DOCSOURCE" label="文档来源" type="STRING" length="80" />
+        <attribute name="DOCUNIT" label="编制单位" type="STRING" length="80" />
+        <attribute name="DOCDATE" label="编制日期" type="DATE" length="10" />
+        <attribute name="DOCORGANIZER" label="编制人" type="STRING" length="80" />
+        <attribute name="DOCKEYWORD" label="文档主题词" type="STRING" length="250" />
+        <attribute name="DOCABSTRACT" label="文档摘要" type="STRING" length="250" />
+        <attribute name="DOCLOCATION" label="文档保存位置" type="STRING" length="250" />
+        <attribute name="DOCATTRIBUTE" label="文档性质" type="STRING" length="18" />
+        <attribute name="USERID" label="操作员" type="STRING" length="32" />
+        <attribute name="USERNAME" label="操作员姓名" type="STRING" length="32" />
+        <attribute name="ORGID" label="所属行编号" type="STRING" length="32" />
+        <attribute name="ORGNAME" label="所属行名称" type="STRING" length="80" />
+        <attribute name="TRANSFORMTIME" label="计划发送时间" type="STRING" length="20" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记单位" type="STRING" length="80" />
+        <attribute name="INPUTTIME" label="INPUTTIME" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="UPDATEUSER" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="UPDATETIME" type="STRING" length="20" />
+        <attribute name="DOCFLAG" label="DOCFLAG" type="STRING" length="18" />
+        <attribute name="SORTNO" label="SORTNO" type="STRING" length="32" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="DOC_LIBRARY" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="DOC_PRINT" label="文档打印" keyAttributes="DOCNO">
+      <attributes>
+        <attribute name="DOCNO" label="文档编号" type="STRING" length="32" />
+        <attribute name="OBJECTNO" label="对象编号" type="STRING" length="32" />
+        <attribute name="FILENAME" label="文档名称" type="STRING" length="250" />
+        <attribute name="CONTENTTYPE" label="内容类型" type="STRING" length="32" />
+        <attribute name="CONTENTLENGTH" label="内容长度" type="STRING" length="32" />
+        <attribute name="CONTENTSTATUS" label="内容状态" type="STRING" length="18" />
+        <attribute name="BEGINTIME" label="开始时间" type="STRING" length="20" />
+        <attribute name="ENDTIME" label="结束时间" type="STRING" length="20" />
+        <attribute name="DOCCONTENT" label="文档内容" type="STRING" length="20" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记单位" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="DOC_PRINT" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="DOC_PRINT_DEF" label="文档打印定义">
+      <attributes>
+        <attribute name="TYPENO" label="类型编号" type="STRING" length="18" />
+        <attribute name="DOCNO" label="文档编号" type="STRING" length="32" />
+        <attribute name="ATTACHMENTNO" label="附件编号" type="STRING" length="32" />
+        <attribute name="FILENAME" label="文档名称" type="STRING" length="250" />
+        <attribute name="CONTENTTYPE" label="内容类型" type="STRING" length="32" />
+        <attribute name="CONTENTLENGTH" label="内容长度" type="STRING" length="32" />
+        <attribute name="CONTENTSTATUS" label="内容状态" type="STRING" length="18" />
+        <attribute name="BEGINTIME" label="开始时间" type="STRING" length="20" />
+        <attribute name="ENDTIME" label="结束时间" type="STRING" length="20" />
+        <attribute name="DOCCONTENT" label="文档内容" type="STRING" length="20" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记单位" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="DOC_PRINT_DEF" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="DOC_RELATIVE" label="文档关联对象表" keyAttributes="DOCNO,OBJECTTYPE,OBJECTNO">
+      <attributes>
+        <attribute name="DOCNO" label="文档编号" type="STRING" length="32" />
+        <attribute name="OBJECTTYPE" label="对象类别" type="STRING" length="18" />
+        <attribute name="OBJECTNO" label="对象标识" type="STRING" length="32" />
+        <attribute name="OBJECTNAME" label="对象名称" type="STRING" length="80" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="DOC_RELATIVE" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="DOC_TRANSFORM" label="文档传送">
+      <attributes>
+        <attribute name="SOURCEFILENAME" label="源文件名" type="STRING" length="250" />
+        <attribute name="TRANSFORMTIME" label="要求发放时间" type="STRING" length="20" />
+        <attribute name="ACTUALTIME" label="实际发放时间" type="STRING" length="20" />
+        <attribute name="ISFINISHED" label="发放完毕否" type="STRING" length="18" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="DOC_TRANSFORM" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="DS_SIGHT" label="视野定义" keyAttributes="SIGHTSETID,SIGHTID">
+      <attributes>
+        <attribute name="SIGHTSETID" label="视野组ID" type="STRING" length="32" />
+        <attribute name="SIGHTID" label="视野ID" type="STRING" length="32" />
+        <attribute name="SIGHTNAME" label="视野名称" type="STRING" length="80" />
+        <attribute name="SIGHTWHERECLAUSE" label="视野SQL条件" type="STRING" length="1600" />
+        <attribute name="RIGHTID" label="权限号" type="STRING" length="250" />
+        <attribute name="EFFSTATUS" label="有效标志" type="STRING" length="18" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="DS_SIGHT" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="DS_SIGHT_SET" label="视野组" keyAttributes="SIGHTSETID">
+      <attributes>
+        <attribute name="SIGHTSETID" label="视野组ID" type="STRING" length="32" />
+        <attribute name="SIGHTSETNAME" label="视野组名称" type="STRING" length="80" />
+        <attribute name="MACROPARAMS" label="宏变量定义" type="STRING" length="250" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="DS_SIGHT_SET" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="ERATE_INFO" label="汇率表" keyAttributes="EXCHANGEVALUE,CURRENCY">
+      <attributes>
+        <attribute name="EXCHANGEVALUE" label="相对值" type="DOUBLE" length="10" scale="6" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+        <attribute name="CURRENCY" label="币种" type="STRING" length="18" />
+        <attribute name="EFFICIENTDATE" label="生效日期" type="DATE" length="10" />
+        <attribute name="UNIT" label="单位" type="STRING" length="18" />
+        <attribute name="PRICE" label="中间价" type="DOUBLE" length="24" scale="6" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="ERATE_INFO" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="EVALUATE_CATALOG" label="评估模型目录" keyAttributes="MODELNO">
+      <attributes>
+        <attribute name="MODELNO" label="评估表编号" type="STRING" length="32" />
+        <attribute name="MODELNAME" label="评估表名称" type="STRING" length="80" />
+        <attribute name="MODELTYPE" label="评估表类别" type="STRING" length="18" />
+        <attribute name="MODELDESCRIBE" label="评估表描述" type="STRING" length="250" />
+        <attribute name="TRANSFORMMETHOD" label="转换方法" type="STRING" length="1600" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="EVALUATE_CATALOG" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="EVALUATE_DATA" label="评估数据" keyAttributes="OBJECTTYPE,OBJECTNO,SERIALNO,ITEMNO">
+      <attributes>
+        <attribute name="OBJECTTYPE" label="对象类型" type="STRING" length="18" />
+        <attribute name="OBJECTNO" label="对象编号" type="STRING" length="32" />
+        <attribute name="SERIALNO" label="流水号" type="STRING" length="32" />
+        <attribute name="ITEMNO" label="项目编号" type="STRING" length="32" />
+        <attribute name="ITEMVALUE" label="项目值" type="STRING" length="80" />
+        <attribute name="EVALUATESCORE" label="评估值" type="DOUBLE" length="24" scale="6" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="EVALUATE_DATA" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="EVALUATE_MODEL" label="评估模型" keyAttributes="MODELNO,ITEMNO">
+      <attributes>
+        <attribute name="MODELNO" label="评估表编号" type="STRING" length="32" />
+        <attribute name="ITEMNO" label="项目编号" type="STRING" length="32" />
+        <attribute name="DISPLAYNO" label="显示序号" type="STRING" length="32" />
+        <attribute name="ITEMNAME" label="项目名称" type="STRING" length="80" />
+        <attribute name="ITEMATTRIBUTE" label="项目属性" type="STRING" length="80" />
+        <attribute name="VALUEMETHOD" label="VALUEMETHOD" type="STRING" length="2100" />
+        <attribute name="VALUECODE" label="取值代码" type="STRING" length="250" />
+        <attribute name="VALUETYPE" label="值类型" type="STRING" length="18" />
+        <attribute name="EVALUATEMETHOD" label="评估方法" type="STRING" length="1600" />
+        <attribute name="COEFFICIENT" label="系数" type="DOUBLE" length="24" scale="6" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="EVALUATE_MODEL" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="EVALUATE_RECORD" label="评估记录" keyAttributes="OBJECTTYPE,OBJECTNO,SERIALNO">
+      <attributes>
+        <attribute name="OBJECTTYPE" label="对象类型" type="STRING" length="18" />
+        <attribute name="OBJECTNO" label="对象编号" type="STRING" length="32" />
+        <attribute name="SERIALNO" label="流水号" type="STRING" length="32" />
+        <attribute name="ACCOUNTMONTH" label="会计月份" type="STRING" length="10" />
+        <attribute name="MODELNO" label="模型编号" type="STRING" length="32" />
+        <attribute name="REPORTSCOPE" label="报表口径" type="STRING" length="8" />
+        <attribute name="EVALUATEDATE" label="评估日期" type="STRING" length="20" />
+        <attribute name="EVALUATESCORE" label="评估得分" type="DOUBLE" length="24" scale="6" />
+        <attribute name="EVALUATERESULT" label="评估结果" type="STRING" length="80" />
+        <attribute name="ORGID" label="评估单位" type="STRING" length="32" />
+        <attribute name="USERID" label="评估人" type="STRING" length="32" />
+        <attribute name="COGNDATE" label="认定日期" type="STRING" length="20" />
+        <attribute name="COGNSCORE" label="认定得分" type="DOUBLE" length="24" scale="6" />
+        <attribute name="COGNRESULT" label="认定结果" type="STRING" length="80" />
+        <attribute name="COGNORGID" label="认定单位" type="STRING" length="32" />
+        <attribute name="COGNUSERID" label="认定人" type="STRING" length="32" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+        <attribute name="COGNREASON" label="认定理由" type="STRING" length="250" />
+        <attribute name="COGNRESULT2" label="分行认定结果" type="STRING" length="80" />
+        <attribute name="COGNUSERNAME2" label="分行认定人" type="STRING" length="80" />
+        <attribute name="COGNREASON2" label="分行认定理由" type="STRING" length="250" />
+        <attribute name="COGNRESULT3" label="总行认定结果" type="STRING" length="80" />
+        <attribute name="COGNUSERNAME3" label="总行认定人" type="STRING" length="80" />
+        <attribute name="COGNREASON3" label="总行认定理由" type="STRING" length="250" />
+        <attribute name="COGNUSERID3" label="总行认定人代码" type="STRING" length="32" />
+        <attribute name="COGNUSERID2" label="分行认定人代码" type="STRING" length="32" />
+        <attribute name="EVALUATELEVEL" label="认定级别" type="STRING" length="18" />
+        <attribute name="FINISHDATE2" label="分行认定时间" type="STRING" length="20" />
+        <attribute name="FINISHDATE3" label="总行认定时间" type="STRING" length="20" />
+        <attribute name="FINISHDATE" label="认定时间" type="STRING" length="20" />
+        <attribute name="COGNRESULT4" label="支行认定结果" type="STRING" length="80" />
+        <attribute name="COGNUSERNAME4" label="支行认定人" type="STRING" length="80" />
+        <attribute name="COGNREASON4" label="支行认定理由" type="STRING" length="250" />
+        <attribute name="FINISHDATE4" label="支行认定时间" type="STRING" length="20" />
+        <attribute name="COGNUSERID4" label="支行认定人代码" type="STRING" length="32" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="EVALUATE_RECORD" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="EXAMPLE_INFO" label="示例信息" keyAttributes="EXAMPLEID">
+      <attributes>
+        <attribute name="EXAMPLEID" label="示例ID" type="STRING" length="32" />
+        <attribute name="EXAMPLENAME" label="示例名称" type="STRING" length="80" />
+        <attribute name="SORTNO" label="排序号" type="STRING" length="32" />
+        <attribute name="INDUSTRYTYPE" label="行业类型" type="STRING" length="18" />
+        <attribute name="BEGINDATE" label="开始日期" type="DATE" length="10" />
+        <attribute name="APPLYSUM" label="申请金额" type="DOUBLE" length="24" scale="6" />
+        <attribute name="ATTRIBUTE1" label="属性一" type="STRING" length="80" />
+        <attribute name="ATTRIBUTE2" label="属性二" type="STRING" length="80" />
+        <attribute name="ATTRIBUTE3" label="属性三" type="STRING" length="80" />
+        <attribute name="INPUTORG" label="登记单位" type="STRING" length="32" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+        <attribute name="AUDITUSER" label="AUDITUSER" type="STRING" length="32" />
+        <attribute name="AUDITORG" label="AUDITORG" type="STRING" length="32" />
+        <attribute name="PARENTEXAMPLEID" label="PARENTEXAMPLEID" type="STRING" length="32" />
+        <attribute name="CUSTOMERTYPE" label="CUSTOMERTYPE" type="STRING" length="32" />
+        <attribute name="CUSTOMERID" label="CUSTOMERID" type="STRING" length="32" />
+        <attribute name="CUSTOMERNAME" label="CUSTOMERNAME" type="STRING" length="32" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="EXAMPLE_INFO" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="FILTER_DEF" label="过滤器">
+      <attributes>
+        <attribute name="FILTERID" label="过滤器ID" type="STRING" length="32" />
+        <attribute name="CRITERIATYPE" label="过滤条件类型" type="STRING" length="18" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="FILTER_DEF" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="FINANCE_ITEM" label="财务项目表" keyAttributes="ITEMNO">
+      <attributes>
+        <attribute name="ITEMNO" label="项目编号" type="STRING" length="32" />
+        <attribute name="ITEMNAME" label="项目名称" type="STRING" length="80" />
+        <attribute name="ITEMATTRIBUTE" label="项目属性" type="STRING" length="250" />
+        <attribute name="ITEMDESCRIBE" label="项目描述" type="STRING" length="250" />
+        <attribute name="DELETEFLAG" label="删除标志" type="STRING" length="1" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="FINANCE_ITEM" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="FLOW_CATALOG" label="流程表" keyAttributes="FLOWNO">
+      <attributes>
+        <attribute name="FLOWNO" label="流程编号" type="STRING" length="32" />
+        <attribute name="FLOWNAME" label="流程名称" type="STRING" length="80" />
+        <attribute name="FLOWTYPE" label="流程类型" type="STRING" length="18" />
+        <attribute name="GROUPTITLES" label="流程图分组标题" type="STRING" length="1000" />
+        <attribute name="VIEWFILELENGTH" label="流程图描述长度" type="DOUBLE" length="20" />
+        <attribute name="VIEWFILE" label="流程图描述" type="STRING" length="20" />
+        <attribute name="FLOWDESCRIBE" label="流程描述" type="STRING" length="250" />
+        <attribute name="INITPHASE" label="初始阶段" type="STRING" length="250" />
+        <attribute name="AAENABLED" label="是否启用授权系统" type="STRING" length="1" />
+        <attribute name="AAPOLICY" label="授权方案" type="STRING" length="32" />
+        <attribute name="METAFLOWNO" label="元版本号 " type="STRING" length="32" />
+        <attribute name="ISINUSE" label="是否有效" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="FLOW_CATALOG" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="FLOW_CATALOG_HIS" label="流程历史表" keyAttributes="FLOWNO,VERSIONNO">
+      <attributes>
+        <attribute name="FLOWNO" label="流程编号" type="STRING" length="32" />
+        <attribute name="FLOWNAME" label="流程名称" type="STRING" length="80" />
+        <attribute name="FLOWTYPE" label="流程类型" type="STRING" length="18" />
+        <attribute name="FLOWDESCRIBE" label="流程描述" type="STRING" length="250" />
+        <attribute name="INITPHASE" label="初始阶段" type="STRING" length="250" />
+        <attribute name="AAENABLED" label="是否启用授权系统" type="STRING" length="1" />
+        <attribute name="AAPOLICY" label="授权方案" type="STRING" length="32" />
+        <attribute name="VIEWFILE" label="流程图描述" type="STRING" length="20" />
+        <attribute name="VIEWFILELENGTH" label="流程图描述长度" type="DOUBLE" length="20" />
+        <attribute name="GROUPTITLES" label="流程图分组标题" type="STRING" length="1000" />
+        <attribute name="VERSIONNO" label="版本号" type="STRING" length="20" />
+        <attribute name="VERSIONREMARK" label="版本说明" type="STRING" length="200" />
+        <attribute name="VERSIONTIME" label="版本日期" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="FLOW_CATALOG_HIS" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="FLOW_MODEL" label="流程模型" keyAttributes="FLOWNO,PHASENO">
+      <attributes>
+        <attribute name="FLOWNO" label="流程编号" type="STRING" length="32" />
+        <attribute name="PHASENO" label="阶段号" type="STRING" length="32" />
+        <attribute name="PHASETYPE" label="阶段类型" type="STRING" length="18" />
+        <attribute name="PHASENAME" label="阶段名称" type="STRING" length="80" />
+        <attribute name="PHASEDESCRIBE" label="阶段描述" type="STRING" length="250" />
+        <attribute name="PHASEATTRIBUTE" label="阶段属性" type="STRING" length="80" />
+        <attribute name="PRESCRIPT" label="前沿执行SCRIPT" type="STRING" length="250" />
+        <attribute name="INITSCRIPT" label="相关承办人SCRIPT" type="STRING" length="800" />
+        <attribute name="CHOICEDESCRIBE" label="意见描述" type="STRING" length="250" />
+        <attribute name="CHOICESCRIPT" label="意见生成SCRIPT" type="STRING" length="250" />
+        <attribute name="ACTIONDESCRIBE" label="动作描述" type="STRING" length="800" />
+        <attribute name="ACTIONSCRIPT" label="动作生成SCRIPT" type="STRING" length="800" />
+        <attribute name="POSTSCRIPT" label="后续阶段SCRIPIT" type="STRING" length="800" />
+        <attribute name="ATTRIBUTE1" label="ATTRIBUTE1" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE2" label="ATTRIBUTE2" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE3" label="ATTRIBUTE3" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE4" label="ATTRIBUTE4" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE5" label="ATTRIBUTE5" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE6" label="ATTRIBUTE6" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE7" label="ATTRIBUTE7" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE8" label="ATTRIBUTE8" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE9" label="ATTRIBUTE9" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE10" label="ATTRIBUTE10" type="STRING" length="250" />
+        <attribute name="AAENABLED" label="是否启用授权" type="STRING" length="1" />
+        <attribute name="AAPOINTINITSCRIPT" label="授权点初始化SCRIPT" type="STRING" length="1600" />
+        <attribute name="AAPOINTCOMP" label="授权点组件" type="STRING" length="250" />
+        <attribute name="AAPOINTCOMPURL" label="授权点组件URL" type="STRING" length="250" />
+        <attribute name="STANDARDTIME1" label="(NEW)审批时间标准1(分钟)" type="INT" length="20" />
+        <attribute name="STANDARDTIME2" label="(NEW)审批时间标准2(分钟)" type="INT" length="20" />
+        <attribute name="COSTLOB" label="(NEW)审批成本归属" type="STRING" length="32" />
+        <attribute name="STRIPS" label="(NEW)阶段STRIP[逗号分隔]" type="STRING" length="400" />
+        <attribute name="CHECKLIST" label="(NEW)阶段CHECKLIST" type="STRING" length="32" />
+        <attribute name="DECISIONSCRIPT" label="(NEW)自动审批规则" type="STRING" length="800" />
+        <attribute name="RISKSCANRULE" label="(NEW)风险探测规则组" type="STRING" length="32" />
+        <attribute name="BUTTONSET2" label="(NEW)STRIP按钮" type="STRING" length="400" />
+        <attribute name="INPUTUSER" label="录入人" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="录入时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="DISTRIBUTERULE" label="分发方式" type="STRING" length="32" />
+        <attribute name="ID" label="图形节点编号" type="STRING" length="32" />
+        <attribute name="TYPE" label="图形节点类型" type="STRING" length="32" />
+        <attribute name="NAME" label="图形节点名称" type="STRING" length="80" />
+        <attribute name="XCOORDINATE" label="图形节点X坐标" type="STRING" length="10" />
+        <attribute name="YCOORDINATE" label="图形节点Y坐标" type="STRING" length="10" />
+        <attribute name="WIDTH" label="图形节点宽度" type="STRING" length="10" />
+        <attribute name="HEIGHT" label="图形节点高度" type="STRING" length="10" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="FLOW_MODEL" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="FLOW_RULERELA" label="流程模型相关规则" keyAttributes="SERIALNO">
+      <attributes>
+      	<attribute name="SERIALNO" label="流程规则编号" type="STRING" length="32" />
+        <attribute name="FLOWNO" label="流程编号" type="STRING" length="32" />
+        <attribute name="PHASENO" label="阶段号" type="STRING" length="32" />
+        <attribute name="CLASSNAME" label="方法集名" type="STRING" length="80" />
+        <attribute name="METHODNAME" label="方法名称(规则名称)" type="STRING" length="80" />
+        <attribute name="OPINION" label="意见" type="STRING" length="100" />
+        <attribute name="PHASENONEXT" label="下一阶段号" type="STRING" length="32" />
+        <attribute name="ISORG" label="ISORG" type="STRING" length="10" />
+        <attribute name="NEXTROLEID" label="下一阶段角色" type="STRING" length="32" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="true" />
+          <property name="table" value="FLOW_RULERELA" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="FLOW_MODEL_HIS" label="流程模型历史表" keyAttributes="FLOWNO,PHASENO,VERSIONNO">
+      <attributes>
+        <attribute name="FLOWNO" label="流程编号" type="STRING" length="32" />
+        <attribute name="PHASENO" label="阶段号" type="STRING" length="32" />
+        <attribute name="PHASETYPE" label="阶段类型" type="STRING" length="32" />
+        <attribute name="PHASENAME" label="阶段名称" type="STRING" length="80" />
+        <attribute name="PHASEDESCRIBE" label="阶段描述" type="STRING" length="250" />
+        <attribute name="PHASEATTRIBUTE" label="阶段属性" type="STRING" length="80" />
+        <attribute name="PRESCRIPT" label="前沿执行SCRIPT" type="STRING" length="250" />
+        <attribute name="INITSCRIPT" label="相关承办人SCRIPT" type="STRING" length="800" />
+        <attribute name="CHOICEDESCRIBE" label="意见描述" type="STRING" length="250" />
+        <attribute name="CHOICESCRIPT" label="意见生成SCRIPT" type="STRING" length="250" />
+        <attribute name="ACTIONDESCRIBE" label="动作描述" type="STRING" length="800" />
+        <attribute name="ACTIONSCRIPT" label="动作生成SCRIPT" type="STRING" length="800" />
+        <attribute name="POSTSCRIPT" label="后续阶段SCRIPIT" type="STRING" length="800" />
+        <attribute name="ATTRIBUTE1" label="ATTRIBUTE1" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE2" label="ATTRIBUTE2" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE3" label="ATTRIBUTE3" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE4" label="ATTRIBUTE4" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE5" label="ATTRIBUTE5" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE6" label="ATTRIBUTE6" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE7" label="ATTRIBUTE7" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE8" label="ATTRIBUTE8" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE9" label="ATTRIBUTE9" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE10" label="ATTRIBUTE10" type="STRING" length="250" />
+        <attribute name="AAENABLED" label="是否启用授权" type="STRING" length="1" />
+        <attribute name="AAPOINTINITSCRIPT" label="授权点初始化SCRIPT" type="STRING" length="1600" />
+        <attribute name="AAPOINTCOMP" label="授权点组件" type="STRING" length="250" />
+        <attribute name="AAPOINTCOMPURL" label="授权点组件URL" type="STRING" length="250" />
+        <attribute name="STANDARDTIME1" label="(NEW)审批时间标准1(分钟)" type="INT" length="20" />
+        <attribute name="STANDARDTIME2" label="(NEW)审批时间标准2(分钟)" type="INT" length="20" />
+        <attribute name="COSTLOB" label="(NEW)审批成本归属" type="STRING" length="32" />
+        <attribute name="STRIPS" label="(NEW)阶段STRIP[逗号分隔]" type="STRING" length="400" />
+        <attribute name="CHECKLIST" label="(NEW)阶段CHECKLIST" type="STRING" length="32" />
+        <attribute name="DECISIONSCRIPT" label="(NEW)自动审批规则" type="STRING" length="800" />
+        <attribute name="RISKSCANRULE" label="(NEW)风险探测规则组" type="STRING" length="32" />
+        <attribute name="BUTTONSET2" label="(NEW)STRIP按钮" type="STRING" length="400" />
+        <attribute name="INPUTUSER" label="录入人" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="录入时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="DISTRIBUTERULE" label="分发方式" type="STRING" length="32" />
+        <attribute name="VERSIONNO" label="版本号" type="STRING" length="20" />
+        <attribute name="VERSIONREMARK" label="版本说明" type="STRING" length="200" />
+        <attribute name="VERSIONTIME" label="版本日期" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="FLOW_MODEL_HIS" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="FLOW_OBJECT" label="流程对象表" keyAttributes="OBJECTTYPE,OBJECTNO">
+      <attributes>
+        <attribute name="OBJECTTYPE" label="对象类型" type="STRING" length="18" />
+        <attribute name="OBJECTNO" label="对象编号" type="STRING" length="32" />
+        <attribute name="PHASETYPE" label="阶段类型" type="STRING" length="18" />
+        <attribute name="APPLYTYPE" label="申请类型" type="STRING" length="18" />
+        <attribute name="FLOWNO" label="当前流程号" type="STRING" length="32" />
+        <attribute name="FLOWNAME" label="当前流程名称" type="STRING" length="80" />
+        <attribute name="PHASENO" label="当前阶段号" type="STRING" length="32" />
+        <attribute name="PHASENAME" label="当前阶段名称" type="STRING" length="80" />
+        <attribute name="OBJDESCRIBE" label="对象描述" type="STRING" length="250" />
+        <attribute name="OBJATTRIBUTE1" label="对象属性1" type="STRING" length="80" />
+        <attribute name="OBJATTRIBUTE2" label="对象属性2" type="STRING" length="80" />
+        <attribute name="OBJATTRIBUTE3" label="对象属性3" type="STRING" length="80" />
+        <attribute name="OBJATTRIBUTE4" label="对象属性4" type="STRING" length="80" />
+        <attribute name="OBJATTRIBUTE5" label="对象属性5" type="STRING" length="80" />
+        <attribute name="ORGID" label="创建机构" type="STRING" length="32" />
+        <attribute name="ORGNAME" label="创建机构名称" type="STRING" length="80" />
+        <attribute name="USERID" label="创建人" type="STRING" length="32" />
+        <attribute name="USERNAME" label="创建人姓名" type="STRING" length="80" />
+        <attribute name="INPUTDATE" label="创建日期" type="STRING" length="20" />
+        <attribute name="ARCHIVETIME" label="归档时间" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="FLOW_OBJECT" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="FLOW_OPINION" label="流程意见记录" keyAttributes="SERIALNO,OPINIONNO">
+      <attributes>
+        <attribute name="SERIALNO" label="流程任_流水号" type="STRING" length="32" />
+        <attribute name="OPINIONNO" label="意见序号" type="STRING" length="32" />
+        <attribute name="OBJECTTYPE" label="对象类型" type="STRING" length="18" />
+        <attribute name="OBJECTNO" label="对象编号" type="STRING" length="32" />
+        <attribute name="CUSTOMERID" label="客户编号" type="STRING" length="32" />
+        <attribute name="CUSTOMERNAME" label="客户名称" type="STRING" length="80" />
+        <attribute name="BUSINESSCURRENCY" label="币种" type="STRING" length="18" />
+        <attribute name="BUSINESSSUM" label="金额" type="DOUBLE" length="24" scale="6" />
+        <attribute name="TERMYEAR" label="期限(年)" type="INT" length="20" />
+        <attribute name="TERMMONTH" label="期限(月)" type="INT" length="20" />
+        <attribute name="TERMDAY" label="期限(日)" type="INT" length="20" />
+        <attribute name="BASERATETYPE" label="基准利率类型" type="STRING" length="18" />
+        <attribute name="RATEFLOATTYPE" label="利率浮动方式" type="STRING" length="18" />
+        <attribute name="RATEFLOAT" label="利率浮动" type="DOUBLE" length="10" scale="6" />
+        <attribute name="BAILCURRENCY" label="保证金币种" type="STRING" length="18" />
+        <attribute name="BUSINESSRATE" label="执行利率" type="DOUBLE" length="10" scale="6" />
+        <attribute name="BAILRATIO" label="保证金比率" type="DOUBLE" length="10" scale="6" />
+        <attribute name="BAILSUM" label="保证金金额" type="DOUBLE" length="24" scale="6" />
+        <attribute name="PDGRATIO" label="手续费比率" type="DOUBLE" length="10" scale="6" />
+        <attribute name="PDGSUM" label="手续费金额" type="DOUBLE" length="24" scale="6" />
+        <attribute name="BASERATE" label="基准利率" type="DOUBLE" length="10" scale="6" />
+        <attribute name="PHASECHOICE" label="阶段意见" type="STRING" length="800" />
+        <attribute name="PHASEOPINION" label="意见详情" type="STRING" length="400" />
+        <attribute name="PHASEOPINION1" label="意见详情1" type="STRING" length="400" />
+        <attribute name="PHASEOPINION2" label="意见详情2" type="STRING" length="400" />
+        <attribute name="PHASEOPINION3" label="意见详情3" type="STRING" length="400" />
+        <attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+        <attribute name="INPUTUSER" label="登记人员" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="变更人员" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="变更时间" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="FLOW_OPINION" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="FLOW_TASK" label="流程任务" keyAttributes="SERIALNO">
+      <attributes>
+        <attribute name="SERIALNO" label="流水号" type="STRING" length="32" />
+        <attribute name="OBJECTNO" label="对象编号" type="STRING" length="32" />
+        <attribute name="OBJECTTYPE" label="对象类型" type="STRING" length="18" />
+        <attribute name="RELATIVESERIALNO" label="上一流水号" type="STRING" length="32" />
+        <attribute name="FLOWNO" label="流程编号" type="STRING" length="32" />
+        <attribute name="FLOWNAME" label="流程名称" type="STRING" length="80" />
+        <attribute name="PHASENO" label="阶段编号" type="STRING" length="32" />
+        <attribute name="PHASENAME" label="阶段名称" type="STRING" length="80" />
+        <attribute name="PHASETYPE" label="阶段类型" type="STRING" length="18" />
+        <attribute name="APPLYTYPE" label="申请类型" type="STRING" length="18" />
+        <attribute name="USERID" label="承办人编号" type="STRING" length="32" />
+        <attribute name="USERNAME" label="承办人姓名" type="STRING" length="80" />
+        <attribute name="ORGID" label="承办机构编号" type="STRING" length="32" />
+        <attribute name="ORGNAME" label="承办机构名称" type="STRING" length="80" />
+        <attribute name="BEGINTIME" label="开始执行时间" type="STRING" length="20" />
+        <attribute name="ENDTIME" label="完成执行时间" type="STRING" length="20" />
+        <attribute name="PHASECHOICE" label="阶段意见" type="STRING" length="80" />
+        <attribute name="PHASEACTION" label="阶段动作" type="STRING" length="250" />
+        <attribute name="PHASEOPINION" label="意见详情" type="STRING" length="1600" />
+        <attribute name="PHASEOPINION1" label="意见详情1" type="STRING" length="250" />
+        <attribute name="PHASEOPINION2" label="意见详情2" type="STRING" length="250" />
+        <attribute name="PHASEOPINION3" label="意见详情3" type="STRING" length="250" />
+        <attribute name="PHASEOPINION4" label="意见详情4" type="STRING" length="250" />
+        <attribute name="CHECKLISTRESULT" label="[NEW]检查清单结果" type="STRING" length="80" />
+        <attribute name="AUTODECISION" label="[NEW]自动审批判断结果" type="STRING" length="80" />
+        <attribute name="RISKSCANRESULT" label="[NEW]风险探测结果" type="STRING" length="80" />
+        <attribute name="STANDARDTIME1" label="[NEW]标准审批用时" type="STRING" length="32" />
+        <attribute name="STANDARDTIME2" label="[NEW]最长审批用时" type="STRING" length="32" />
+        <attribute name="COSTLOB" label="[NEW]审批成本归属" type="STRING" length="32" />
+        <attribute name="CLIENTX" label="图元X坐标" type="INT" length="20" />
+        <attribute name="CLIENTY" label="图元Y坐标" type="INT" length="20" />
+        <attribute name="HEIGTH" label="图元高度" type="INT" length="20" />
+        <attribute name="GROUPINFO" label="集团信息" type="STRING" length="1000" />
+        <attribute name="WIDTH" label="图元宽度" type="INT" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="true" />
+          <property name="table" value="FLOW_TASK" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="FLOW_TASK_CLOSED" label="已结束流程任务" keyAttributes="SERIALNO">
+      <attributes>
+        <attribute name="SERIALNO" label="流水号" type="STRING" length="32" />
+        <attribute name="OBJECTNO" label="对象编号" type="STRING" length="32" />
+        <attribute name="OBJECTTYPE" label="对象类型" type="STRING" length="18" />
+        <attribute name="RELATIVESERIALNO" label="上一流水号" type="STRING" length="32" />
+        <attribute name="FLOWNO" label="流程编号" type="STRING" length="32" />
+        <attribute name="FLOWNAME" label="流程名称" type="STRING" length="80" />
+        <attribute name="PHASENO" label="阶段编号" type="STRING" length="32" />
+        <attribute name="PHASENAME" label="阶段名称" type="STRING" length="80" />
+        <attribute name="PHASETYPE" label="阶段类型" type="STRING" length="18" />
+        <attribute name="APPLYTYPE" label="申请类型" type="STRING" length="18" />
+        <attribute name="USERID" label="承办人编号" type="STRING" length="32" />
+        <attribute name="USERNAME" label="承办人姓名" type="STRING" length="80" />
+        <attribute name="ORGID" label="承办机构编号" type="STRING" length="32" />
+        <attribute name="ORGNAME" label="承办机构名称" type="STRING" length="80" />
+        <attribute name="BEGINTIME" label="开始执行时间" type="STRING" length="20" />
+        <attribute name="ENDTIME" label="完成执行时间" type="STRING" length="20" />
+        <attribute name="PHASECHOICE" label="阶段意见" type="STRING" length="80" />
+        <attribute name="PHASEACTION" label="阶段动作" type="STRING" length="250" />
+        <attribute name="PHASEOPINION" label="意见详情" type="STRING" length="1600" />
+        <attribute name="PHASEOPINION1" label="意见详情1" type="STRING" length="18" />
+        <attribute name="PHASEOPINION2" label="意见详情2" type="STRING" length="250" />
+        <attribute name="PHASEOPINION3" label="意见详情3" type="STRING" length="250" />
+        <attribute name="PHASEOPINION4" label="意见详情4" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="FLOW_TASK_CLOSED" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="HRUSER_INFO" label="人力资源用户信息" keyAttributes="USERID">
+      <attributes>
+        <attribute name="USERID" label="工号" type="STRING" length="32" />
+        <attribute name="USERNAME" label="姓名" type="STRING" length="80" />
+        <attribute name="BELONGORG" label="机构" type="STRING" length="32" />
+        <attribute name="EMAIL" label="邮件" type="STRING" length="80" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="HRUSER_INFO" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="KNOWLEDGE_CATALOG" label="信息表" keyAttributes="ID">
+      <attributes>
+        <attribute name="ID" label="编号" type="STRING" length="32" />
+        <attribute name="PARENTID" label="父编号" type="STRING" length="32" />
+        <attribute name="ROOTID" label="根编号" type="STRING" length="32" />
+        <attribute name="DOCUMENTID" label="文档编号" type="STRING" length="32" />
+        <attribute name="CATALOGID" label="版号" type="STRING" length="32" />
+        <attribute name="TITLE" label="标题" type="STRING" length="250" />
+        <attribute name="DEMO" label="导读" type="STRING" length="250" />
+        <attribute name="BODY" label="正文" type="STRING" length="20" />
+        <attribute name="SOURCE" label="来源" type="STRING" length="250" />
+        <attribute name="AUTHOR" label="发布者" type="STRING" length="32" />
+        <attribute name="HITS" label="点击次数" type="INT" length="20" />
+        <attribute name="REPLIES" label="跟贴数" type="INT" length="20" />
+        <attribute name="CREATEDATE" label="创建日期" type="STRING" length="20" />
+        <attribute name="ATTRIBUTE1" label="属性1" type="STRING" length="80" />
+        <attribute name="ATTRIBUTE2" label="属性2" type="STRING" length="80" />
+        <attribute name="ATTRIBUTE3" label="属性3" type="STRING" length="80" />
+        <attribute name="MODIFIEDDATE" label="修改日期" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="KNOWLEDGE_CATALOG" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="KNOWLEDGE_OBJECT" label="相关对象" keyAttributes="ID,OBJECTID">
+      <attributes>
+        <attribute name="ID" label="编号" type="STRING" length="32" />
+        <attribute name="OBJECTID" label="对象编号" type="STRING" length="18" />
+        <attribute name="OBJECTNAME" label="对象名称" type="STRING" length="80" />
+        <attribute name="OBJECTCATEGORY" label="对象类别" type="STRING" length="18" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="KNOWLEDGE_OBJECT" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="K_ATTACH_CONTENT" label="附件内容" keyAttributes="ID,BOARDNO">
+      <attributes>
+        <attribute name="ID" label="编号" type="STRING" length="32" />
+        <attribute name="BOARDNO" label="公告编号" type="STRING" length="32" />
+        <attribute name="DOCCONTENT" label="文档内容" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="K_ATTACH_CONTENT" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="K_ATTACH_LIST" label="附件信息" keyAttributes="ID,BOARDNO">
+      <attributes>
+        <attribute name="ID" label="编号" type="STRING" length="32" />
+        <attribute name="BOARDNO" label="公告编号" type="STRING" length="32" />
+        <attribute name="BOARDNAME" label="公告名称" type="STRING" length="100" />
+        <attribute name="BOARDTITLE" label="公告标题" type="STRING" length="100" />
+        <attribute name="BOARDDESC" label="公告描述" type="STRING" length="200" />
+        <attribute name="ISPUBLISH" label="是否发布" type="STRING" length="18" />
+        <attribute name="ISNEW" label="是否新" type="STRING" length="18" />
+        <attribute name="ISEJECT" label="是否弹出" type="STRING" length="18" />
+        <attribute name="FILENAME" label="公告文件名" type="STRING" length="200" />
+        <attribute name="CONTENTTYPE" label="内容类型" type="STRING" length="18" />
+        <attribute name="CONTENTLENGTH" label="内容长度" type="STRING" length="32" />
+        <attribute name="UPLOADTIME" label="上传时间" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="K_ATTACH_LIST" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="LOG_AUDITINFO" label="log_auditinfo">
+      <attributes>
+        <attribute name="AUDITTYPE" label="AUDITTYPE" type="STRING" length="18" />
+        <attribute name="USERID" label="USERID" type="STRING" length="32" />
+        <attribute name="USERNAME" label="USERNAME" type="STRING" length="80" />
+        <attribute name="CHANGEUSERID" label="CHANGEUSERID" type="STRING" length="32" />
+        <attribute name="CHANGEUSERNAME" label="CHANGEUSERNAME" type="STRING" length="80" />
+        <attribute name="BEGINTIME" label="BEGINTIME" type="STRING" length="20" />
+        <attribute name="REMARK" label="REMARK" type="STRING" length="200" />
+        <attribute name="REMARK2" label="REMARK2" type="STRING" length="200" />
+        <attribute name="RUNSQL" label="RUNSQL" type="STRING" length="400" />
+        <attribute name="LOGID" label="LOGID" type="DOUBLE" length="6" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="LOG_AUDITINFO" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="LOG_DBALTER" label="log_dbalter">
+      <attributes>
+        <attribute name="USERID" label="USERID" type="STRING" length="32" />
+        <attribute name="USERNAME" label="USERNAME" type="STRING" length="80" />
+        <attribute name="BEGINTIME" label="BEGINTIME" type="STRING" length="20" />
+        <attribute name="ENDTIME" label="ENDTIME" type="STRING" length="20" />
+        <attribute name="TIMECONSUMING" label="TIMECONSUMING" type="DOUBLE" length="10" scale="6" />
+        <attribute name="REMARK" label="REMARK" type="STRING" length="200" />
+        <attribute name="RUNSQL" label="RUNSQL" type="STRING" length="200" />
+        <attribute name="LOGID" label="LOGID" type="DOUBLE" length="6" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="LOG_DBALTER" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="LOG_RUNTIME_HISTORY" label="log_runtime_history">
+      <attributes>
+        <attribute name="SESSIONID" label="SESSIONID" type="STRING" length="100" />
+        <attribute name="BEGINTIME" label="BEGINTIME" type="STRING" length="20" />
+        <attribute name="USERID" label="USERID" type="STRING" length="32" />
+        <attribute name="JSPNAME" label="JSPNAME" type="STRING" length="200" />
+        <attribute name="ENDTIME" label="ENDTIME" type="STRING" length="20" />
+        <attribute name="TIMECONSUMING" label="TIMECONSUMING" type="DOUBLE" length="10" scale="6" />
+        <attribute name="USERNAME" label="USERNAME" type="STRING" length="80" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="LOG_RUNTIME_HISTORY" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="MAIL_INFO" label="邮件信息" keyAttributes="SERIALNO">
+      <attributes>
+        <attribute name="SERIALNO" label="流水号" type="STRING" length="32" />
+        <attribute name="ADDRESSER" label="发件人" type="STRING" length="32" />
+        <attribute name="RECIPIENTS" label="收件人" type="STRING" length="800" />
+        <attribute name="MAILTITLE" label="邮件标题" type="STRING" length="80" />
+        <attribute name="MAILCONTENT" label="邮件内容" type="STRING" length="800" />
+        <attribute name="SENDTIME" label="发送时间" type="STRING" length="20" />
+        <attribute name="READTIME" label="阅读时间" type="STRING" length="20" />
+        <attribute name="MAILATTRIBUTE" label="邮件属性" type="STRING" length="80" />
+        <attribute name="DELETEFLAG1" label="发件人删除标志" type="STRING" length="1" />
+        <attribute name="DELETEFLAG2" label="收件人删除标志" type="STRING" length="1" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="MAIL_INFO" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="MESSAGE_INFO" label="消息流水号" keyAttributes="SERIALNO,SENDUSERID">
+      <attributes>
+        <attribute name="SERIALNO" label="流水号" type="STRING" length="32" />
+        <attribute name="SENDUSERID" label="发送人" type="STRING" length="32" />
+        <attribute name="SENDORGID" label="发送人机构" type="STRING" length="32" />
+        <attribute name="RECEIVEUSERID" label="收件人" type="STRING" length="32" />
+        <attribute name="RECEIVEORGID" label="收件人机构" type="STRING" length="32" />
+        <attribute name="TITLE" label="标题" type="STRING" length="200" />
+        <attribute name="DESCRIBE" label="消息内容" type="STRING" length="250" />
+        <attribute name="SENDDATE" label="发送时间" type="DATE" length="10" />
+        <attribute name="SENDFLAG" label="发送状态" type="STRING" length="18" />
+        <attribute name="SENDDELETEFLAG" label="发送方删除标志" type="STRING" length="18" />
+        <attribute name="NEWFLAG" label="新文档标志" type="STRING" length="18" />
+        <attribute name="RECEIVEDELETEFLAG" label="收件方删除标志" type="STRING" length="18" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="MESSAGE_INFO" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="META_COLUMN" label="字段" keyAttributes="DATABASEID,TABLEID,COLID">
+      <attributes>
+        <attribute name="DATABASEID" label="DATABASEID" type="STRING" length="32" />
+        <attribute name="TABLEID" label="TABLEID" type="STRING" length="32" />
+        <attribute name="COLID" label="字段名" type="STRING" length="32" />
+        <attribute name="COLNAME" label="字段中文名" type="STRING" length="80" />
+        <attribute name="ISINUSE" label="有效标志" type="STRING" length="18" />
+        <attribute name="SORTNO" label="排序号" type="STRING" length="18" />
+        <attribute name="COLTYPE" label="字段类型" type="STRING" length="18" />
+        <attribute name="DOMAINID" label="域类型" type="STRING" length="32" />
+        <attribute name="DEFAULTVALUE" label="缺省值" type="STRING" length="80" />
+        <attribute name="CHECKFORMAT" label="检查格式" type="STRING" length="18" />
+        <attribute name="VALIDATIONTYPE" label="校验类型" type="STRING" length="18" />
+        <attribute name="VALIDATIONCODE" label="校验代码" type="STRING" length="250" />
+        <attribute name="COLLIMIT" label="长度限制" type="STRING" length="18" />
+        <attribute name="COLKEY" label="是否关键字" type="STRING" length="18" />
+        <attribute name="ISFOREIGNKEY" label="是否外键" type="STRING" length="18" />
+        <attribute name="DATAPRECISION" label="有效位数" type="DOUBLE" length="24" scale="6" />
+        <attribute name="DATASCALE" label="小数点后位数" type="DOUBLE" length="24" scale="6" />
+        <attribute name="ATTRIBUTE1" label="属性1" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE2" label="属性2" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE3" label="属性3" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE4" label="属性4" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE5" label="属性5" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="META_COLUMN" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="META_DATABASE" label="数据库" keyAttributes="DATABASEID">
+      <attributes>
+        <attribute name="DATABASEID" label="DATABASEID" type="STRING" length="32" />
+        <attribute name="DATABASENAME" label="DATABASENAME" type="STRING" length="80" />
+        <attribute name="DBCONNECTIONID" label="DBCONNECTIONID" type="STRING" length="32" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="META_DATABASE" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="META_TABLE" label="元数据表" keyAttributes="DATABASEID,TABLEID">
+      <attributes>
+        <attribute name="DATABASEID" label="DATABASEID" type="STRING" length="32" />
+        <attribute name="TABLEID" label="TABLEID" type="STRING" length="32" />
+        <attribute name="TABLENAME" label="TABLENAME" type="STRING" length="80" />
+        <attribute name="ISINUSE" label="ISINUSE" type="STRING" length="18" />
+        <attribute name="TABLETYPE" label="TABLETYPE" type="STRING" length="18" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="META_TABLE" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="OBJECTTYPE_CATALOG" label="对象定义表" keyAttributes="OBJECTTYPE">
+      <attributes>
+        <attribute name="OBJECTTYPE" label="对象类型" type="STRING" length="32" />
+        <attribute name="OBJECTNAME" label="对象类型名称" type="STRING" length="80" />
+        <attribute name="SORTNO" label="排序号" type="STRING" length="32" />
+        <attribute name="TREECODE" label="对象树图" type="STRING" length="80" />
+        <attribute name="PAGEPATH" label="调用页面" type="STRING" length="80" />
+        <attribute name="OBJECTATTRIBUTE" label="OBJECTATTRIBUTE" type="STRING" length="250" />
+        <attribute name="OBJECTTABLE" label="对应数据表" type="STRING" length="80" />
+        <attribute name="KEYCOL" label="关键字段" type="STRING" length="250" />
+        <attribute name="KEYCOLNAME" label="名称字段" type="STRING" length="80" />
+        <attribute name="VIEWTYPE" label="对象视图组" type="STRING" length="32" />
+        <attribute name="DEFAULTVIEW" label="默认视图" type="STRING" length="18" />
+        <attribute name="RIGHTTYPE" label="权限方法" type="STRING" length="250" />
+        <attribute name="USAGEDESCRIBE" label="用途说明" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE1" label="属性一" type="STRING" length="80" />
+        <attribute name="ATTRIBUTE2" label="属性二" type="STRING" length="80" />
+        <attribute name="ATTRIBUTE3" label="属性三" type="STRING" length="80" />
+        <attribute name="INPUTORG" label="登记单位" type="STRING" length="32" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="32" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+        <attribute name="RELATIVETABLE" label="关联数据表" type="STRING" length="80" />
+        <attribute name="OBJECTCOLATTRIBUTE" label="OBJECTCOLATTRIBUTE" type="STRING" length="18" />
+        <attribute name="CATALOGSQL" label="目录SQL" type="STRING" length="250" />
+        <attribute name="CATALOGWHERE1" label="目录WHERE1" type="STRING" length="250" />
+        <attribute name="CATALOGWHERE2" label="目录WHERE2" type="STRING" length="250" />
+        <attribute name="CATALOGWHERE3" label="目录WHERE3" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="OBJECTTYPE_CATALOG" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="OBJECTTYPE_RELA" label="关联对象类型" keyAttributes="OBJECTTYPE,RELATIONSHIP">
+      <attributes>
+        <attribute name="OBJECTTYPE" label="对象类型" type="STRING" length="32" />
+        <attribute name="RELATIONSHIP" label="关联关系" type="STRING" length="80" />
+        <attribute name="SORTNO" label="显示顺序" type="STRING" length="32" />
+        <attribute name="DISPLAYNAME" label="显示名称" type="STRING" length="250" />
+        <attribute name="RELAOBJECTTYPE" label="关联对象类型" type="STRING" length="32" />
+        <attribute name="SHOWONTABEXPR" label="是否要显示TAB页" type="STRING" length="250" />
+        <attribute name="RELAEXPR" label="关联方法" type="STRING" length="250" />
+        <attribute name="VIEWEXPR" label="查看JS动作" type="STRING" length="250" />
+        <attribute name="ISINUSE" label="是否有效" type="STRING" length="1" />
+        <attribute name="ATTRIBUTE1" label="属性1" type="STRING" length="200" />
+        <attribute name="ATTRIBUTE2" label="属性2" type="STRING" length="200" />
+        <attribute name="ATTRIBUTE3" label="属性3" type="STRING" length="200" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="OBJECTTYPE_RELA" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="OBJECT_ATTRIBUTE" label="对象属性" keyAttributes="OBJECTTYPE,ATTRIBUTEID">
+      <attributes>
+        <attribute name="OBJECTTYPE" label="对象类型" type="STRING" length="32" />
+        <attribute name="ATTRIBUTEID" label="ATTRIBUTEID" type="STRING" length="32" />
+        <attribute name="SORTNO" label="SORTNO" type="STRING" length="18" />
+        <attribute name="ISINUSE" label="ISINUSE" type="STRING" length="18" />
+        <attribute name="ATTRIBUTENAME" label="ATTRIBUTENAME" type="STRING" length="80" />
+        <attribute name="ATTRIBUTEDESCRIBE" label="ATTRIBUTEDESCRIBE" type="STRING" length="80" />
+        <attribute name="INPUTORG" label="登记单位" type="STRING" length="32" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="OBJECT_ATTRIBUTE" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="OBJECT_MAXSN" label="系统流水号表" keyAttributes="TABLENAME,COLUMNNAME,DATEFMT,NOFMT">
+      <attributes>
+        <attribute name="TABLENAME" label="表名" type="STRING" length="80" />
+        <attribute name="COLUMNNAME" label="列名" type="STRING" length="80" />
+        <attribute name="MAXSERIALNO" label="最大数" type="STRING" length="80" />
+        <attribute name="DATEFMT" label="日期模式" type="STRING" length="20" />
+        <attribute name="NOFMT" label="流水号模式" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="OBJECT_MAXSN" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="ORG_AUTHORIZATION" label="机构授权表" keyAttributes="ORGID,AUTHTYPE,BUSINESSTYPE">
+      <attributes>
+        <attribute name="ORGID" label="机构编号" type="STRING" length="32" />
+        <attribute name="AUTHTYPE" label="授权类型" type="STRING" length="18" />
+        <attribute name="BUSINESSTYPE" label="业务品种" type="STRING" length="18" />
+        <attribute name="AUTHAMOUNT" label="授权金额" type="DOUBLE" length="24" scale="6" />
+        <attribute name="BEGINDATE" label="开始日期" type="DATE" length="10" />
+        <attribute name="ENDDATE" label="结束日期" type="DATE" length="10" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="ORG_AUTHORIZATION" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="ORG_BELONG" label="机构所属表" keyAttributes="ORGID,BELONGORGID">
+      <attributes>
+        <attribute name="ORGID" label="机构编号" type="STRING" length="32" />
+        <attribute name="BELONGORGID" label="管辖机构" type="STRING" length="32" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="ORG_BELONG" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="ORG_INFO" label="机构信息" keyAttributes="ORGID">
+      <attributes>
+        <attribute name="ORGID" label="机构编号" type="STRING" length="32" />
+        <attribute name="SORTNO" label="排序号" type="STRING" length="32" />
+        <attribute name="ORGNAME" label="机构名称" type="STRING" length="80" />
+        <attribute name="ORGLEVEL" label="级别" type="STRING" length="32" />
+        <attribute name="ORGPROPERTY" label="属性集" type="STRING" length="250" />
+        <attribute name="RELATIVEORGID" label="相关机构代码" type="STRING" length="32" />
+        <attribute name="BANKID" label="人行金融机构代码" type="STRING" length="32" />
+        <attribute name="BANKLICENSE" label="金融机构许可证" type="STRING" length="32" />
+        <attribute name="BUSINESSLICENSE" label="营业执照" type="STRING" length="32" />
+        <attribute name="BELONGAREA" label="机构辖区" type="STRING" length="18" />
+        <attribute name="ORGCLASS" label="机构类别" type="STRING" length="18" />
+        <attribute name="ZIPCODE" label="邮政编码" type="STRING" length="18" />
+        <attribute name="MAINFRAMEORGID" label="网点号" type="STRING" length="32" />
+        <attribute name="MAINFRAMEEXGID" label="交换号" type="STRING" length="32" />
+        <attribute name="ORGCODE" label="机构编码" type="STRING" length="32" />
+        <attribute name="STATUS" label="状态" type="STRING" length="80" />
+        <attribute name="ORGOLDNAME" label="机构曾用名" type="STRING" length="80" />
+        <attribute name="SETUPDATE" label="成立时间" type="DATE" length="10" />
+        <attribute name="ORGADD" label="机构地址" type="STRING" length="80" />
+        <attribute name="PRINCIPAL" label="负责人" type="STRING" length="10" />
+        <attribute name="ORGTEL" label="联系电话" type="STRING" length="80" />
+        <attribute name="BRANCHNUM" label="管辖网点数" type="INT" length="20" />
+        <attribute name="CMNUM" label="客户经理数" type="INT" length="20" />
+        <attribute name="BUSINESSHOURS" label="营业时间" type="STRING" length="80" />
+        <attribute name="INPUTORG" label="登记单位" type="STRING" length="32" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTDATE" label="登记日期" type="STRING" length="20" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="UPDATEDATE" label="更新日期" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+        <attribute name="BELONGORGID" label="权属机构" type="STRING" length="32" />
+        <attribute name="HOSTNO" label="HOSTNO" type="STRING" length="10" />
+        <attribute name="VITUALSERIALNO" label="VITUALSERIALNO" type="INT" length="20" />
+        <attribute name="VITUALID" label="VITUALID" type="STRING" length="32" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="ORG_INFO" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="RATE_CHANGEINFO" label="利率变动表" keyAttributes="RATETYPE,BEGINDATE">
+      <attributes>
+        <attribute name="RATETYPE" label="利率类型" type="STRING" length="18" />
+        <attribute name="BEGINDATE" label="开始时间" type="DATE" length="10" />
+        <attribute name="ENDDATE" label="结束时间" type="DATE" length="10" />
+        <attribute name="RATEVALUE" label="利率值" type="DOUBLE" length="10" scale="6" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="RATE_CHANGEINFO" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="RATE_INFO" label="利率表" keyAttributes="RATEID">
+      <attributes>
+        <attribute name="RATETYPE" label="利率类型(Code:BaseRateType)" type="STRING" length="10" />
+        <attribute name="Currency" label="币种(Code:Currency)" type="STRING" length="10" />
+        <attribute name="RATEUNIT" label="利率单位(Code:RateUnit)" type="STRING" length="10" />
+        <attribute name="EFFECTDATE" label="生效日期" type="STRING" length="10"/>
+        <attribute name="TERMUNIT" label="期限单位(Code:TermUnit)" type="STRING" length="10" />
+        <attribute name="TERM" label="期限" type="INT" length="20" />
+        <attribute name="RATEVALUE" label="利率值" type="DOUBLE" length="10" scale="8" />
+        <attribute name="STATUS" label="利率状态(Code:EffStatus:1有效\2 无效)" type="STRING" length="10" />
+        <attribute name="REMARK" label="备注" type="STRING" length="200" />
+        <attribute name="INPUTUSER" label="录入人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="录入机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="录入时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="RATE_INFO" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="REG_APP_DEF" label="应用" keyAttributes="APPID">
+      <attributes>
+        <attribute name="APPID" label="APPID" type="STRING" length="32" />
+        <attribute name="DBCONNECTIONID" label="DBCONNECTIONID" type="STRING" length="32" />
+        <attribute name="APPNAME" label="APPNAME" type="STRING" length="80" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="REG_APP_DEF" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="REG_COMMENT_ITEM" label="注释项" keyAttributes="COMMENTITEMID">
+      <attributes>
+        <attribute name="COMMENTITEMID" label="注释项编号" type="STRING" length="80" />
+        <attribute name="COMMENTITEMNAME" label="注释导读" type="STRING" length="250" />
+        <attribute name="SORTNO" label="排序号" type="STRING" length="32" />
+        <attribute name="CHAPTERNO" label="章节号" type="STRING" length="32" />
+        <attribute name="COMMENTITEMTYPE" label="注释项类型" type="STRING" length="18" />
+        <attribute name="COMMENTTEXT" label="注释文字内容" type="STRING" length="1600" />
+        <attribute name="DOCNO" label="注释文档编号" type="STRING" length="32" />
+        <attribute name="DOGENDESIGNSPEC" label="是否生成设计文档" type="STRING" length="18" />
+        <attribute name="DOGENHELP" label="是否生成帮助文件" type="STRING" length="18" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="REG_COMMENT_ITEM" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="REG_COMMENT_RELA" label="注释关联" keyAttributes="COMMENTITEMID,OBJECTTYPE,OBJECTNO">
+      <attributes>
+        <attribute name="COMMENTITEMID" label="注释项编号" type="STRING" length="80" />
+        <attribute name="OBJECTTYPE" label="注释对象类型" type="STRING" length="32" />
+        <attribute name="OBJECTNO" label="注释对象ID" type="STRING" length="32" />
+        <attribute name="SORTNO" label="排序号" type="STRING" length="32" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="REG_COMMENT_RELA" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="REG_COMP_DEF" label="组件" keyAttributes="COMPID">
+      <attributes>
+        <attribute name="COMPID" label="组件编号" type="STRING" length="80" />
+        <attribute name="COMPNAME" label="组件名称" type="STRING" length="80" />
+        <attribute name="ORDERNO" label="排序号" type="STRING" length="32" />
+        <attribute name="COMPTYPE" label="组件类型" type="STRING" length="18" />
+        <attribute name="DEFAULTPAGE" label="默认页面" type="STRING" length="32" />
+        <attribute name="COMPURL" label="组件URL" type="STRING" length="250" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+        <attribute name="APPID" label="应用编号" type="STRING" length="32" />
+        <attribute name="RIGHTID" label="权限" type="STRING" length="80" />
+        <attribute name="COMPPATH" label="组件路径" type="STRING" length="250" />
+        <attribute name="LOGSELECT" label="是否记录SELECT日志" type="STRING" length="1" />
+        <attribute name="LOGEXECUTE" label="是否记录EXECUTE日志" type="STRING" length="1" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="REG_COMP_DEF" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="REG_COMP_PAGE" label="组件页面" keyAttributes="COMPID,PAGEID">
+      <attributes>
+        <attribute name="COMPID" label="COMPID" type="STRING" length="32" />
+        <attribute name="PAGEID" label="PAGEID" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="REG_COMP_PAGE" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="REG_DBCONN_DEF" label="数据库连接定义" keyAttributes="DBCONNECTIONID">
+      <attributes>
+        <attribute name="DBCONNECTIONID" label="DBCONNECTIONID" type="STRING" length="32" />
+        <attribute name="DBCONNECTIONNAME" label="DBCONNECTIONNAME" type="STRING" length="80" />
+        <attribute name="CONNTYPE" label="CONNTYPE" type="STRING" length="18" />
+        <attribute name="CONTEXTFACTORY" label="CONTEXTFACTORY" type="STRING" length="80" />
+        <attribute name="DATASOURCENAME" label="DATASOURCENAME" type="STRING" length="80" />
+        <attribute name="DBURL" label="DBURL" type="STRING" length="250" />
+        <attribute name="DRIVERCLASS" label="DRIVERCLASS" type="STRING" length="250" />
+        <attribute name="USERID" label="USERID" type="STRING" length="32" />
+        <attribute name="PASSWORD" label="PASSWORD" type="STRING" length="32" />
+        <attribute name="PROVIDERURL" label="PROVIDERURL" type="STRING" length="250" />
+        <attribute name="DBCHANGE" label="DBCHANGE" type="STRING" length="18" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="REG_DBCONN_DEF" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="REG_FUNCTION_DEF" label="功能" keyAttributes="FUNCTIONID">
+      <attributes>
+        <attribute name="FUNCTIONID" label="FUNCTIONID" type="STRING" length="80" />
+        <attribute name="COMPID" label="COMPID" type="STRING" length="80" />
+        <attribute name="PAGEID" label="PAGEID" type="STRING" length="250" />
+        <attribute name="FUNCTIONNAME" label="FUNCTIONNAME" type="STRING" length="80" />
+        <attribute name="RIGHTID" label="RIGHTID" type="STRING" length="80" />
+        <attribute name="TARGETCOMP" label="TARGETCOMP" type="STRING" length="32" />
+        <attribute name="INFORIGHTTYPE" label="INFORIGHTTYPE" type="STRING" length="18" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+        <attribute name="DEFAULTFORM" label="DEFAULTFORM" type="STRING" length="80" />
+        <attribute name="TARGETPAGE" label="TARGETPAGE" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="REG_FUNCTION_DEF" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="REG_PAGE_DEF" label="页面" keyAttributes="PAGEID">
+      <attributes>
+        <attribute name="PAGEID" label="PAGEID" type="STRING" length="250" />
+        <attribute name="PAGENAME" label="PAGENAME" type="STRING" length="80" />
+        <attribute name="PAGEURL" label="PAGEURL" type="STRING" length="250" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+        <attribute name="DONO" label="数据对象编号" type="STRING" length="32" />
+        <attribute name="JSPMODEL" label="JSP模型" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="REG_PAGE_DEF" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="REPORT_CATALOG" label="报表模型目录" keyAttributes="MODELNO">
+      <attributes>
+        <attribute name="MODELNO" label="模型编号" type="STRING" length="32" />
+        <attribute name="MODELNAME" label="模型名称" type="STRING" length="80" />
+        <attribute name="MODELTYPE" label="模型类型" type="STRING" length="18" />
+        <attribute name="MODELDESCRIBE" label="模型描述" type="STRING" length="250" />
+        <attribute name="MODELABBR" label="模型缩写" type="STRING" length="80" />
+        <attribute name="MODELCLASS" label="模型分类" type="STRING" length="18" />
+        <attribute name="ATTRIBUTE1" label="模型属性1" type="STRING" length="18" />
+        <attribute name="ATTRIBUTE2" label="模型属性2" type="STRING" length="18" />
+        <attribute name="DISPLAYMETHOD" label="显示方法" type="STRING" length="250" />
+        <attribute name="HEADERMETHOD" label="表头描述" type="STRING" length="250" />
+        <attribute name="DELETEFLAG" label="删除标志" type="STRING" length="1" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="REPORT_CATALOG" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="REPORT_DATA" label="报表数据" keyAttributes="REPORTNO,ROWNO">
+      <attributes>
+        <attribute name="REPORTNO" label="报表编号" type="STRING" length="32" />
+        <attribute name="ROWNO" label="行编号" type="STRING" length="32" />
+        <attribute name="ROWNAME" label="行名称" type="STRING" length="80" />
+        <attribute name="ROWSUBJECT" label="对应科目" type="STRING" length="32" />
+        <attribute name="DISPLAYORDER" label="显示次序" type="STRING" length="32" />
+        <attribute name="ROWDIMTYPE" label="行量纲类型" type="STRING" length="18" />
+        <attribute name="ROWATTRIBUTE" label="行属性" type="STRING" length="250" />
+        <attribute name="COL1VALUE" label="列1值" type="DOUBLE" length="24" scale="6" />
+        <attribute name="COL2VALUE" label="列2值" type="DOUBLE" length="24" scale="6" />
+        <attribute name="COL3VALUE" label="列3值" type="DOUBLE" length="24" scale="6" />
+        <attribute name="COL4VALUE" label="列4值" type="DOUBLE" length="24" scale="6" />
+        <attribute name="STANDARDVALUE" label="标准值" type="DOUBLE" length="24" scale="6" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="REPORT_DATA" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="REPORT_MODEL" label="报表模型" keyAttributes="MODELNO,ROWNO">
+      <attributes>
+        <attribute name="MODELNO" label="模型编号" type="STRING" length="32" />
+        <attribute name="ROWNO" label="行编号" type="STRING" length="32" />
+        <attribute name="ROWNAME" label="行名称" type="STRING" length="80" />
+        <attribute name="ROWSUBJECT" label="对应科目" type="STRING" length="32" />
+        <attribute name="DISPLAYORDER" label="显示次序" type="STRING" length="32" />
+        <attribute name="ROWDIMTYPE" label="行量纲类型" type="STRING" length="18" />
+        <attribute name="ROWATTRIBUTE" label="行属性" type="STRING" length="250" />
+        <attribute name="COL1DEF" label="列1定义" type="STRING" length="2000" />
+        <attribute name="COL2DEF" label="列2定义" type="STRING" length="2000" />
+        <attribute name="COL3DEF" label="列3定义" type="STRING" length="2000" />
+        <attribute name="COL4DEF" label="列4定义" type="STRING" length="2000" />
+        <attribute name="STANDARDVALUE" label="标准值" type="DOUBLE" length="24" scale="6" />
+        <attribute name="DELETEFLAG" label="删除标志" type="STRING" length="1" />
+        <attribute name="FORMULAEXP1" label="公式解释1" type="STRING" length="2000" />
+        <attribute name="FORMULAEXP2" label="公式解释2" type="STRING" length="2000" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="REPORT_MODEL" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="REPORT_RECORD" label="报表记录" keyAttributes="REPORTNO">
+      <attributes>
+        <attribute name="REPORTNO" label="报表编号" type="STRING" length="32" />
+        <attribute name="OBJECTTYPE" label="关联对象类型" type="STRING" length="18" />
+        <attribute name="OBJECTNO" label="关联对象编号" type="STRING" length="32" />
+        <attribute name="REPORTSCOPE" label="报表口径" type="STRING" length="18" />
+        <attribute name="MODELNO" label="模型编号" type="STRING" length="32" />
+        <attribute name="REPORTNAME" label="报表名称" type="STRING" length="80" />
+        <attribute name="REPORTDATE" label="报表日期" type="DATE" length="10" />
+        <attribute name="INPUTTIME" label="创建时间" type="STRING" length="20" />
+        <attribute name="ORGID" label="创建机构" type="STRING" length="32" />
+        <attribute name="USERID" label="创建人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="REPORT_RECORD" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="RIGHT_INFO" label="权限表" keyAttributes="RIGHTID">
+      <attributes>
+        <attribute name="RIGHTID" label="RIGHTID" type="STRING" length="80" />
+        <attribute name="RIGHTNAME" label="权限名称" type="STRING" length="80" />
+        <attribute name="RIGHTDESCRIBE" label="权限描述" type="STRING" length="250" />
+        <attribute name="RIGHTSTATUS" label="权限状态" type="STRING" length="80" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="RIGHT_INFO" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="RISK_CRITERIA" label="预警模型表" keyAttributes="SERIALNO">
+      <attributes>
+        <attribute name="SERIALNO" label="流水号" type="STRING" length="32" />
+        <attribute name="OBJECTTYPE" label="对象类型" type="STRING" length="32" />
+        <attribute name="DESCRIBE" label="预警条件说明" type="STRING" length="250" />
+        <attribute name="CRITERIA" label="条件" type="STRING" length="800" />
+        <attribute name="CYCLE" label="周期数量" type="INT" length="20" />
+        <attribute name="CYCLEUNIT" label="周期类型" type="STRING" length="18" />
+        <attribute name="LASTRUN" label="上一次运行时间" type="STRING" length="20" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="变更人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="变更时间" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="RISK_CRITERIA" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="ROLE_INFO" label="角色表" keyAttributes="ROLEID">
+      <attributes>
+        <attribute name="ROLEID" label="角色编号" type="STRING" length="32" />
+        <attribute name="ROLENAME" label="角色名称" type="STRING" length="80" />
+        <attribute name="ROLEATTRIBUTE" label="角色属性" type="STRING" length="80" />
+        <attribute name="ROLEDESCRIBE" label="角色描述" type="STRING" length="250" />
+        <attribute name="ROLESTATUS" label="角色状态" type="STRING" length="80" />
+        <attribute name="INPUTUSER" label="录入人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="录入机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="录入时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="ROLE_INFO" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="ROLE_RIGHT" label="角色权限" keyAttributes="RIGHTID,ROLEID">
+      <attributes>
+        <attribute name="RIGHTID" label="RIGHTID" type="STRING" length="80" />
+        <attribute name="ROLEID" label="角色编号" type="STRING" length="32" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="ROLE_RIGHT" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="SCENARIO_ARGS" label="预警参数表" keyAttributes="SCENARIOID,ALARMARGID">
+      <attributes>
+        <attribute name="SCENARIOID" label="场景流水号" type="STRING" length="32" />
+        <attribute name="ALARMARGID" label="预警参数ID" type="STRING" length="32" />
+        <attribute name="SORTNO" label="排序号" type="STRING" length="10" />
+        <attribute name="ARGSSTRING" label="参数字串" type="STRING" length="1000" />
+        <attribute name="QUERYSQL" label="查询SQL" type="STRING" length="1000" />
+        <attribute name="STATUS" label="是否有效" type="STRING" length="1" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="SCENARIO_ARGS" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="SCENARIO_CATALOG" label="场景定义表" keyAttributes="SCENARIOID">
+      <attributes>
+        <attribute name="SCENARIOID" label="场景编号" type="STRING" length="32" />
+        <attribute name="SCENARIONAME" label="场景名称" type="STRING" length="80" />
+        <attribute name="SCENARIODESCRIBE" label="场景描述" type="STRING" length="250" />
+        <attribute name="DEFAULTSUBTYPENO" label="默认子类型编号" type="STRING" length="20" />
+        <attribute name="INITIATECLASS" label="初始化执行类" type="STRING" length="250" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="SCENARIO_CATALOG" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="SCENARIO_MODEL" label="预警模型" keyAttributes="SCENARIOID">
+      <attributes>
+        <attribute name="SCENARIOID" label="场景流水号" type="STRING" length="32" />
+        <attribute name="GROUPID" label="分组号" type="STRING" length="32" />
+        <attribute name="MODELKIND" label="检查类型" type="STRING" length="100" />
+        <attribute name="MODELID" label="模型编号" type="STRING" length="32" />
+        <attribute name="SORTNO" label="排序号" type="STRING" length="10" />
+        <attribute name="MODELNAME" label="模型名" type="STRING" length="250" />
+        <attribute name="MODELDESCRIBE" label="模型详细描述" type="STRING" length="1600" />
+        <attribute name="MODELTYPE" label="模型类型" type="STRING" length="20" />
+        <attribute name="SUBTYPENO" label="子类型" type="STRING" length="20" />
+        <attribute name="RUNCONDITION" label="运行条件" type="STRING" length="250" />
+        <attribute name="STATUS" label="是否有效" type="STRING" length="1" />
+        <attribute name="NOPASSDEAL" label="检查未通过后的处理方法" type="STRING" length="18" />
+        <attribute name="PASSDEAL" label="检查通过后的处理方法" type="STRING" length="18" />
+        <attribute name="PASSMESSAGE" label="检查通过后提示消息" type="STRING" length="1000" />
+        <attribute name="NOPASSMESSAGE" label="检查未通过后提示消息" type="STRING" length="1000" />
+        <attribute name="EXECUTESCRIPT" label="执行脚本" type="STRING" length="2000" />
+        <attribute name="BIZVIEWER" label="业务查看" type="STRING" length="200" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="SCENARIO_MODEL" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="SCENARIO_RELATIVE" label="预警分组关联检查项" keyAttributes="SCENARIOID,GROUPID,MODELID">
+      <attributes>
+        <attribute name="SCENARIOID" label="场景流水号" type="STRING" length="32" />
+        <attribute name="GROUPID" label="分组号" type="STRING" length="32" />
+        <attribute name="MODELID" label="模型编号" type="STRING" length="32" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="table" value="SCENARIO_RELATIVE" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="SCENARIO_GROUP" label="预警模型分组" keyAttributes="SCENARIOID,GROUPID">
+      <attributes>
+        <attribute name="SCENARIOID" label="场景号" type="STRING" length="32" />
+        <attribute name="GROUPID" label="分组号" type="STRING" length="32" />
+        <attribute name="SORTNO" label="排序号" type="STRING" length="10" />
+        <attribute name="GROUPNAME" label="分组名称" type="STRING" length="250" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="table" value="SCENARIO_GROUP" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="SCORECARD_CATALOG" label="记分卡模型目录" keyAttributes="MODELNO">
+      <attributes>
+        <attribute name="MODELNO" label="模型编号" type="STRING" length="32" />
+        <attribute name="MODELNAME" label="模型名称" type="STRING" length="80" />
+        <attribute name="MODELTYPE" label="模型类型" type="STRING" length="18" />
+        <attribute name="MODELDESCRIBE" label="模型描述" type="STRING" length="250" />
+        <attribute name="MODELABBR" label="模型缩写" type="STRING" length="80" />
+        <attribute name="MODELCLASS" label="模型分类" type="STRING" length="18" />
+        <attribute name="ATTRIBUTE1" label="模型属性1" type="STRING" length="18" />
+        <attribute name="ATTRIBUTE2" label="模型属性2" type="STRING" length="18" />
+        <attribute name="DISPLAYMETHOD" label="显示方法" type="STRING" length="250" />
+        <attribute name="HEADERMETHOD" label="表头描述" type="STRING" length="250" />
+        <attribute name="DELETEFLAG" label="删除标志" type="STRING" length="1" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="table" value="SCORECARD_CATALOG" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="SCORECARD_DATA" label="记分卡数据" keyAttributes="SCORECARDNO,ROWNO">
+      <attributes>
+        <attribute name="SCORECARDNO" label="评分卡编号" type="STRING" length="32" />
+        <attribute name="ROWNO" label="行编号" type="STRING" length="32" />
+        <attribute name="ROWNAME" label="行名称" type="STRING" length="80" />
+        <attribute name="ROWSUBJECT" label="对应科目" type="STRING" length="32" />
+        <attribute name="DISPLAYORDER" label="显示次序" type="STRING" length="32" />
+        <attribute name="ROWATTRIBUTE" label="行属性" type="STRING" length="32" />
+        <attribute name="COL1VALUE" label="列1值" type="DOUBLE" length="24" scale="6" />
+        <attribute name="COL2VALUE" label="列2值" type="DOUBLE" length="24" scale="6" />
+        <attribute name="COL3VALUE" label="列3值" type="DOUBLE" length="24" scale="6" />
+        <attribute name="COL4VALUE" label="列4值" type="DOUBLE" length="24" scale="6" />
+        <attribute name="STANDARDVALUE" label="标准值" type="DOUBLE" length="24" scale="6" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="table" value="SCORECARD_DATA" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="SCORECARD_MODEL" label="记分卡模型" keyAttributes="MODELNO,ROWNO">
+      <attributes>
+        <attribute name="MODELNO" label="模型编号" type="STRING" length="32" />
+        <attribute name="ROWNO" label="行编号" type="STRING" length="32" />
+        <attribute name="ROWNAME" label="行名称" type="STRING" length="80" />
+        <attribute name="ROWSUBJECT" label="对应科目" type="STRING" length="32" />
+        <attribute name="DISPLAYORDER" label="显示次序" type="STRING" length="32" />
+        <attribute name="ROWATTRIBUTE" label="行属性" type="STRING" length="32" />
+        <attribute name="COL1DEF" label="列1定义" type="STRING" length="1600" />
+        <attribute name="COL2DEF" label="列2定义" type="STRING" length="1600" />
+        <attribute name="COL3DEF" label="列3定义" type="STRING" length="1600" />
+        <attribute name="COL4DEF" label="列4定义" type="STRING" length="1600" />
+        <attribute name="STANDARDVALUE" label="标准值" type="DOUBLE" length="24" scale="6" />
+        <attribute name="DELETEFLAG" label="删除标志" type="STRING" length="1" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="table" value="SCORECARD_MODEL" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="SCORECARD_RECORD" label="评分卡记录" keyAttributes="SCORECARDNO">
+      <attributes>
+        <attribute name="SCORECARDNO" label="评分卡编号" type="STRING" length="32" />
+        <attribute name="OBJECTTYPE" label="关联对象类型" type="STRING" length="18" />
+        <attribute name="OBJECTNO" label="关联对象编号" type="STRING" length="32" />
+        <attribute name="MODELNO" label="模型编号" type="STRING" length="32" />
+        <attribute name="SCORECARDNAME" label="评分卡名称" type="STRING" length="80" />
+        <attribute name="SCORECARDDATE" label="评分卡日期" type="DATE" length="10" />
+        <attribute name="INPUTTIME" label="创建时间" type="STRING" length="20" />
+        <attribute name="ORGID" label="创建机构" type="STRING" length="32" />
+        <attribute name="USERID" label="创建人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="table" value="SCORECARD_RECORD" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="SECURITY_AUDIT" label="安全审计" keyAttributes="ITEMNO">
+      <attributes>
+        <attribute name="CODETYPE" label="规则类型" type="STRING" length="32" />
+        <attribute name="ITEMNO" label="规则编号" type="STRING" length="32" />
+        <attribute name="ITEMNAME" label="规则名称" type="STRING" length="250" />
+        <attribute name="ITEMVALUE" label="规则值" type="STRING" length="32" />
+        <attribute name="ISINUSE" label="规则状态" type="STRING" length="1" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="table" value="SECURITY_AUDIT" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="SELECT_CATALOG" label="查询信息表" keyAttributes="SELNAME">
+      <attributes>
+        <attribute name="SELNAME" label="查询名称" type="STRING" length="80" />
+        <attribute name="SELTYPE" label="查询类型" type="STRING" length="18" />
+        <attribute name="SELDESCRIBE" label="查询描述" type="STRING" length="100" />
+        <attribute name="SELTABLENAME" label="查询表名" type="STRING" length="32" />
+        <attribute name="SELPRIMARYKEY" label="查询关键字" type="STRING" length="80" />
+        <attribute name="SELBROWSEMODE" label="展现方式" type="STRING" length="18" />
+        <attribute name="SELARGS" label="参数值" type="STRING" length="400" />
+        <attribute name="SELHIDEFIELD" label="隐藏域" type="STRING" length="400" />
+        <attribute name="SELCODE" label="查询SQL" type="STRING" length="800" />
+        <attribute name="SELFIELDNAME" label="显示中文名称" type="STRING" length="400" />
+        <attribute name="SELFIELDDISP" label="字段显示风格" type="STRING" length="400" />
+        <attribute name="SELRETURNVALUE" label="返回值" type="STRING" length="400" />
+        <attribute name="SELFILTERFIELD" label="检索字段" type="STRING" length="400" />
+        <attribute name="ISINUSE" label="是否可用" type="STRING" length="1" />
+        <attribute name="MUTILORSINGLE" label="选择方式" type="STRING" length="18" />
+        <attribute name="ATTRIBUTE1" label="属性1" type="STRING" length="200" />
+        <attribute name="ATTRIBUTE2" label="属性2" type="STRING" length="200" />
+        <attribute name="ATTRIBUTE3" label="属性3" type="STRING" length="200" />
+        <attribute name="ATTRIBUTE4" label="属性4" type="STRING" length="200" />
+        <attribute name="ATTRIBUTE5" label="属性5" type="STRING" length="200" />
+        <attribute name="INPUTUSER" label="录入人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="录入机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="录入时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="table" value="SELECT_CATALOG" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="SYSTEM_LOG" label="系统日志">
+      <attributes>
+        <attribute name="SERIALNO" label="流水号" type="STRING" length="32" />
+        <attribute name="OCCURTIME" label="发生时间" type="STRING" length="20" />
+        <attribute name="ORGID" label="机构号" type="STRING" length="32" />
+        <attribute name="USERID" label="用户号" type="STRING" length="32" />
+        <attribute name="EVENTTYPE" label="事件类型" type="STRING" length="18" />
+        <attribute name="EVENTDESCRIBE" label="事件描述" type="STRING" length="250" />
+        <attribute name="ORGNAME" label="机构名称" type="STRING" length="80" />
+        <attribute name="USERNAME" label="用户名称" type="STRING" length="80" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="table" value="SYSTEM_LOG" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="SYSTEM_MENU" label="系统菜单表" keyAttributes="MENUID">
+      <attributes>
+        <attribute name="MENUID" label="菜单编号" type="STRING" length="32" />
+        <attribute name="MENUNAME" label="菜单名称" type="STRING" length="250" />
+        <attribute name="SORTNO" label="排序号" type="STRING" length="32" />
+        <attribute name="COMPID" label="组件号" type="STRING" length="250" />
+        <attribute name="PATH" label="页面路径" type="STRING" length="250" />
+        <attribute name="PARAMETER" label="参数" type="STRING" length="1600" />
+        <attribute name="TARGET" label="目标页面" type="STRING" length="20" />
+        <attribute name="STYLE" label="打开方式" type="STRING" length="20" />
+        <attribute name="ISINUSE" label="是否使用" type="STRING" length="1" />
+        <attribute name="ATTRIBUTE1" label="属性一" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE2" label="属性二" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE3" label="属性三" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE4" label="属性四" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE5" label="属性五" type="STRING" length="250" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+        <attribute name="INPUTORG" label="录入机构" type="STRING" length="32" />
+        <attribute name="INPUTUSER" label="录入人" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="录入时间" type="STRING" length="20" />
+        <attribute name="UPDATEORG" label="更新机构" type="STRING" length="32" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="SYSTEM_MENU" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="TEAM_INFO" label="团队信息" keyAttributes="ORGID,TEAMNO">
+      <attributes>
+        <attribute name="ORGID" label="机构编号" type="STRING" length="32" />
+        <attribute name="TEAMNO" label="团队代号" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="INPUTORG" type="STRING" length="32" />
+        <attribute name="INPUTUSER" label="INPUTUSER" type="STRING" length="32" />
+        <attribute name="INPUTDATE" label="INPUTDATE" type="DATE" length="10" />
+        <attribute name="INPUTTIME" label="INPUTTIME" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="UPDATEUSER" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="UPDATETIME" type="STRING" length="20" />
+        <attribute name="UPDATEDATE" label="UPDATEDATE" type="DATE" length="10" />
+        <attribute name="REMARK" label="REMARK" type="STRING" length="250" />
+        <attribute name="TEAMNAME" label="团队名称" type="STRING" length="80" />
+        <attribute name="ADDRESS" label="地址" type="STRING" length="250" />
+        <attribute name="TELEPHONE" label="电话" type="STRING" length="32" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="TEAM_INFO" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="USER_CHANGEINFO" label="人员变动情况表" keyAttributes="SERIALNO">
+      <attributes>
+        <attribute name="SERIALNO" label="流水号" type="STRING" length="32" />
+        <attribute name="CHANGEDUSERID" label="人员编号" type="STRING" length="32" />
+        <attribute name="CHANGETYPE" label="调动类型" type="STRING" length="18" />
+        <attribute name="OCCURDATE" label="发生日期" type="DATE" length="10" />
+        <attribute name="SORGID" label="调出机构号" type="STRING" length="32" />
+        <attribute name="SORGNAME" label="调出机构名" type="STRING" length="80" />
+        <attribute name="TORGID" label="调入机构号" type="STRING" length="32" />
+        <attribute name="TORGNAME" label="调入机构名" type="STRING" length="80" />
+        <attribute name="ORGID" label="操作机构" type="STRING" length="32" />
+        <attribute name="USERID" label="操作人" type="STRING" length="32" />
+        <attribute name="INPUTDATE" label="操作日期" type="DATE" length="10" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="USER_CHANGEINFO" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="USER_DEFINEINFO" label="用户自定义信息链接" keyAttributes="USERID,OBJECTTYPE,OBJECTNO">
+      <attributes>
+        <attribute name="USERID" label="用户编号" type="STRING" length="32" />
+        <attribute name="OBJECTTYPE" label="对象类型" type="STRING" length="18" />
+        <attribute name="OBJECTNO" label="对象编号" type="STRING" length="32" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="USER_DEFINEINFO" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="USER_FAILEDLIST" label="用户登录失败列表" keyAttributes="LISTID">
+      <attributes>
+        <attribute name="LOGONTIME" label="登陆失败时间" type="STRING" length="20" />
+        <attribute name="USERID" label="用户ID" type="STRING" length="32" />
+        <attribute name="USERNAME" label="用户名称" type="STRING" length="32" />
+        <attribute name="REMOTEADDR" label="登陆地址" type="STRING" length="18" />
+        <attribute name="REMOTEHOST" label="登陆主机" type="STRING" length="80" />
+        <attribute name="SERVERNAME" label="服务名称" type="STRING" length="80" />
+        <attribute name="SERVERPORT" label="服务端口" type="STRING" length="10" />
+        <attribute name="LISTID" label="编号" type="DOUBLE" length="16" />
+        <attribute name="ERRORMESSAGE" label="错误提示信息" type="STRING" length="200" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="USER_FAILEDLIST" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="USER_INFO" label="用户基本信息" keyAttributes="USERID">
+      <attributes>
+        <attribute name="USERID" label="用户编号" type="STRING" length="32" />
+        <attribute name="LOGINID" label="登录账号" type="STRING" length="32" />
+        <attribute name="USERNAME" label="用户姓名" type="STRING" length="32" />
+        <attribute name="PASSWORD" label="用户密码" type="STRING" length="32" />
+        <attribute name="BELONGORG" label="所属机构" type="STRING" length="32" />
+        <attribute name="ATTRIBUTE1" label="属性一" type="STRING" length="80" />
+        <attribute name="ATTRIBUTE2" label="属性二" type="STRING" length="80" />
+        <attribute name="ATTRIBUTE3" label="属性三" type="STRING" length="80" />
+        <attribute name="ATTRIBUTE4" label="属性四" type="STRING" length="80" />
+        <attribute name="ATTRIBUTE5" label="属性五" type="STRING" length="80" />
+        <attribute name="ATTRIBUTE6" label="属性六" type="STRING" length="80" />
+        <attribute name="ATTRIBUTE7" label="属性七" type="STRING" length="80" />
+        <attribute name="ATTRIBUTE8" label="属性八" type="STRING" length="80" />
+        <attribute name="ATTRIBUTE" label="属性集" type="STRING" length="80" />
+        <attribute name="DESCRIBE1" label="描述一" type="STRING" length="250" />
+        <attribute name="DESCRIBE2" label="描述二" type="STRING" length="250" />
+        <attribute name="DESCRIBE3" label="描述三" type="STRING" length="250" />
+        <attribute name="DESCRIBE4" label="描述四" type="STRING" length="250" />
+        <attribute name="STATUS" label="状态" type="STRING" length="80" />
+        <attribute name="CERTTYPE" label="证件类型" type="STRING" length="18" />
+        <attribute name="CERTID" label="用户身份证号" type="STRING" length="32" />
+        <attribute name="COMPANYTEL" label="单位电话" type="STRING" length="32" />
+        <attribute name="MOBILETEL" label="手机号码" type="STRING" length="32" />
+        <attribute name="EMAIL" label="电子邮件" type="STRING" length="80" />
+        <attribute name="ACCOUNTID" label="个贷系统编号" type="STRING" length="32" />
+        <attribute name="ID1" label="编号1" type="STRING" length="32" />
+        <attribute name="ID2" label="编号2" type="STRING" length="32" />
+        <attribute name="SUM1" label="相关金额1" type="DOUBLE" length="24" scale="6" />
+        <attribute name="SUM2" label="相关金额2" type="DOUBLE" length="24" scale="6" />
+        <attribute name="INPUTORG" label="登记单位" type="STRING" length="32" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTDATE" label="登记日期" type="STRING" length="20" />
+        <attribute name="UPDATEDATE" label="更新日期" type="STRING" length="20" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+        <attribute name="BIRTHDAY" label="生日" type="STRING" length="10" />
+        <attribute name="GENDER" label="性别" type="STRING" length="18" />
+        <attribute name="FAMILYADD" label="家庭住址" type="STRING" length="250" />
+        <attribute name="EDUCATIONALBG" label="学历" type="STRING" length="18" />
+        <attribute name="AMLEVEL" label="客户经理级别" type="STRING" length="18" />
+        <attribute name="TITLE" label="行内职务" type="STRING" length="18" />
+        <attribute name="EDUCATIONEXP" label="教育经历" type="STRING" length="800" />
+        <attribute name="VOCATIONEXP" label="工作经历" type="STRING" length="800" />
+        <attribute name="POSITION" label="职称" type="STRING" length="250" />
+        <attribute name="QUALIFICATION" label="任职资格" type="STRING" length="250" />
+        <attribute name="NTID" label="NTID" type="STRING" length="32" />
+        <attribute name="BELONGTEAM" label="所属团队" type="STRING" length="32" />
+        <attribute name="LOB" label="[NEW] 业务条线" type="STRING" length="32" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="USER_INFO" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="USER_LIST" label="用户登录列表" keyAttributes="LISTID">
+      <attributes>
+        <attribute name="SESSIONID" label="SESSIONID" type="STRING" length="80" />
+        <attribute name="BEGINTIME" label="BEGINTIME" type="STRING" length="20" />
+        <attribute name="USERID" label="USERID" type="STRING" length="32" />
+        <attribute name="USERNAME" label="USERNAME" type="STRING" length="32" />
+        <attribute name="ORGID" label="ORGID" type="STRING" length="32" />
+        <attribute name="ORGNAME" label="ORGNAME" type="STRING" length="80" />
+        <attribute name="REMOTEADDR" label="REMOTEADDR" type="STRING" length="18" />
+        <attribute name="REMOTEHOST" label="REMOTEHOST" type="STRING" length="80" />
+        <attribute name="ENDTIME" label="ENDTIME" type="STRING" length="20" />
+        <attribute name="SERVERNAME" label="SERVERNAME" type="STRING" length="80" />
+        <attribute name="SERVERPORT" label="SERVERPORT" type="STRING" length="10" />
+        <attribute name="LISTID" label="LISTID" type="DOUBLE" length="16" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="table" value="USER_LIST" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="USER_MARKINFO" label="用户痕迹表" keyAttributes="USERID">
+      <attributes>
+        <attribute name="USERID" label="用户编号" type="STRING" length="25" />
+        <attribute name="PASSWORDUPDATEDATE" label="更改密码时间" type="STRING" length="25" />
+        <attribute name="VISITTIMES" label="访问次数" type="INT" length="20" />
+        <attribute name="LOGONERRORTIMES" label="登陆次数" type="INT" length="20" />
+        <attribute name="LASTSIGNINTIME" label="上次登陆时间" type="STRING" length="25" />
+        <attribute name="LASTSIGNOUTTIME" label="上次登出时间" type="STRING" length="25" />
+        <attribute name="CURSIGNINTIME" label="本次登陆时间" type="STRING" length="25" />
+        <attribute name="PASSWORDSTATE" label="密码状态" type="STRING" length="10" />
+        <attribute name="PASSWORDMESSAGE" label="密码提示信息" type="STRING" length="100" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="USER_MARKINFO" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="USER_PREF" label="用户自定义设置" keyAttributes="PREFERENCEID,USERID">
+      <attributes>
+        <attribute name="PREFERENCEID" label="设置类型ID" type="STRING" length="32" />
+        <attribute name="USERID" label="用户编号" type="STRING" length="32" />
+        <attribute name="PREFERENCEVALUE" label="设置值" type="STRING" length="250" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="USER_PREF" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="USER_PREF_DEF" label="用户自定义设置类型" keyAttributes="PREFERENCEID">
+      <attributes>
+        <attribute name="PREFERENCEID" label="设置类型ID" type="STRING" length="32" />
+        <attribute name="PREFERENCENAME" label="设置说明" type="STRING" length="80" />
+        <attribute name="DEFAULTVALUE" label="缺省设置值" type="STRING" length="250" />
+        <attribute name="ENABLECACHE" label="是否预读入" type="STRING" length="18" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="USER_PREF_DEF" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="USER_RELATIVE" label="用户关系信息" keyAttributes="USERID,RELATIVEID,RELATIONSHIP">
+      <attributes>
+        <attribute name="USERID" label="用户编号" type="STRING" length="32" />
+        <attribute name="RELATIVEID" label="关联用户编号" type="STRING" length="32" />
+        <attribute name="RELATIONSHIP" label="关系类型" type="STRING" length="18" />
+        <attribute name="DESCRIBE" label="关系描述" type="STRING" length="250" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记单位" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="USER_RELATIVE" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="USER_RIGHT" label="用户权限表" keyAttributes="USERID,RIGHTID,GRANTOR,BEGINTIME">
+      <attributes>
+        <attribute name="USERID" label="用户编号" type="STRING" length="32" />
+        <attribute name="RIGHTID" label="RIGHTID" type="STRING" length="80" />
+        <attribute name="GRANTOR" label="授权人" type="STRING" length="32" />
+        <attribute name="BEGINTIME" label="开始时间" type="STRING" length="20" />
+        <attribute name="ENDTIME" label="到期日" type="STRING" length="20" />
+        <attribute name="ATTRIBUTE" label="属性" type="STRING" length="80" />
+        <attribute name="STATUS" label="状态" type="STRING" length="80" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="USER_RIGHT" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="USER_ROLE" label="用户角色表" keyAttributes="USERID,ROLEID,GRANTOR,BEGINTIME">
+      <attributes>
+        <attribute name="USERID" label="用户编号" type="STRING" length="32" />
+        <attribute name="ROLEID" label="角色编号" type="STRING" length="32" />
+        <attribute name="GRANTOR" label="授权人" type="STRING" length="32" />
+        <attribute name="BEGINTIME" label="开始日" type="STRING" length="20" />
+        <attribute name="ENDTIME" label="到期日" type="STRING" length="20" />
+        <attribute name="ATTRIBUTE" label="属性" type="STRING" length="80" />
+        <attribute name="STATUS" label="状态" type="STRING" length="80" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="USER_ROLE" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="USER_RUNTIME" label="USER_RUNTIME">
+      <attributes>
+        <attribute name="SESSIONID" label="SESSIONID" type="STRING" length="100" />
+        <attribute name="BEGINTIME" label="BEGINTIME" type="STRING" length="20" />
+        <attribute name="USERID" label="USERID" type="STRING" length="32" />
+        <attribute name="JSPNAME" label="JSPNAME" type="STRING" length="200" />
+        <attribute name="ENDTIME" label="ENDTIME" type="STRING" length="20" />
+        <attribute name="TIMECONSUMING" label="TIMECONSUMING" type="DOUBLE" length="10" scale="6" />
+        <attribute name="USERNAME" label="USERNAME" type="STRING" length="80" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="USER_RUNTIME" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="USER_WORKTIPS" label="用户工作日志表" keyAttributes="SERIALNO">
+      <attributes>
+        <attribute name="SERIALNO" label="流水号" type="STRING" length="32" />
+        <attribute name="USERID" label="用户号" type="STRING" length="32" />
+        <attribute name="TABID" label="标签号" type="STRING" length="32" />
+        <attribute name="TABNAME" label="标签名称" type="STRING" length="100" />
+        <attribute name="SCRIPT" label="脚本路径" type="STRING" length="500" />
+        <attribute name="CACHEFLAG" label="缓冲标志" type="STRING" length="1" />
+        <attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+        <attribute name="CLOSEFLAT" label="完成标志" type="STRING" length="1" />
+        <attribute name="INPUTUSER" label="登记用户" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新用户" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+        <attribute name="UPDATEORG" label="更新机构" type="STRING" length="32" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="USER_WORKTIPS" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="VIEW_CATALOG" label="视图组定义" keyAttributes="VIEWTYPE">
+      <attributes>
+        <attribute name="VIEWTYPE" label="视图组" type="STRING" length="32" />
+        <attribute name="VIEWTYPENAME" label="视图组名称" type="STRING" length="80" />
+        <attribute name="INPUTORG" label="登记单位" type="STRING" length="32" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="VIEW_CATALOG" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="VIEW_LIBRARY" label="视图定义表" keyAttributes="VIEWTYPE,VIEWCODE">
+      <attributes>
+        <attribute name="VIEWTYPE" label="视图组" type="STRING" length="32" />
+        <attribute name="VIEWCODE" label="视图编号" type="STRING" length="80" />
+        <attribute name="VIEWNAME" label="视图名称" type="STRING" length="80" />
+        <attribute name="ROLETOSEE" label="可查看角色" type="STRING" length="80" />
+        <attribute name="ORGTOSEE" label="其他可查看机构" type="STRING" length="80" />
+        <attribute name="ATTRIBUTE1" label="属性一" type="STRING" length="80" />
+        <attribute name="ATTRIBUTE2" label="属性二" type="STRING" length="80" />
+        <attribute name="ATTRIBUTE3" label="属性三" type="STRING" length="80" />
+        <attribute name="INPUTORG" label="登记单位" type="STRING" length="32" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="32" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+        <attribute name="ALLOWEDSHARETYPE" label="允许的微观权限类型" type="STRING" length="80" />
+        <attribute name="ROLETOMODIFY" label="可修改角色" type="STRING" length="80" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="VIEW_LIBRARY" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="WZD_MISSION" label="工作序列实例" keyAttributes="MISSIONID">
+      <attributes>
+        <attribute name="MISSIONID" label="任务流水号" type="STRING" length="32" />
+        <attribute name="MISSIONNAME" label="任务名称" type="STRING" length="80" />
+        <attribute name="CREATOR" label="创建人" type="STRING" length="32" />
+        <attribute name="EXECUTOR" label="执行人" type="STRING" length="32" />
+        <attribute name="MISSIONSTATUS" label="当前状态" type="STRING" length="18" />
+        <attribute name="CREATETIME" label="创建时间" type="STRING" length="20" />
+        <attribute name="BEGINTIME" label="开始执行时间" type="STRING" length="20" />
+        <attribute name="ENDTIME" label="完成执行时间" type="STRING" length="20" />
+        <attribute name="MISSIONTYPEID" label="工作序列类型" type="STRING" length="32" />
+        <attribute name="OBJECTTYPE" label="主对象类型" type="STRING" length="32" />
+        <attribute name="OBJECTNO" label="主对象号" type="STRING" length="32" />
+        <attribute name="CURSERIALNO" label="当前环节" type="STRING" length="32" />
+        <attribute name="CURWIZARD" label="当前任务" type="STRING" length="32" />
+        <attribute name="CURPHASE" label="当前工作阶段" type="STRING" length="32" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="WZD_MISSION" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="WZD_MISSIONTYPE" label="工作序列类型定义" keyAttributes="MISSIONTYPEID">
+      <attributes>
+        <attribute name="MISSIONTYPEID" label="工作序列类型号" type="STRING" length="32" />
+        <attribute name="MISSIONTYPENAME" label="工作序列类型名称" type="STRING" length="80" />
+        <attribute name="INITOBJECTTYPE" label="初始对象类型" type="STRING" length="32" />
+        <attribute name="INITWIZARDPHASE" label="使用向导模型及初始阶段" type="STRING" length="1600" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="WZD_MISSIONTYPE" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="WZD_MISSION_PARA" label="任务参数池" keyAttributes="MISSIONID,PARAMETERID">
+      <attributes>
+        <attribute name="MISSIONID" label="任务流水号" type="STRING" length="32" />
+        <attribute name="PARAMETERID" label="参数编号" type="STRING" length="32" />
+        <attribute name="PARAMETERVALUE" label="参数值" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="WZD_MISSION_PARA" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="WZD_PHASE_DEF" label="任务阶段模型" keyAttributes="WIZARDNO,PHASENO">
+      <attributes>
+        <attribute name="WIZARDNO" label="向导模型编号" type="STRING" length="32" />
+        <attribute name="PHASENO" label="PHASENO" type="STRING" length="32" />
+        <attribute name="PHASETYPE" label="阶段类型" type="STRING" length="18" />
+        <attribute name="PHASENAME" label="阶段名称" type="STRING" length="80" />
+        <attribute name="PHASEDESCRIBE" label="阶段描述" type="STRING" length="250" />
+        <attribute name="PHASEATTRIBUTE" label="阶段属性" type="STRING" length="80" />
+        <attribute name="HELPID" label="帮助编号[停用]" type="STRING" length="32" />
+        <attribute name="SKIPSCRIPT" label="跳越SCRIPT" type="STRING" length="1600" />
+        <attribute name="PRESCRIPT" label="前沿执行SCRIPT" type="STRING" length="400" />
+        <attribute name="INITSCRIPT" label="相关组件SCRIPT" type="STRING" length="400" />
+        <attribute name="PHASEREMARK" label="阶段备注" type="STRING" length="250" />
+        <attribute name="ACTIONSCRIPT" label="动作生成SCRIPT" type="STRING" length="400" />
+        <attribute name="FINISHSCRIPT" label="完备性SCRIPT" type="STRING" length="400" />
+        <attribute name="POSTSCRIPT" label="后续阶段SCRIPIT" type="STRING" length="400" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="WZD_PHASE_DEF" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="WZD_PHASE_INPUT" label="组件输入参数定义" keyAttributes="WIZARDNO,PHASENO,PARAMETERID">
+      <attributes>
+        <attribute name="WIZARDNO" label="向导模型编号" type="STRING" length="32" />
+        <attribute name="PHASENO" label="PHASENO" type="STRING" length="32" />
+        <attribute name="PARAMETERID" label="参数编号" type="STRING" length="32" />
+        <attribute name="PARAMETERNAME" label="参数名称" type="STRING" length="80" />
+        <attribute name="CALCULATESCRIPT" label="默认值计算公式" type="STRING" length="1600" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="WZD_PHASE_INPUT" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="WZD_PHASE_OUTPUT" label="组件输出参数" keyAttributes="WIZARDNO,PHASENO,PARAMETERID">
+      <attributes>
+        <attribute name="WIZARDNO" label="向导模型编号" type="STRING" length="32" />
+        <attribute name="PHASENO" label="PHASENO" type="STRING" length="32" />
+        <attribute name="PARAMETERID" label="参数编号" type="STRING" length="32" />
+        <attribute name="PARAMETERNAME" label="参数名称" type="STRING" length="80" />
+        <attribute name="CALCULATESCRIPT" label="默认值计算公式" type="STRING" length="1600" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="WZD_PHASE_OUTPUT" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="WZD_SPT_DEF" label="简单参数设置模版" keyAttributes="TEMPLATEID">
+      <attributes>
+        <attribute name="TEMPLATEID" label="TEMPLATEID" type="STRING" length="32" />
+        <attribute name="TEMPLATENAME" label="TEMPLATENAME" type="STRING" length="80" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="WZD_SPT_DEF" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="WZD_SPT_LIBRARY" label="简单参数设置定义" keyAttributes="TEMPLATEID,PARAMETERID">
+      <attributes>
+        <attribute name="TEMPLATEID" label="TEMPLATEID" type="STRING" length="32" />
+        <attribute name="PARAMETERID" label="参数编号" type="STRING" length="32" />
+        <attribute name="PARAMETERNAME" label="参数名称" type="STRING" length="80" />
+        <attribute name="MANUALORAUTO" label="自动获取OR人工设定" type="STRING" length="18" />
+        <attribute name="VALUESETTYPE" label="取值类型" type="STRING" length="18" />
+        <attribute name="VALUESETMETHOD" label="取值方法" type="STRING" length="1600" />
+        <attribute name="DEFAULTVALUE" label="默认值计算公式" type="STRING" length="1600" />
+        <attribute name="DISPLAYTYPE" label="显示方式" type="STRING" length="18" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="WZD_SPT_LIBRARY" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="WZD_TASK" label="任务工作实例" keyAttributes="MISSIONID,SERIALNO">
+      <attributes>
+        <attribute name="MISSIONID" label="任务流水号" type="STRING" length="32" />
+        <attribute name="SERIALNO" label="工作流水号" type="STRING" length="32" />
+        <attribute name="PARENTSERIALNO" label="上一流水号" type="STRING" length="32" />
+        <attribute name="COMPONENTID" label="组件" type="STRING" length="32" />
+        <attribute name="WIZARDNO" label="向导模型编号" type="STRING" length="32" />
+        <attribute name="PHASENO" label="阶段编号" type="STRING" length="32" />
+        <attribute name="BEGINTIME" label="开始时间" type="STRING" length="20" />
+        <attribute name="ENDTIME" label="结束时间" type="STRING" length="20" />
+        <attribute name="PHASENAME" label="阶段名称" type="STRING" length="80" />
+        <attribute name="PHASEREMARK" label="阶段备注" type="STRING" length="250" />
+        <attribute name="PHASEACTION" label="阶段动作" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="WZD_TASK" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="WZD_TASK_PARA" label="工作组件参数" keyAttributes="MISSIONID,SERIALNO,PARAMETERID">
+      <attributes>
+        <attribute name="MISSIONID" label="任务流水号" type="STRING" length="32" />
+        <attribute name="SERIALNO" label="工作流水号" type="STRING" length="32" />
+        <attribute name="PARAMETERID" label="参数编号" type="STRING" length="32" />
+        <attribute name="PARAMETERVALUE" label="参数值" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="WZD_TASK_PARA" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="WZD_WIZARD_DEF" label="向导模型定义" keyAttributes="WIZARDNO">
+      <attributes>
+        <attribute name="WIZARDNO" label="向导模型编号" type="STRING" length="32" />
+        <attribute name="WIZARDNAME" label="向导模型名称" type="STRING" length="80" />
+        <attribute name="WIZARDTYPE" label="向导类型" type="STRING" length="18" />
+        <attribute name="WIZARDDESCRIBE" label="向导模型流程描述" type="STRING" length="250" />
+        <attribute name="INITPHASE" label="向导初始阶段" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="WZD_WIZARD_DEF" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="AUDIT_INFO" label="审计信息表（new）" keyAttributes="SERIALNO">
+      <attributes>
+        <attribute name="SERIALNO" label="流水号" type="STRING" length="32" />
+        <attribute name="OPERATOR" label="操作人" type="STRING" length="80" />
+        <attribute name="SERVERADDRESS" label="服务器地址" type="STRING" length="80" />
+        <attribute name="CLIENTADDRESS" label="客户端地址" type="STRING" length="80" />
+        <attribute name="APPLICATION" label="应用" type="STRING" length="80" />
+        <attribute name="ADDITIONALINFO" label="附加信息" type="STRING" length="200" />
+        <attribute name="RECORDTYPE" label="记录类型" type="STRING" length="32" />
+        <attribute name="RECORDACTION" label="记录动作" type="STRING" length="32" />
+        <attribute name="RECORDTARGET" label="记录目标" type="STRING" length="32" />
+        <attribute name="AUDITTIME" label="修改时间" type="STRING" length="40" />
+        <attribute name="AUDITDATA" label="审计数据" type="STRING" length="4000" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="true" />
+          <property name="table" value="AUDIT_INFO" />
+		  <property name="audit" value="false" />	<!--默认该class不做审计-->
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="SADRE_ASSUMPTION" label="授权规则" keyAttributes="SCENEID,ASSUMPTIONID">
+      <attributes>
+          <attribute name="SCENEID"    label="授权方案编号"    type="STRING" length="20" />
+		  <attribute name="ASSUMPTIONID"   label="规则编号"  type="STRING" length="20" />
+		  <attribute name="ASSUMPTIONSET"   label="子规则集合"   type="STRING" length="4000" />
+		  <attribute name="PRIORITY"    label="优先级"   type="STRING" length="10" />
+		  <attribute name="ACTIONS"    label="规则满足后动作"    type="STRING" length="10" />
+		  <attribute name="DECISION"    label="规则结果"    type="STRING" length="10" />
+		  <attribute name="RULETYPE"    label="规则类型"     type="INT" length="20" />
+		  <attribute name="REFRULES"    label="关联前置规则"     type="STRING"  length="500" />
+		  <attribute name="NOTE"    label="备注"        type="STRING"  length="1000" />
+		  <attribute name="INPUTDATE"    label="录入日期"     type="STRING"  length="10" />
+		  <attribute name="INPUTUSER"    label="录入人"     type="STRING"  length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="SADRE_ASSUMPTION" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="SADRE_DIMENSION" label="授权参数" keyAttributes="DIMENSIONID">
+      <attributes>
+          <attribute name="DIMENSIONID"   label="参数编号"     type="STRING"   length="20" />
+		  <attribute name="DIMENSIONNAME" label="参数名称"     type="STRING"   length="80" />
+		  <attribute name="DIMENSIONTYPE" label="参数类型"     type="STRING"   length="10" />
+		  <attribute name="DIMENSIONIMPL" label="参数接口"     type="STRING"   length="100" />
+		  <attribute name="OPTIONTYPE"    label="值域类型"     type="STRING"   length="10" />
+		  <attribute name="OPTIONIMPL"    label="值域描述"     type="STRING"   length="500" />
+		  <attribute name="NOTE"          label="备注说明"     type="STRING"   length="200" />
+		  <attribute name="INPUTDATE"     label="录入时间"     type="STRING"   length="10" />
+		  <attribute name="INPUTUSER"     label="录入人"     type="STRING"   length="20" />
+		  <attribute name="SOURCEIMPL"    label="源参数接口"     type="STRING"   length="100" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="SADRE_DIMENSION" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="SADRE_RULESCENE" label="授权方案" keyAttributes="SCENEID">
+      <attributes>
+          <attribute name="SCENEID"        label="授权方案编号"   type="STRING"   length="20" />
+		  <attribute name="SCENENAME"      label="授权方案名称"   type="STRING"   length="80" />
+		  <attribute name="AUTHORIZEEROLE" label="被授权人角色"   type="STRING"   length="200" />
+		  <attribute name="AUTHORIZEEID"   label="被授权人"   type="STRING"   length="200" />
+		  <attribute name="AUTHORIZEEORG"  label="被授权人所属机构"   type="STRING"   length="200" />
+		  <attribute name="GRANTORROLE"    label="授权人角色"   type="STRING"   length="200" />
+		  <attribute name="GRANTORID"      label="授权人"   type="STRING"   length="200" />
+		  <attribute name="GRANTORORG"     label="授权人机构"   type="STRING"   length="200" />
+		  <attribute name="EFFECTIVEDATE"  label="授权方案起始日"   type="STRING"   length="10" />
+		  <attribute name="MATURITY"       label="授权方案到期日"   type="STRING"   length="10" />
+		  <attribute name="INCLUDES"       label="包含维度"   type="STRING"   length="4000" />
+		  <attribute name="STATUS"         label="是否有效"   type="STRING"   length="5" />
+		  <attribute name="FLOWS"          label="适用流程"   type="STRING"   length="200" />
+		  <attribute name="NOTE"           label="备注"   type="STRING"   length="200" />
+		  <attribute name="INPUTDATE"      label="录入日期"   type="STRING"   length="10" />
+		  <attribute name="INPUTUSER"      label="录入人"   type="STRING"   length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="SADRE_RULESCENE" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="SADRE_SCENERELATIVE" label="授权组与授权方案关联表" keyAttributes="GROUPID,SCENEID">
+      <attributes>
+          <attribute name="GROUPID"        label="组别编号"   type="STRING"   length="20" />
+		  <attribute name="SCENEID"      label="授权方案编号"   type="STRING"   length="20" />
+		  <attribute name="NOTE" label="备注"   type="STRING"   length="200" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="SADRE_SCENERELATIVE" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="SADRE_SYNONYMN" label="授权参数载体实现" keyAttributes="SYNONYMNID">
+      <attributes>
+          <attribute name="SYNONYMNID"        label="授权参数载体实现编号"   type="STRING"   length="20" />
+		  <attribute name="SYNONYMNNAME"      label="授权参数载体实现名称"   type="STRING"   length="80" />
+		   <attribute name="SYNONYMNIMPL"      label="授权参数载体实现类"   type="STRING"   length="80" />
+		  <attribute name="NOTE" label="备注说明"   type="STRING"   length="200" />
+		  <attribute name="INPUTDATE" label="录入日期"   type="STRING"   length="10" />
+		  <attribute name="INPUTUSER" label="录入人"   type="STRING"   length="20" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="SADRE_SYNONYMN" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="SADRE_SCENEGROUP" label="授权组别与方案关联表" keyAttributes="GROUPID">
+      <attributes>
+          <attribute name="GROUPID"        label="组别编号"   type="STRING"   length="20" />
+		  <attribute name="GROUPNAME"      label="组别名称"   type="STRING"   length="80" />
+		   <attribute name="SORTNO"      label="节点编号"   type="STRING"   length="20" />
+		  <attribute name="NOTE" label="备注说明"   type="STRING"   length="200" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="createKey" value="false" />
+          <property name="table" value="SADRE_SCENEGROUP" />
+        </managerProperties>
+      </manager>
+    </class>
+  </package>
+</jbo>
+

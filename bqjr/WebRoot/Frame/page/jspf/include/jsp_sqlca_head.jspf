@@ -1,0 +1,13 @@
+<%  
+Transaction Sqlca = null;
+Transaction SqlcaRepository = null;
+String sCurRunMode=CurConfig.getConfigure("RunMode");
+try{
+    Sqlca = new Transaction(CurConfig.getDataSource());
+    SqlcaRepository = Sqlca;
+
+    ComponentSession CurCompSession = CurARC.getCompSession();
+    Component CurComp = CurCompSession.lookUp(sCompClientID);
+    Page CurPage = new Page(CurComp);
+    CurPage.setRequestAttribute((HttpServletRequest)request);    
+%>

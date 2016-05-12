@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>ImageTrans</title>
+<style>
+	html,body{
+		margin:0 auto;
+		width:100%;
+		height:100%;
+		background:#EBECEF;
+	}
+	#menu{
+		text-align:left;
+		-moz-user-select:none;
+	}
+	#menu_2{
+		border-radius:5px;
+		border:2px solid #E4E6EA;
+		border-right:2px solid #DADCDF;
+		float:left;
+		
+	}
+	#menu a{
+		cursor:pointer;
+		display:inline-block;
+		font-size:12px;
+		padding-left:5px;
+		padding-right:5px;
+		margin-left:-7px;
+		height:28px;
+		line-height:28px;
+		background:url(menu.png) repeat scroll 0px -1px;
+	}
+	#menu a:hover{
+		background:#DBE1F2;
+	}
+	#idContainer_root{
+		border-radius:3px 3px 0px 0px;
+		width:auto;
+		height:100%;
+		background:#EBECEF center no-repeat;
+	}
+	#idContainer_root img{
+		margin:6px;
+	}
+	#idContainer{
+		height:100%;
+		width:100%;
+		min-height:450px;
+		overflow:auto;
+	}
+	.bar{
+		height:20px;
+		background:#E5E6EA;
+		border-bottom:1px solid #F5F6F7;
+		padding-left:10px;
+		font-size:12px;
+		line-height:20px;
+	}
+	#thumbnail{
+		width:230px;
+		height:100%;
+		border-radius:3px;
+	}
+	#thumbnail_img{
+		height:100%;
+		width:100%;
+		position:absolute;
+		left:0;
+		top:0;
+		overflow-y:auto;
+	}
+	#thumbnail_img .thumbnail_unit{
+		height:250px;
+		border:1px solid lightgray;
+		border-radius:3px;
+	}
+	.thumbnail_unit .title{
+		height:21px;
+		background:#E5E6EA;
+		border-bottom:1px solid #D1D3D8;
+		padding-left:10px;
+		font-size:12px;
+		line-height:21px;
+	}
+	.thumbnail_unit .content{
+		height:218px;
+		background:#EBECEF;
+		padding-top:5px;
+		padding-bottom:5px;
+		text-align:center;
+	}
+	.thumbnail_unit .content img{
+		max-width:100%;
+		max-height:100%;
+		text-align:center;
+		margin:0 auto;
+	}
+	#bottom{
+		height:25px;
+		border-top:1px solid #C2C4CB;
+		background:#D2D3D8;
+		text-align:right;
+		line-height:15px;
+		padding-right:10px;
+	}
+	#bottom span{
+		display:inline-block;
+		border-right:1px solid #A4A6AD;
+		font-size:12px;
+		margin:5px 0px;
+		padding:0px 5px;
+	}
+	#menu_2 span{
+		display:inline-block;
+		height:28px;
+		width:19px;
+		margin-top:4px;
+		float:left;
+	}
+	#idLeft span{
+		background:url(menu-ico.png) repeat scroll -89px -6px;
+		width:20px;
+	}
+	#idRight span{
+		background:url(menu-ico.png) repeat scroll -22px -6px;
+	}
+	#idAutoFitWidth span{
+		background:url(menu-ico.png) repeat scroll -274px -6px;
+	}
+	#idFullPage span{
+		background:url(menu-ico.png) repeat scroll -350px -6px;
+	}
+	#idInitialSize span{
+		background:url(menu-ico.png) repeat scroll -427px -6px;
+	}
+	#idUp span{
+		background:url(menu-ico.png) repeat scroll -511px -6px;
+	}
+	#idDown span{
+		background:url(menu-ico.png) repeat scroll -562px -6px;
+	}
+	#idSetFirstPage span{
+		background:url(menu-ico.png) repeat scroll -614px -6px;
+	}
+	#idSetLastPage span{
+		background:url(menu-ico.png) repeat scroll -715px -6px;
+	}
+	#idSetLastPage{
+		border-radius:0px 3px 3px 0px;
+	}
+	#thumbnail_img .focus{
+		border:1px solid gray;
+	}
+</style>
+<script src="jquery-1.7.2.min.js"></script>
+<script>
+$(document).ready(function(){
+	$('#idInitialSize').click(function(){
+		var size = document.getElementById('img_size').innerHTML;
+		var sizes = size.split('X');
+		$('#idContainer img').css({'width':Number(sizes[0])*2,'height':Number(sizes[1])*2});
+		
+	});
+	$('#thumbnail_img .content').click(function(){
+		var unit =  $(this).parent();
+		unit.siblings('.focus').removeClass('focus');
+		unit.addClass('focus');
+		src = $(this).find('img').attr('src');
+		it.dispose();
+		it = new ImageTrans( container, options );
+		it.load(src);
+		AddMouseMoveEvent();
+	});
+	AddMouseMoveEvent();
+	function AddMouseMoveEvent(){
+		var img =$('#idContainer img');
+		var width = img[0].scrollWidth;
+		var height = img[0].scrollHeight;
+		document.getElementById('img_size').innerHTML = width+"X"+height;
+		$('#idContainer img').bind('mousemove',function(e){
+			var obj = $(this).offset();
+			var x= e.clientX;
+			var y= e.clientY;
+			var left = obj.left;
+			var top = obj.top;
+			x= x - left;
+			y= y - top  +(document.all?93:0);
+			$('#size_x').html('X:'+x);
+			$('#size_y').html('Y:'+y);
+		});
+	}
+});
+</script>
+<script src="CJL.0.1.min.js"></script>
+<script src="ImageTrans.js"></script>
+
+</head>
+<body>
+<table style="height:100%;width:100%;border:0;" cellpadding="0">
+<tr>
+	<td colspan="2"><div id="menu"><div id="menu_2">
+		<a id="idLeft"><span></span>左转90°</a>
+		<a id="idRight"><span></span>右转90°</a>
+		<a id="idVertical"><span></span>垂直翻转</a>
+		<a id="idHorizontal"><span></span>水平翻转</a>
+		<a id="idReset"><span></span>重置</a>
+<!--		<span id="idCanvas">使用Canvas</span>-->
+		<a id="idAutoFitWidth"><span></span>最适宽度</a>
+		<a id="idFullPage"><span></span>整页显示</a>
+		<a id="idInitialSize"><span></span>原始大小</a>
+		<a id="idUp"><span></span>上移</a>
+		<a id="idDown"><span></span>下移</a>
+		<a id="idSetFirstPage"><span></span>设置成第一页</a>
+		<a id="idSetLastPage"><span></span>设置成最后一页</a>
+	</div></div></td>
+</tr>
+<tr>
+	<td style="height:100%;width:100%;"><div id="idContainer_root" style="position:relative;">
+		<table style="height:100%;width:100%;border:0;float:left;border:1px solid #C2C4CB;border-radius:3px 3px 0" cellpadding="0">
+			<tr><td><div class="bar">第1页</div></td></tr>
+			<tr><td style="height:100%;"><div id="idContainer"></div></td></tr>
+		</table>
+	</div></td>
+	<td style="width:230px;height:100%;"><div id="thumbnail">
+		<table style="height:100%;width:100%;border:0;float:left;border:1px solid #C2C4CB;border-radius:3px 3px 0" cellpadding="0">
+		<tr><td><div class="bar" style="color:#9EA1AE;font-weight:bold;padding-left:5px;">缩略图列表</div></td></tr>
+		<tr><td style="height:100%;"><div style="height:100%;width:100%;min-height:450px;position:relative;">
+			<div id="thumbnail_img">
+				<div class="thumbnail_unit">
+					<div class="title">第1页</div>
+					<div class="content"><img style="width:100%;height:100%;" src="01.jpg"></img></div>
+				</div>
+				<div class="thumbnail_unit">
+					<div class="title">第2页</div>
+					<div class="content"><img style="" src="1.jpg"></img></div>
+				</div>
+				<div class="thumbnail_unit">
+					<div class="title">第3页</div>
+					<div class="content"><img style="" src="menu-ico.png"></img></div>
+				</div>
+				<div class="thumbnail_unit">
+					<div class="title">第4页</div>
+					<div class="content"><img style="" src="chatHeads02.jpg"></img></div>
+				</div>
+			</div>
+		</div></td></tr>
+		</table>
+	</div></td>
+</tr>
+<tr>
+	<td colspan="2"><div id="bottom">
+		<span>图像大小：<label id="img_size"></label></span>
+		<span><label id="size_x">X:0</label>,<label id="size_y">Y:0</label></span>
+	</div></td>
+</tr>
+</table>
+<script>
+
+var container = $$("idContainer"), src = "01.jpg",
+	options = {
+		onPreLoad: function(){ container.style.backgroundImage = ""; },
+		onLoad: function(){ container.style.backgroundImage = ""; },
+		onError: function(err){ container.style.backgroundImage = ""; alert(err); }
+	},
+	it = new ImageTrans( container, options );
+	it.load(src);
+	//垂直翻转
+	$$("idVertical").onclick = function(){ it.vertical(); }
+	//水平翻转
+	$$("idHorizontal").onclick = function(){ it.horizontal(); }
+	//左旋转
+	$$("idLeft").onclick = function(){ it.left(); }
+	//右旋转
+	$$("idRight").onclick = function(){ it.right(); }
+	//重置
+	$$("idReset").onclick = function(){ it.reset(); }
+	//换图
+	$$("idLoad").onclick = function(){ it.load( $$("idSrc").value ); }
+	//Canvas
+	$$("idCanvas").onclick = function(){
+		if(this.value == "默认模式"){
+			this.value = "使用Canvas"; delete options.mode;
+		}else{
+			this.value = "默认模式"; options.mode = "canvas";
+		}
+		it.dispose();
+		it = new ImageTrans( container, options );
+		it.load(src);
+	}
+</script>
+</body>
+</html>

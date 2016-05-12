@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="GB2312"?>
+<databaseConfig>
+	<!--  数据库链接资源文件，本文件的内容可以被com.amarsoft.are.sql.PooledConnectionFactory识别使用 
+		  jdbc资源定义需要driver类、url和用户名、密码构成，可以采用加密和不加密的形式保存信息
+		  加密需要使用本程序自带的加密、解密工具使用。  
+		  本模版配置了常见的数据库的连接方法，可以根据情况使用                                   
+	-->
+	<resources>
+		<resource type="jdbc" name="als"  jndiName="als" />
+		<resource type="jdbc" name="report"  jndiName="als" />
+	</resources>
+</databaseConfig>

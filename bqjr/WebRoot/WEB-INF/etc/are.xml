@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="GB2312" ?>
+<!--Amarsoft Runtime Environmen Config File-->
+<ARE>
+	<!--系统属性可以做为多种用途的扩展之用,可以放置任意多的属性在此-->
+	<SystemProperties>
+		<!-- 定义统一的APP_HOME，引用其他文件非常方便 -->
+		<!-- 
+		<Property name="APP_HOME" value="." /> 
+		-->
+		<Property name="com.amarsoft.are.security.audit.config.file" value="{$ARE.APP_HOME}/etc/audit.properties"/>
+		<Property name="com.amarsoft.are.jbo.impl.StateBizObjectQuery.defaultForUpdate" value="false"/>
+	</SystemProperties>
+	
+	<!-- ARE 服务将在初始化时，被装载-->
+	<AREServices>
+		<!-- 日志服务，为应用系统提供全局统一的日志界面。日志服务是工厂模式实现的，通过日志工厂产生日志
+			 缺省日志工厂可以产生四种日志DummyLog、SimpleLog、JDKLog和Log4JLog， 通过配置logType参数可以使用
+			 不同的日志，对于每个日志的更为具体的属性则是由各自的配置文件logProperties决定的。
+			 注意当改变了logType时，对应的logProperties也要对应改变
+		-->
+		<Service id="LOG"  enabled="true" initOnStart="true">
+			<Provider>Amarsoft</Provider>
+			<Version>1.0</Version>
+			<Describe>日志服务</Describe>
+			<ServiceClass>com.amarsoft.are.log.impl.DefaultLogFactory</ServiceClass>
+			<Properties>
+				<!-- logType属性用于决定使用此工厂产生的日志类型。可以取值是：SIMPLE,DUMMY,JDK,LOG4J-->
+				<Property name="com.amarsoft.are.log.impl.DefaultLogFactory.logType" value="SIMPLE" />
+				<Property name="com.amarsoft.are.log.impl.DefaultLogFactory.logProperties" value="{$ARE.APP_HOME}/etc/simplelog.properties" />
+			</Properties>
+		</Service>
+		
+		<!-- 元数据服务。提供统一的数据库元数性信息获取界面。
+			 目前系统使用的是ARE缺省的日志服务，存储在XML文件中。每个文件相当于一个数据库，可以在属性中指定多个文件。
+		-->
+		<Service id="METADATA"  enabled="true" initOnStart="false">
+			<Provider>Amarsoft</Provider>
+			<Version>1.0</Version>
+			<Describe>元数据服务</Describe>
+			<ServiceClass>com.amarsoft.are.metadata.XMLMetaDataFactory</ServiceClass>
+			<Properties>
+				<Property name="com.amarsoft.are.metadata.XMLMetaDataFactory.schemas"
+						  value="{$ARE.APP_HOME}/etc/jbo/metadata_jbo.xml" />
+			</Properties>
+		</Service>
+		
+		<!-- 数据库连接服务。提供全局统一的数据库连接获取方法。
+			 应用程序可以一致的访问数据库连接，而不需要考虑具体的数据库参数。
+			 ARE缺省提供了一个简单数据库连接池的实现。
+		-->
+		<Service id="DBCONNECTION"  enabled="true" initOnStart="false">
+			<Provider>Amarsoft</Provider>
+			<Version>1.0</Version>
+			<Describe>数据库连接服务</Describe>
+			<ServiceClass>com.amarsoft.are.sql.PooledConnectionFactory</ServiceClass>
+			<Properties>
+				<Property name="com.amarsoft.are.sql.PooledConnectionFactory.resourceFile" 
+						  value="{$ARE.APP_HOME}/etc/dbconfig.xml"/>
+			</Properties>
+		</Service>
+		
+		<!-- Java业务对象管理服务。提供Java业务对象管理方法。
+			 应用程序可以通过JBO访问业务对象而不需要对数据库做操作。
+		-->
+		<Service id="JBO"  enabled="true" initOnStart="true">
+			<Provider>Amarsoft</Provider>
+			<Version>1.0</Version>
+			<Describe>业务对象管理服务</Describe>
+			<ServiceClass>com.amarsoft.are.jbo.impl.DefaultXMLJBOFactory</ServiceClass>
+			<Properties>
+				<Property name="com.amarsoft.are.jbo.impl.DefaultXMLJBOFactory.configFile" 
+					value="{$ARE.APP_HOME}/etc/jbo/jbomanagers.xml,
+							{$ARE.APP_HOME}/etc/jbo/metadata_jbo.xml,
+							{$ARE.APP_HOME}/etc/jbo/jbo_awe.xml,
+							{$ARE.APP_HOME}/etc/jbo/jbo_oti.xml,
+							{$ARE.APP_HOME}/etc/jbo/jbo_app.xml,
+							{$ARE.APP_HOME}/etc/jbo/jbo_sys.xml,
+							{$ARE.APP_HOME}/etc/jbo/jbo_datawindow.xml,
+							{$ARE.APP_HOME}/etc/jbo/jbo_sample_newdw.xml,
+							{$ARE.APP_HOME}/etc/jbo/jbo_formatdoc.xml,
+							{$ARE.APP_HOME}/etc/jbo/jbo_rule.xml,
+							{$ARE.APP_HOME}/etc/jbo/jbo_sample.xml"/>
+				<Property name="com.amarsoft.are.jbo.impl.DefaultXMLJBOFactory.defaultPackage" value="jbo.sample"/>
+			</Properties>
+		</Service>
+		
+		<!-- 通用实时接口服务。
+			提供通用的实时接口服务，应用程序可以据此方便的访问其他系统。
+		-->
+		<Service id="OTI"  enabled="true" initOnStart="false">
+			<Provider>Amarsoft</Provider>
+			<Version>1.0</Version>
+			<Describe>实时接口管理服务</Describe>
+			<ServiceClass>com.amarsoft.oti.manager.XMLBaseManager</ServiceClass>
+			<Properties>
+				<Property name="com.amarsoft.oti.manager.XMLBaseManager.configFile" value="{$ARE.APP_HOME}/etc/oticonfig.xml"/>
+				<Property name="com.amarsoft.oti.manager.XMLBaseManager.defaultBizObjectPackage" value="jbo.oti"/>
+			</Properties>
+		</Service>
+	</AREServices>
+</ARE>

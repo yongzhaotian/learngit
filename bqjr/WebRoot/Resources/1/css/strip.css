@@ -1,0 +1,70 @@
+	/*最外层，主容器样式*/
+	.strip_main_content{
+		width:100%; 
+		height:100%;
+		overflow:auto;
+	}
+	.strip_main_content *{
+		margin:0;
+		padding:0;
+	}
+	/*列表容器*/
+	.strip_main_content div.strip_item{
+		margin-top:5px;
+		border:1px solid #91A7B4;
+	}
+	/*标题*/
+	.strip_main_content div h3{
+		/*border:1px solid #91A7B4;*/
+		font-size:14px;
+		font-weight:bolder;
+		color:#FFF;
+		height:20px;
+		cursor:pointer;
+	}
+	/*标题，鼠标未移入*/
+	.strip_main_content div h3 span.strip_hand_inactive{
+		display:block;
+		margin:1px;
+		background:#91A7B4;
+	}
+	.strip_main_content div h3 span.strip_hand_over{
+		display:block;
+		margin:1px;
+		background:#036; 
+	}
+	/*标题栏指示图片：非激活状态*/
+	.strip_main_content div h3 span.arrow_inactive{
+		margin-top:2px;
+		width:15px;
+		height:15px;
+		background:url(../strip/collapse.gif) no-repeat bottom left;
+	}
+	/*标题栏指示图片：激活状态*/
+	.strip_main_content div h3 span.arrow_active{
+		margin-top:2px;
+		width:15px;
+		height:15px;
+		background:url(../strip/expand.gif) no-repeat bottom left;
+	}
+	/*内容区域样式*/
+	.strip_main_content div div{
+		/*border:1px solid #F00;*/
+		width:100%;
+		height:600px;
+	}
+	.strip_main_content div div.hidden{
+		display:none;
+
+	}
+	.strip_main_content div div.show{
+		display:block;
+	}
+	/*内容区域样式-IFRAME*/
+	.strip_main_content div div iframe{
+		margin:1px;
+		margin:1px; 
+		width:100%;
+		height:100%;
+		border:0;
+	}

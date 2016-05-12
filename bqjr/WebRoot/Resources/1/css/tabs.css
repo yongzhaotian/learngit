@@ -1,0 +1,234 @@
+@charset "gb2312";
+	/*tab最外层容器*/
+	.tabs{
+		padding:0;
+		margin:0px;
+		width:100%;
+		height:100%;
+		font-size:16px;
+		/*overflow:auto;*/
+	}
+	/*选项卡按钮栏*/
+	.tabs_button{
+		margin:0px;
+		padding:0px;
+		width:100%;
+		z-index:11;
+		position:relative;	/*用于下下降，挡住内容容器的边框*/
+		top:1px;
+		/*border:1px solid #F00;*/
+	}
+	/*标签卡样式*/
+	.tabs ul{
+		margin:0px;
+		padding:0px;
+		width:100%;
+		margin:0;
+		height:24px;
+		margin-top:2px;
+		}
+	/*选项卡标签样式*/
+	.tabs ul li{
+		list-style:none;
+		float:left;
+		height:23px;
+		margin:0;
+		margin-left:5px;
+		/*满一行后，自动换新行（nowrap）*/
+		white-space:nowrap;
+	}
+	/*选项卡统一设置*/
+	.tabs ul li span{
+		height:22px;
+		*+height:24px;
+		margin:0;
+		padding:0;
+		line-height:22px;
+		float:left;
+		font-size:12px;;
+	}
+	/*选项卡文字样式*/
+	.tabs ul li span a{
+	    display:block;
+		text-decoration:none;
+		cursor:pointer;
+		color:#204179;
+		position:relative;
+		top:0px;
+	}
+	.tabs ul li span a:hover{
+		text-decoration:none;
+	}
+	/****** 一般情况 ******/
+	.tabs ul li span.tab_inactive_left{
+		width:1px;
+		background:#fff;
+		border-bottom:1px solid #6c8aa2;
+		border-left:1px solid #6c8aa2;
+		border-top:1px solid #6c8aa2;
+	}
+	.tabs ul li span.tab_inactive_center{
+			background:#fff;
+			border-bottom:1px solid #6c8aa2;
+			border-top:1px solid #6c8aa2;
+			padding:0px 5px;
+	}
+	.tabs ul li span.tab_inactive_control{
+		width:1px;
+		background:#fff;
+		border-bottom:1px solid #6c8aa2;
+			border-top:1px solid #6c8aa2;
+	}
+	.tabs ul li span.tab_inactive_right{
+		width:1px;
+		background:#fff;
+		border-bottom:1px solid #6c8aa2;
+		border-right:1px solid #6c8aa2;
+		border-top:1px solid #6c8aa2;
+	}
+	/********* 鼠标移入 ********/
+	.tabs ul li span.tab_over_left{
+		width:1px;
+		border:1px solid #6c8aa2;
+		border-right:0px;
+		background:#DCDCDC url(../tab/tabs_hover.png) no-repeat bottom left;
+	}
+	.tabs ul li span.tab_over_center{
+	    padding:0px 5px;
+		border:1px solid #6c8aa2;
+		border-left:0px;
+		border-right:0px;
+		background:#DCDCDC url(../tab/tabs_hover.png) repeat-x bottom left;
+	}
+	.tabs ul li span.tab_over_control{
+		border:1px solid #6c8aa2;
+		border-left:0px;
+		border-right:0px;
+		width:1px;
+		padding-bottom:0;
+		background:#DCDCDC url(../tab/tabs_hover.png) repeat-x bottom left;
+	}
+	.tabs ul li span.tab_over_right{
+		border:1px solid #6c8aa2;
+		border-left:0px;
+		width:1px;
+		background:#DCDCDC url(../tab/tabs_hover.png) no-repeat bottom left;
+	}
+	/********* 激活 ********/
+	.tabs ul li span.tab_active_left{
+		border:1px solid #6c8aa2;
+		border-right:0px;
+		width:1px;
+		background:#DCDCDC url(../tab/tabs_active.png) no-repeat bottom left;
+	}
+	.tabs ul li span.tab_active_center{
+	    padding:0px 5px;
+		border:1px solid #6c8aa2;
+		border-left:0px;
+		border-right:0px;
+		background:#DCDCDC url(../tab/tabs_active.png) repeat-x bottom left;
+		color:#000;
+	}
+	.tabs ul li span.tab_active_control{
+		border:1px solid #6c8aa2;
+		border-left:0px;
+		border-right:0px;
+		width:1px;
+		background:#DCDCDC url(../tab/tabs_active.png) repeat-x bottom left;
+	}
+	.tabs ul li span.tab_active_right{
+		border:1px solid #6c8aa2;
+		border-left:0px;
+		width:1px;
+		background:#DCDCDC url(../tab/tabs_active.png) no-repeat bottom left;
+	}
+	/*****新增Tab功能按钮******/
+	/*inactive*/
+	.tabs ul li span.addtab_inactive_left{
+		width:1px;
+		border:1px solid #6c8aa2;
+		background:#DCDCDC url(../tab/tab_inactive_left.gif) no-repeat bottom left;
+	}
+	.tabs ul li span.addtab_inactive_center{
+		border:1px solid #6c8aa2;
+		width:1px;
+		background:#DCDCDC url(../tab/tab_inactive_center.gif) repeat-x bottom left;
+	}
+	.tabs ul li span.addtab_inactive_control{
+		border:1px solid #6c8aa2;
+		width:0px;
+		background:#DCDCDC url(../tab/tab_inactive_center.gif) repeat-x bottom left;
+	}
+	.tabs ul li span.addtab_inactive_right{
+		border:1px solid #6c8aa2;
+		width:1px;
+		background:#DCDCDC url(../tab/tab_inactive_right.gif) no-repeat bottom left;
+	}
+	/*over*/
+	.tabs ul li span.addtab_over_left{
+		width:1px;
+		border-right:0px;
+		border:1px solid #6c8aa2;
+		background:#DCDCDC url(../tab/tab_over_left.gif) no-repeat bottom left;
+	}
+	.tabs ul li span.addtab_over_center{
+		border:1px solid #6c8aa2;
+		border-left:0px;
+		border-right:0px;
+		width:1px;
+		background:#DCDCDC url(../tab/tab_over_center.gif) repeat-x bottom left;
+	}
+	.tabs ul li span.addtab_over_control{
+		border:1px solid #6c8aa2;
+		border-left:0px;
+		border-right:0px;
+		width:0px;
+		background:#DCDCDC url(../tab/tab_over_center.gif) repeat-x bottom left;
+	}
+	.tabs ul li span.addtab_over_right{
+		border:1px solid #6c8aa2;
+		border-left:0px;
+		width:1px;
+		background:#DCDCDC url(../tab/tab_over_right.gif) no-repeat bottom left;
+	}
+	/*tab页关闭按钮*/
+	.tabs ul li span div{
+		width:8px;
+		height:23px;
+		float:right;
+		cursor:pointer;
+	}
+	.tabs ul li span div.tab_close{
+		background:url(../tab/tab_close.gif) no-repeat bottom center;
+	}
+	/*关闭按钮鼠标移入*/
+	.tabs ul li span div.tab_close_over{
+		background:url(../tab/tab_close_over.gif) no-repeat bottom center;
+	}
+	
+	
+	/*内容样式*/
+	/*最外层内容容器*/
+	.tabs_content{
+		margin:0px;
+		padding:0px;
+		width:100%;
+		height:96%;
+		border-top:1px solid #91A7B4;
+		z-index:-1;
+		background:#FFF;
+	}
+	.tabs_content div{
+		margin:0px;
+		padding:0px;
+		width:100%;
+		height:100%;
+		display:none;
+	}
+	.tabs_content div iframe{
+		margin-top:0%;
+		margin-left:0%;
+		width:100%;
+		height:100%;
+		border:0px;
+	}

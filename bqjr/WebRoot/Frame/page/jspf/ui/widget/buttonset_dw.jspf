@@ -1,0 +1,54 @@
+<table><tr><%
+		int iDWButtonCount= 0;
+		ButtonItem btHelp=null;
+		ButtonItem btEditHelp=null;
+		if(CurConfig.getParameter("ShowDwHelpButton")!=null && CurConfig.getParameter("ShowDwHelpButton").equals("true")){		
+			iDWButtonCount++;
+			btHelp = new ButtonItem(true,"","Button","帮助","查看本页面的内容","AsDebug.showHelp()","","","","btn_icon_help");
+		}
+		if(CurConfig.getParameter("ShowDwEditHelpButton")!=null && CurConfig.getParameter("ShowDwEditHelpButton").equals("true")){		
+			iDWButtonCount++;
+			btEditHelp = new ButtonItem(true,"","Button","编辑帮助","编辑本页面的内容","AsDebug.editHelp()","","","","btn_icon_help");
+		}
+
+		String sCompRightType = (String)CurPage.getAttribute("RightType");
+		String sUrlBase = request.getRequestURI().substring(request.getRequestURI().indexOf(sWebRootPath)+sWebRootPath.length());
+		ButtonItem [] buttonItemsOld = ItemHelp.getButtonItemArray(CurUser,sButtons,sCompRightType,sUrlBase);
+		ArrayList<ButtonItem> buttonItems = new ArrayList<ButtonItem>();
+		if (buttonItemsOld!=null){
+			for(int j=0;j<buttonItemsOld.length;j++){
+				//ALS7常见需控制权限的按钮
+				String buttonText = buttonItemsOld[j].getText();
+				if ("ReadOnly".equals(sCompRightType)) {
+					if(buttonText!=null  && (buttonText.indexOf("新增")>=0 || buttonText.indexOf("保存")>=0 || buttonText.indexOf("暂存")>=0|| buttonText.indexOf("删除")>=0)) continue;
+				}
+				buttonItems.add(buttonItemsOld[j]);
+			}
+			if(btHelp!=null) buttonItems.add(btHelp);	
+			if(btEditHelp!=null) buttonItems.add(btEditHelp);
+		}
+
+		String sLineMaxButtons = (String)CurPage.getParameter("ButtonsLineMax");
+		String sScreenWidth = (String)CurARC.getAttribute("ScreenWidth");
+		if(sScreenWidth==null || sScreenWidth.equals("") || Integer.parseInt(sScreenWidth)<=800){
+			sLineMaxButtons = "5";
+		}else if(Integer.parseInt(sScreenWidth)<=1024){
+			sLineMaxButtons = "7";
+		}else{
+			if(sLineMaxButtons==null){ sLineMaxButtons = "9"; }
+		}
+		int iButtonsCount = 0;
+		if (buttonItems!=null){
+			for(int i=0;i<buttonItems.size();i++){
+				ButtonItem bt = buttonItems.get(i);
+				if(iButtonsCount>Integer.parseInt(sLineMaxButtons)){
+					out.println("</tr></table><table><tr>");
+					iButtonsCount = 1;
+				}
+				iButtonsCount++;
+				out.println("<td>");
+				out.println(new Button(bt).getHtmlText());
+				out.println("</td>");
+			}
+		}
+%></tr></table>

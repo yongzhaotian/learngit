@@ -1,0 +1,63 @@
+.tabs_content{
+	border-color: #08367a;
+	}
+.tabs ul li span.tab_inactive_left{
+	border-color: #08367a;
+}
+.tabs ul li span.tab_inactive_center{
+	border-color: #08367a;
+}
+.tabs ul li span.tab_inactive_control{
+	border-color: #08367a;
+}
+.tabs ul li span.tab_inactive_right{
+	border-color: #08367a;
+}
+.tabs ul li span a {
+	color: #204179;
+}
+.tabs ul li .tab_active_center a{color:#fff;}
+/********* 濠碉拷妞�********/
+.tabs ul li span.tab_active_left{
+	border-color: #08367a;
+	background-image: url(../images/tabs_active.png);
+	background-color: #eee5ff;
+}
+.tabs ul li span.tab_active_center{
+	border-color: #08367a;
+	background-image: url(../images/tabs_active.png);
+	background-color: #eee5ff;
+	color:#fff;
+}
+.tabs ul li span.tab_active_control{
+	border-color: #08367a;
+	background-image: url(../images/tabs_active.png);
+	background-color: #eee5ff;
+	color:#fff;
+}
+.tabs ul li span.tab_active_right{
+	border-color: #08367a;
+	background-image: url(../images/tabs_active.png);
+	background-color: #eee5ff;
+}
+/********* 姒х姵鐖ｇ粔璇插弳 ********/
+.tabs ul li span.tab_over_left{
+	border-color: #08367a;
+	background-image: url(../images/tabs_hover.png);
+	background-color: #eee5ff;
+}
+.tabs ul li span.tab_over_center{
+	border-color: #08367a;
+	background-image: url(../images/tabs_hover.png);
+	background-color: #08367a;
+}
+.tabs ul li span.tab_over_control{
+	border-color: #08367a;
+	background-image: url(../images/tabs_hover.png);
+	background-color: #eee5ff;
+}
+.tabs ul li span.tab_over_right{
+	border-color: #08367a;
+	background-image: url(../images/tabs_hover.png);
+	background-color: #eee5ff;
+}

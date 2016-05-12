@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="GB18030"?>
+<jbo>
+	<package name="jbo.ui.codemap" >
+		<class name="CODE_LIBRARY" label="字典表" keyAttributes="ITEMNO">
+			<attributes>
+				<attribute name="ITEMNO" label="项目编号" type="STRING" length="32" />
+				<attribute name="ITEMNAME" label="项目名" type="STRING" length="32" />
+			</attributes>
+		</class> 
+	</package>	
+	<package name="jbo.ui.system" >
+		
+		<class name="CODE_CATALOG" label="代码管理" keyAttributes="CODENO">
+			<attributes>
+				<attribute name="CODENO" label="代码编号" type="STRING" length="32" />
+				<attribute name="SORTNO" label="排序号" type="STRING" length="32" />
+				<attribute name="CODENAME" label="代码名称" type="STRING" length="32" />
+				<attribute name="CODETYPEONE" label="大类" type="STRING" length="32" />
+				<attribute name="CODETYPETWO" label="小类" type="STRING" length="32" />
+				<attribute name="CODEDESCRIBE" label="代码描述" type="STRING" length="250" />
+				<attribute name="CODEATTRIBUTE" label="代码属性" type="STRING" length="250"/>
+				<attribute name="REMARK" label="备注" type="STRING" length="32" />
+				<attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+				<attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+				<attribute name="INPUTTIME" label="登记时间" type="STRING" length="32" />
+				<attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+				<attribute name="UPDATETIME" label="更新时间" type="STRING" length="32" />
+			</attributes>
+		</class>
+		<class name="CODE_LIBRARY" label="字典表" keyAttributes="CODENO,ITEMNO">
+			<attributes>
+				<attribute name="CODENO" label="代码编号" type="STRING" length="32" />
+				<attribute name="ITEMNO" label="项目编号" type="STRING" length="32" />
+				<attribute name="ITEMNAME" label="项目名" type="STRING" length="32" />
+				<attribute name="BANKNO" label="征信代码" type="STRING" length="32" />
+				<attribute name="SORTNO" label="排序号" type="STRING" length="32" />
+				<attribute name="ISINUSE" label="是否使用" type="STRING" length="8" />
+				<attribute name="ITEMDESCRIBE" label="项目描述" type="STRING" length="64" />
+				<attribute name="ITEMATTRIBUTE" label="项目属性" type="STRING" length="64" />
+				<attribute name="RELATIVECODE" label="关联代码" type="STRING" length="32" />
+				<attribute name="ATTRIBUTE1" label="属性1" type="STRING" length="32" />
+				<attribute name="ATTRIBUTE2" label="属性2" type="STRING" length="32" />
+				<attribute name="ATTRIBUTE3" label="属性3" type="STRING" length="32" />
+				<attribute name="ATTRIBUTE4" label="属性4" type="STRING" length="32" />
+				<attribute name="ATTRIBUTE5" label="属性5" type="STRING" length="32" />
+				<attribute name="ATTRIBUTE6" label="属性6" type="STRING" length="32" />
+				<attribute name="ATTRIBUTE7" label="属性7" type="STRING" length="32" />
+				<attribute name="ATTRIBUTE8" label="属性8" type="STRING" length="32" />
+				<attribute name="HELPTEXT" label="帮助文本" type="STRING" length="32" />
+				<attribute name="REMARK" label="备注" type="STRING" length="32" />
+				<attribute name="INPUTUSER" label="登记人员" type="STRING" length="32" />
+				<attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+				<attribute name="INPUTTIME" label="登记时间" type="STRING" length="32" />
+				<attribute name="UPDATEUSER" label="更新人员" type="STRING" length="32" />
+				<attribute name="UPDATETIME" label="更新时间" type="STRING" length="32" />
+			</attributes>
+		</class>
+		<class name="DATAOBJECT_CATALOG" label="业务场景" keyAttributes="DONO">
+			<attributes>
+				<attribute name="DONO" label="所属DATAOBJECT_CATALOG编号" type="STRING" length="32" />
+				<attribute name="DONAME" label="名称" type="STRING" length="80" />
+				<attribute name="DOCLASS" label="分类" type="STRING" length="32" />
+				<attribute name="DODESCRIBE" label="描述" type="STRING" length="32" />
+				<attribute name="DOTYPE" label="用途" type="STRING" length="32" />
+				<attribute name="ISINUSE" label="有效" type="STRING" length="1" />
+				<attribute name="MODEID" label="风格编号" type="STRING" length="32" />
+				<attribute name="COLCOUNT" label="分栏数" type="INT"/>
+				<attribute name="JBOCLASS" label="JBO定义表名" type="STRING" length="200" />
+				<attribute name="JBOWHERE" label="查询条件" type="STRING" length="200" />
+				<attribute name="JBOFROM" label="from" type="STRING" length="1000" />
+				<attribute name="JBOGROUP" label="分组" type="STRING" length="1000" />
+				<attribute name="JBOORDER" label="排序" type="STRING" length="1000" />
+				<attribute name="BUSINESSPROCESS" label="业务模型" type="STRING" length="1000" />
+				<attribute name="REMARK" label="备注" type="STRING" length="4000" />
+				<attribute name="EXPORTFLAG" label="导出状态位" type="STRING" length="32" />
+				<attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+				<attribute name="INPUTTIME" label="登记时间" type="STRING" length="32" />
+				<attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+				<attribute name="UPDATETIME" label="更新时间" type="STRING" length="32" />
+				<attribute name="ISVALIDATE" label="是否启用校验" type="STRING" length="1" />
+				<attribute name="PARENT" label="父模版" type="STRING" length="1" />
+			</attributes>
+			<manager>
+	        <managerProperties>
+	          <property name="table" value="AWE_DO_CATALOG" />
+	        </managerProperties>
+	      </manager>
+		</class>
+		<class name="DATAOBJECT_LIBRARY" label="字段信息" keyAttributes="DONO,COLINDEX">
+			<attributes>
+				<attribute name="DONO" label="所属DATAOBJECT_CATALOG编号" type="STRING" length="32" />
+				<attribute name="COLINDEX" label="序号" type="STRING" length="32" />
+				<attribute name="SORTNO" label="排序号" type="STRING" length="32" />
+				<attribute name="COLHEADER" label="中文显示" type="STRING" length="80" />
+				<attribute name="COLUNIT" label="显示后缀" type="STRING" length="250" />
+				<attribute name="COLNAME" label="使用名" type="STRING" length="80"/>
+				<attribute name="COLTABLENAME" label="表名" type="STRING" length="80" />
+				<attribute name="COLACTUALNAME" label="列名" type="STRING" length="200" />
+				<attribute name="ISAUTOCOMPLETE" label="是否自动完成" type="STRING" length="1" />
+				<attribute name="COLFILTERREFID" label="关联的实际字段" type="STRING" length="200" />
+				<attribute name="ISFILTER" label="查询" type="STRING" length="1" />
+				<attribute name="COLTYPE" label="值类型" type="STRING" length="18" />		
+				<attribute name="COLDEFAULTVALUE" label="缺省值" type="STRING" length="80" />
+				<attribute name="COLCOLUMNTYPE" label="是否Sum" type="STRING" length="18" />
+				<attribute name="ISINUSE" label="有效" type="STRING" length="1" />
+				<attribute name="COLCHECKFORMAT" label="特殊输入格式" type="STRING" length="18" />
+				<attribute name="COLALIGN" label="对齐" type="STRING" length="32" />
+				<attribute name="COLEDITSTYLE" label="编辑形式" type="STRING" length="18" />
+				<attribute name="COLEDITSOURCETYPE" label="下拉框来源" type="STRING" length="18" />
+				<attribute name="COLEDITSOURCE" label="来源描述" type="STRING" length="250" />
+				<attribute name="COLHTMLSTYLE" label="HTML格式" type="STRING" length="250" />
+				<attribute name="COLLIMIT" label="长度" type="STRING" length="18" />
+				<attribute name="COLFILTERATTRS" label="虚拟字段查询" type="STRING" length="255" />
+				<attribute name="COLVISIBLE" label="可见" type="STRING" length="18" />
+				<attribute name="COLREADONLY" label="只读" type="STRING" length="18" />
+				<attribute name="COLREQUIRED" label="必需" type="STRING" length="18" />
+				<attribute name="COLSORTABLE" label="可排序" type="STRING" length="18" />
+				<attribute name="GROUPID" label="所属组" type="STRING" length="32" />
+				<attribute name="COLSPAN" label="跨几栏" type="INT"/>
+				<attribute name="ISAUDIT" label="是否审计" type="STRING" length="1"/>
+				<attribute name="INPUTTIME" label="输入时间" type="STRING" length="20"/>
+				<attribute name="UPDATETIME" label="更新时间" type="STRING" length="20"/>
+				<attribute name="UPDATEUSER" label="更新人" type="STRING" length="32"/>
+				<attribute name="INPUTUSER" label="输入人" type="STRING" length="32"/>
+				<attribute name="ISUPDATE" label="是否已更新" type="STRING" length="32"/>
+				<attribute name="PARENTCOLINDEX" label="父序号" type="STRING" length="32"/>
+				<attribute name="TIPS" label="提示" type="STRING" length="250"/>
+			</attributes>
+			<manager>
+	        <managerProperties>
+	          <property name="table" value="AWE_DO_LIBRARY" />
+	        </managerProperties>
+	      </manager>
+		</class>
+		<class name="DATAOBJECT_JS_FUNCTION" label="通用js方法" keyAttributes="FUNCTIONNAME">
+	      <attributes>
+	        <attribute name="FUNCTIONNAME" label="函数名" type="STRING" length="32" />
+	        <attribute name="FUNCTIONPARAMS" label="函数参数" type="STRING" length="100" />
+	        <attribute name="INVOKEEXAMPLE" label="函数示例" type="STRING" length="100" />
+	        <attribute name="FUNCTIONTYPE" label="函数分类" type="STRING" length="32" />
+	        <attribute name="ISINUSE" label="是否使用" type="STRING" length="1" />
+	        <attribute name="FUNCTIONDESC" label="函数描述" type="STRING" length="250" />
+	        <attribute name="INPUTUSER" label="输入者" type="STRING" length="32" />
+	        <attribute name="INPUTTIME" label="输入时间" type="STRING" length="20" />
+	        <attribute name="UPDATEUSER" label="修改者" type="STRING" length="32" />
+	        <attribute name="UPDATETIME" label="修改时间" type="STRING" length="20" />
+	      </attributes>
+	      <manager>
+	        <managerProperties>
+	          <property name="table" value="AWE_DO_JS_FUNCTION" />
+	        </managerProperties>
+	      </manager>
+	    </class>
+		<class name="DATAOBJECT_FUNCTION" label="脚本方法" keyAttributes="FUNCTIONNAME,DONO">
+			<attributes>
+				<attribute name="FUNCTIONNAME" label="方法名" type="STRING" length="80" />
+				<attribute name="DONO" label="所属DATAOBJECT_CATALOG编号" type="STRING" length="32" />
+				<attribute name="FUNCTIONPARAMS" label="方法参数" type="STRING" length="400" />
+				<attribute name="FUNCTIONBODY" label="方法体" type="STRING" length="4000" />
+				<attribute name="FUNCTIONDESC" label="方法描述" type="STRING" length="255" />
+				<attribute name="ISINUSE" label="是否使用" type="STRING" length="1" />
+				<attribute name="INPUTTIME" label="输入时间" type="STRING" length="20"/>
+				<attribute name="UPDATETIME" label="更新时间" type="STRING" length="20"/>
+				<attribute name="UPDATEUSER" label="更新人" type="STRING" length="32"/>
+				<attribute name="INPUTUSER" label="输入人" type="STRING" length="32"/>
+			</attributes>
+			<manager>
+	        <managerProperties>
+	          <property name="table" value="AWE_DO_FUNCTION" />
+	        </managerProperties>
+	      </manager>
+		</class>
+		<class name="DATAOBJECT_EVENT" label="字段事件" keyAttributes="DONO,COLNAME,EVENT">
+			<attributes>
+				<attribute name="DONO" label="DONO" type="STRING" length="32" />
+				<attribute name="COLNAME" label="jbo属性名" type="STRING" length="100" />
+				<attribute name="EVENT" label="事件名" type="STRING" length="32" />
+				<attribute name="SCRIPT" label="事件执行方法" type="STRING" length="200" />
+				<attribute name="EVENTPARAMS" label="方法执行参数" type="STRING" length="400" />
+				<attribute name="INPUTUSER" label="登记人员" type="String" length="32" />
+				<attribute name="INPUTTIME" label="登记时间" type="String" length="32" />
+				<attribute name="UPDATEUSER" label="更新人员" type="String" length="32" />
+				<attribute name="UPDATETIME" label="更新时间" type="String" length="32" />
+				<attribute name="ISINUSE" label="是否使用" type="String" length="32" />
+			</attributes>
+			<manager>
+	        <managerProperties>
+	          <property name="table" value="AWE_DO_EVENT" />
+	        </managerProperties>
+	      </manager>
+		</class>
+		<class name="DATAOBJECT_GROUP" label="分组信息" keyAttributes="DONO,DOCKID">
+			<attributes>
+				<attribute name="DONO" label="所属DATAOBJECT_CATALOG编号" type="STRING" length="32" />
+				<attribute name="DOCKID" label="DOCKID" type="STRING" length="32" />
+				<attribute name="DOCKNAME" label="所属DATAOBJECT_CATALOG名称" type="STRING" length="32" />
+				<attribute name="SORTNO" label="排序号" type="STRING" length="32" />
+				<attribute name="GROUPHEAD" label="分组头" type="STRING" length="4000" />
+				<attribute name="GROUPFOOT" label="分组尾巴" type="STRING" length="4000" />
+				<attribute name="GROUPBODY" label="分组体" type="STRING" length="4000" />
+				<attribute name="COLCOUNT" label="每行列数" type="INT"/>
+				<attribute name="STYLEID" label="使用样式编号" type="STRING" length="32" />
+				<attribute name="ISEXPAND" label="分组是否展开" type="STRING" length="1" />
+				<attribute name="GROUPBODY1" label="分组体1" type="STRING" length="4000" />
+				<attribute name="GROUPBODY2" label="分组体2" type="STRING" length="4000" />
+				<attribute name="INPUTTIME" label="输入时间" type="STRING" length="20" />
+				<attribute name="INPUTUSER" label="输入人" type="STRING" length="32" />
+				<attribute name="UPDATETIME" label="修改时间" type="STRING" length="20" />
+				<attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+				<attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+			</attributes>
+			<manager>
+	        <managerProperties>
+	          <property name="table" value="AWE_DO_GROUP" />
+	        </managerProperties>
+	      </manager>
+		</class>
+		<class name="DATAOBJECT_MODES" label="样式表" keyAttributes="MODEID">
+			<attributes>
+				<attribute name="MODEID" label="编号" type="STRING" length="32"/>
+				<attribute name="GROUPHEAD" label="分组头信息" type="STRING" length="2000"/>
+				<attribute name="GROUPFOOT" label="分组尾信息" type="STRING" length="1000"/>
+				<attribute name="MODENAME" label="样式名" type="STRING" length="80"/>
+				<attribute name="MODEDESC" label="样式描述" type="STRING" length="400"/>
+				<attribute name="GROUPBODY1" label="分组体1" type="STRING" length="2000"/>
+				<attribute name="GROUPBODY2" label="分组体2" type="STRING" length="4000"/>
+				<attribute name="COLCOUNT" label="分栏数" type="INT"/>
+				<attribute name="HTMLHEAD" label="分组尾信息" type="STRING" length="1000"/>
+				<attribute name="HTMLFOOT" label="分组尾信息" type="STRING" length="1000"/>
+				<attribute name="CONTROLHEAD" label="控制头文件地址" type="STRING" length="200"/>
+				<attribute name="CONTROLFOOT" label="控制尾文件地址" type="STRING" length="200"/>
+			</attributes>
+			<manager>
+	        <managerProperties>
+	          <property name="table" value="AWE_DO_MODES" />
+	        </managerProperties>
+	      </manager>
+		</class>
+		<class name="DATAOBJECT_VALIDATE_CATALOG" label="数据验证业务分类" keyAttributes="CATALOGNO">
+			<attributes>
+				<attribute name="CATALOGNO" label="分类编号" type="STRING" length="32" />
+				<attribute name="CATALOGTITLE" label="分类标题" type="STRING" length="80" />
+				<attribute name="SORTNO" label="排序号" type="STRING" length="32" />
+				<attribute name="ISINUSE" label="是否使用" type="STRING" length="1" />
+				<attribute name="ATTRIBUTE1" label="参数1" type="STRING" length="32" />
+				<attribute name="ATTRIBUTE2" label="参数2" type="STRING" length="32" />
+				<attribute name="ATTRIBUTE3" label="参数3" type="STRING" length="32" />
+				<attribute name="ATTRIBUTE4" label="参数4" type="STRING" length="32" />
+				<attribute name="ATTRIBUTE5" label="参数5" type="STRING" length="255" />
+				<attribute name="ATTRIBUTE6" label="参数6" type="STRING" length="255" />
+				<attribute name="ATTRIBUTE7" label="参数7" type="STRING" length="400" />
+				<attribute name="ATTRIBUTE8" label="参数8" type="STRING" length="400" />
+			</attributes>
+			<manager>
+	        <managerProperties>
+	          <property name="table" value="AWE_DO_VALIDATE_CATALOG" />
+	        </managerProperties>
+	      </manager>
+		</class>  
+		<class name="DATAOBJECT_VALIDATE" label="数据验证类" keyAttributes="VALIDATORNAME">
+			<attributes>
+				<attribute name="VALIDATORNAME" label="验证名" type="STRING" length="32" />
+				<attribute name="VALIDATORTITLE" label="验证描述" type="STRING" length="80" />
+				<attribute name="VALIDATORTYPE" label="验证类型" type="STRING" length="32" />
+				<attribute name="BUSINESSTYPE" label="业务分类" type="STRING" length="32" />
+				<attribute name="VALIDATORTITLE" label="验证描述" type="STRING" length="80" />
+				<attribute name="ERRMSG" label="出错信息" type="STRING" length="100" />
+				<attribute name="CONTROLTO" label="对应控件名" type="STRING" length="32" />
+				<attribute name="REGULAR" label="规则" type="STRING" length="200"/>
+				<attribute name="CUSFUNCTION" label="方法" type="STRING" length="80" />
+				<attribute name="COMPARETO" label="比较控件" type="STRING" length="80" />
+				<attribute name="MINVALUE" label="最小值" type="STRING" length="32" />
+				<attribute name="MAXVALUE" label="最大值" type="STRING" length="32" />
+				<attribute name="INPUTTIME" label="输入时间" type="STRING" length="20" />
+				<attribute name="ISSYSTEM" label="系统保留" type="STRING" length="1" />
+				<attribute name="COMPAREOBJ" label="有条件比较对象" type="STRING" length="32" />
+			</attributes>
+			<manager>
+	        <managerProperties>
+	          <property name="table" value="AWE_DO_VALIDATE" />
+	        </managerProperties>
+	      </manager>
+		</class>
+		<class name="DATAOBJECT_COL_VALIDATE" label="字段验证规则" keyAttributes="SERIALNO">
+			<attributes>
+				<attribute name="SERIALNO" label="验证名" type="STRING" length="32" />
+				<attribute name="DONO" label="DONO" type="STRING" length="32" />
+				<attribute name="COLNAME" label="jbo属性名" type="STRING" length="100" />
+				<attribute name="VALIDATORNAME" label="对应验证规则" type="STRING" length="32" />
+				<attribute name="PARAM1" label="参数1" type="STRING" length="200"/>
+				<attribute name="PARAM2" label="参数2" type="STRING" length="200"/>
+				<attribute name="PARAM3" label="参数3" type="STRING" length="400"/>
+				<attribute name="PARAM4" label="参数4" type="STRING" length="400"/>
+				<attribute name="PARAM5" label="参数5" type="STRING" length="200"/>
+				<attribute name="PARAM6" label="参数6" type="STRING" length="200"/>
+				<attribute name="PARAM7" label="参数7" type="STRING" length="200"/>
+				<attribute name="PARAM8" label="参数8" type="STRING" length="200"/>
+				<attribute name="PARAM9" label="参数9" type="STRING" length="200"/>
+				<attribute name="PARAM10" label="参数10" type="STRING" length="200"/>
+				<attribute name="USESTATUS" label="编辑状态" type="STRING" length="32" />
+				<attribute name="ISINUSE" label="是否使用" type="STRING" length="1"/>
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="table" value="AWE_DO_COL_VALIDATE" />
+					<property name="createKey" value="true" />
+				</managerProperties>
+			</manager>
+		</class>
+		<class name="DATAOBJECT_COL_VALID" label="字段验证规则[适用于datawindow,非objectwindow]" keyAttributes="SERIALNO">
+			<attributes>
+				<attribute name="SERIALNO" label="验证名" type="STRING" length="32" />
+				<attribute name="DONO" label="DONO" type="STRING" length="32" />
+				<attribute name="COLNAME" label="jbo属性名" type="STRING" length="100" />
+				<attribute name="VALIDATORNAME" label="对应验证规则" type="STRING" length="32" />
+				<attribute name="PARAM1" label="参数1" type="STRING" length="200"/>
+				<attribute name="PARAM2" label="参数2" type="STRING" length="200"/>
+				<attribute name="PARAM3" label="参数3" type="STRING" length="400"/>
+				<attribute name="PARAM4" label="参数4" type="STRING" length="400"/>
+				<attribute name="PARAM5" label="参数5" type="STRING" length="200"/>
+				<attribute name="PARAM6" label="参数6" type="STRING" length="200"/>
+				<attribute name="PARAM7" label="参数7" type="STRING" length="200"/>
+				<attribute name="PARAM8" label="参数8" type="STRING" length="200"/>
+				<attribute name="PARAM9" label="参数9" type="STRING" length="200"/>
+				<attribute name="PARAM10" label="参数10" type="STRING" length="200"/>
+				<attribute name="USESTATUS" label="编辑状态" type="STRING" length="32" />
+				<attribute name="ISINUSE" label="是否使用" type="STRING" length="1"/>
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="table" value="DATAOBJECT_COL_VALID" />
+					<property name="createKey" value="true" />
+				</managerProperties>
+			</manager>
+		</class>
+		<class name="AWE_DW_CONTEXT" label="显示模板环境" keyAttributes="SERIALNO">
+			<attributes>
+				<attribute name="SERIALNO" label="自动编号" type="STRING" length="32" />
+				<attribute name="OBJECTTYPE" label="对象类型" type="STRING" length="32" />
+				<attribute name="OBJECTNO" label="对象名" type="STRING" length="32" />
+				<attribute name="CONTENT" label="内容" type="STRING" length="4000" />
+			</attributes>
+			<manager>
+	        <managerProperties>
+	          <property name="table" value="AWE_DW_CONTEXT" />
+	          <property name="createKey" value="true" />
+	        </managerProperties>
+	      </manager>
+		</class>
+		<class name="DATAOBJECT_KEYFILTER" label="关键字查询" keyAttributes="SERIALNO">
+			<attributes>
+				<attribute name="SERIALNO" label="自动编号" type="STRING" length="32" />
+				<attribute name="DONO" label="验证类型" type="STRING" length="32" />
+				<attribute name="COLNAME" label="字段名" type="STRING" length="32" />
+				<attribute name="TRADEKEY" label="关键字" type="STRING" length="32" />
+				<attribute name="TRADEVALUE" label="值" type="STRING" length="80"/>
+				<attribute name="TITLE" label="标题" type="STRING" length="32" />
+				<attribute name="HIT" label="点击次数" type="LONG"/>
+			</attributes>
+			<manager>
+	        <managerProperties>
+	          <property name="table" value="AWE_DO_KEYFILTER" />
+	        </managerProperties>
+	      </manager>
+		</class>
+		
+	</package>	
+</jbo>

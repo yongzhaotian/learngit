@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="GB2312"?>
+<jbo>
+	<managers>
+		<!--典型的ALS实时接口大部分交易是从BUSINESS_PUTOUT来获取信息，可以全局的设置缺省数据库和表  -->
+        <manager id="jbo.oti" managerClass="com.amarsoft.are.jbo.impl.ALSBizObjectManager">
+            <describe>缺省的通用状态Object管理器</describe>
+            <managerProperties>
+                <property name="database" value="als"/>
+                <property name="table" value="BUSINESS_PUTOUT" />
+            </managerProperties>
+        </manager>
+	</managers>
+	<package name="jbo.oti">
+		<class name="DMRequestHeader" label="报文头" describe="DM通用报文头"  keyAttributes="TradeNo" briefAttributes="TradeNo">
+			<attributes>
+				<attribute name="TradeNo" label="交易代码" type="STRING" length="4"/>
+				<attribute name="SendTime" label="发送时间" type="DATE" length="14">
+					<extendProperties>
+						<property name="autoSetTimeStamp" value="true"/>
+						<property name="format" value="yyyyMMddHHmmss"/>
+					</extendProperties>
+				</attribute>
+				<attribute name="SubSystem" label="系统标识" type="STRING" length="2" defaultValue="01"/>
+				<attribute name="RspCode" label="错误代码" type="STRING" length="4" defaultValue="0000"/>
+				<attribute name="RspMsg" label="错误信息" type="STRING" length="40"/>
+			</attributes>
+		</class>
+		
+		<class name="DMResponseHeader" label="反馈报文头" describe="DM通用反馈报文头">
+			<attributes>
+				<attribute name="TradeNo" label="交易代码" type="STRING" length="4"/>
+				<attribute name="SendTime" label="发送时间" type="DATE" length="14">
+					<extendProperties>
+						<property name="format" value="yyyyMMddHHmmss"/>
+					</extendProperties>
+				</attribute>
+				<attribute name="SubSystem" label="系统标识" type="STRING" length="2"/>
+				<attribute name="RspCode" label="错误代码" type="STRING" length="4"/>
+				<attribute name="RspMsg" label="错误信息" type="STRING" length="40"/>
+			</attributes>
+		</class>
+		
+        <class name="DKBody" label="报文体" describe="贷款发放信息报文体" keyAttributes="SerialNo" briefAttributes="SerialNo,ContractSerialNo">
+           <attributes>
+			    <attribute name="SerialNo"          label="出账流水号"     type="STRING" length="20"/>           
+			    <attribute name="ContractSerialNo"  label="合同流水号"     type="STRING" length="20"/>           
+			    <attribute name="ArtificialNo"      label="合同号"         type="STRING" length="20"/>
+			    <attribute name="CustomerId"        label="客户号"         type="STRING" length="20"/>
+			    <attribute name="CustomerName"      label="客户名称"       type="STRING" length="40"/>
+			    <attribute name="BusinessType"      label="业务品种"       type="STRING" length="10"/>
+			    <attribute name="BusinessCurrency"  label="业务币种"       type="STRING" length="10"/>
+			    <attribute name="PutOutDate"        label="起贷日"	      type="DATE" length="10"/>
+			    <attribute name="Maturity"          label="到期日"	      type="DATE" length="10"/>
+			    <attribute name="VouchType"         label="担保方式"       type="STRING" length="10"/>
+			    <attribute name="CreditKind"        label="贷款形式"       type="STRING" length="3"/>
+			    <attribute name="ICType"            label="计息方式"       type="STRING" length="3"/>
+			    <attribute name="ContractSum"       label="合同金额"       type="DOUBLE" length="16"/>
+			    <attribute name="BusinessSum"       label="借据金额"       type="DOUBLE" length="16"/>
+			    <attribute name="AccountNo"         label="结算帐号"       type="STRING" length="32"/>
+			    <attribute name="BusinessRate"      label="贷款利率"       type="DOUBLE" length="10">
+			    	<extendProperties><property name="format" value="0.000000"/></extendProperties>
+			    </attribute>
+			    <attribute name="BaseRate"          label="基准利率"       type="DOUBLE" length="10">
+			    	<extendProperties><property name="format" value="0.000000"/></extendProperties>
+			    </attribute>
+			    <attribute name="OccurType" label="发生方式"  type="STRING"  length="20" format="" />	
+			</attributes>
+   		</class>
+   		
+   		<!-- add by qfang 2011-6-21 -->
+   		<class	name="PaymentBody" label="报文体" describe="支付信息报文体">
+   			<attributes>
+   				<attribute name="SerialNo"			label="支付编号"		type="STRING" 	length="20"/>
+   				<attribute name="PutOutSerialNo"	label="放款编号"		type="STRING"	length="20"/>
+   				<attribute name="CustomerID"		label="客户编号"		type="STRING"	length="32"/>
+   				<attribute name="CustomerName"		label="客户名称"		type="STRING"	length="80"/>
+   				<attribute name="PaymentMode"		label="支付方式"		type="STRING"	length="10"/>		
+   				<attribute name="PaymentDate"		label="支付日期"		type="STRING"	length="10"/>
+   				<attribute name="PayeeName"			label="收款人名称"	type="STRING"	length="32"/>
+   				<attribute name="PayeeBank"			label="开户银行"		type="STRING"	length="32"/>
+   				<attribute name="PayeeAccount"		label="收款人账户"	type="STRING"	length="20"/>
+   				<attribute name="Currency"			label="币种" 		type="STRING"	length="4"/>
+   				<attribute name="PaymentSum"		label="支付金额"	 	type="DOUBLE"	length="16"/>
+   				<attribute name="CapitalUse"		label="资金用途"	 	type="STRING"	length="200"/>   				
+   			</attributes>
+   			<manager>
+                <managerProperties>
+                   <property name="database" value="als"/>
+                   <property name="table" value="PAYMENT_INFO" />
+                </managerProperties>
+            </manager>
+   		</class>
+   		<!-- add end -->
+		
+	    <class name="ZQBody" label="报文体" describe="贷款展期信息报文体">
+	        <attributes>
+			    <attribute name="SerialNo"          label="出账流水号"     type="STRING" length="20"/>           
+			    <attribute name="DuebillSerialNo"   label="借据号"        type="STRING" length="20"/>           
+			    <attribute name="CustomerId"        label="客户号"        type="STRING" length="20"/>
+			    <attribute name="ArtificialNo"      label="合同号"        type="STRING" length="20"/>
+			    <attribute name="Maturity"          label="展期到期日"	 type="DATE" length="10" />
+			    <attribute name="BusinessRate"      label="展期年利率"     type="DOUBLE" length="10">
+			    	<extendProperties><property name="format" value="0.000000"/></extendProperties>
+			    </attribute>	
+			    <attribute name="RateFloatType"     label="浮动方式"       type="STRING" length="3"/>
+			    <attribute name="RateFloat"         label="展期浮动比率/点" type="DOUBLE" length="10">
+			  	  	<extendProperties><property name="format" value="0.000000"/></extendProperties>
+			    </attribute>
+		    </attributes>
+		</class>
+		
+	    <class name="CDBody" label="报文体" describe="承兑汇票出账信息报文体">
+	        <attributes>
+			    <attribute name="SerialNo"          label="出账流水号"     type="STRING" length="20"/>           
+			    <attribute name="ContractSerialNo"  label="承兑协议流水号"  type="STRING" length="20"/>           
+			    <attribute name="ArtificialNo"      label="合同号"         type="STRING" length="20"/>
+			    <attribute name="CustomerId"        label="客户号"         type="STRING" length="20"/>
+			    <attribute name="AccountNo"         label="结算帐号"       type="STRING" length="32" />
+			    <attribute name="PutOutDate"        label="签发日"	      type="DATE" length="10" />
+			    <attribute name="Maturity"          label="到期日"	      type="DATE" length="10" />
+			    <attribute name="CorpusPayMethod"   label="保证金到期扣款顺序" type="STRING" length="3"/>
+			    <attribute name="SecondPayAccount"  label="出票人帐号"       type="STRING" length="32"/>
+			    <attribute name="GatheringName"     label="收款人户名"       type="STRING" length="40"/>
+			    <attribute name="AboutBankName"     label="收款行行名"       type="STRING" length="40"/>
+			    <attribute name="BusinessSum"       label="汇票金额"       type="DOUBLE" length="16"/>
+			    <attribute name="BailAccount"       label="保证金帐号"       type="STRING" length="32"/>
+			</attributes>
+		</class>
+		
+		<class name="BHBody" label="报文体" describe="保函出账信息报文体">
+		    <attributes>
+			    <attribute name="SerialNo"          label="出账流水号"     type="STRING" length="20"/>           
+			    <attribute name="BillNo"            label="保函编号"       type="STRING" length="20"/>
+			    <attribute name="BusinessCurrency"  label="业务币种"       type="STRING" length="10"/>
+			    <attribute name="BusinessSum"       label="保函金额"       type="DOUBLE" length="16"/>
+			    <attribute name="PutOutDate"        label="生效日期"	      type="DATE" length="10" />
+			    <attribute name="Maturity"          label="失效日期"	      type="DATE" length="10" />
+			    <attribute name="AboutBankName2"    label="保函受益人"      type="STRING" length="20"/>
+		    </attributes>
+		</class>
+		
+		<class name="TXBody" label="报文体" describe="贴现出账信息报文体">
+		    <attributes>
+			    <attribute name="SerialNo"          label="出账流水号"     type="STRING" length="20"/>
+			    <attribute name="CustomerId"        label="客户号"        type="STRING" length="20"/>
+			    <attribute name="CustomerName"      label="客户名称"       type="STRING" length="40"/>
+			    <attribute name="BusinessCurrency"  label="业务币种"       type="STRING" length="10"/>
+			    <attribute name="BusinessType"      label="贴现业务种类"    type="STRING" length="10"/>
+			    <attribute name="BillNo"            label="票据号码"       type="STRING" length="32" />
+			    <attribute name="BusinessSum"       label="票面金额"       type="DOUBLE" length="16"/>
+			    <attribute name="PutOutDate"        label="起息日"	      type="DATE" length="10" />
+			    <attribute name="Maturity"          label="到期日"	      type="DATE" length="10" />
+			    <attribute name="AcceptIntType"     label="贴现付息方式"    type="STRING" length="3"/>
+			    <attribute name="BillRisk"          label="买方付息比例"    type="INT" length="10"/>
+			    <attribute name="BusinessRate"      label="贴现月利率"      type="DOUBLE" length="10">
+			      	<extendProperties><property name="format" value="0.000000"/></extendProperties>
+			    </attribute>
+			    <attribute name="PdgAccountNo"      label="买方付息帐号"    type="STRING" length="32"/>
+			    <attribute name="AccountNo"         label="结算帐号"       type="STRING" length="32"/>
+			    <attribute name="PdgPayMethod"      label="票据来源"       type="STRING" length="10"/>
+			    <attribute name="FixCyc"            label="调整天数"	      type="INT"  length="10"/>
+		    </attributes>
+		</class>
+		
+		<class name="CXBody" label="报文体" describe="冲销信息报文体">
+		    <attributes>
+			    <attribute name="SeriNo"     label="出账流水号"      type="STRING"  length="20"/>
+			    <attribute name="CustomId"     label="客户号"       type="STRING"  length="21"/>
+			</attributes>
+		</class>
+		
+		<class name="KHBody" label="报文体" describe="客户开户查询请求信息">
+		    <attributes>
+			    <attribute name="CertId"     label="证件号码"       type="STRING"  length="21"/>
+			    <attribute name="CertType"    label="证件类型"       type="STRING" length="20"/>
+			</attributes>
+			<manager>
+                <managerProperties>
+                   <property name="table" value="CUSTOMER_INFO" />
+                </managerProperties>
+            </manager>         					
+		</class>
+		
+		<class name="KHFKBody" label="报文体" describe="客户开户信息查询反馈报文体">
+		    <attributes>
+			    <attribute name="CustomId"    label="核心客户号"     type="STRING" length="30" />
+			    <attribute name="CustName"    label="核心客户名称"    type="STRING" length="40"/>
+			    <attribute name="Type"        label="核心客户类型"    type="STRING" length="1"/>
+			</attributes>
+		    <manager>
+                <managerProperties>
+                </managerProperties>
+            </manager>	  							
+		</class>
+		
+		<class name="JYBody" label="报文体" describe="借据余额查询请求信息">
+		    <attributes>
+			    <attribute name="SerialNo"    label="借据号"       type="STRING"  length="20"/>
+			</attributes>
+		</class>
+		
+	    <class name="JYFKBody" label="报文体" describe="借据余额信息查询反馈报文体">
+	        <attributes>
+	            <attribute name="Balance"    label="借据余额"     type="DOUBLE" length="15" /> 
+			</attributes> 
+		</class>	
+		
+		<class name="OccurType" label="发生方式" describe="发生方式定义" keyAttributes="SerialNo" briefAttributes="SerialNo">
+		    <attributes>
+			    <attribute name="SerialNo"  label="流水号"   type="STRING" length="20" format="" />
+			    <attribute name="OccurType" label="发生方式"  type="STRING"  length="20" format="" />	
+		    </attributes>
+			<manager>
+                <managerProperties>
+                   <property name="database" value="als"/>
+                   <property name="table" value="BUSINESS_CONTRACT" />
+                </managerProperties>
+            </manager>   	
+		</class>
+		
+		<class name="BusinessType" label="业务类型" describe="业务类型定义" keyAttributes="TypeNo" briefAttributes="TypeNo">
+			<attributes>
+			    <attribute name="TypeNo"       label="业务类型" type="STRING" length="20" format="" />
+			    <attribute name="Attribute13" label="出账交易类型" type="STRING"  length="20" format="" />
+			    <attribute name="Attribute14" label="冲销交易类型" type="STRING"  length="20" format="" />
+			    <!-- add by qfang 2011-6-21 -->
+			    <attribute name="Attribute15" label="支付交易类型" type="STRING"  length="20" format="" />
+			    <!-- add end -->
+			</attributes>
+			<manager>
+                <managerProperties>
+                   <property name="database" value="als"/>
+                   <property name="table" value="BUSINESS_TYPE" />
+                </managerProperties>
+            </manager>					
+		</class>
+		
+		<class name="DuebillNo" label="借据号" describe="借据号" keyAttributes="SerialNo" briefAttributes="SerialNo">
+			<attributes>
+			    <attribute name="SerialNo"       label="流水号" type="STRING" length="20" format="" />
+			    <attribute name="ObjectNo"       label="对象号" type="STRING"  length="20" format="" />
+			</attributes>
+			<manager>
+                <managerProperties>
+                   <property name="database" value="als"/>
+                   <property name="table" value="CONTRACT_RELATIVE" />
+                </managerProperties>
+            </manager>					
+		</class>
+		
+		<class name="PutOut" label="放款信息" describe="放款信息" keyAttributes="SerialNo" briefAttributes="SerialNo">
+			<attributes>
+			    <attribute name="SerialNo"          label="出账流水号"     type="STRING" length="20"/>           
+			    <attribute name="DuebillSerialNo"   label="借据号"        type="STRING" length="20"/>           
+			    <attribute name="CustomerId"        label="客户号"        type="STRING" length="20"/>
+			    <attribute name="ArtificialNo"      label="合同号"        type="STRING" length="20"/>
+			    <attribute name="Maturity"          label="展期到期日"	 type="DATE" length="10" />
+			    <attribute name="BusinessRate"      label="展期年利率"     type="DOUBLE" length="10">
+			    	<extendProperties><property name="format" value="0.000000"/></extendProperties>
+			    </attribute>	
+			    <attribute name="RateFloatType"     label="浮动方式"       type="STRING" length="3"/>
+			    <attribute name="RateFloat"         label="展期浮动比率/点" type="DOUBLE" length="10">
+			  	  	<extendProperties><property name="format" value="0.000000"/></extendProperties>
+			    </attribute>
+			    <attribute name="ContractSerialNo"  label="合同流水号"        type="STRING" length="20"/> 
+			</attributes>			    
+			<manager>
+                <managerProperties>
+                   <property name="database" value="als"/>
+                   <property name="table" value="BUSINESS_PUTOUT" />
+                </managerProperties>
+            </manager>					
+		</class>
+		
+		<!-- CUSTOMER_INFO不是交易对象定义的一部分，是辅助的业务对象，为DEMO而设置，实际系统中不需要这个对象 -->
+		<class name="CUSTOMER_INFO" label="客户信息" describe="虚拟客户信息对象">
+			<attributes>
+			    <attribute name="CustomerId"    label="信贷客户号"     type="STRING" length="30" />
+			    <attribute name="CustomerName"    label="信贷客户名称"    type="STRING" length="40"/>
+			    <attribute name="CertType"        label="证件类型"    type="STRING" length="20"/>
+			    <attribute name="CertID"        label="证件号码"    type="STRING" length="21"/>
+			</attributes>
+		    <manager>
+                <managerProperties>
+                	<property name="table" value="CUSTOMER_INFO"/>
+                </managerProperties>
+            </manager>	  	
+		</class>
+	</package>
+</jbo>

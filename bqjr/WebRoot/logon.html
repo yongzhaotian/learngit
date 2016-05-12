@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>佰仟金融业务管理系统-登录窗口</title>
+<link rel="stylesheet" type="text/css" href="Resources/ALS7/page.css"/>
+<link rel="shortcut icon" href="favicon.ico" />
+<script type="text/javascript">
+
+function over_change(index,src,clrOver){
+	if (!src.contains(event.fromElement)){ 
+ 		src.style.cursor = 'pointer';
+ 		src.background = clrOver;
+	}
+}
+
+function out_change(index,src,clrIn){
+	if (!src.contains(event.toElement)){
+		src.style.cursor = 'default';
+		src.background = clrIn;
+	}
+}
+
+function chkForm(theForm){
+	//防止拼凑用户名的BUG  add by xhgao 2009/04/03
+    if(theForm.UserID.value.indexOf("=")>0 || theForm.UserID.value.indexOf("'")>0 || theForm.UserID.value.indexOf(" ")>0)
+	{
+	   alert("输入用户名错误");
+	   theForm.UserID.focus();
+	   return false;
+	}
+
+	/*放开下拉选择用户时，此处需注释掉
+    if(theForm.UserID.value.length<1){
+		alert("请输入用户名！");
+		theForm.UserID.focus();
+		return false;
+	}
+	*/
+	if(theForm.Password.value.length<1){
+		alert("请输入密码！");
+		theForm.Password.focus();
+		return false;
+	}
+	writeCookie("UserID",theForm.UserID.value, 240);
+	
+	var ipHost = window.location.host;
+	document.getElementById("ipHost").value = ipHost;
+	return true;
+}
+
+function doSubmit(){
+	//if(chkForm(document.forms("LogonForm"))){
+	var form = document.getElementById("LogonForm");
+	if(chkForm(form)){
+		form.submit();
+        document.getElementById("amarhidden").style.display="";
+	}
+}
+
+function doReset(){
+	document.getElementById("LogonForm").UserID.value="";
+	document.getElementById("LogonForm").Password.value="";
+	document.getElementById("LogonForm").CheckCode.value="";
+}
+
+function pressEnter(arg, e){
+	var e = e || window.event;
+	if(e.keyCode==13){
+		if(arg==3){
+			doSubmit();
+			return false;
+		}
+		else if(arg==0){
+			document.getElementById("LogonForm").UserID.focus();
+		}
+		else if(arg==1){
+			document.getElementById("LogonForm").Password.focus();
+		}
+		else if(arg==2){
+			var checkCode = document.getElementById("LogonForm").CheckCode;
+			if(!checkCode) pressEnter(3, e);
+			else checkCode.focus();
+		}
+	}else{
+		return true;
+	}
+}
+function writeCookie(name, value, hours){
+  var expire = "";
+  if(hours != null){
+    expire = new Date((new Date()).getTime() + hours * 3600000);
+    expire = "; expires=" + expire.toGMTString();
+  }
+  document.cookie = name + "=" + escape(value) + expire;
+}
+function readCookie(name){
+  var cookieValue = "";
+  var search = name + "=";
+  if(document.cookie.length > 0){
+    offset = document.cookie.indexOf(search);
+    if (offset != -1){ 
+      offset += search.length;
+      end = document.cookie.indexOf(";", offset);
+      if (end == -1) end = document.cookie.length;
+      cookieValue = unescape(document.cookie.substring(offset, end))
+    }
+  }
+  return cookieValue;
+}
+
+function myTrim(){
+	var obj = document.getElementById("LogonForm").UserID;
+	obj.value = obj.value.replace(/(^\s*)|(\s*$)/g, "");
+}
+
+function codeRefresh() {
+	
+	var checkCodeImg = document.getElementById("checkCodeImg");
+	checkCodeImg.src = "servlet/checkcode?nocache=" + new Date().getTime();
+	document.getElementById("LogonForm").CheckCode.value="";
+}
+</script>
+</head>
+<body scroll="no"  class="logon_body">
+<form id="LogonForm" name="LogonForm" method="post" action="Logon.jsp" onSubmit="return chkForm(this);">
+
+<input type="hidden" name="ScreenWidth" />
+<input type="hidden" name="iscity" value="ISCITY"/>
+
+<div class="logon" align="center">
+
+<div class="logon_mid_center">
+<!-- <div class="logon_user">选择用户：
+<select id="UserIDSelected" name="UserIDSelected" onKeyPress="javascript:pressEnter(0, event);" class="select_class" >
+        <OPTION value="test88" >test88总行担保品管理员&nbsp;</OPTION>
+  		<OPTION value="test11" >test11支行客户经理&nbsp;</OPTION>
+        <OPTION value="test13" >test13分行客户经理&nbsp;</OPTION>
+        <OPTION value="test15" >test15总行客户经理&nbsp;</OPTION>
+        <OPTION value="test25" >test25支行审查员&nbsp;</OPTION>
+        <OPTION value="test21" >test21分行审查员&nbsp;</OPTION>
+        <OPTION value="test24" >test24总行审查员&nbsp;</OPTION>
+        <OPTION value="test37" >test37支行复核员&nbsp;</OPTION>
+        <OPTION value="test32" >test32分行复核员&nbsp;</OPTION>
+        <OPTION value="test31" >test31分行录入员&nbsp;</OPTION>
+        <OPTION value="test63" >test63总行复核员&nbsp;</OPTION>
+        <OPTION value="test72" >test72总行贷后检查人员&nbsp;</OPTION>
+        <OPTION value="test42" >test42分行审批人&nbsp;</OPTION>
+        <OPTION value="test57" >test57总行审批人&nbsp;</OPTION>
+        <OPTION value="test17" >test17总行分发员&nbsp;</OPTION>
+        <OPTION value="test18" >test18总行委员会委员&nbsp;</OPTION>
+        <OPTION value="test19" >test19总行委员会秘书&nbsp;</OPTION>
+        <OPTION value="test20" >test20总行行长&nbsp;</OPTION>
+        <OPTION value="test44" >test44支行领导&nbsp;</OPTION>
+        <OPTION value="test52" >test52分行领导&nbsp;</OPTION>
+        <OPTION value="test35" >test35总行领导&nbsp;</OPTION>
+        <OPTION value="test50" >test50支行认定员&nbsp;</OPTION>
+        <OPTION value="test51" >test51分行认定员&nbsp;</OPTION>
+        <OPTION value="test53" >test53总行认定员&nbsp;</OPTION>
+        <OPTION value="test99" >test99总行系统管理员&nbsp;</OPTION>
+</select>
+</div> -->
+	<div class="logon_user">用户名ID：<input type="text" name="UserID" onKeyPress="javascript:pressEnter(1, event);" value="" onBlur="javascript:myTrim();" class="input_class"/></div>
+	<!--  <div class="logon_user">密码：<input type="password" name="Password" value="000000als" onKeyPress="javascript:pressEnter(2, event);"  class="input_class"/></div>-->
+	<div class="logon_user">密码：<input type="password" name="Password" onKeyPress="javascript:pressEnter(2, event);"  class="input_class"/></div>
+	<div class="logon_user" style="position: relative;">
+		验证码：<input type="text" id="CheckCode" name="CheckCode" onKeyPress="javascript:pressEnter(3, event);" 
+					class="input_class" style="margin-right: 70px; width: 110px;"/>
+			<img id="checkCodeImg" style="position: absolute; right: 0; bottom: 0; cursor: pointer;" 
+					src="servlet/checkcode" onclick="codeRefresh();" title="点击刷新验证码"/>
+			<input type="hidden" name="ipHost" id="ipHost" value="" />
+	</div>
+ 	<span id='amarhidden' style='display:none'>正在检查用户请稍等.....</span>
+	<div class="logon_button">
+	<input type="button" class="button_submit" onClick="doSubmit()"/>
+	<input type="button" class="button_reset" onClick="doReset()"/>
+	</div>
+	<!-- <div class="logon_user" style="text-align: left;padding-left: 30%;"><a href="Setup20140317.msi.zip" target="_self" style="color: #576e94; ">下载影像</a></div> -->
+	<script>
+   	function change(obj){
+   		var style = obj.style;
+		window.status='';
+   	}
+  	</script>
+                   
+    </div>
+    
+        </div>	
+<div class="logon_footer">
+   <div></div>
+    </div>
+    
+</div>
+   
+</form>
+<a class="logon_sysstyle" href="javascript:void(0)"></a>
+
+</body>
+</html>
+<script type="text/javascript">
+var LogonForm = document.getElementById('LogonForm');
+LogonForm.UserID.value=readCookie("UserID");
+/* LogonForm.UserIDSelected.value=readCookie("UserIDSelected"); */
+LogonForm.UserID.focus();
+LogonForm.ScreenWidth.value=screen.availWidth;
+</script>

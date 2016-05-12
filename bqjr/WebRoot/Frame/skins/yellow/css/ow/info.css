@@ -1,0 +1,50 @@
+@charset "gb2312";
+.info_group_backgourd_l{
+	background-image: url(../../images/ow/tit-left.png);
+}
+.info_group_backgourd_r{
+	background-image: url(../../images/ow/tit-right.png);
+}
+.info_group_backgourd_2 {
+	background-image: url(../../images/ow/tit-bg.png);
+	background-color: #ffefce;
+}
+.info_bottom_line_left{ 
+	background-image: url(../../images/ow/bottom-xian.png);
+}
+.info_bottom_line_right{ 
+	background-image: url(../../images/ow/bottom-xian.png);
+}
+.info_2side_border, .info_group_table {
+	border-color: #e3d19f;
+}
+.info_td_left { 
+	background-color: #fff5d8;
+	border-color: #e3d19f;
+}
+.info_mid_line, .info_td_left_even, .info_td_right, .info_td_right_even {
+	border-color: #e3d19f;
+}
+input[type="text"]{
+	border-color: #e3d19f;
+}
+/*simple风格info界面样式*/
+.info_group_title_div_simple{
+    z-index:999;
+    margin-bottom:-1px; 
+    position:relative;
+}
+.info_group_backgourd_l_simple{
+	 background:url(../../images/simple/info_group_backgourd_l.png) no-repeat right;
+   }
+.info_group_backgourd_r_simple{ 
+     background:url(../../images/simple/info_group_backgourd_r.png) no-repeat left;
+    }
+.info_group_title_simple{
+	 background:url(../../images/simple/info_group_backgourd_m.png) repeat-x;
+	 color:#d56400;
+	 
+	}
+.info_group_body_simple{
+	border-color:#dbc178;
+	}

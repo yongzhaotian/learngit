@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>查看原文件</TITLE>
+</HEAD>
+<BODY>
+<TEXTAREA ID="testSource"  NAME="testSource" ROWS="42" COLS="132"></TEXTAREA>
+<SCRIPT type="text/javascript">
+<!--
+try{
+	var dialogData = window.dialogArguments;
+	if(typeof(document.getElementById("testSource").innerText)!="undefined") 
+		document.getElementById("testSource").innerText = dialogData.innerHTML;
+	else
+	   document.getElementById("testSource").innerHTML = dialogData.innerHTML;
+}catch(e){
+	alert("出现错误："+e.message());
+}
+//-->
+</SCRIPT>
+</BODY>
+</HTML>

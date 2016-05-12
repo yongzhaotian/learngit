@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="GB18030" ?>
+<jbo>
+    <package name="jbo.sample">
+        <class name="DEMO_EMPLOYEE" label="员工" keyAttributes="EmployeeID" briefAttributes="EmployeeID">
+            <attributes>
+                <attribute name="EmployeeID" label="员工编号" type="STRING" length="40"/>
+                <attribute name="PID" label="身份证号码" type="STRING" length="18"/>
+                <attribute name="EmployeeName" label="姓名" type="STRING" length="80"/>
+                <attribute name="Sex" label="性别" type="STRING" length="8"/>
+                <attribute name="Birthday" label="生日" type="STRING" length="10"/>
+                <attribute name="Education" label="学历" type="STRING" length="8"/>
+                <attribute name="WorkYear" label="工作年份" type="INT" length="4"/>
+                <attribute name="Salary" label="工资收入" type="DOUBLE" length="16" scale="2"/>
+                <attribute name="Depart" label="所属部门" type="STRING" length="50"/>
+                <attribute name="EMail" label="邮件地址" type="STRING" length="100"/>
+                <attribute name="AsessResult" label="考核结果" type="STRING" length="10"/>
+            </attributes>
+            <manager id="createKey">
+                <managerProperties>
+                    <property name="database" value="a3web" type="STRING"/>
+                    <property name="table" value="EMPLOYEE" type="STRING"/>
+                    <property name="attributeMap" value="{EmployeeName,Name}{depart,department}" type="STRING"/>
+                    <property name="createKey" value="true" type="STRING"/>
+                </managerProperties>
+            </manager>
+        </class>
+        <class name="DEMO_CUSTOMER" label="客户" keyAttributes="CustomerId" briefAttributes="CustomerId">
+            <attributes>
+                <attribute name="CustomerId" label="客户编号" type="STRING" length="40"/>
+                <attribute name="OrgCode" label="组织机构代码" type="STRING" length="20"/>
+                <attribute name="CustomerName" label="企业名称" type="STRING" length="80"/>
+                <attribute name="Address" label="企业地址" type="STRING" length="200"/>
+                <attribute name="CorpLevel" label="企业级别" type="STRING" length="8"/>
+                <attribute name="Industry" label="行业分类" type="STRING" length="8"/>
+                <attribute name="RegisterDate" label="注册日期" type="DATE" length="10"/>
+                <attribute name="RegisterAssets" label="注册资本" type="DOUBLE" length="20" scale="2"/>
+            </attributes>
+        </class>
+        <class name="DEMO_PROJECT" label="项目信息" keyAttributes="ProjectId" briefAttributes="ProjectId">
+            <attributes>
+                <attribute name="ProjectId" label="项目编号" type="STRING" length="40"/>
+                <attribute name="CustomerId" label="客户号" type="STRING" length="40"/>
+                <attribute name="ProjectName" label="项目名称" type="STRING" length="80"/>
+                <attribute name="StartDate" label="启动日期" type="DATE" length="10"/>
+                <attribute name="PlanFinishDate" label="预期完日期" type="DATE" length="10"/>
+                <attribute name="ActualFinishDate" label="实际完成日期" type="DATE" length="10"/>
+                <attribute name="Status" label="当前状态" type="STRING" length="8"/>
+                <attribute name="Manager" label="项目经理" type="STRING" length="20"/>
+                <attribute name="Budget" label="项目预算" type="DOUBLE" length="20" scale="2"/>
+                <attribute name="Memo" label="备注" type="STRING" length="200"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                    <property name="createKey" value="true" type="STRING"/>
+                </managerProperties>
+            </manager>
+        </class>
+        <class name="DEMO_PROJECTMEMBER" label="项目成员表" keyAttributes="ProjectId,EmployeeId" briefAttributes="ProjectId,EmployeeId">
+            <attributes>
+                <attribute name="ProjectId" label="项目编号" type="STRING" length="40"/>
+                <attribute name="EmployeeId" label="员工编号" type="STRING" length="48"/>
+                <attribute name="Position" label="岗位" type="STRING" length="50"/>
+            </attributes>
+        </class>
+        <class name="CUSTOMER_INFO" label="客户信息" keyAttributes="CustomerId">
+            <attributes>
+                <attribute name="CustomerId" label="客户编号" type="STRING" length="40"/>
+				<attribute name="CustomerName" label="客户名称" type="STRING" length="80"/>
+				<attribute name="CustomerType" label="客户类型" type="STRING" length="20"/>
+				<attribute name="CertType" label="证件类型" type="STRING" length="20"/>
+				<attribute name="CertId" label="证件编号" type="STRING" length="40"/>
+				<attribute name="CustomerPassword" label="客户密码" type="STRING" length="20"/>
+				<attribute name="InputOrgId" label="录入机构" type="STRING" length="32"/>
+				<attribute name="InputUserId" label="录入员" type="STRING" length="32"/>
+				<attribute name="InputDate" label="录入日期" type="STRING" length="10"/>
+				<attribute name="Remark" label="备注" type="STRING" length="250"/>
+				<attribute name="MFCustomerId" label="核心客户号" type="STRING" length="40"/>
+				<attribute name="Status" label="状态" type="STRING" length="20"/>
+				<attribute name="BelongGroupId" label="所属集团" type="STRING" length="40"/>
+				<attribute name="Channel" label="客户来源" type="STRING" length="18"/>
+				<attribute name="LoanCardNo" label="贷款卡号" type="STRING" length="32"/>
+				<attribute name="CustomerScale" label="客户规模" type="STRING" length="20"/>
+            </attributes>
+            <manager>
+                <extendProperties>
+                    <property name="table" value="CUSTOMER_INFO" type="STRING"/>
+                </extendProperties>
+            </manager>
+        </class>
+    </package>
+</jbo>

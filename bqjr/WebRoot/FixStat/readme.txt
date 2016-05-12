@@ -1,0 +1,2 @@
+出于网络传输需要，没有将msowc.dll置于fixstat目录中
+使用时不要忘记将msowc.dll拷贝到目录中

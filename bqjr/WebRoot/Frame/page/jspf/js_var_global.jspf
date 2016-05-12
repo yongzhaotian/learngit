@@ -1,0 +1,14 @@
+<%response.setContentType("text/javascript"); 
+%>var sDWResourcePath = "<%=com.amarsoft.awe.dw.ui.util.Const.getDWControlPath(request.getContextPath())%>";
+var Parent_Pre = '<%=com.amarsoft.awe.dw.ui.util.Const.Parent_Pre%>';
+var DisplayFields = new Array();
+
+var bEditHtml = false; 
+var bEditHtmlChange = false;
+var bEditHtmlAutoSave = false;
+
+var DZ = new Array();
+var s_r_c=new Array(); //server row count,add by hxd in 2004/11/08
+var s_p_s=new Array(); 
+var s_p_c=new Array();
+var s_c_p=new Array(); 

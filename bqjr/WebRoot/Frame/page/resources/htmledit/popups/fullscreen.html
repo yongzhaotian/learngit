@@ -1,0 +1,153 @@
+<html>
+<head>
+<title>在线编辑器</title>
+<META http-equiv=Content-Type content="text/html; charset=GBK">
+<style type="text/css"> body {	margin: 0px; border: 0px; background-color: buttonface; } </style>
+<script type="text/javascript" src="../../chart/json2.js"></script>
+<script>
+var globalDoc = window.dialogArguments;
+sWebRootPath = globalDoc.sWebRootPath;
+if (window.dialogArguments) { opener = window.dialogArguments; }
+
+var _editor_url = "../";
+document.write('<scr'+'ipt src="' +_editor_url+ 'as_htmleditor.js" language=javascript></scr'+'ipt>');
+
+//modify by hxd in 2005/02/21
+//var parent_objname = location.search.substring(1,location.search.length);  // parent editor objname
+//var parent_config  = opener.document.all[parent_objname].config;
+var parent_objname,parent_config;
+if (window.dialogArguments)
+{
+	parent_objname = opener.myObjName;  // parent editor objname
+	parent_config  = JSON.parse(opener.document.all[parent_objname].getAttribute("config"));//modify in 2011
+}
+else
+{
+	parent_objname = location.search.substring(1,location.search.length);  // parent editor objname
+	parent_config  = JSON.parse(opener.document.all[parent_objname].getAttribute("config"));//modify in 2011
+}
+
+var config         = cloneObject( parent_config );
+
+var objname        = 'fullscreen_editor'; // name of this editor
+
+//  DOMViewerObj = config;
+//  DOMViewerName = 'config';
+//  window.open('/innerHTML/domviewer.htm');  
+
+/* ---------------------------------------------------------------------- *\
+  Function    : 
+  Description : 
+\* ---------------------------------------------------------------------- */
+
+function _CloseOnEsc() {
+  if (event.keyCode == 27) {
+    update_parent();
+    window.close();
+    return;
+  }
+}
+
+/* ---------------------------------------------------------------------- *\
+  Function    : cloneObject
+  Description : copy an object by value instead of by reference
+  Usage       : var newObj = cloneObject(oldObj);
+\* ---------------------------------------------------------------------- */
+
+function cloneObject(obj) {
+  var newObj          = new Object; 
+
+  //alert(obj.constructor.toString().indexOf('function Array('));
+  
+  // check for array objects
+  if (obj.constructor.toString().indexOf('function Array(') == 1) {
+    newObj = obj.constructor();
+  }
+  
+  //alert(obj1.a);
+  
+  for (var n in obj) {
+    var node = obj[n];
+    if (typeof node == 'object') { newObj[n] = cloneObject(node); }
+    else                         { newObj[n] = node; }
+    //alert(newObj[n]);
+  }
+  
+  return newObj;
+}
+
+/* ---------------------------------------------------------------------- *\
+  Function    : resize_editor
+  Description : resize the editor when the user resizes the popup
+\* ---------------------------------------------------------------------- */
+
+function resize_editor() {  // resize editor to fix window
+  var editor = document.all['_fullscreen_editor_editor'];
+
+  newWidth  = document.body.offsetWidth;
+  newHeight = document.body.offsetHeight - editor.offsetTop;
+
+  if (newWidth < 0) { newWidth = 0; }
+  if (newHeight < 0) { newHeight = 0; }
+
+  editor.style.width  = newWidth;
+  editor.style.height = newHeight;
+}
+
+/* ---------------------------------------------------------------------- *\
+  Function    : init
+  Description : run this code on page load
+\* ---------------------------------------------------------------------- */
+
+function init() {
+  // change maximize button to minimize button
+  config.btnList["popupeditor"] = ['popupeditor', 'Minimize Editor',  'update_parent(); window.close();', 'fullscreen_minimize.gif'];
+
+  // set htmlmode button to refer to THIS editor
+  config.btnList["htmlmode"]    = ['HtmlMode',    'View HTML Source', 'editor_setmode(\'editor\')',  'ed_html.gif'];
+
+  // change image url to be relative to current path
+  config.imgURL = "../images/";
+  
+  // generate editor and resize it
+  editor_generate('fullscreen_editor', config);
+  resize_editor();
+
+  // switch mode if needed
+  if (parent_config.mode == 'textedit') { editor_setmode(objname, 'textedit'); }
+
+  // set child window contents
+  var parentHTML = opener.editor_getHTML(parent_objname);
+  editor_setHTML(objname, parentHTML);
+
+  // continuously update parent editor window
+  window.setInterval(update_parent, 333);
+
+  // setup event handlers
+  document.body.onkeypress = _CloseOnEsc;
+  window.onresize = resize_editor;
+}
+
+/* ---------------------------------------------------------------------- *\
+  Function    : update_parent
+  Description : update parent window editor field with contents from child window
+\* ---------------------------------------------------------------------- */
+
+function update_parent() {
+  //modify in 2011 for error
+  //var childHTML = editor_getHTML(objname);
+  var childHTML = document.getElementById(objname).value;
+  
+  opener.editor_setHTML(parent_objname, childHTML);
+}
+
+
+</script>
+</head>
+<body scroll="no" onload="init()" onunload="update_parent()">
+
+<div style="margin: 0 0 0 0; border-width: 1; border-style: solid; border-color: threedshadow threedhighlight threedhighlight threedshadow; "></div>
+
+<textarea id="fullscreen_editor"  name="fullscreen_editor" style="width:100%; height:300px"></textarea><br>
+
+</body></html>

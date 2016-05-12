@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jbo>
+    <package name="jbo.ui.test" >
+		<class name="TEST_CUSTOMER_INFO" label="测试个人表" keyAttributes="SERIALNO">
+	     	<attributes>
+	     		<attribute name="SERIALNO" label="编号" type="STRING" length="32" />
+	     		<attribute name="CUSTOMERNAME" label="姓名" type="STRING" length="80" />
+	     		<attribute name="TELEPHONE" label="电话" type="STRING" length="32" />
+	     		<attribute name="ADDRESS" label="所在地区" type="STRING" length="200" />
+	     		<attribute name="SORTNO" label="排序号" type="STRING" length="32" />
+	     		<attribute name="PARENTNO" label="所属父类" type="STRING" length="32" />
+	     		<attribute name="ISINUSE" label="是否使用" type="STRING" length="32" />
+	     		
+	     		<attribute name="ATTR1" label="属性1" type="STRING" length="32" />
+	     		<attribute name="ATTR2" label="属性2" type="STRING" length="32" />
+	     		<attribute name="ATTR3" label="属性3" type="STRING" length="32" />
+	     		<attribute name="ATTR4" label="属性4" type="STRING" length="32" />
+	     		<attribute name="ATTR5" label="属性5" type="STRING" length="32" />
+	     		<attribute name="STAR" label="五星评分" type="STRING" length="32" />
+	     	</attributes>
+	     	<manager>
+				<managerProperties>
+					<property name="table" value="EXAMPLE_DATAWINDOW"/>
+					<property name="createKey" value="true"/>
+				</managerProperties>				
+			</manager>
+	     </class>
+	     <class name="EXAMPLE_DW_TC" label="测试提示信息和控制项多表保存" keyAttributes="SERIALNO">
+	     	<attributes>
+	     		<attribute name="SERIALNO" label="编号" type="STRING" length="32" />
+	     		<attribute name="ATTR1" label="属性1" type="STRING" length="32" />
+	     		<attribute name="ATTR2" label="属性2" type="STRING" length="32" />
+	     		<attribute name="ATTR3" label="属性3" type="STRING" length="32" />
+	     		<attribute name="ATTR4" label="属性4" type="STRING" length="32" />
+	     		<attribute name="ATTR5" label="属性5" type="STRING" length="32" />
+	     	</attributes>
+	     	<manager>
+				<managerProperties>
+					<property name="table" value="EXAMPLE_DW_TC"/>
+					<property name="createKey" value="true"/>
+				</managerProperties>				
+			</manager>
+	     </class>
+	     
+	     
+	     <class name="EXAMPLE_NUMBER" label="测试数字表" keyAttributes="SERIALNO">
+	     	<attributes>
+	     		<attribute name="SERIALNO" label="编号" type="STRING" length="32" />
+	     		<attribute name="CUSTOMERID" label="姓名" type="STRING" length="80" />
+	     		<attribute name="BUSINESSSUM" label="金额" type="DOUBLE" length="13" scale="2"/>
+	     		<attribute name="NUMBER1" label="数字1" type="DOUBLE" length="13" scale="2"/>
+				<attribute name="NUMBER2" label="数字2" type="DOUBLE" length="24" scale="6"/>
+				<attribute name="NUMBER3" label="数字3" type="DOUBLE" length="24" scale="6"/>			
+	     	</attributes>
+	     	<manager>
+				<managerProperties>
+					<property name="table" value="EXAMPLE_NUMBER"/>
+					<property name="createKey" value="true"/>
+				</managerProperties>				
+			</manager>
+	     </class>
+		<class name="V_EXAMPLE_UE" label="测试视图">
+	     	<attributes>
+	     		<attribute name="CUSTOMERID" label="客户编号" type="STRING" length="32" />
+	     		<attribute name="CUSTOMERNAME" label="姓名" type="STRING" length="80" />
+	     		<attribute name="TELEPHONE" label="电话" type="STRING" length="32" />
+	     		<attribute name="BUSINESSSUM" label="贷款金额" type="DOUBLE" length="13" scale="2"/>
+	     	</attributes>
+	     </class>
+	</package>
+    
+    <package name="jbo.example">
+      <class name="EXAMPLE_INFO" label="案例信息" keyAttributes="DEMONO">
+        <attributes>
+        	<attribute name="DEMONO" label="案例编号" type="STRING" length="32" />
+        	<attribute name="DEMOTYPE" label="案例类型" type="STRING" length="32" />
+        	<attribute name="DEMONAME" label="案例名称" type="STRING" length="200" />
+        	<attribute name="DEMOURL" label="案例页面位置" type="STRING" length="200" />
+        	<attribute name="DEMOURLPARAMS" label="打开案例页面参数" type="STRING" length="200" />
+        	<attribute name="DEMOIMG" label="案例缩略图" type="STRING" length="200" />
+        	<attribute name="ISINUSE" label="是否在用" type="STRING" length="1" />
+        	<attribute name="REMARK" label="备注说明" type="STRING" length="32" />
+        	<attribute name="INPUTORG" label="录入机构" type="STRING" length="32" />
+        	<attribute name="INPUTPERSON" label="录入人" type="STRING" length="32" />
+        	<attribute name="INPUTTIME" label="录入时间" type="STRING" length="32" />
+        	<attribute name="UPDATEORG" label="更新机构" type="STRING" length="32" />
+        	<attribute name="UPDATEPERSON" label="更新人" type="STRING" length="32" />
+        	<attribute name="UPDATETIME" label="更新时间" type="STRING" length="32" />
+        </attributes>
+        <manager>
+          <managerProperties>
+            <property name="table" value="EXAMPLE_INFO" />
+            <property name="createKey" value="true" />
+          </managerProperties>
+        </manager>
+      </class>
+	<class name="EXAMPLE_DATA_TREE" label="数据树案例表" keyAttributes="SERIALNO" >
+		<attributes>
+			<attribute name="SERIALNO" label="流水号" type="STRING" length="32" />
+			<attribute name="TEXT" label="数据节点显示" type="STRING" length="80" />
+			<attribute name="VALUE" label="数据节点值" type="STRING" length="200" />
+			<attribute name="SORTNO" label="数据节点排序" type="STRING" length="32" />
+			<attribute name="ATTRIBUTE" label="数据节点属性" type="STRING" length="200" />
+			<attribute name="ATTRIBUTE1" label="数据节点扩展属性1" type="STRING" length="200" />
+			<attribute name="ATTRIBUTE2" label="数据节点扩展属性2" type="STRING" length="200" />
+			<attribute name="ATTRIBUTE3" label="数据节点扩展属性3" type="STRING" length="200" />
+			<attribute name="ATTRIBUTE4" label="数据节点扩展属性4" type="STRING" length="200" />
+			<attribute name="ATTRIBUTE5" label="数据节点扩展属性5" type="STRING" length="200" />
+			<attribute name="ATTRIBUTE6" label="数据节点扩展属性6" type="STRING" length="200" />
+			<attribute name="ATTRIBUTE7" label="数据节点扩展属性7" type="STRING" length="200" />
+			<attribute name="ATTRIBUTE8" label="数据节点扩展属性8" type="STRING" length="200" />
+			<attribute name="ATTRIBUTE9" label="数据节点扩展属性9" type="STRING" length="200" />
+		</attributes>
+		<manager>
+			<managerProperties>
+				<property name="table" value="EXAMPLE_DATA_TREE" />
+				<property name="createKey" value="true" />
+			</managerProperties>
+		</manager>
+	</class>
+    </package>
+</jbo>

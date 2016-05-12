@@ -1,0 +1,65 @@
+.logo{
+	background-image: url(../images/logo.png);
+}
+a:link {
+	color: #555;
+}
+.left_content_title {
+	background-image: url(../images/panel_title.png);
+}
+.left_content_title span {
+	color: #a5a;
+}
+.RightContentDiv {
+	background-image: url(../images/panel_title.png);
+}
+.groupboxheader, .pt9white {
+	color: #a5a;
+}
+.divDrag {
+	background: #dfcdfe;
+}
+#tabTreeview table {
+	border-color: #dfcdfe;
+}
+#tabTreeview td, #tabTreeview td a {
+	color: #555;
+}
+.node_hoverCls {
+	background-color:#dfcdfe;
+}
+.back_arrow {
+	background-image: url(../images/back_arrow.gif);
+}
+.img-folder {
+	background-image: url(../images/img-folder.gif);
+}
+.img-page {
+	background-image: url(../images/img-page.gif);
+}
+#ShowFilterButton a, #ShowFilterButton a:link {
+	color: #d271d1;
+}
+.FilterIcon {
+	background-image: url(../images/plus.gif);
+}
+.FilterIcon2 {
+	background-image: url(../images/minus.gif);
+}
+.message_bg {
+	background-color: #e0bee0;
+}
+.message_title {
+	background-color: #a5a;
+}
+.button,
+.buttonleftimg,
+.buttonrightimg,
+.buttonHover,
+.buttonleftimgHover,
+.buttonrightimgHover,
+.buttonDown,
+.buttonleftimgDown,
+.buttonrightimgDown{
+   	background-image: url(../images/button_bg.png);
+}

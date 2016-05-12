@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="GB2312"?>
+<SkinConfig Version="1.0.0.0">
+	<!--<skin id="编号" name="名称" icon="皮肤小图标css类" folder="皮肤所在文件夹" image="子系统图标所在文件夹"/> -->
+	<skin id="01" name="典雅天蓝" folder="/Frame/page/resources/default" image="/AppMain/resources/default/images/colorful"/>
+	<skin id="02" name="简约天蓝" folder="/Frame/page/resources/default" image="/AppMain/resources/default/images"/>
+	<skin id="03" name="典雅深蓝" folder="/Frame/page/resources/darkblue" image="/AppMain/resources/default/images/colorful"/>
+	<skin id="05" name="典雅金秋" folder="/Frame/page/resources/blue" image="/AppMain/resources/default/images/colorful"/>
+	<skin id="redtime" name="光辉时代" folder="/Frame/page/resources/redtime" image="/AppMain/resources/default/images/colorful"/>
+</SkinConfig>

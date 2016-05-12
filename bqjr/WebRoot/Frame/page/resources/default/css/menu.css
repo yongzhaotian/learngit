@@ -1,0 +1,57 @@
+.menu {
+	overflow: hidden;
+	height: 20px; line-height: 20px;
+}
+.menu .menubar {
+	overflow: hidden;
+	float: left; display: inline;
+}
+.menu .menu_left {
+	float: left; display: inline; display: none; cursor: pointer;
+}
+.menu .menu_right {
+	float: left; display: inline; display: none; cursor: pointer;
+}
+.menu .menuitems {
+	white-space: nowrap; font-size: 9pt;
+}
+.menu .menuitems a {
+	text-decoration: none; padding-left: 10px; padding-right: 10px;
+	display: inline-block; cursor: pointer;
+}
+.menu .menuitems a:hover {
+	background: url(../images/menu/hover.gif) repeat-x;
+}
+.menu .menuitems a span {
+	display: inline-block;
+}
+.menu .menuitems a.menu_folder span {
+	padding-right: 20px;
+	background: url(../images/menu/folder.gif) no-repeat right;
+}
+.menudiv {
+	border: 1px solid gray;
+	background: url(../images/menu/menu.gif) repeat-y #f0f0f0;
+	position: absolute; display: none;
+	font-size: 9pt; line-height: 20px;
+}
+.menudiv p {
+	width: 13em;
+}
+.menudiv p a {
+	width: 100%; display: inline-block;
+	border: 1px solid transparent;
+	outline: none; text-decoration: none;
+}
+.menudiv p a span {
+	padding-left: 25px; white-space: nowrap;
+}
+.menudiv p a:hover {
+	background-color: #c6ddfd; border-color: #7eabcd;
+	outline: none; text-decoration: none;
+}
+.menudiv p a.menu_folder {
+	background-image: url(../images/menu/folder1.png);
+	background-repeat: no-repeat;
+	background-position: right;
+}

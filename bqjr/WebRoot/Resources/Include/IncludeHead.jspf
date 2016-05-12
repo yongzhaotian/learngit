@@ -1,0 +1,135 @@
+<%@page buffer="64kb" errorPage="/Frame/page/control/ErrorPage.jsp"%><%@
+page import="java.io.*"%><%@
+page import="java.sql.*"%><%@
+page import="java.text.*"%><%@
+page import="java.util.*"%><%@
+page import="com.amarsoft.are.ARE"%><%@
+page import="com.amarsoft.are.lang.*"%><%@
+page import="com.amarsoft.are.security.*"%><%@
+page import="com.amarsoft.are.util.*"%><%@
+page import="com.amarsoft.context.*"%><%@
+page import="com.amarsoft.awe.Configure"%><%@
+page import="com.amarsoft.awe.RuntimeContext"%><%@
+page import="com.amarsoft.awe.control.model.*"%><%@
+page import="com.amarsoft.awe.util.*"%><%@
+page import="com.amarsoft.awe.ui.model.*"%><%@
+page import="com.amarsoft.awe.ui.widget.*"%><%@
+page import="com.amarsoft.amarscript.*"%><%@
+page import="com.amarsoft.alert.*"%><%@
+page import="com.amarsoft.web.dw.*"%><%@
+page import="com.amarsoft.web.ui.*"%><%@
+page import="org.apache.commons.lang.*"%><%@
+page import="com.amarsoft.app.accounting.config.*"%><%@
+page import="com.amarsoft.are.jbo.*"%><%@
+page import="com.amarsoft.app.util.DBKeyUtils"%><%@
+page import="com.amarsoft.app.accounting.web.*"%><%@
+page import="com.amarsoft.app.accounting.util.ACCOUNT_CONSTANTS"%><%@
+page import="com.amarsoft.app.accounting.businessobject.*,com.amarsoft.app.accounting.config.loader.ProductConfig"%>
+<%
+	response.setHeader("Cache-Control","no-store");
+	response.setHeader("Pragma","no-cache");
+	response.setDateHeader("Expires",0);
+
+	RuntimeContext CurARC = (RuntimeContext)session.getAttribute("CurARC");
+	if(CurARC == null) throw new Exception("------Timeout------");
+	
+	Runtime rt = Runtime.getRuntime();
+	//System.out.println("Total memory: " + rt.totalMemory() + ", Free memory: " + rt.freeMemory());
+
+	Configure CurConfig = Configure.getInstance(application);
+	if(CurConfig ==null) throw new Exception("读取配置文件错误！请检查配置文件");
+	
+	String sDebugMode = CurConfig.getConfigure("DebugMode");
+    String sRunTimeDebugMode = CurConfig.getConfigure("RunTimeDebugMode");
+    String sCurRunMode=CurConfig.getConfigure("RunMode");
+
+    String sResourcesPath = (String)CurARC.getAttribute("ResourcesPath");
+    ASUser CurUser = CurARC.getUser();
+    ASOrg CurOrg = CurUser.getBelongOrg();
+    String sCompClientID="";
+
+    String sWebRootPath = request.getContextPath();
+	String sServletURL = request.getServletPath();
+	String sSkinPath = sWebRootPath + CurUser.getSkin().getPath();
+    
+    Transaction SqlcaRepository = null;
+    Transaction Sqlca = null;
+    JBOTransaction tx = null;
+
+    try{
+        int iPostChange = 1;
+
+        sCompClientID = request.getParameter("CompClientID");
+        if(sCompClientID==null) sCompClientID="";
+
+        ComponentSession CurCompSession = CurARC.getCompSession();
+        Component CurComp = CurCompSession.lookUp(sCompClientID);
+        Page CurPage = new Page(CurComp);
+        CurPage.setRequestAttribute((HttpServletRequest)request);
+        
+        ASPreference CurPref = CurARC.getPref();
+        
+   		String sDataSource = CurConfig.getConfigure("DataSource");
+		try{
+			SqlcaRepository = new Transaction(sDataSource);
+			tx = JBOFactory.createJBOTransaction();
+       		tx.join(SqlcaRepository);
+       		SystemConfig.loadBusinessDate(tx.getConnection(SqlcaRepository));
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			throw new Exception("连接数据库失败！连接参数：<br>DataSource:"+sDataSource);
+       	}
+
+        SqlcaRepository.commit();
+        Sqlca = SqlcaRepository;
+%><meta http-equiv=Content-Type content="text/html; charset=GBK">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<link rel="shortcut icon" href="<%=sWebRootPath%>/favicon.ico">
+<link rel="stylesheet" href="<%=sResourcesPath%>/Style.css">
+<link rel="stylesheet" href="<%=sWebRootPath%>/Frame/page/resources/css/button.css">
+<link rel="stylesheet" href="<%=sSkinPath%>/css/Style.css">
+<link rel="stylesheet" href="<%=sSkinPath%>/css/button.css">
+<script type="text/javascript">var sCompClientID="<%=sCompClientID%>"; var sWebRootPath="<%=sWebRootPath%>"; var sResourcesPath="<%=sResourcesPath%>";var sSkinPath="<%=sSkinPath%>";var _editor_url="<%=sWebRootPath%>/Frame/page/resources/htmledit/";</script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/resources/js/jquery/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/resources/js/jquery/plugins/jquery.validate.min-1.8.1.js"></script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/resources/js/jquery/plugins/jquery.validate.extend.js"></script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/page/js/as_common.js"></script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/page/js/as_control.js"></script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/page/js/as_widget.js"></script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/page/js/as_webcalendar.js"></script>
+<script type="text/javascript" src="<%=sResourcesPath%>/xls.js"> </script>
+<script type="text/javascript" src="<%=sResourcesPath%>/expand.js"> </script>
+<script type="text/javascript" src="<%=sResourcesPath%>/htmlcontrol.js"> </script>
+<script type="text/javascript" src="<%=sResourcesPath%>/Support/as_dz.js"> </script>
+<script type="text/javascript" src="<%=sResourcesPath%>/Support/as_dz_middle.js"> </script>
+<script type="text/javascript" src="<%=sResourcesPath%>/Support/checkdatavalidity.js"> </script>
+<script type="text/javascript" src="<%=sResourcesPath%>/common.js"> </script>
+<script type="text/javascript" src="<%=sResourcesPath%>/message.js"> </script>
+<script type="text/javascript" src="<%=sResourcesPath%>/menu.js"> </script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/resources/js/chart/json2.js"></script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/page/resources/htmledit/as_htmleditor.js"></script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/resources/js/as_formatdoc.js"></script>
+<script type="text/javascript" >
+var AsOne = {SetDefault:function(sURL) {document.write("<iframe name=myform999 src='"+sURL+"' frameborder=0 width=1 height=1 style='display:none'> </iframe>");},AsInit:function() {} };AsOne.SetDefault("");
+top.status="当前机构：<%=CurUser.getOrgID()%>-<%=CurUser.getOrgName()%>  当前用户是：<%=CurUser.getUserID()%>-<%=CurUser.getUserName()%> ";
+var businessDate="<%=SystemConfig.getBusinessDate()%>";
+
+function HiBrowserNotify(szMsg){
+	var szMsg;
+	szMsg="HiBrowserNotify["+szMsg;
+	szMsg=szMsg+"]";
+	//alert("0000000");
+	
+	if(szMsg.indexOf("NotifyType=StartRec") >= 0 ){  
+	    var s; var k; var v; var d; var dd; var u;
+		s=szMsg.split(";");
+		k=s[2].split("=");
+		v=s[3].split('=');
+		d=v[1].substring(2,10);
+		dd=s[4].split("="); 
+		u="http:"+"\\\\"+k[1]+d+dd[1];
+		alert(u);
+    }
+}
+
+</script>

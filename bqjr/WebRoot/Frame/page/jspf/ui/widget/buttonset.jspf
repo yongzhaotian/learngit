@@ -1,0 +1,30 @@
+<table><tr><%
+        String sUrlBase = request.getRequestURI().substring(request.getRequestURI().indexOf(sWebRootPath)+sWebRootPath.length());
+		ButtonItem [] buttonItems = ItemHelp.getButtonItemArray(CurUser,sButtons,CurComp.getAttribute("RightType",10),sUrlBase);
+		String sLineMaxButtons = (String)CurPage.getParameter("ButtonsLineMax");
+		String sScreenWidth = (String)CurARC.getAttribute("ScreenWidth");
+		if(sScreenWidth==null || sScreenWidth.equals("") || Integer.parseInt(sScreenWidth)<=800){
+			sLineMaxButtons = "5";
+		}else if(Integer.parseInt(sScreenWidth)<=1024){
+			sLineMaxButtons = "7";
+		}else{
+			if(sLineMaxButtons==null){ sLineMaxButtons = "9"; }
+		}
+		int iButtonsCount = 0;
+		if (buttonItems!=null)
+		{
+			for(int i=0;i<buttonItems.length;i++)
+			{
+				ButtonItem bt = buttonItems[i];
+				if(iButtonsCount>Integer.parseInt(sLineMaxButtons))
+				{
+					out.println("</tr></table><table><tr>");
+					iButtonsCount = 1;
+				}
+				iButtonsCount++;
+				out.println("<td>");
+                out.println(new Button(bt).getHtmlText());
+                out.println("</td>");
+			}
+		}
+%></tr></table>

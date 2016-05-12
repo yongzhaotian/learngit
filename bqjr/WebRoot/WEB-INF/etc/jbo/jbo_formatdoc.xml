@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jbo>
+  <package name="jbo.app">
+  	<class name="FORMATDOC_TYPE" label="格式化文档分类管理" keyAttributes="TYPENO">
+     	<attributes>
+     		<attribute name="TYPENO" label="分类编号" type="STRING" length="32" />
+     		<attribute name="TYPETITLE" label="分类标题" type="STRING" length="80" />
+     		<attribute name="SORTNO" label="排序号" type="STRING" length="32" />
+     		<attribute name="ISINUSE" label="是否使用" type="STRING" length="1" />
+     		<attribute name="ATTRIBUTE1" label="参数1" type="STRING" length="32" />
+     		<attribute name="ATTRIBUTE2" label="参数2" type="STRING" length="32" />
+     		<attribute name="ATTRIBUTE3" label="参数3" type="STRING" length="32" />
+     		<attribute name="ATTRIBUTE4" label="参数4" type="STRING" length="32" />
+     		<attribute name="ATTRIBUTE5" label="参数5" type="STRING" length="255" />
+     		<attribute name="ATTRIBUTE6" label="参数6" type="STRING" length="255" />
+     		<attribute name="ATTRIBUTE7" label="参数7" type="STRING" length="400" />
+     		<attribute name="ATTRIBUTE8" label="参数8" type="STRING" length="400" />
+     	</attributes>
+     	<manager>
+        <managerProperties>
+          <property name="table" value="AWE_ERPT_TYPE" />
+        </managerProperties>
+      </manager>
+	  </class> 
+    <class name="FORMATDOC_CATALOG" label="格式化文档目录" keyAttributes="DOCID">
+      <attributes>
+        <attribute name="DOCID" label="文档类型编号" type="STRING" length="18" />
+        <attribute name="DOCNAME" label="文档类型名称" type="STRING" length="200" />
+        <attribute name="DOCTYPE" label="文档类型" type="STRING" length="18" />
+        <attribute name="ATTRIBUTE1" label="属性1" type="STRING" length="200" />
+        <attribute name="ATTRIBUTE2" label="属性2" type="STRING" length="200" />
+        <attribute name="ATTRIBUTE3" label="属性3" type="STRING" length="200" />
+        <attribute name="ATTRIBUTE4" label="属性4" type="STRING" length="200" />
+        <attribute name="TOOLCLASSNAME" label="报告工具类名" type="STRING" length="200" />
+        <attribute name="DEFAULTMODELPACKAGENAME" label="模板默认使用包名" type="STRING" length="255" />
+        <attribute name="SCOREHANDLER" label="打分处理类" type="STRING" length="255" />
+        <attribute name="ORGID" label="机构" type="STRING" length="32" />
+        <attribute name="USERID" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTDATE" label="登记日期" type="STRING" length="10" />
+        <attribute name="UPDATEDATE" label="更新日期" type="STRING" length="10" />
+        <attribute name="ISINUSE" label="有效状态" type="STRING" length="32" />
+        <attribute name="STARTDATE" label="启用日期" type="STRING" length="10" />
+        <attribute name="ENDDATE" label="结束日期" type="STRING" length="10" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="table" value="AWE_ERPT_CATALOG" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="FORMATDOC_DEF" label="格式化文档定义" keyAttributes="DOCID,DIRID">
+      <attributes>
+        <attribute name="DOCID" label="文档类型编号" type="STRING" length="18" />
+        <attribute name="DIRID" label="目录编号" type="STRING" length="18" />
+        <attribute name="DIRNAME" label="目录名称" type="STRING" length="200" />
+        <attribute name="JSPFILENAME" label="JSP文件名" type="STRING" length="200" />
+        <attribute name="HTMLFILENAME" label="模版文件名" type="STRING" length="200" />
+        <attribute name="DEFAULTMODELPACKAGENAME" label="模板使用包名" type="STRING" length="255" />
+        <attribute name="EDITSTATUS" label="编辑属性" type="STRING" length="32" />
+        <attribute name="ARRANGEATTR" label="展现属性" type="STRING" length="18" />
+        <attribute name="CIRCLEATTR" label="循环属性" type="STRING" length="18" />
+        <attribute name="ATTRIBUTE1" label="属性1" type="STRING" length="200" />
+        <attribute name="ATTRIBUTE2" label="属性2" type="STRING" length="200" />
+        <attribute name="ORGID" label="机构" type="STRING" length="32" />
+        <attribute name="USERID" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTDATE" label="登记日期" type="STRING" length="10" />
+        <attribute name="UPDATEDATE" label="更新日期" type="STRING" length="10" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="table" value="AWE_ERPT_DEF" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="FORMATDOC_PARA" label="调查报告参数表" keyAttributes="ORGID,DOCID">
+      <attributes>
+        <attribute name="ORGID" label="组织机构号" type="STRING" length="32" />
+        <attribute name="DOCID" label="调查报告模板编号" type="STRING" length="32" />
+        <attribute name="DEFAULTVALUE" label="默认打印节点" type="STRING" length="400" />
+        <attribute name="DOCNAME" label="模板名称" type="STRING" length="80" />
+        <attribute name="ATTRIBUTE1" label="属性1" type="STRING" length="80" />
+        <attribute name="ATTRIBUTE2" label="属性2" type="STRING" length="80" />
+        <attribute name="INPUTUSER" label="插入用户编号" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="插入时间" type="STRING" length="32" />
+        <attribute name="UPDATEUSER" label="更新用户编号" type="STRING" length="32" />
+        <attribute name="UPDATEDATE" label="更新时间" type="STRING" length="32" />
+        <attribute name="REMARK" label="备注" type="STRING" length="200" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="table" value="AWE_ERPT_PARA" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="FORMATDOC_NAME_MAP" label="格式化文档字段中文应映射表" keyAttributes="SERIALNO">
+    	<attributes>
+	    	<attribute name="SERIALNO" label="流水号" type="STRING" length="32" />
+	    	<attribute name="DOCID" label="文档类型编号" type="STRING" length="18" />
+	        <attribute name="DIRID" label="节点编号" type="STRING" length="18" />
+	        <attribute name="ENNAME" label="英文名" type="STRING" length="32" />
+	        <attribute name="CNNAME" label="中文名" type="STRING" length="80" />
+	        <attribute name="ATTRIBUTE1" label="属性1" type="STRING" length="200" />
+	        <attribute name="ATTRIBUTE2" label="属性2" type="STRING" length="200" />
+	        <attribute name="ORGID" label="机构" type="STRING" length="32" />
+	        <attribute name="USERID" label="登记人" type="STRING" length="32" />
+	        <attribute name="INPUTDATE" label="登记日期" type="STRING" length="10" />
+	        <attribute name="UPDATEDATE" label="更新日期" type="STRING" length="10" />
+        </attributes>
+        <manager>
+	        <managerProperties>
+	          <property name="table" value="AWE_ERPT_MAP" />
+			  <property name="createKey" value="true"/>
+	        </managerProperties>
+	      </manager>
+    </class>
+    <class name="FORMATDOC_RECORD" label="格式化文档记录" keyAttributes="SERIALNO">
+      <attributes>
+        <attribute name="SERIALNO" label="记录号" type="STRING" length="32" />
+        <attribute name="OBJECTTYPE" label="对象类型" type="STRING" length="18" />
+        <attribute name="OBJECTNO" label="对象编号" type="STRING" length="32" />
+        <attribute name="DOCID" label="格式化报告编号" type="STRING" length="18" />
+        <attribute name="SAVEDATE" label="生成报告日期" type="STRING" length="10" />
+        <attribute name="SAVEPATH" label="保存路径" type="STRING" length="120" />
+        <attribute name="OFFLINEVERSION" label="离线报告最新版本号" type="INT" length="20" />
+        <attribute name="ATTRIBUTE1" label="属性1" type="STRING" length="40" />
+        <attribute name="ATTRIBUTE2" label="属性2" type="STRING" length="40" />
+        <attribute name="ATTRIBUTE3" label="属性3" type="STRING" length="40" />
+        <attribute name="ATTRIBUTE4" label="属性4" type="STRING" length="40" />
+        <attribute name="ATTRIBUTE5" label="属性5" type="STRING" length="40" />
+        <attribute name="ORGID" label="机构" type="STRING" length="32" />
+        <attribute name="USERID" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTDATE" label="登记日期" type="STRING" length="10" />
+        <attribute name="UPDATEDATE" label="更新日期" type="STRING" length="10" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="table" value="AWE_ERPT_RECORD" />
+          	<property name="createKey" value="true"/>
+        </managerProperties>
+      </manager>
+    </class>
+        <class name="FORMATDOC_DATA" label="格式化文档内容" keyAttributes="SERIALNO">
+      <attributes>
+        <attribute name="SERIALNO" label="流水号" type="STRING" length="40" />
+        <!-- <attribute name="OBJECTNO" label="对象编号" type="STRING" length="40" /> -->
+        <attribute name="RELATIVESERIALNO" label="相应的记录号" type="STRING" length="40" />
+        <attribute name="TREENO" label="排序号" type="STRING" length="18" />
+        <attribute name="DOCID" label="文档类型编号" type="STRING" length="18" />
+        <attribute name="DIRID" label="目录编号" type="STRING" length="18" />
+        <attribute name="DIRNAME" label="目录名称" type="STRING" length="200" />
+        <attribute name="GUARANTYNO" label="关联担保号" type="STRING" length="40" />
+        <attribute name="HTMLDATA" label="内容" type="STRING" length="20" />
+        <attribute name="CONTENTLENGTH" label="长度" type="INT" length="20" />
+        <attribute name="SCORE" label="评分" type="STRING" length="32" />
+        <attribute name="SCOREDESC" label="评分描述" type="STRING" length="1000" />
+        <attribute name="ORGID" label="机构" type="STRING" length="32" />
+        <attribute name="USERID" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTDATE" label="登记日期" type="STRING" length="10" />
+        <attribute name="UPDATEDATE" label="更新日期" type="STRING" length="10" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="table" value="AWE_ERPT_DATA" />
+		  <property name="createKey" value="true"/>
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="FORMATDOC_OFFLINE" label="格式化报告离线下载记录" keyAttributes="SERIALNO">
+      <attributes>
+        <attribute name="SERIALNO" label="记录号" type="STRING" length="32" />
+        <attribute name="OBJECTTYPE" label="对象类型" type="STRING" length="18" />
+        <attribute name="OBJECTNO" label="对象编号" type="STRING" length="32" />
+        <attribute name="DOCID" label="格式化报告编号" type="STRING" length="18" />
+        <attribute name="SAVEPATH" label="格式化报告路径" type="STRING" length="120" />
+        <attribute name="ATTRIBUTE1" label="属性1" type="STRING" length="40" />
+        <attribute name="ATTRIBUTE2" label="属性2" type="STRING" length="40" />
+        <attribute name="ATTRIBUTE3" label="属性3" type="STRING" length="40" />
+        <attribute name="ATTRIBUTE4" label="属性4" type="STRING" length="40" />
+        <attribute name="ATTRIBUTE5" label="属性5" type="STRING" length="40" />
+        <attribute name="ORGID" label="机构" type="STRING" length="32" />
+        <attribute name="USERID" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTDATE" label="登记日期" type="STRING" length="10" />
+        <attribute name="DIRECTION" label="更新方向" type="STRING" length="10" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="table" value="AWE_ERPT_OFFLINE" />
+		  <property name="createKey" value="true"/>
+        </managerProperties>
+      </manager>
+    </class>
+  </package>
+</jbo>
+

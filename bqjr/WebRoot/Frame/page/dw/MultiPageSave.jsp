@@ -1,0 +1,3 @@
+<%@ page language="java" import="com.amarsoft.are.*,com.amarsoft.awe.dw.ui.multipage.MultiPageSaver,java.util.*,com.amarsoft.awe.dw.handler.BusinessProcessData,com.amarsoft.awe.dw.ui.util.PublicFuns,com.amarsoft.are.jbo.*,com.amarsoft.awe.dw.ASDataObjectFilter,com.amarsoft.awe.dw.ui.list.ListAction,com.amarsoft.awe.dw.ui.util.ConvertXmlAndJava,com.amarsoft.awe.dw.ASDataObject,com.amarsoft.awe.dw.ui.util.Request,com.amarsoft.awe.dw.ui.actions.IDataAction,com.amarsoft.awe.dw.ui.htmlfactory.*,com.amarsoft.awe.dw.ui.htmlfactory.imp.*" pageEncoding="GBK"%><%@page import="java.net.URLDecoder"%><%
+new MultiPageSaver().doPost(request,response);
+%>

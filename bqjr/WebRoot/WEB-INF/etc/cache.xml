@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="GB2312"?>
+<CacheConfig dbname="als" Version="1.0.0.0">
+	<cache name="代码表" loadClass="com.amarsoft.dict.als.cache.loader.CodeLoader"/>
+	<cache name="业务对象" loadClass="com.amarsoft.dict.als.cache.loader.ObjectTypeLoader"/>
+    <cache name="菜单" loadClass="com.amarsoft.dict.als.cache.loader.AWEMenuLoader"/>
+    <cache name="子系统" loadClass="com.amarsoft.dict.als.cache.loader.AWEAppLoader"/>
+    <cache name="URL控制表" loadClass="com.amarsoft.dict.als.cache.loader.AWEHrefLoader"/>
+    <cache name="功能点URL控制表" loadClass="com.amarsoft.dict.als.cache.loader.AWEFuncHrefLoader"/>
+	<cache name="角色" loadClass="com.amarsoft.dict.als.cache.loader.AWERoleLoader"/>
+    <cache name="名称对照" loadClass="com.amarsoft.dict.als.cache.loader.NameLoader" size="1000" expireTime="600"/>
+    <cache name="错误代码信息" loadClass="com.amarsoft.dict.als.cache.loader.ErrMsgLoader"/>
+    <cache name="DataWindow缓存" loadClass="com.amarsoft.dict.als.cache.loader.AWEDataWindowLoader" size="50" expireTime="1200"/> 
+    <!-- 
+    <cache name="SYSCONF_CLTYPE" loadClass="com.amarsoft.app.creditline.cache.loader.CreditLineTypeDefinitionLoader"/>额度类型信息
+    <cache name="SYSCONF_LIMITATIONTYPE" loadClass="com.amarsoft.app.creditline.cache.loader.LimitationTypeDefinitionLoader"/>额度限制类型信息
+    <cache name="SYSCONF_CL_ERROR_TYPE" loadClass="com.amarsoft.app.creditline.cache.loader.ErrorTypeDefinitionLoader"/>额度异常点类型信息
+     -->
+     
+    <cache name="账务代码信息" loadClass="com.amarsoft.app.accounting.config.loader.AccountCodeConfigLoader"/>
+    <cache name="工作日信息" loadClass="com.amarsoft.app.accounting.config.loader.DateFunctionsLoader"/>
+    <cache name="机构信息" loadClass="com.amarsoft.app.accounting.config.loader.OrgConfigLoader"/>
+    <cache name="还款参数" loadClass="com.amarsoft.app.accounting.config.loader.PaymentFrequencyConfigLoader"/>
+    <cache name="产品参数" loadClass="com.amarsoft.app.accounting.config.loader.ProductConfigLoader"/>
+    <cache name="利率信息" loadClass="com.amarsoft.app.accounting.config.loader.RateConfigLoader"/>
+    <cache name="交易定义参数" loadClass="com.amarsoft.app.accounting.config.loader.TransactionConfigLoader"/>
+    <cache name="错误码" loadClass="com.amarsoft.app.accounting.config.loader.ErrorCodeConfigLoader"/>
+</CacheConfig>

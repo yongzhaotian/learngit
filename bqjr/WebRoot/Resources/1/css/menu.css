@@ -1,0 +1,157 @@
+@charset "gb2312";
+/*菜单背景设置*/
+.mytop {
+	background: url(../images/main_menu_bg.png) #FFF repeat-x;
+	height: 33px;
+	border-bottom: 1px solid #6c8aa2
+}
+/**返回主页、修改密码菜单背景样式**/
+.menu_sys {
+	margin-right: 3px;
+	margin-bottom: 0px;
+	color: #fff;
+	height: 30px;
+	text-align: center;
+	font-size: 12px;
+	background: url(../images/menu_nvgbg_left.gif) no-repeat left bottom;
+}
+.menu_sys table {
+	background: url(../images/menu_nvgbg.gif) no-repeat right bottom;
+	height: 100%;
+	width: 100%;
+	margin-left: 5px;
+}
+.sys_menu_href {
+	background: url(../images/menu_nvgbg_home.gif) no-repeat left bottom;
+	padding-left: 35px;
+}
+.skin_bar {
+	display: none; position:absolute; background: #eee;
+	border: 1px solid #555; border-top: none;
+	width: 100px; right: 180px; top: 32px; z-index: 999;
+}
+.skin_bar a, .skin_bar a:link, .skin_bar a:visited {
+	padding-top: 5px; padding-bottom: 5px;
+	white-space:nowrap; display: inline-block;
+	text-decoration: none; width: 100%;
+	text-align: left;
+	background: no-repeat center left;
+}
+.skin_bar a span {
+	display: inline-block;
+	margin-left: 22px;
+	cursor: pointer;
+}
+.skin_bar a:hover {
+	background-color: #aaa;
+}
+.menu_sys a {
+	color: #204179
+}
+.menu_sys a:hover {
+	color: #000
+}
+.menu_sys a.home {
+	font-weight: bold;
+	color: #fff;
+}
+.menu_sys a:hover.home {
+	color: #000; text-decoration: none;
+}
+.menu_bar {
+	z-index: 15;
+}
+.menu_bar, .menu_bar ul {
+	padding: 0; margin: 0;
+	width: 100%;
+	white-space: nowrap;
+	position: relative;
+}
+.menu_bar ul {
+	position: absolute;
+	width: 150px;
+	left: 0px;
+	top: 25px;
+	display: none;
+	border: 1px solid #ccc;
+}
+.menu_bar ul.menu_left_show {
+	left: auto;
+	right: 0px;
+	top: 25px;
+}
+.menu_bar ul ul {
+	left: 148px;
+	top: 0px;
+}
+.menu_bar ul ul.menu_left_show {
+	left: -148px;
+	top: 0px;
+}
+.menu_bar li {
+	height: 25px;
+	line-height: 25px;
+	font-size: 12px;
+	position: relative;
+	display: inline-block;
+	list-style: none;
+	float: left;
+	background: url(../images/menu_downarrow.gif) no-repeat right;
+}
+.menu_bar li.more_menu {
+	width: 20px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	display: none;
+	margin-right: 5px;
+	background: url("");
+}
+.menu_bar li li {
+	width: 100%;
+	background: url(../images/menu.gif) repeat-y #f0f0f0;
+}
+.menu_bar li a {
+	display: inline-block;
+	height: 100%;
+	text-decoration: none;
+	outline: none;
+	text-align: left;
+	padding-right: 14px;
+	border: 1px solid;
+	border-color: transparent;
+	_border-color:white;
+	_filter:chroma(color=white);
+	overflow: hidden;
+}
+.menu_bar li.more_menu a {
+	padding: 0;
+	width: 100%;
+	text-align: center;
+}
+.menu_bar li li a {
+	width: 100%;
+	padding-right: 0;
+}
+.menu_bar li.more_menu li a {
+	text-align: left;
+}
+.menu_bar li li a.menu_folder {
+	background: url(../images/menu_rightarrow.png) no-repeat right;
+}
+.menu_bar li a:hover {
+	border-color: #ccc;
+	text-decoration: none;
+	background: url(../images/menu_onebg.gif) repeat-x bottom;
+	color: #000;
+}
+.menu_bar li li a:hover {
+	border: 1px solid #7EABCD;
+	color: #0069cc;
+	background: #C6DDFD;
+}
+.menu_bar .menu_icon {
+	width: 25px;
+	display: inline-block;
+	cursor: pointer;
+}
